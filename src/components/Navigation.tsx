@@ -12,7 +12,7 @@ const Navigation = () => {
     { path: "/why-plat", label: "Why PLAT" },
     { path: "/how-it-works", label: "How It Works" },
     { path: "/cri-scorecard", label: "CRI Score" },
-    { path: "/testimonials", label: Success Stories" },
+    { path: "/testimonials", label: "Success Stories" },
     { path: "/faq", label: "FAQ" },
     { path: "/about", label: "About" },
     { path: "/contact", label: "Contact" },
