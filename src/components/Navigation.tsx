@@ -2,74 +2,74 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, BookOpen, BarChart3, Users, MessageCircle, Info, Mail } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
   const navItems = [
-    { path: "/why-plat", label: "Why PLAT", icon: BookOpen },
-    { path: "/how-it-works", label: "How It Works", icon: BarChart3 },
-    { path: "/cri-scorecard", label: "CRI Score", icon: BarChart3 },
-    { path: "/testimonials", label: "Success Stories", icon: Users },
-    { path: "/faq", label: "FAQ", icon: MessageCircle },
-    { path: "/about", label: "About", icon: Info },
-    { path: "/contact", label: "Contact", icon: Mail },
+    { path: "/why-plat", label: "Why PLAT" },
+    { path: "/how-it-works", label: "How It Works" },
+    { path: "/cri-scorecard", label: "CRI Score" },
+    { path: "/testimonials", label: Success Stories" },
+    { path: "/faq", label: "FAQ" },
+    { path: "/about", label: "About" },
+    { path: "/contact", label: "Contact" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200">
+    <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center">
             <img 
               src="/lovable-uploads/b0551156-51e1-4790-a52b-5b424414ebda.png" 
               alt="PLAT Logo" 
-              className="h-8 w-auto"
+              className="h-10 w-auto"
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => {
-              const Icon = item.icon;
-              return (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                    isActive(item.path)
-                      ? "text-blue-600 bg-blue-50"
-                      : "text-gray-700 hover:text-blue-600 hover:bg-blue-50"
-                  }`}
-                >
-                  <Icon className="w-4 h-4" />
-                  <span>{item.label}</span>
-                </Link>
-              );
-            })}
+          <div className="hidden lg:flex items-center space-x-1">
+            {navItems.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                  isActive(item.path)
+                    ? "text-blue-600 bg-blue-50"
+                    : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
           </div>
 
           {/* CTA Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">
+          <div className="hidden lg:flex items-center space-x-3">
+            <Button 
+              variant="outline" 
+              className="border-gray-300 text-gray-700 hover:bg-gray-50 font-medium"
+            >
               Download Report
             </Button>
-            <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+            <Button className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-6">
               Book Demo
             </Button>
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <Button
               variant="ghost"
               size="sm"
               onClick={() => setIsOpen(!isOpen)}
+              className="p-2"
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </Button>
@@ -78,31 +78,30 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200">
-            <div className="flex flex-col space-y-2">
-              {navItems.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <Link
-                    key={item.path}
-                    to={item.path}
-                    onClick={() => setIsOpen(false)}
-                    className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                      isActive(item.path)
-                        ? "text-blue-600 bg-blue-50"
-                        : "text-gray-700 hover:text-blue-600 hover:bg-blue-50"
-                    }`}
-                  >
-                    <Icon className="w-4 h-4" />
-                    <span>{item.label}</span>
-                  </Link>
-                );
-              })}
-              <div className="flex flex-col space-y-2 pt-4">
-                <Button variant="outline" className="border-blue-600 text-blue-600">
+          <div className="lg:hidden border-t border-gray-100 bg-white">
+            <div className="px-4 py-6 space-y-1">
+              {navItems.map((item) => (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  onClick={() => setIsOpen(false)}
+                  className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${
+                    isActive(item.path)
+                      ? "text-blue-600 bg-blue-50"
+                      : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              ))}
+              <div className="pt-4 space-y-3">
+                <Button 
+                  variant="outline" 
+                  className="w-full border-gray-300 text-gray-700 font-medium"
+                >
                   Download Report
                 </Button>
-                <Button className="bg-gradient-to-r from-blue-600 to-purple-600">
+                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium">
                   Book Demo
                 </Button>
               </div>
