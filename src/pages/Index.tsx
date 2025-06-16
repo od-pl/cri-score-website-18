@@ -26,7 +26,7 @@ const Index = () => {
   }, {
     title: "Micro Tasks",
     description: "Targeted skill building",
-    icon: "🎯"
+    icon: "💪"
   }, {
     title: "Skill Improvement",
     description: "Measurable progress",
@@ -34,7 +34,7 @@ const Index = () => {
   }, {
     title: "CRI Score",
     description: "Career readiness index",
-    icon: "⭐"
+    icon: "🏆"
   }];
   const testimonials = [{
     name: "Priya Sharma",
@@ -90,7 +90,7 @@ const Index = () => {
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
                 <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 text-lg px-8 py-6 h-auto">
-                  Download CRI Report
+                  Download PLAT Report
                 </Button>
               </div>
 
@@ -112,7 +112,7 @@ const Index = () => {
                 <div className="mt-6 space-y-4">
                   <div className="flex justify-between items-center">
                     <span className="text-sm font-medium text-gray-600">Career Readiness Index</span>
-                    <span className="text-2xl font-bold text-green-600">8.4/10</span>
+                    <span className="text-2xl font-bold text-green-600">840/900</span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-3">
                     <div className="bg-gradient-to-r from-green-400 to-green-600 h-3 rounded-full w-4/5"></div>
@@ -194,7 +194,7 @@ const Index = () => {
               Trusted by Leading Colleges
             </h2>
             <p className="text-xl text-blue-100">
-              <span className="text-yellow-300 font-bold">18% Placement-Rate Jump</span> in 6 Colleges
+              <span className="text-yellow-300 font-bold">18% Placement-Rate Jump</span> at our partner Colleges
             </p>
           </div>
 
@@ -275,14 +275,14 @@ const Index = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-6 h-auto font-semibold">
-              Book Free Demo
+              Reach out to us
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
             
           </div>
 
           <div className="mt-8 text-blue-200 text-sm">
-            ✓ No setup fees ✓ 30-day free trial ✓ Full support included
+            ✓ Try our Pilot Program ✓ Analyse reports ✓ Full support included
           </div>
         </div>
       </section>
