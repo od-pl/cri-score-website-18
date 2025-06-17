@@ -17,12 +17,6 @@ const Legal = () => {
       lastUpdated: "March 2024",
       summary: "Terms and conditions for using our platform"
     },
-    // {
-    //   title: "Data Protection",
-    //   icon: Lock,
-    //   lastUpdated: "March 2024",
-    //   summary: "Our commitment to data security and GDPR compliance"
-    // },
     {
       title: "Cookie Policy",
       icon: Eye,
@@ -51,7 +45,7 @@ const Legal = () => {
       {/* Policy Overview */}
       <section className="py-16 bg-white">
         <div className="max-w-auto mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {policies.map((policy, index) => {
               const Icon = policy.icon;
               return (
@@ -75,273 +69,214 @@ const Legal = () => {
       <section className="py-16 bg-gray-50">
         <div className="max-w-auto mx-auto px-4 sm:px-6 lg:px-8">
           <Tabs defaultValue="privacy" className="space-y-8">
-            <TabsList className="grid w-full grid-cols-4">
+            <TabsList className="grid w-full grid-cols-3">
               <TabsTrigger value="privacy">Privacy Policy</TabsTrigger>
               <TabsTrigger value="terms">Terms of Service</TabsTrigger>
-              {/* <TabsTrigger value="data">Data Protection</TabsTrigger> */}
               <TabsTrigger value="cookies">Cookie Policy</TabsTrigger>
             </TabsList>
 
             <TabsContent value="privacy">
-  <Card>
-    <CardContent className="p-8">
-      <div className="flex items-center mb-6">
-        <Shield className="w-6 h-6 text-blue-600 mr-3" />
-        <h2 className="text-2xl font-bold text-gray-900">Privacy Policy</h2>
-      </div>
-      <div className="prose max-w-none text-gray-700">
-        <p className="mb-6">Last updated: June 2025</p>
-
-        <h3 className="text-xl font-semibold text-gray-900 mb-4">1. Introduction</h3>
-        <p className="mb-4">
-          This Privacy Policy outlines how PLAT (Progressive Learning Ability Test), operated by Orage Digital Pvt. Ltd. (Offee), collects, uses, discloses, and protects your information when you access our services through plat.offee.in, offee.in, offee.online, and associated subdomains. By using PLAT, you consent to the data practices described in this policy.
-        </p>
-
-        <h3 className="text-xl font-semibold text-gray-900 mb-4">2. Information We Collect</h3>
-        <p className="mb-2 font-semibold">a. Personal Information</p>
-        <p className="mb-4">
-          When you register or participate in assessments, we collect:
-          <li>Full name, email address, contact number</li>
-          <li>Academic details (programme, semester, institution)</li>
-          <li>Gender, pin code, and other optional demographic details</li>
-        </p>
-
-        <p className="mb-2 font-semibold">b. Sensitive Information</p>
-        <p className="mb-4">
-          In the case of proctored assessments or personality evaluation tasks, we may collect:
-          <li>Photographs, audio/video streams, screen activity logs</li>
-          <li>Geolocation data (for identity and integrity verification)</li>
-          <br/>
-          <strong>Note:</strong> All such data is collected only after obtaining explicit consent as per institutional or regulatory policies.
-        </p>
-
-        <p className="mb-2 font-semibold">c. Technical & Automated Information</p>
-        <p className="mb-6">
-          We automatically log the following to ensure secure service delivery:
-          <li>IP address, device type, OS, and browser data</li>
-          <li>Usage activity including click patterns, time spent, and error logs</li>
-          <li>Cookie-based tracking for user preferences and performance diagnostics</li>
-        </p>
-
-        <h3 className="text-xl font-semibold text-gray-900 mb-4">3. How We Use Your Information</h3>
-        <p className="mb-6">
-          The data we collect is used for:
-          <li>Generating semester-wise skill scores and Career Readiness Index (CRI)</li>
-          <li>Providing personalised micro-task recommendations and development pathways</li>
-          <li>Academic reporting to institutions for performance analytics and curriculum improvement</li>
-          <li>Enhancing user experience across PLAT interfaces (student dashboard, admin reports, etc.)</li>
-          <li>Sending updates, alerts, or communication related to tests, interventions, and placements</li>
-          <br/>
-          We may also use aggregated or anonymised data for product development, institutional benchmarking, or research and publication purposes.
-        </p>
-
-        <h3 className="text-xl font-semibold text-gray-900 mb-4">4. Data Sharing and Disclosure</h3>
-        <p className="mb-6">
-          We do not sell your personal data. Your information is shared only under the following conditions:
-          <li><strong>With Your Consent:</strong> For example, if you opt-in to share your report with potential recruiters or institutions.</li>
-          <li><strong>With Institutional Partners:</strong> Colleges and universities using PLAT may access student-specific skill data and CRI scores for internal evaluation, counselling, or placement-related interventions.</li>
-          <li><strong>With Third-Party Vendors:</strong> Such as proctoring tools or cloud infrastructure providers, bound by strict confidentiality and data protection agreements.</li>
-          <li><strong>When Required by Law:</strong> To comply with applicable legal obligations or governmental requests.</li>
-        </p>
-
-        <h3 className="text-xl font-semibold text-gray-900 mb-4">5. Data Security</h3>
-        <p className="mb-6">
-          We employ advanced security protocols—encryption, access controls, regular audits, and intrusion detection systems—to safeguard your data. Despite our efforts, no digital transmission or storage method is 100% secure. Users are advised to maintain caution while sharing sensitive information and to report any suspicious activity immediately.
-        </p>
-
-        <h3 className="text-xl font-semibold text-gray-900 mb-4">6. Data Access, Correction, and Deletion</h3>
-        <p className="mb-6">
-          You may request to:
-          <br />
-          <li>Access the personal data we hold about you</li>
-          <li>Correct inaccurate or incomplete information</li>
-          <li>Withdraw consent or request deletion of your data (subject to institutional and regulatory policies)</li>
-          <br/>
-          Requests may be routed through your institution or sent directly to Offee using the contact details below.
-        </p>
-
-        <h3 className="text-xl font-semibold text-gray-900 mb-4">7. Cookies and Tracking Technologies</h3>
-        <p className="mb-6">
-          PLAT uses cookies and similar technologies to:
-          <li>Maintain session continuity</li>
-          <li>Analyse usage patterns for better UX and platform improvement</li>
-          <li>Personalise assessment navigation and feedback delivery</li>
-          <br />
-          You can manage cookie preferences via your browser settings. Please note that disabling cookies may impact the functionality of some services.
-        </p>
-
-        <h3 className="text-xl font-semibold text-gray-900 mb-4">8. Changes to This Privacy Policy</h3>
-        <p className="mb-6">
-          We may revise this Privacy Policy from time to time. Changes will be posted on our platforms with the updated effective date. We recommend users check this page regularly for updates.
-        </p>
-
-        <h3 className="text-xl font-semibold text-gray-900 mb-4">9. Contact Us</h3>
-        <p>
-          For questions or concerns related to this Privacy Policy or your data rights, contact:
-          <br />
-          <strong>Email:</strong> info@offee.in
-          <br />
-          <strong>Address:</strong> Orage Digital Pvt. Ltd. B-601, Keshav Shristi Complex, Lal Bahadur Shastri Road, Bhandup West, Mumbai, Maharashtra 400078, India.
-        </p>
-      </div>
-    </CardContent>
-  </Card>
-</TabsContent>
-
-<TabsContent value="terms">
-  <Card>
-    <CardContent className="p-8">
-      <div className="flex items-center mb-6">
-        <FileText className="w-6 h-6 text-blue-600 mr-3" />
-        <h2 className="text-2xl font-bold text-gray-900">Terms and Conditions</h2>
-      </div>
-
-      <div className="prose max-w-none">
-        <p className="text-gray-600 mb-6">Last updated: June 2025</p>
-
-        <h3 className="text-xl font-semibold text-gray-900 mb-4">1. Acceptance of Terms</h3>
-        <p className="text-gray-700 mb-6">
-          By accessing or using the PLAT services - including but not limited to platskills.com, plat.offee.in, offee.in, and offee.online - you agree to comply with and be bound by these Terms and Conditions. If you do not accept these terms, please refrain from using our services.
-        </p>
-
-        <h3 className="text-xl font-semibold text-gray-900 mb-4">2. Modification of Terms</h3>
-        <p className="text-gray-700 mb-6">
-          Orage Digital Private Limited (Offee) reserves the right to modify these Terms and Conditions at any time. Updates will be published on our platforms. Continued use of the services after changes constitutes your acceptance of the revised terms.
-        </p>
-
-        <h3 className="text-xl font-semibold text-gray-900 mb-4">3. Services Provided</h3>
-        <ul className="list-disc pl-6 text-gray-700 mb-6">
-          <li>Semester-wise skill-based assessments integrated with academic calendars</li>
-          <li>AI-assisted and expert-evaluated skill scorecards and upskilling insights</li>
-          <li>Analytics dashboards for students, faculty, and institutions</li>
-          <li>Micro-task ecosystem for continuous learning</li>
-          <li>Career Readiness Index (CRI) insights</li>
-          <li>SMS/email-based alerts (with opt-in consent)</li>
-          <li>Communication regarding career opportunities and institutional announcements</li>
-        </ul>
-        <p className="text-gray-700 mb-6">
-          Offee may also present contextual third-party content or ads but does not endorse their accuracy or reliability.
-        </p>
-
-        <h3 className="text-xl font-semibold text-gray-900 mb-4">4. User Responsibilities</h3>
-        <ul className="list-disc pl-6 text-gray-700 mb-6">
-          <li>Provide accurate, current, and complete information during registration.</li>
-          <li>Use the services in compliance with applicable laws and institutional codes of conduct.</li>
-          <li>Not misuse or attempt to disrupt PLAT’s infrastructure, reports, or evaluation mechanisms.</li>
-        </ul>
-        <p className="text-gray-700 mb-6">
-          PLAT and Offee reserve the right to suspend or terminate access for violations of these terms.
-        </p>
-
-        <h3 className="text-xl font-semibold text-gray-900 mb-4">5. Intellectual Property</h3>
-        <p className="text-gray-700 mb-4">
-          All content, tools, platforms, designs, reports, and proprietary algorithms used in PLAT are owned or licensed by Orage Digital Pvt. Ltd. Unauthorised reproduction, distribution, or adaptation is prohibited.
-        </p>
-        <p className="text-gray-700 mb-6">
-          Any data or content submitted by users (e.g., written responses, project uploads) remains the property of the user; however, by submitting it, you grant Offee a non-exclusive, royalty-free, global licence to use it for analytics, reporting, product development, and research, in line with our privacy policy.
-        </p>
-
-        <h3 className="text-xl font-semibold text-gray-900 mb-4">6. Privacy and Data Security</h3>
-        <p className="text-gray-700 mb-6">
-          Your privacy is important to us. All user data is stored securely and handled in accordance with our Privacy Policy, which is incorporated by reference into these terms.
-          By using PLAT, you consent to the collection, processing, and usage of your data (including analytics and performance metrics) for educational evaluation, research, and institutional reporting.
-        </p>
-
-        <h3 className="text-xl font-semibold text-gray-900 mb-4">7. Limitation of Liability</h3>
-        <p className="text-gray-700 mb-6">
-          To the maximum extent permitted under Indian law, Orage Digital Pvt. Ltd. (Offee) shall not be held liable for any indirect, incidental, special, or consequential damages, including but not limited to data loss, system downtime, or academic consequences arising from the use of PLAT.
-        </p>
-
-        <h3 className="text-xl font-semibold text-gray-900 mb-4">8. Refund and Cancellation Policy</h3>
-        <p className="text-gray-700 mb-6">
-          Most PLAT-related services are non-refundable. Any exceptions (such as test access issues or verified system errors) will be subject to the conditions mentioned in our official Refund Policy. Please contact your institution or Offee support for clarification.
-        </p>
-
-        <h3 className="text-xl font-semibold text-gray-900 mb-4">9. Jurisdiction and Governing Law</h3>
-        <p className="text-gray-700 mb-6">
-          These Terms are governed by the laws of India. Any disputes shall be subject to the exclusive jurisdiction of the courts located in Mumbai, Maharashtra.
-        </p>
-
-        <h3 className="text-xl font-semibold text-gray-900 mb-4">10. Contact Information</h3>
-        <p className="text-gray-700">
-          For any concerns, queries, or clarifications regarding PLAT or these Terms, reach out to us at:
-        </p>
-        <ul className="list-disc pl-6 text-gray-700 mb-6">
-          <b>Email:</b> info@offee.in</li>
-          <b>Phone:</b> +91-9664500593
-          <b>Address:</b><br />
-            Orage Digital Pvt. Ltd.,<br />
-            306, Bhairava Milestone,<br />
-            Rd Number 16U, Neheru Nagar, Wagle Industrial Estate,<br />
-            Thane, Maharashtra 400604, India.
-          </li>
-        </ul>
-      </div>
-    </CardContent>
-  </Card>
-</TabsContent>
-
-            {/* <TabsContent value="data">
               <Card>
                 <CardContent className="p-8">
                   <div className="flex items-center mb-6">
-                    <Lock className="w-6 h-6 text-blue-600 mr-3" />
-                    <h2 className="text-2xl font-bold text-gray-900">Data Protection</h2>
+                    <Shield className="w-6 h-6 text-blue-600 mr-3" />
+                    <h2 className="text-2xl font-bold text-gray-900">Privacy Policy</h2>
                   </div>
-                  
-                  <div className="prose max-w-none">
-                    <p className="text-gray-600 mb-6">
-                      Last updated: March 2024
+                  <div className="prose max-w-none text-gray-700">
+                    <p className="mb-6">Last updated: June 2025</p>
+
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4">1. Introduction</h3>
+                    <p className="mb-4">
+                      This Privacy Policy outlines how PLAT (Progressive Learning Ability Test), operated by Orage Digital Pvt. Ltd. (Offee), collects, uses, discloses, and protects your information when you access our services through plat.offee.in, offee.in, offee.online, and associated subdomains. By using PLAT, you consent to the data practices described in this policy.
                     </p>
 
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4">GDPR Compliance</h3>
-                    <p className="text-gray-700 mb-6">
-                      We are committed to complying with the General Data Protection Regulation (GDPR) 
-                      and other applicable data protection laws. We process personal data lawfully, 
-                      fairly, and transparently.
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4">2. Information We Collect</h3>
+                    <p className="mb-2 font-semibold">a. Personal Information</p>
+                    <p className="mb-2">When you register or participate in assessments, we collect:</p>
+                    <ul className="list-disc pl-6 mb-4">
+                      <li>Full name, email address, contact number</li>
+                      <li>Academic details (programme, semester, institution)</li>
+                      <li>Gender, pin code, and other optional demographic details</li>
+                    </ul>
+
+                    <p className="mb-2 font-semibold">b. Sensitive Information</p>
+                    <p className="mb-2">In the case of proctored assessments or personality evaluation tasks, we may collect:</p>
+                    <ul className="list-disc pl-6 mb-2">
+                      <li>Photographs, audio/video streams, screen activity logs</li>
+                      <li>Geolocation data (for identity and integrity verification)</li>
+                    </ul>
+                    <p className="mb-4">
+                      <strong>Note:</strong> All such data is collected only after obtaining explicit consent as per institutional or regulatory policies.
                     </p>
 
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4">Data Processing Principles</h3>
-                    <ul className="list-disc pl-6 text-gray-700 mb-6">
-                      <li><strong>Lawfulness:</strong> We process data only when we have a legal basis</li>
-                      <li><strong>Purpose Limitation:</strong> Data is used only for specified purposes</li>
-                      <li><strong>Data Minimization:</strong> We collect only necessary information</li>
-                      <li><strong>Accuracy:</strong> We keep data accurate and up-to-date</li>
-                      <li><strong>Storage Limitation:</strong> Data is kept only as long as necessary</li>
-                      <li><strong>Security:</strong> Appropriate security measures protect data</li>
+                    <p className="mb-2 font-semibold">c. Technical & Automated Information</p>
+                    <p className="mb-2">We automatically log the following to ensure secure service delivery:</p>
+                    <ul className="list-disc pl-6 mb-6">
+                      <li>IP address, device type, OS, and browser data</li>
+                      <li>Usage activity including click patterns, time spent, and error logs</li>
+                      <li>Cookie-based tracking for user preferences and performance diagnostics</li>
                     </ul>
 
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4">Security Measures</h3>
-                    <p className="text-gray-700 mb-4">We implement comprehensive security measures including:</p>
-                    <ul className="list-disc pl-6 text-gray-700 mb-6">
-                      <li>AES-256 encryption for data in transit and at rest</li>
-                      <li>Multi-factor authentication for administrative access</li>
-                      <li>Regular security audits and penetration testing</li>
-                      <li>Employee training on data protection practices</li>
-                      <li>Incident response procedures</li>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4">3. How We Use Your Information</h3>
+                    <p className="mb-2">The data we collect is used for:</p>
+                    <ul className="list-disc pl-6 mb-4">
+                      <li>Generating semester-wise skill scores and Career Readiness Index (CRI)</li>
+                      <li>Providing personalised micro-task recommendations and development pathways</li>
+                      <li>Academic reporting to institutions for performance analytics and curriculum improvement</li>
+                      <li>Enhancing user experience across PLAT interfaces (student dashboard, admin reports, etc.)</li>
+                      <li>Sending updates, alerts, or communication related to tests, interventions, and placements</li>
                     </ul>
-
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4">Data Breach Response</h3>
-                    <p className="text-gray-700 mb-6">
-                      In the unlikely event of a data breach, we have procedures in place to:
+                    <p className="mb-6">
+                      We may also use aggregated or anonymised data for product development, institutional benchmarking, or research and publication purposes.
                     </p>
-                    <ul className="list-disc pl-6 text-gray-700 mb-6">
-                      <li>Detect and contain the breach within 24 hours</li>
-                      <li>Assess the risk and impact on affected individuals</li>
-                      <li>Notify relevant supervisory authorities within 72 hours</li>
-                      <li>Inform affected individuals without undue delay</li>
-                      <li>Take remedial action to prevent future breaches</li>
+
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4">4. Data Sharing and Disclosure</h3>
+                    <p className="mb-2">We do not sell your personal data. Your information is shared only under the following conditions:</p>
+                    <ul className="list-disc pl-6 mb-6">
+                      <li><strong>With Your Consent:</strong> For example, if you opt-in to share your report with potential recruiters or institutions.</li>
+                      <li><strong>With Institutional Partners:</strong> Colleges and universities using PLAT may access student-specific skill data and CRI scores for internal evaluation, counselling, or placement-related interventions.</li>
+                      <li><strong>With Third-Party Vendors:</strong> Such as proctoring tools or cloud infrastructure providers, bound by strict confidentiality and data protection agreements.</li>
+                      <li><strong>When Required by Law:</strong> To comply with applicable legal obligations or governmental requests.</li>
                     </ul>
 
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4">International Data Transfers</h3>
-                    <p className="text-gray-700 mb-6">
-                      When we transfer data internationally, we ensure appropriate safeguards are in place, 
-                      such as adequacy decisions, standard contractual clauses, or other approved mechanisms.
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4">5. Data Security</h3>
+                    <p className="mb-6">
+                      We employ advanced security protocols—encryption, access controls, regular audits, and intrusion detection systems—to safeguard your data. Despite our efforts, no digital transmission or storage method is 100% secure. Users are advised to maintain caution while sharing sensitive information and to report any suspicious activity immediately.
+                    </p>
+
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4">6. Data Access, Correction, and Deletion</h3>
+                    <p className="mb-2">You may request to:</p>
+                    <ul className="list-disc pl-6 mb-4">
+                      <li>Access the personal data we hold about you</li>
+                      <li>Correct inaccurate or incomplete information</li>
+                      <li>Withdraw consent or request deletion of your data (subject to institutional and regulatory policies)</li>
+                    </ul>
+                    <p className="mb-6">
+                      Requests may be routed through your institution or sent directly to Offee using the contact details below.
+                    </p>
+
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4">7. Cookies and Tracking Technologies</h3>
+                    <p className="mb-2">PLAT uses cookies and similar technologies to:</p>
+                    <ul className="list-disc pl-6 mb-4">
+                      <li>Maintain session continuity</li>
+                      <li>Analyse usage patterns for better UX and platform improvement</li>
+                      <li>Personalise assessment navigation and feedback delivery</li>
+                    </ul>
+                    <p className="mb-6">
+                      You can manage cookie preferences via your browser settings. Please note that disabling cookies may impact the functionality of some services.
+                    </p>
+
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4">8. Changes to This Privacy Policy</h3>
+                    <p className="mb-6">
+                      We may revise this Privacy Policy from time to time. Changes will be posted on our platforms with the updated effective date. We recommend users check this page regularly for updates.
+                    </p>
+
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4">9. Contact Us</h3>
+                    <p>
+                      For questions or concerns related to this Privacy Policy or your data rights, contact:
+                      <br />
+                      <strong>Email:</strong> info@offee.in
+                      <br />
+                      <strong>Address:</strong> Orage Digital Pvt. Ltd. B-601, Keshav Shristi Complex, Lal Bahadur Shastri Road, Bhandup West, Mumbai, Maharashtra 400078, India.
                     </p>
                   </div>
                 </CardContent>
               </Card>
-            </TabsContent> */}
+            </TabsContent>
+
+            <TabsContent value="terms">
+              <Card>
+                <CardContent className="p-8">
+                  <div className="flex items-center mb-6">
+                    <FileText className="w-6 h-6 text-blue-600 mr-3" />
+                    <h2 className="text-2xl font-bold text-gray-900">Terms and Conditions</h2>
+                  </div>
+
+                  <div className="prose max-w-none">
+                    <p className="text-gray-600 mb-6">Last updated: June 2025</p>
+
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4">1. Acceptance of Terms</h3>
+                    <p className="text-gray-700 mb-6">
+                      By accessing or using the PLAT services - including but not limited to platskills.com, plat.offee.in, offee.in, and offee.online - you agree to comply with and be bound by these Terms and Conditions. If you do not accept these terms, please refrain from using our services.
+                    </p>
+
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4">2. Modification of Terms</h3>
+                    <p className="text-gray-700 mb-6">
+                      Orage Digital Private Limited (Offee) reserves the right to modify these Terms and Conditions at any time. Updates will be published on our platforms. Continued use of the services after changes constitutes your acceptance of the revised terms.
+                    </p>
+
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4">3. Services Provided</h3>
+                    <ul className="list-disc pl-6 text-gray-700 mb-6">
+                      <li>Semester-wise skill-based assessments integrated with academic calendars</li>
+                      <li>AI-assisted and expert-evaluated skill scorecards and upskilling insights</li>
+                      <li>Analytics dashboards for students, faculty, and institutions</li>
+                      <li>Micro-task ecosystem for continuous learning</li>
+                      <li>Career Readiness Index (CRI) insights</li>
+                      <li>SMS/email-based alerts (with opt-in consent)</li>
+                      <li>Communication regarding career opportunities and institutional announcements</li>
+                    </ul>
+                    <p className="text-gray-700 mb-6">
+                      Offee may also present contextual third-party content or ads but does not endorse their accuracy or reliability.
+                    </p>
+
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4">4. User Responsibilities</h3>
+                    <ul className="list-disc pl-6 text-gray-700 mb-6">
+                      <li>Provide accurate, current, and complete information during registration.</li>
+                      <li>Use the services in compliance with applicable laws and institutional codes of conduct.</li>
+                      <li>Not misuse or attempt to disrupt PLAT's infrastructure, reports, or evaluation mechanisms.</li>
+                    </ul>
+                    <p className="text-gray-700 mb-6">
+                      PLAT and Offee reserve the right to suspend or terminate access for violations of these terms.
+                    </p>
+
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4">5. Intellectual Property</h3>
+                    <p className="text-gray-700 mb-4">
+                      All content, tools, platforms, designs, reports, and proprietary algorithms used in PLAT are owned or licensed by Orage Digital Pvt. Ltd. Unauthorised reproduction, distribution, or adaptation is prohibited.
+                    </p>
+                    <p className="text-gray-700 mb-6">
+                      Any data or content submitted by users (e.g., written responses, project uploads) remains the property of the user; however, by submitting it, you grant Offee a non-exclusive, royalty-free, global licence to use it for analytics, reporting, product development, and research, in line with our privacy policy.
+                    </p>
+
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4">6. Privacy and Data Security</h3>
+                    <p className="text-gray-700 mb-6">
+                      Your privacy is important to us. All user data is stored securely and handled in accordance with our Privacy Policy, which is incorporated by reference into these terms.
+                      By using PLAT, you consent to the collection, processing, and usage of your data (including analytics and performance metrics) for educational evaluation, research, and institutional reporting.
+                    </p>
+
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4">7. Limitation of Liability</h3>
+                    <p className="text-gray-700 mb-6">
+                      To the maximum extent permitted under Indian law, Orage Digital Pvt. Ltd. (Offee) shall not be held liable for any indirect, incidental, special, or consequential damages, including but not limited to data loss, system downtime, or academic consequences arising from the use of PLAT.
+                    </p>
+
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4">8. Refund and Cancellation Policy</h3>
+                    <p className="text-gray-700 mb-6">
+                      Most PLAT-related services are non-refundable. Any exceptions (such as test access issues or verified system errors) will be subject to the conditions mentioned in our official Refund Policy. Please contact your institution or Offee support for clarification.
+                    </p>
+
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4">9. Jurisdiction and Governing Law</h3>
+                    <p className="text-gray-700 mb-6">
+                      These Terms are governed by the laws of India. Any disputes shall be subject to the exclusive jurisdiction of the courts located in Mumbai, Maharashtra.
+                    </p>
+
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4">10. Contact Information</h3>
+                    <p className="text-gray-700 mb-2">
+                      For any concerns, queries, or clarifications regarding PLAT or these Terms, reach out to us at:
+                    </p>
+                    <div className="text-gray-700 mb-6">
+                      <p><strong>Email:</strong> info@offee.in</p>
+                      <p><strong>Phone:</strong> +91-9664500593</p>
+                      <p><strong>Address:</strong></p>
+                      <div className="ml-4">
+                        Orage Digital Pvt. Ltd.,<br />
+                        306, Bhairava Milestone,<br />
+                        Rd Number 16U, Neheru Nagar, Wagle Industrial Estate,<br />
+                        Thane, Maharashtra 400604, India.
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
 
             <TabsContent value="cookies">
               <Card>
@@ -469,15 +404,10 @@ const Legal = () => {
           </p>
           
           <div className="bg-gray-50 rounded-lg p-8">
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-1 gap-8">
               <div>
-                {/* <h3 className="font-semibold text-gray-900 mb-2">Legal Department</h3> */}
                 <p className="text-gray-600">info@offee.in</p>
-              {/* </div>
-              <div>
-                <h3 className="font-semibold text-gray-900 mb-2">Data Protection Officer</h3>
-                <p className="text-gray-600">privacy@offee.in</p>
-              </div> */}
+              </div>
             </div>
           </div>
         </div>
