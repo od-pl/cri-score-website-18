@@ -376,11 +376,7 @@ const Legal = () => {
               <p className="text-sm text-slate-300">Information Security Management  </p>
             </div>
             
-            <div className="bg-slate-800 rounded-lg p-6">
-              <AlertCircle className="w-12 h-12 text-orange-400 mx-auto mb-4" />
-              <h3 className="font-semibold mb-2">FERPA Compliant</h3>
-              <p className="text-sm text-slate-300">Educational records protection</p>
-            </div>
+            
           </div>
         </div>
       </section>
