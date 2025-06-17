@@ -1,32 +1,24 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Shield, Lock, FileText, Eye, Globe, AlertCircle } from "lucide-react";
-
 const Legal = () => {
-  const policies = [
-    {
-      title: "Privacy Policy",
-      icon: Shield,
-      lastUpdated: "March 2024",
-      summary: "How we collect, use, and protect your personal information"
-    },
-    {
-      title: "Terms of Service",
-      icon: FileText,
-      lastUpdated: "March 2024",
-      summary: "Terms and conditions for using our platform"
-    },
-    {
-      title: "Cookie Policy",
-      icon: Eye,
-      lastUpdated: "March 2024",
-      summary: "Information about cookies and tracking technologies"
-    }
-  ];
-
-  return (
-    <div className="min-h-screen pt-16">
+  const policies = [{
+    title: "Privacy Policy",
+    icon: Shield,
+    lastUpdated: "March 2024",
+    summary: "How we collect, use, and protect your personal information"
+  }, {
+    title: "Terms of Service",
+    icon: FileText,
+    lastUpdated: "March 2024",
+    summary: "Terms and conditions for using our platform"
+  }, {
+    title: "Cookie Policy",
+    icon: Eye,
+    lastUpdated: "March 2024",
+    summary: "Information about cookies and tracking technologies"
+  }];
+  return <div className="min-h-screen pt-16">
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -47,9 +39,8 @@ const Legal = () => {
         <div className="max-w-auto mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {policies.map((policy, index) => {
-              const Icon = policy.icon;
-              return (
-                <Card key={index} className="hover:shadow-lg transition-all duration-300">
+            const Icon = policy.icon;
+            return <Card key={index} className="hover:shadow-lg transition-all duration-300">
                   <CardContent className="p-6 text-center">
                     <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
                       <Icon className="w-6 h-6 text-blue-600" />
@@ -58,9 +49,8 @@ const Legal = () => {
                     <p className="text-sm text-gray-600 mb-3">{policy.summary}</p>
                     <p className="text-xs text-gray-500">Updated: {policy.lastUpdated}</p>
                   </CardContent>
-                </Card>
-              );
-            })}
+                </Card>;
+          })}
           </div>
         </div>
       </section>
@@ -376,7 +366,7 @@ const Legal = () => {
             
             <div className="bg-slate-800 rounded-lg p-6">
               <Shield className="w-12 h-12 text-green-400 mx-auto mb-4" />
-              <h3 className="font-semibold mb-2">ISO 27001</h3>
+              <h3 className="font-semibold mb-2">ISO/IEC 27001:2022</h3>
               <p className="text-sm text-slate-300">Information security management</p>
             </div>
             
@@ -412,8 +402,6 @@ const Legal = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default Legal;
