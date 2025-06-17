@@ -1,19 +1,12 @@
-
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Linkedin, Twitter, Globe } from "lucide-react";
-
 const Footer = () => {
-  return (
-    <footer className="bg-slate-900 text-white">
+  return <footer className="bg-slate-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <img 
-              src="/lovable-uploads/b0551156-51e1-4790-a52b-5b424414ebda.png" 
-              alt="PLAT Logo" 
-              className="h-8 w-auto brightness-0 invert"
-            />
+            <img src="/lovable-uploads/b0551156-51e1-4790-a52b-5b424414ebda.png" alt="PLAT Logo" className="h-8 w-auto brightness-0 invert" />
             <p className="text-slate-300 text-sm">
               AI-powered analytics to uncover hidden skill gaps and boost placement rates for colleges and students.
             </p>
@@ -68,9 +61,7 @@ const Footer = () => {
 
         <div className="border-t border-slate-800 pt-8 mt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-slate-400 text-sm">
-              © 2024 Offee Technologies. All rights reserved.
-            </p>
+            <p className="text-slate-400 text-sm">© 2025 Offee Technologies. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <span className="text-xs text-slate-500 bg-slate-800 px-2 py-1 rounded">ISO 27001</span>
               <span className="text-xs text-slate-500 bg-slate-800 px-2 py-1 rounded">GDPR</span>
@@ -79,8 +70,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
