@@ -50,7 +50,7 @@ const Legal = () => {
 
       {/* Policy Overview */}
       <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-auto mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {policies.map((policy, index) => {
               const Icon = policy.icon;
@@ -73,7 +73,7 @@ const Legal = () => {
 
       {/* Legal Documents */}
       <section className="py-16 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-auto mx-auto px-4 sm:px-6 lg:px-8">
           <Tabs defaultValue="privacy" className="space-y-8">
             <TabsList className="grid w-full grid-cols-4">
               <TabsTrigger value="privacy">Privacy Policy</TabsTrigger>
@@ -201,7 +201,7 @@ const Legal = () => {
 
         <h3 className="text-xl font-semibold text-gray-900 mb-4">1. Acceptance of Terms</h3>
         <p className="text-gray-700 mb-6">
-          By accessing or using the PLAT services—including but not limited to plat.offee.in, offee.in, and offee.online—you agree to comply with and be bound by these Terms and Conditions. If you do not accept these terms, please refrain from using our services.
+          By accessing or using the PLAT services - including but not limited to platskills.com, plat.offee.in, offee.in, and offee.online - you agree to comply with and be bound by these Terms and Conditions. If you do not accept these terms, please refrain from using our services.
         </p>
 
         <h3 className="text-xl font-semibold text-gray-900 mb-4">2. Modification of Terms</h3>
@@ -267,9 +267,9 @@ const Legal = () => {
           For any concerns, queries, or clarifications regarding PLAT or these Terms, reach out to us at:
         </p>
         <ul className="list-disc pl-6 text-gray-700 mb-6">
-          <li>Email: info@offee.in</li>
-          <li>Phone: +91-9664500593</li>
-          <li>Postal Address:<br />
+          <b>Email:</b> info@offee.in</li>
+          <b>Phone:</b> +91-9664500593
+          <b>Address:</b><br />
             Orage Digital Pvt. Ltd.,<br />
             306, Bhairava Milestone,<br />
             Rd Number 16U, Neheru Nagar, Wagle Industrial Estate,<br />
@@ -471,13 +471,13 @@ const Legal = () => {
           <div className="bg-gray-50 rounded-lg p-8">
             <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <h3 className="font-semibold text-gray-900 mb-2">Legal Department</h3>
-                <p className="text-gray-600">legal@offee.in</p>
-              </div>
+                {/* <h3 className="font-semibold text-gray-900 mb-2">Legal Department</h3> */}
+                <p className="text-gray-600">info@offee.in</p>
+              {/* </div>
               <div>
                 <h3 className="font-semibold text-gray-900 mb-2">Data Protection Officer</h3>
                 <p className="text-gray-600">privacy@offee.in</p>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
