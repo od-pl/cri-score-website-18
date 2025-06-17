@@ -373,7 +373,7 @@ const Legal = () => {
             <div className="bg-slate-800 rounded-lg p-6">
               <Lock className="w-12 h-12 text-purple-400 mx-auto mb-4" />
               <h3 className="font-semibold mb-2">ISO/IEC 27001 : 2022</h3>
-              <p className="text-sm text-slate-300">Security and availability controls</p>
+              <p className="text-sm text-slate-300">Information Security Management  </p>
             </div>
             
             <div className="bg-slate-800 rounded-lg p-6">
