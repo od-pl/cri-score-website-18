@@ -360,8 +360,8 @@ const Legal = () => {
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div className="bg-slate-800 rounded-lg p-6">
               <Globe className="w-12 h-12 text-blue-400 mx-auto mb-4" />
-              <h3 className="font-semibold mb-2">GDPR Compliant</h3>
-              <p className="text-sm text-slate-300">European data protection standards</p>
+              <h3 className="font-semibold mb-2">WASA</h3>
+              <p className="text-sm text-slate-300">Web Application Security Audit (Cert-In)</p>
             </div>
             
             <div className="bg-slate-800 rounded-lg p-6">
