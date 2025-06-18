@@ -6,17 +6,20 @@ const Index = () => {
   const painPoints = [{
     icon: "❌",
     stat: "54%",
-    text: "of employers don't trust marksheets</br><i>India Skills Report 2024</i>",
+    text: "of employers don't trust marksheets",
+    subtitle: "India Skills Report 2024",
     color: "bg-red-50 border-red-200"
   }, {
     icon: "😕",
     stat: "72%",
-    text: "of students miss key workplace skills<br><i>AICTE-NEAT Report 2023</i>",
+    text: "of students miss key workplace skills",
+    subtitle: "AICTE-NEAT Report 2023",
     color: "bg-orange-50 border-orange-200"
   }, {
     icon: "⏰",
     stat: "37 days",
-    text: "average hiring delay<br><i>LinkedIn India, 2023</i>",
+    text: "average hiring delay",
+    subtitle: "LinkedIn India, 2023",
     color: "bg-yellow-50 border-yellow-200"
   }];
   const steps = [{
@@ -74,10 +77,7 @@ const Index = () => {
                 Your Shortcut to Better{" "}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
                     'NAAC Student Outcomes'
-                  {/* </span>{" "}
-                  Score—Up{" "}
-                  <span className="text-green-600">18%</span>{" "}
-                  in One Semester */}
+                  </span>
                 </h1>
                 <p className="text-xl text-gray-600 leading-relaxed">
                   AI-powered analytics to uncover hidden skill gaps and boost placement rates for your college.
