@@ -304,10 +304,7 @@ const CriScorecard = () => {
               <Download className="w-4 h-4 mr-2" />
               Download Sample Report
             </Button>
-            <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">
-              <TrendingUp className="w-4 h-4 mr-2" />
-              View Improvement Plan
-            </Button>
+            
           </div>
         </div>
       </section>
@@ -327,9 +324,7 @@ const CriScorecard = () => {
               Start Free Assessment
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
-            <Button variant="outline" className="border-white text-white hover:bg-white/10 text-lg px-8 py-6 h-auto">
-              Learn About CIF Framework
-            </Button>
+            
           </div>
         </div>
       </section>
