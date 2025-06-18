@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, TrendingUp, Users, Clock, CheckCircle, Star, Award, Building2 } from "lucide-react";
 import { Link } from "react-router-dom";
+
 const Index = () => {
   const painPoints = [{
     icon: "❌",
@@ -288,4 +289,5 @@ const Index = () => {
       </section>
     </div>;
 };
+
 export default Index;
