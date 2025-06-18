@@ -6,16 +6,16 @@ const Testimonials = () => {
   const caseStudies = [
     {
       logo: "JBIMS",
-      collegeName: "Jamnalal Bajaj Institute of Management Studies",
+      collegeName: "Jamnalal Bajaj Institute of Management Studies (JBIMS)",
       location: "Mumbai",
-      keyMetric: "+22% Placement Rate",
-      description: "Leading business school increased final placement percentage from 78% to 95% using PLAT's CRI-based preparation program.",
-      quote: "PLAT helped us identify exactly which students needed what kind of support. The targeted interventions based on CRI scores resulted in our best placement season ever.",
-      author: "Dr. Rajesh Kumar",
-      position: "Director, Training & Placement",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&h=150&fit=crop&crop=face",
+      keyMetric: "20% Improved Placement Preparedness ",
+      description: "As one of India’s leading business schools, JBIMS adopted PLAT to enhance career readiness across its MBA cohort. By integrating CRI-based insights into its student development strategy, the institute was able to better align training efforts with individual student needs—leading to stronger interview performance and more focused preparation across key functional areas.",
+      quote: "PLAT gave us structured, actionable data that we had not accessed before. It helped faculty and placement teams work more precisely with students, resulting in improved preparedness and greater confidence during placements.",
+      author: "Dr. Kavita R. Laghate",
+      position: "Director",
+      image: "https://jbims.edu/beta/uploads/director/Mrs__Laghate_Maam.JPG",
       metrics: [
-        { label: "Placement Rate", before: "78%", after: "95%" },
+        { label: "Placement Preparedness", before: "12%", after: "20%" },
         { label: "Average Package", before: "₹8.2L", after: "₹12.4L" },
         { label: "Top Recruiters", before: "45", after: "78" }
       ]
@@ -24,100 +24,96 @@ const Testimonials = () => {
       logo: "SNDT",
       collegeName: "SNDT Women's University",
       location: "Mumbai",
-      keyMetric: "+31% CRI Improvement",
-      description: "Comprehensive skill development program helped students achieve significant career readiness improvements across all departments.",
-      quote: "The CRI framework gave our students clear visibility into their strengths and areas for development. The improvement in confidence and job readiness is remarkable.",
-      author: "Prof. Meera Desai",
-      position: "Head, Career Development",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b48ae2d6?w=150&h=150&fit=crop&crop=face",
+      keyMetric: "32% of Career Clarity Increased",
+      description: "SNDT Women’s University partnered with PLAT to introduce a structured, multi-departmental skill development initiative. The CRI framework enabled students to gain clarity on their strengths and development areas, resulting in measurable improvements in confidence, self-awareness, and employability.",
+      quote: "The CRI framework gave our students clear visibility into their strengths and areas for development. The improvement in confidence and job readiness across departments has been encouraging.",
+      author: "Dr. Ruby Ojha",
+      position: "Pro-Vice-Chancellor",
+      image: "https://brandnew.sndt.ac.in/wp-content/uploads/2024/10/Ruby-Ojha.jpg",
       metrics: [
-        { label: "Avg CRI Score", before: "6.2", after: "8.1" },
-        { label: "Students Placed", before: "65%", after: "87%" },
-        { label: "Industry Partnerships", before: "12", after: "34" }
+        { label: "Career Readiness Score", before: "6.2", after: "8.1" },
+        { label: "Students Placed", before: "65%", after: "73%" },
+        { label: "Students Placed", before: "12", after: "23" } 
       ]
     },
     {
-      logo: "SKN",
-      collegeName: "SKN Sinhgad College of Engineering",
-      location: "Pune",
-      keyMetric: "+18% Technical Skills",
-      description: "Engineering college used PLAT to bridge the gap between academic learning and industry requirements.",
-      quote: "PLAT's technical skill assessment revealed gaps we didn't even know existed. The targeted micro-learning modules helped our students become truly industry-ready.",
-      author: "Dr. Amit Patil",
-      position: "HOD, Computer Engineering",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+      logo: "Xavier’s",
+      collegeName: "St. Xavier’s College",
+      location: "Mumbai",
+      keyMetric: "58% Improved Core Skills Identification",
+      description: "St. Xavier’s College began with a pilot of PLAT to explore student skills beyond academic performance. The results were transformative—58% of students identified their core strengths through PLAT’s structured skill-mapping. This shift in visibility led to full-scale adoption across the student body.",
+      quote: "We realised our students are much more than their report cards. PLAT gave us a deeper understanding of their capabilities, and helped us bring skill-based development to the centre of our academic experience.",
+      author: "Dr. Rajendra Shinde",
+      position: "Principal",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIhGMA7hFvUHKFBcWqyNak-4HvGaeG8w7yeQ&s",
       metrics: [
-        { label: "Technical Proficiency", before: "6.8", after: "8.2" },
-        { label: "Coding Interviews", before: "42%", after: "78%" },
-        { label: "Industry Projects", before: "8", after: "23" }
+        { label: "Students Identifying Core Skill Areas", before: "42%", after: "68%" },
+        { label: "Faculty-Led Skill Mentorship Engagement", before: "8 departments", after: "11 departments" },
+        { label: "Career Guidance Participation Rate", before: "38%", after: "62%" }
       ]
     },
     {
-      logo: "KMC",
-      collegeName: "KMC College",
-      location: "Chennai",
-      keyMetric: "+4.2 NAAC Score",
-      description: "Liberal arts college improved NAAC student outcomes criteria significantly through systematic skill development.",
-      quote: "PLAT's outcome-based approach aligned perfectly with NAAC requirements. Our accreditation score improved dramatically, and more importantly, our students are getting better jobs.",
-      author: "Dr. Priya Nair",
-      position: "Vice Principal",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+      logo: "Somaiya",
+      collegeName: "KJ Somaiya College of Engineering",
+      location: "Mumbai",
+      keyMetric: "68% of Students Upskilled",
+      description: "At KJ Somaiya College of Engineering, PLAT was implemented to align student skills with core industry demands. Post-assessment insights revealed a marked improvement in problem-solving and communication, two areas critical for engineering placements. These insights also helped departments tailor effective mentoring and pre-placement interventions.",
+      quote: "PLAT gave our students a structured way to assess their readiness for the workplace. The insights have helped guide both student preparation and faculty mentoring in a more focused and strategic manner.  ",
+      author: "Dr. Suresh Ukarande",
+      position: "Director",
+      image: "https://sc.kjsieit.in/About_Us/principal.jpg",
       metrics: [
-        { label: "NAAC Score", before: "2.8", after: "4.1" },
-        { label: "Student Satisfaction", before: "72%", after: "91%" },
-        { label: "Alumni Success", before: "3.2", after: "4.6" }
+        { label: "Students Demonstrating Skill Gains", before: "40%", after: "67%" },
+        { label: "Structured Mentoring Adoption", before: "4 departments", after: "9 departments" },
+        { label: "Placement-Ready Student Confidence", before: "46%", after: "71%" }
       ]
     }
   ];
 
   const studentStories = [
     {
-      name: "Arjun Mehta",
-      college: "VESIT",
-      course: "Computer Engineering",
+      name: "Sachin Sengar",
+      course: "Computer Science Engineering",
       initialCRI: 6.4,
       finalCRI: 8.7,
-      placement: "Software Engineer at Google",
-      story: "I was struggling with technical interviews despite having good grades. PLAT's assessment showed I was weak in system design and problem-solving. The targeted micro-tasks helped me improve systematically.",
+      placement: "Founder of GreenMentor",
+      story: "When I saw innovation and environmental reasoning as my top skill areas, it gave me the confidence to pursue an idea I was unsure about. That led to building a carbon footprint calculator and, eventually, to global recognition. PLAT was the nudge that made me believe the idea was worth building.",
       image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face"
     },
     {
-      name: "Sneha Patel",
-      college: "DJSCE",
+      name: "Sandip Kathiriya",
       course: "Information Technology",
       initialCRI: 5.8,
       finalCRI: 8.3,
-      placement: "Product Manager at Flipkart",
-      story: "My communication skills were holding me back. PLAT identified this gap and provided specific exercises. The confidence I gained helped me excel in group discussions and interviews.",
+      placement: "Partner at Amazon India Ltd",
+      story: "There’s so much advice out there—it’s overwhelming. What PLAT gave me was a clear, personalised snapshot of where I truly excel. I used that to focus my efforts during placements and choose roles that fit. That clarity shaped the way I prepared, interviewed, and now operate in my role at Amazon.",
       image: "https://images.unsplash.com/photo-1494790108755-2616b48ae2d6?w=150&h=150&fit=crop&crop=face"
     },
     {
-      name: "Rahul Sharma",
-      college: "KJSCE",
-      course: "Electronics Engineering",
+      name: "Yash Kothari",
+      course: "Cyber Security",
       initialCRI: 7.1,
       finalCRI: 8.9,
-      placement: "Data Scientist at Microsoft",
-      story: "I wanted to transition from electronics to data science. PLAT's skill mapping showed me exactly what I needed to learn. The personalized learning path made the transition smooth.",
+      placement: "Head of Network Engineering Operations at Comcast Inc",
+      story: "I already knew I was technically inclined, but PLAT showed me I also had strengths in team coordination and decision-making. That changed the way I approached career planning—I didn’t just apply for jobs, I looked for leadership tracks. That strategic mindset has made a big difference early in my journey.",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
     },
     {
-      name: "Kavya Iyer",
-      college: "Jondhale College",
-      course: "Commerce",
+      name: "Ananya Patel",
+      course: "MBA",
       initialCRI: 6.0,
       finalCRI: 8.5,
-      placement: "Business Analyst at Deloitte",
-      story: "Coming from a commerce background, I felt intimidated by analytical roles. PLAT's step-by-step skill building gave me the confidence to pursue my dream job in consulting.",
+      placement: "Jr.Strategy Analyst at Accenture Strategy",
+      story: "PLAT helped me decode my strengths and blind spots with precision. The skill insights weren’t generic—they showed me exactly where I needed to improve to match industry expectations. That confidence translated directly into how I pitched myself to recruiters and chose the right role to start my career.",
       image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
     }
   ];
 
   const stats = [
-    { icon: Users, value: "1L+", label: "Students Assessed" },
+    { icon: Users, value: "25766", label: "Students Assessed" },
     { icon: Building2, value: "50+", label: "Partner Colleges" },
-    { icon: TrendingUp, value: "18%", label: "Avg Placement Increase" },
-    { icon: Award, value: "85%", label: "Success Rate" }
+    { icon: TrendingUp, value: "18%", label: "Average Placement Increase" },
+    { icon: Award, value: "85%", label: "Student Engagement" }
   ];
 
   return (
@@ -321,9 +317,9 @@ const Testimonials = () => {
             <button className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-6 rounded-lg font-semibold transition-colors">
               Start Your Transformation
             </button>
-            <button className="border-2 border-white text-white hover:bg-white/10 text-lg px-8 py-6 rounded-lg transition-colors">
+            {/* <button className="border-2 border-white text-white hover:bg-white/10 text-lg px-8 py-6 rounded-lg transition-colors">
               Talk to Our Team
-            </button>
+            </button> */}
           </div>
         </div>
       </section>

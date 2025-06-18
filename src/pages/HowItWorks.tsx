@@ -5,22 +5,22 @@ import { Brain, MessageCircle, Zap, Target, RotateCcw, Shield, Cloud, Server, Ar
 const HowItWorks = () => {
   const skillLevels = [{
     level: "Level 1",
-    title: "Cognitive & Communication",
-    description: "Foundation skills: logical thinking, problem-solving, and communication abilities",
+    title: "Foundational Assessment",
+    description: "Assesses fundamental concepts and basic skills, esablishing a crucial foundation for skill development",
     icon: Brain,
     color: "bg-blue-100 text-blue-600",
     skills: ["Logical Reasoning", "Verbal Communication", "Written Communication", "Critical Thinking"]
   }, {
     level: "Level 2",
-    title: "Applied Thinking",
-    description: "Practical application: domain knowledge and analytical thinking",
+    title: "Intermediate Assessment",
+    description: "Deepens understanding and application of knowledge, presenting moderate challenges to bridge foundational skills with advanced problem-solving",
     icon: Target,
     color: "bg-green-100 text-green-600",
     skills: ["Technical Knowledge", "Analytical Thinking", "Problem Solving", "Decision Making"]
   }, {
     level: "Level 3",
-    title: "Industry Readiness",
-    description: "Real-world preparation: collaboration, leadership, and adaptability",
+    title: "Career Readiness Assessment",
+    description: "Evaluates alignment with industry-demanded skills, preparing students for the professional world",
     icon: Zap,
     color: "bg-purple-100 text-purple-600",
     skills: ["Leadership", "Teamwork", "Adaptability", "Industry Awareness"]
@@ -39,14 +39,14 @@ const HowItWorks = () => {
     time: "Instant"
   }, {
     step: "3",
-    title: "Personalized Learning",
+    title: "Personalized Up-Skilling",
     description: "Micro-tasks and exercises targeting weak areas",
     icon: "🎯",
     time: "2-4 weeks"
   }, {
     step: "4",
     title: "Progress Tracking",
-    description: "Regular mini-assessments to measure improvement",
+    description: "Smart dashboards that turn data into direction for every student.",
     icon: "📈",
     time: "Ongoing"
   }, {
@@ -109,7 +109,7 @@ const HowItWorks = () => {
               3-Level Skill Assessment
             </h2>
             <p className="text-xl text-gray-600">
-              Comprehensive evaluation across cognitive, applied, and industry-ready skills
+              Comprehensive Evaluation across Cognitive, Applied, and Industry-Ready Skills
             </p>
           </div>
 

@@ -57,7 +57,7 @@ const About = () => {
 
   const team = [
     {
-      name: "Dr. Rajesh Kumar",
+      name: "Amit Shah",
       position: "CEO & Co-Founder",
       background: "Former Director at IIM Mumbai, 15+ years in education leadership",
       image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&h=150&fit=crop&crop=face"
@@ -106,10 +106,10 @@ const About = () => {
   ];
 
   const stats = [
-    { value: "1L+", label: "Students Transformed" },
+    { value: "25766", label: "Students Transformed" },
     { value: "50+", label: "Partner Colleges" },
-    { value: "500+", label: "Recruiting Partners" },
-    { value: "18%", label: "Avg Placement Increase" }
+    { value: "300+", label: "Recruiting Partners" },
+    { value: "18%", label: "Average Placement Increase" }
   ];
 
   return (
@@ -150,9 +150,7 @@ const About = () => {
             <div>
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Our Mission</h2>
               <p className="text-xl text-gray-600 leading-relaxed mb-8">
-                To bridge the gap between academic education and industry requirements by providing 
-                comprehensive career readiness assessment and development tools that benefit students, 
-                institutions, and employers alike.
+              We empower teachers to unlock student potential through smarter assessment and upskilling.
               </p>
               
               <div className="space-y-4">
@@ -174,9 +172,7 @@ const About = () => {
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
               <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
               <p className="text-blue-100 leading-relaxed">
-                To become the global standard for career readiness assessment, enabling every student 
-                to achieve their full potential and every institution to demonstrate measurable outcomes 
-                that align with 21st-century skill requirements.
+              To become the global standard for career readiness assessment, enabling every student to achieve their full potential and every institution to demonstrate measurable outcomes that align with 21st-century skill requirements.
               </p>
             </div>
           </div>
@@ -322,9 +318,9 @@ const About = () => {
               </div>
               <h3 className="text-xl font-bold mb-2">Email Us</h3>
               <p className="text-blue-100">
-                General: hello@offee.in<br />
-                Sales: sales@offee.in<br />
-                Support: support@offee.in
+                {/* General: info@offee.in<br />
+                Sales: sales@offee.in<br /> */}
+                support@platskills.com
               </p>
             </div>
             
@@ -359,9 +355,9 @@ const About = () => {
               Partner with Us
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
-            <Button variant="outline" className="border-white text-white hover:bg-white/10 text-lg px-8 py-6 h-auto">
+            {/* <Button variant="outline" className="border-white text-white hover:bg-white/10 text-lg px-8 py-6 h-auto">
               Explore Careers
-            </Button>
+            </Button> */}
           </div>
         </div>
       </section>

@@ -9,32 +9,32 @@ const CriScorecard = () => {
     icon: Brain,
     color: "text-blue-600",
     bgColor: "bg-blue-50",
-    description: "Logical reasoning, problem-solving, critical thinking",
+    description: "Communication, Problem-Solving, Cognitive Abilities",
     subSkills: [{
-      name: "Logical Reasoning",
+      name: "Communication",
       score: 8.5
     }, {
       name: "Problem Solving",
       score: 7.8
     }, {
-      name: "Critical Thinking",
+      name: "Cognitive Abilities",
       score: 8.3
     }]
   }, {
-    name: "Functional",
+    name: "Practical",
     score: 7.6,
     icon: Cog,
     color: "text-green-600",
     bgColor: "bg-green-50",
-    description: "Technical skills, domain knowledge, practical application",
+    description: "Literacy Skills, Productivity, Decision Making",
     subSkills: [{
-      name: "Technical Knowledge",
+      name: "Literacy Skills",
       score: 7.9
     }, {
-      name: "Practical Application",
+      name: "Productivity",
       score: 7.2
     }, {
-      name: "Domain Expertise",
+      name: "Decision Making",
       score: 7.7
     }]
   }, {
@@ -43,49 +43,49 @@ const CriScorecard = () => {
     icon: Zap,
     color: "text-purple-600",
     bgColor: "bg-purple-50",
-    description: "Flexibility, learning agility, innovation mindset",
+    description: "Creativity, Growth perspective, Learning Agility",
     subSkills: [{
-      name: "Learning Agility",
+      name: "Creativity",
       score: 9.1
     }, {
-      name: "Adaptability",
+      name: "Growth perspective",
       score: 8.4
     }, {
-      name: "Innovation",
+      name: "Learning Agility",
       score: 8.6
     }]
   }, {
-    name: "Social Emotional",
+    name: "Socio-Emotional",
     score: 8.0,
     icon: Heart,
     color: "text-red-600",
     bgColor: "bg-red-50",
-    description: "Emotional intelligence, teamwork, leadership",
+    description: "Collaboration, Leadership, Emotional Intelligence",
     subSkills: [{
-      name: "Emotional Intelligence",
+      name: "Collaboration",
       score: 8.2
-    }, {
-      name: "Teamwork",
-      score: 7.9
     }, {
       name: "Leadership",
       score: 7.9
+    }, {
+      name: "Emotional Intelligence",
+      score: 7.9
     }]
   }, {
-    name: "Literacy",
+    name: "Entrepreneurship",
     score: 8.4,
     icon: BookOpen,
     color: "text-orange-600",
     bgColor: "bg-orange-50",
-    description: "Communication, digital literacy, information processing",
+    description: "Communication, Strategy, Leadership",
     subSkills: [{
       name: "Communication",
       score: 8.8
     }, {
-      name: "Digital Literacy",
+      name: "Strategy",
       score: 8.1
     }, {
-      name: "Information Processing",
+      name: "Leadership",
       score: 8.3
     }]
   }];
@@ -321,7 +321,7 @@ const CriScorecard = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-6 h-auto font-semibold">
-              Start Free Assessment
+              Schedule a Pilot
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
             

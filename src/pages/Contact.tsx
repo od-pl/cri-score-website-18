@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -41,22 +40,22 @@ const Contact = () => {
   };
 
   const contactInfo = [
-    {
-      icon: Phone,
-      title: "Phone",
-      details: ["+91 98765 43210", "+91 98765 43211"],
-      availability: "Mon-Fri, 9 AM - 6 PM"
-    },
+    // {
+    //   icon: Phone,
+    //   title: "Phone",
+    //   details: ["+91 98765 43210", "+91 98765 43211"],
+    //   availability: "Mon-Fri, 9 AM - 6 PM"
+    // },
     {
       icon: Mail,
       title: "Email",
-      details: ["hello@offee.in", "sales@offee.in"],
+      details: ["support@platskills.com"],
       availability: "24/7 Response"
     },
     {
       icon: MapPin,
       title: "Address",
-      details: ["Offee Technologies", "Bandra Kurla Complex", "Mumbai, Maharashtra 400051"],
+      details: ["Offee - Orage Digital Pvt Ltd", "B-601, Keshav Shristi Complex,", "Lal Bahadur Shastri Road,", "Mumbai, Maharashtra 400051"],
       availability: "Visit by appointment"
     },
     {
@@ -281,13 +280,13 @@ const Contact = () => {
                     </div>
                   </Button>
                   
-                  <Button variant="outline" className="justify-start h-auto p-4">
+                  {/* <Button variant="outline" className="justify-start h-auto p-4">
                     <Users className="w-5 h-5 mr-3" />
                     <div className="text-left">
                       <div className="font-medium">Join Webinar</div>
                       <div className="text-sm text-gray-600">Attend our next live session</div>
                     </div>
-                  </Button>
+                  </Button> */}
                 </div>
               </div>
             </div>
@@ -296,10 +295,10 @@ const Contact = () => {
       </section>
 
       {/* Map Section */}
-      <section className="py-16 bg-gray-50">
+      {/* <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Visit Our Office</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Office</h2>
             <p className="text-xl text-gray-600">We're located in the heart of Mumbai's business district</p>
           </div>
 
@@ -315,7 +314,7 @@ const Contact = () => {
             </CardContent>
           </Card>
         </div>
-      </section>
+      </section> */}
 
       {/* FAQ Section */}
       <section className="py-16 bg-white">
@@ -329,28 +328,28 @@ const Contact = () => {
             <Card>
               <CardContent className="p-6">
                 <h3 className="font-semibold text-gray-900 mb-3">How long does implementation take?</h3>
-                <p className="text-gray-600">Typically 2-4 weeks from agreement to go-live, including training and setup.</p>
+                <p className="text-gray-600">Implementation typically takes 2–4 weeks from the time of agreement to go-live. This includes platform setup, faculty and student training, exam conduction, and generation of department-wise consolidated reports.</p>
               </CardContent>
             </Card>
             
             <Card>
               <CardContent className="p-6">
                 <h3 className="font-semibold text-gray-900 mb-3">What's included in the demo?</h3>
-                <p className="text-gray-600">Live platform walkthrough, sample reports, ROI calculator, and Q&A session.</p>
+                <p className="text-gray-600">The demo includes a live walkthrough of the platform, sample skill reports, and an interactive Q&A session tailored to your institution's needs.</p>
               </CardContent>
             </Card>
             
             <Card>
               <CardContent className="p-6">
                 <h3 className="font-semibold text-gray-900 mb-3">Do you offer pilot programs?</h3>
-                <p className="text-gray-600">Yes, we offer 30-day pilot programs for institutions to evaluate our impact.</p>
+                <p className="text-gray-600">Yes, we offer pilot programs that allow institutions to evaluate PLAT's impact before full-scale deployment.</p>
               </CardContent>
             </Card>
             
             <Card>
               <CardContent className="p-6">
                 <h3 className="font-semibold text-gray-900 mb-3">What support do you provide?</h3>
-                <p className="text-gray-600">Dedicated account manager, 24/7 technical support, and comprehensive training.</p>
+                <p className="text-gray-600">We provide 24/7 technical assistance, comprehensive training for faculty and students, and help establish a PLAT Committee to ensure smooth coordination and feedback between your institution and the PLAT team.</p>
               </CardContent>
             </Card>
           </div>

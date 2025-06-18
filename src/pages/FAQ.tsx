@@ -5,31 +5,31 @@ import { HelpCircle, DollarSign, Shield, Phone, Mail, MessageCircle } from "luci
 const FAQ = () => {
   const faqs = [{
     question: "How is CRI different from CGPA or traditional grades?",
-    answer: "While CGPA measures academic performance in specific subjects, CRI evaluates career readiness across five critical dimensions: Cognitive, Functional, Adaptive, Social-Emotional, and Literacy skills. CRI provides a comprehensive view of job readiness that employers actually care about, making it a better predictor of workplace success than traditional grades.",
+    answer: "CGPA reflects how well a student performs academically in specific subjects. In contrast, CRI (Career Readiness Index) measures holistic job readiness across five critical skill domains: Cognitive, Socio-Emotional, Adaptive, Practical, and Entrepreneurial skills. These are the competencies employers value most in real-world roles. Unlike grades, which often fail to capture workplace potential, CRI offers a multidimensional profile that better predicts success in dynamic, professional environments.",
     icon: HelpCircle
   }, {
     question: "Is PLAT compliant with NAAC and NEP 2020 requirements?",
-    answer: "Yes, PLAT is fully aligned with NAAC's student outcome assessment criteria and NEP 2020's emphasis on skill-based education. Our framework helps institutions demonstrate measurable student outcomes, which is crucial for NAAC accreditation. Many of our partner colleges have seen significant improvements in their NAAC scores after implementing PLAT.",
+    answer: "Yes, PLAT is fully aligned with NAAC's student outcome assessment criteria and NEP 2020's emphasis on skill-based education. Our framework helps institutions demonstrate measurable student outcomes, which is crucial for NAAC accreditation. Many of our partner colleges have seen significant improvements in their NAAC grades after implementing PLAT.",
     icon: Shield
   }, {
     question: "What is the cost structure for implementing PLAT?",
-    answer: "Our pricing is flexible and based on your institution's size and requirements. We offer per-student pricing starting from ₹299 per assessment, with significant discounts for bulk implementations. We also provide free pilot programs for institutions to evaluate our impact before full deployment. Contact us for a customized quote.",
+    answer: "PLAT offers flexible pricing based on your institution’s size, requirements, and scale of implementation. We provide per-student pricing with volume-based discounts and also offer free pilot programs to help institutions evaluate our impact. Get in touch with us for a customised quote that suits your needs.",
     icon: DollarSign
   }, {
     question: "What kind of support do you provide during implementation?",
-    answer: "We provide comprehensive support including: dedicated account manager, faculty training sessions, student orientation programs, technical support, regular progress reviews, and custom reporting. Our team works closely with your T&P cell to ensure smooth implementation and maximum benefit realization.",
+    answer: "We provide comprehensive support to ensure seamless implementation and long-term value realisation. This includes faculty training, student orientation programs, technical assistance, customised reporting, and regular progress reviews in collaboration with your Training & Placement (T&P) cell. As part of our partnership model, we help form a PLAT Committee within your institution. This committee acts as a vital link between your team and ours - facilitating feedback, ensuring contextual alignment, and driving continuous improvement in student outcomes.",
     icon: Phone
   }, {
     question: "How long does it take to see results?",
-    answer: "Most institutions see initial insights within the first month of implementation. Significant improvements in student outcomes typically become visible within one semester (3-4 months). Full transformation, including improved placement rates and NAAC scores, usually takes 6-12 months depending on the level of engagement.",
+    answer: "Institutions often begin to see initial insights and engagement shifts within the first few months of implementation. Tangible improvements in student self-awareness, career clarity, and placement preparedness typically follow as the program gains traction. The overall impact depends on how actively PLAT is embedded into academic and placement workflows - but early momentum is visible quickly when the institution is engaged.",
     icon: MessageCircle
   }, {
     question: "Can PLAT integrate with our existing systems (LMS, ERP)?",
-    answer: "Yes, PLAT offers API-based integration with most popular LMS and ERP systems. We can seamlessly integrate with platforms like Moodle, Canvas, SAP, Oracle, and others. Our technical team handles the integration process to ensure minimal disruption to your existing workflows.",
+    answer: "While PLAT is a standalone platform, we offer the ability to integrate PLAT scores and insights into your existing LMS or ERP systems, if required. This enables institutions to view career readiness data alongside academic records within their current infrastructure. Additionally, we are developing a dedicated CRI System Dashboard that will consolidate PLAT data with academic results and student profiles—including co-curricular and extracurricular pursuits - for a comprehensive view of student development. Our team works closely with your IT stakeholders to enable smooth and secure data integration.",
     icon: Shield
   }, {
     question: "How do you ensure data privacy and security?",
-    answer: "We take data security very seriously. PLAT uses AES-256 encryption, is ISO 27001 compliant, and follows GDPR guidelines. All student data is stored securely and access is strictly controlled. We also offer on-premises deployment options for institutions with specific security requirements.",
+    answer: "We follow rigorous data privacy and security standards to protect institutional and student information. PLAT is certified under ISO/IEC 27001:2022 for Information Security Management, ISO 9001:2015 for Quality Management, and has undergone a Web Application Security Audit (WASA) by a CERT-IN empanelled auditor. All data is encrypted, securely stored, and access is role-based and tightly controlled. We also offer on-premises deployment options for institutions with advanced security policies.",
     icon: Shield
   }, {
     question: "What makes PLAT different from other assessment tools?",
@@ -39,22 +39,24 @@ const FAQ = () => {
   const supportChannels = [{
     title: "Email Support",
     description: "Get detailed answers to your questions",
-    contact: "support@offee.in",
+    contact: "support@platskills.com",
     icon: Mail,
     availability: "24/7 Response"
-  }, {
-    title: "Phone Support",
-    description: "Speak directly with our experts",
-    contact: "+91 98765 43210",
-    icon: Phone,
-    availability: "Mon-Fri, 9 AM - 6 PM"
-  }, {
-    title: "Live Chat",
-    description: "Instant help when you need it",
-    contact: "Available on our website",
-    icon: MessageCircle,
-    availability: "Mon-Fri, 9 AM - 6 PM"
-  }];
+  }
+  // , {
+  //   title: "Phone Support",
+  //   description: "Speak directly with our experts",
+  //   contact: "+91 98765 43210",
+  //   icon: Phone,
+  //   availability: "Mon-Fri, 9 AM - 6 PM"
+  // }, {
+  //   title: "Live Chat",
+  //   description: "Instant help when you need it",
+  //   contact: "Available on our website",
+  //   icon: MessageCircle,
+  //   availability: "Mon-Fri, 9 AM - 6 PM"
+  // }
+];
   return <div className="min-h-screen pt-16">
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
@@ -135,7 +137,7 @@ const FAQ = () => {
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Additional Resources
             </h2>
-            <p className="text-xl text-gray-600">Something 's Brewing</p>
+            <p className="text-xl text-gray-600">Explore our comprehensive documentation and guides</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -145,7 +147,7 @@ const FAQ = () => {
                 <p className="text-gray-600 mb-6">
                   Step-by-step guide to implementing PLAT at your institution, including best practices and common pitfalls to avoid.
                 </p>
-                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">Coming Soon</Button>
+                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">Stay Tuned!</Button>
               </CardContent>
             </Card>
 
@@ -155,7 +157,7 @@ const FAQ = () => {
                 <p className="text-gray-600 mb-6">
                   Academic research backing the CIF framework and outcome-based education methodology used in PLAT.
                 </p>
-                <Button variant="outline" className="border-green-600 text-green-600 hover:bg-green-50">Coming Soon</Button>
+                <Button variant="outline" className="border-green-600 text-green-600 hover:bg-green-50">Something's Brewing</Button>
               </CardContent>
             </Card>
 
@@ -165,7 +167,7 @@ const FAQ = () => {
                 <p className="text-gray-600 mb-6">
                   Comprehensive video library covering platform usage, interpretation of results, and student engagement strategies.
                 </p>
-                <Button variant="outline" className="border-purple-600 text-purple-600 hover:bg-purple-50">Coming Soon</Button>
+                <Button variant="outline" className="border-purple-600 text-purple-600 hover:bg-purple-50">We're Almost Ready</Button>
               </CardContent>
             </Card>
 
@@ -175,7 +177,7 @@ const FAQ = () => {
                 <p className="text-gray-600 mb-6">
                   Regular webinars featuring success stories, new features, and expert discussions on outcome-based education.
                 </p>
-                <Button variant="outline" className="border-orange-600 text-orange-600 hover:bg-orange-50">Coming Soon</Button>
+                <Button variant="outline" className="border-orange-600 text-orange-600 hover:bg-orange-50">Sneak Peek Soon</Button>
               </CardContent>
             </Card>
           </div>
@@ -196,9 +198,9 @@ const FAQ = () => {
             <Button className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-6 h-auto font-semibold">
               Schedule Demo
             </Button>
-            <Button variant="outline" className="border-white text-white hover:bg-white/10 text-lg px-8 py-6 h-auto">
+            {/* <Button variant="outline" className="border-white text-white hover:bg-white/10 text-lg px-8 py-6 h-auto">
               Contact Sales Team
-            </Button>
+            </Button> */}
           </div>
         </div>
       </section>

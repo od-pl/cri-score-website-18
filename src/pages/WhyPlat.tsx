@@ -4,18 +4,18 @@ import { TrendingUp, AlertTriangle, Award, ArrowRight, Building2, Users, BookOpe
 import { Link } from "react-router-dom";
 const WhyPlat = () => {
   const problems = [{
-    title: "Marksheets Don't Equal Skills",
-    description: "85% CGPA students often lack industry-ready skills while 65% CGPA students with strong practical skills get overlooked.",
+    title: "Marksheets ≠ Skills",
+    description: "Despite strong academic scores, 78% of young professionals struggle with real-world workplace demands (Skill Financing Report 2023 – Financial Express).",
     icon: AlertTriangle,
     color: "text-red-600"
   }, {
     title: "Employer Trust Gap",
-    description: "54% of employers don't trust traditional academic scores as indicators of job readiness.",
+    description: "Nearly half of all employers say most graduates lack the skills they expect—even if their marks look good on paper (India Skills Report 2024 – Wheebox, AICTE, CII).",
     icon: Users,
     color: "text-orange-600"
   }, {
     title: "Hidden Skill Gaps",
-    description: "68% of students graduate without knowing their actual strengths and improvement areas.",
+    description: "65% of students graduate without a clear understanding of their own strengths and areas that need improvement (Ministry of Skill Development & Entrepreneurship, 2023).",
     icon: BookOpen,
     color: "text-yellow-600"
   }];

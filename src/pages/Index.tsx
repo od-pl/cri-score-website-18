@@ -7,19 +7,19 @@ const Index = () => {
   const painPoints = [{
     icon: "❌",
     stat: "54%",
-    text: "of employers don't trust marksheets",
+    text: "of employers don't trust marksheets (India Skills Report 2024).",
     subtitle: "India Skills Report 2024",
     color: "bg-red-50 border-red-200"
   }, {
     icon: "😕",
     stat: "72%",
-    text: "of students miss key workplace skills",
+    text: "of students miss key workplace skills (AICTE-NEAT Report 2023).",
     subtitle: "AICTE-NEAT Report 2023",
     color: "bg-orange-50 border-orange-200"
   }, {
     icon: "⏰",
     stat: "37 days",
-    text: "average hiring delay",
+    text: "average hiring delay (LinkedIn India, 2023).",
     subtitle: "LinkedIn India, 2023",
     color: "bg-yellow-50 border-yellow-200"
   }];
@@ -37,31 +37,31 @@ const Index = () => {
     icon: "📈"
   }, {
     title: "CRI Score",
-    description: "Career readiness index",
+    description: "Career Readiness Index",
     icon: "🏆"
   }];
   const testimonials = [{
-    name: "Priya Sharma",
-    role: "CSE Student, JBIMS",
-    quote: "PLAT helped me identify my weak areas and get placed at Google!",
+    name: "Sachin Sengar",
+    role: "Founder, GreenMentor",
+    quote: "PLAT didn't just assess me—it validated my potential to solve real problems.",
     rating: 5,
     image: "https://images.unsplash.com/photo-1494790108755-2616b48ae2d6?w=150&h=150&fit=crop&crop=face"
   }, {
-    name: "Rahul Verma",
-    role: "MCA Student, SNDT",
-    quote: "The CRI score made all the difference in my job interviews.",
-    rating: 5,
+    name: "Sandip Kathiriya",
+    role: "Partner, Amazon India Ltd",
+    quote: "PLAT helped me filter out the noise and focus on what I'm naturally good at.",
+    rating: 4.5,
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
   }, {
-    name: "Ananya Patel",
-    role: "IT Student, SKN",
-    quote: "Got 3 job offers after improving my CRI score from 6.2 to 8.4!",
+    name: "Yash Kothari",
+    role: "Head of Network Engineering Operations, Comcast",
+    quote: "PLAT helped me think beyond technical skills and recognise the my path early.",
     rating: 5,
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
   }, {
-    name: "Vikram Singh",
-    role: "ECE Student, KMC",
-    quote: "PLAT's personalized learning path was exactly what I needed.",
+    name: "Ananya Patel",
+    role: "Jr.Strategy Analyst, Accenture Strategy",
+    quote: "Increased my CRI score from 312 to 624—and secured 3 offers during final placements.",
     rating: 5,
     image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face"
   }];
@@ -157,7 +157,7 @@ const Index = () => {
               How PLAT Transforms Students
             </h2>
             <p className="text-xl text-gray-600">
-              Our AI-powered process identifies gaps and builds real-world skills
+            Co-created by psychometricians and industry leaders, PLAT uses AI to identify skill gaps and nurture real-world competencies
             </p>
           </div>
 
@@ -246,7 +246,7 @@ const Index = () => {
                     </div>
                   </div>
                   <div className="flex mb-3">
-                    {[...Array(testimonial.rating)].map((_, i) => <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />)}
+                    {[...Array(Math.floor(testimonial.rating))].map((_, i) => <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />)}
                   </div>
                   <p className="text-gray-700 text-sm italic">"{testimonial.quote}"</p>
                 </CardContent>
