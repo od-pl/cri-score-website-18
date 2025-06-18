@@ -1,84 +1,98 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Brain, Cog, Zap, Heart, BookOpen, ArrowRight, Download, TrendingUp } from "lucide-react";
-
 const CriScorecard = () => {
-  const skillCategories = [
-    {
-      name: "Cognitive",
-      score: 8.2,
-      icon: Brain,
-      color: "text-blue-600",
-      bgColor: "bg-blue-50",
-      description: "Logical reasoning, problem-solving, critical thinking",
-      subSkills: [
-        { name: "Logical Reasoning", score: 8.5 },
-        { name: "Problem Solving", score: 7.8 },
-        { name: "Critical Thinking", score: 8.3 }
-      ]
-    },
-    {
-      name: "Functional",
-      score: 7.6,
-      icon: Cog,
-      color: "text-green-600", 
-      bgColor: "bg-green-50",
-      description: "Technical skills, domain knowledge, practical application",
-      subSkills: [
-        { name: "Technical Knowledge", score: 7.9 },
-        { name: "Practical Application", score: 7.2 },
-        { name: "Domain Expertise", score: 7.7 }
-      ]
-    },
-    {
-      name: "Adaptive",
-      score: 8.7,
-      icon: Zap,
-      color: "text-purple-600",
-      bgColor: "bg-purple-50", 
-      description: "Flexibility, learning agility, innovation mindset",
-      subSkills: [
-        { name: "Learning Agility", score: 9.1 },
-        { name: "Adaptability", score: 8.4 },
-        { name: "Innovation", score: 8.6 }
-      ]
-    },
-    {
-      name: "Social Emotional",
-      score: 8.0,
-      icon: Heart,
-      color: "text-red-600",
-      bgColor: "bg-red-50",
-      description: "Emotional intelligence, teamwork, leadership",
-      subSkills: [
-        { name: "Emotional Intelligence", score: 8.2 },
-        { name: "Teamwork", score: 7.9 },
-        { name: "Leadership", score: 7.9 }
-      ]
-    },
-    {
-      name: "Literacy",
-      score: 8.4,
-      icon: BookOpen,
-      color: "text-orange-600",
-      bgColor: "bg-orange-50",
-      description: "Communication, digital literacy, information processing",
-      subSkills: [
-        { name: "Communication", score: 8.8 },
-        { name: "Digital Literacy", score: 8.1 },
-        { name: "Information Processing", score: 8.3 }
-      ]
-    }
-  ];
-
+  const skillCategories = [{
+    name: "Cognitive",
+    score: 8.2,
+    icon: Brain,
+    color: "text-blue-600",
+    bgColor: "bg-blue-50",
+    description: "Logical reasoning, problem-solving, critical thinking",
+    subSkills: [{
+      name: "Logical Reasoning",
+      score: 8.5
+    }, {
+      name: "Problem Solving",
+      score: 7.8
+    }, {
+      name: "Critical Thinking",
+      score: 8.3
+    }]
+  }, {
+    name: "Functional",
+    score: 7.6,
+    icon: Cog,
+    color: "text-green-600",
+    bgColor: "bg-green-50",
+    description: "Technical skills, domain knowledge, practical application",
+    subSkills: [{
+      name: "Technical Knowledge",
+      score: 7.9
+    }, {
+      name: "Practical Application",
+      score: 7.2
+    }, {
+      name: "Domain Expertise",
+      score: 7.7
+    }]
+  }, {
+    name: "Adaptive",
+    score: 8.7,
+    icon: Zap,
+    color: "text-purple-600",
+    bgColor: "bg-purple-50",
+    description: "Flexibility, learning agility, innovation mindset",
+    subSkills: [{
+      name: "Learning Agility",
+      score: 9.1
+    }, {
+      name: "Adaptability",
+      score: 8.4
+    }, {
+      name: "Innovation",
+      score: 8.6
+    }]
+  }, {
+    name: "Social Emotional",
+    score: 8.0,
+    icon: Heart,
+    color: "text-red-600",
+    bgColor: "bg-red-50",
+    description: "Emotional intelligence, teamwork, leadership",
+    subSkills: [{
+      name: "Emotional Intelligence",
+      score: 8.2
+    }, {
+      name: "Teamwork",
+      score: 7.9
+    }, {
+      name: "Leadership",
+      score: 7.9
+    }]
+  }, {
+    name: "Literacy",
+    score: 8.4,
+    icon: BookOpen,
+    color: "text-orange-600",
+    bgColor: "bg-orange-50",
+    description: "Communication, digital literacy, information processing",
+    subSkills: [{
+      name: "Communication",
+      score: 8.8
+    }, {
+      name: "Digital Literacy",
+      score: 8.1
+    }, {
+      name: "Information Processing",
+      score: 8.3
+    }]
+  }];
   const overallCRI = 8.2;
   const criColor = overallCRI >= 8 ? "text-green-600" : overallCRI >= 6 ? "text-yellow-600" : "text-red-600";
   const criLabel = overallCRI >= 8 ? "Excellent" : overallCRI >= 6 ? "Good" : "Needs Improvement";
-
-  return (
-    <div className="min-h-screen pt-16">
+  return <div className="min-h-screen pt-16">
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-indigo-50 via-blue-50 to-cyan-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -89,9 +103,7 @@ const CriScorecard = () => {
                 CIBIL for Careers
               </span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              A comprehensive career readiness index that gives students and employers a clear picture of job-ready skills
-            </p>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">A comprehensive Career Readiness Index that gives students and employers a skill-first perspective of Employability</p>
           </div>
 
           {/* CRI Dial */}
@@ -104,21 +116,9 @@ const CriScorecard = () => {
                 <div className="relative w-64 h-32 mx-auto mb-8">
                   <svg viewBox="0 0 200 100" className="w-full h-full">
                     {/* Background Arc */}
-                    <path
-                      d="M 20 80 A 80 80 0 0 1 180 80"
-                      stroke="#e5e7eb"
-                      strokeWidth="12"
-                      fill="none"
-                    />
+                    <path d="M 20 80 A 80 80 0 0 1 180 80" stroke="#e5e7eb" strokeWidth="12" fill="none" />
                     {/* Progress Arc */}
-                    <path
-                      d="M 20 80 A 80 80 0 0 1 180 80"
-                      stroke="url(#gradient)"
-                      strokeWidth="12"
-                      fill="none"
-                      strokeDasharray={`${(overallCRI / 10) * 251.3} 251.3`}
-                      strokeLinecap="round"
-                    />
+                    <path d="M 20 80 A 80 80 0 0 1 180 80" stroke="url(#gradient)" strokeWidth="12" fill="none" strokeDasharray={`${overallCRI / 10 * 251.3} 251.3`} strokeLinecap="round" />
                     {/* Gradient Definition */}
                     <defs>
                       <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -128,7 +128,7 @@ const CriScorecard = () => {
                       </linearGradient>
                     </defs>
                     {/* Needle */}
-                    <g transform={`rotate(${(overallCRI / 10) * 180 - 90} 100 80)`}>
+                    <g transform={`rotate(${overallCRI / 10 * 180 - 90} 100 80)`}>
                       <line x1="100" y1="80" x2="100" y2="30" stroke="#374151" strokeWidth="3" />
                       <circle cx="100" cy="80" r="6" fill="#374151" />
                     </g>
@@ -165,9 +165,8 @@ const CriScorecard = () => {
 
           <div className="space-y-8">
             {skillCategories.map((category, index) => {
-              const Icon = category.icon;
-              return (
-                <Card key={index} className="hover:shadow-lg transition-all duration-300">
+            const Icon = category.icon;
+            return <Card key={index} className="hover:shadow-lg transition-all duration-300">
                   <CardContent className="p-8">
                     <div className="grid lg:grid-cols-3 gap-8 items-center">
                       {/* Category Info */}
@@ -195,28 +194,24 @@ const CriScorecard = () => {
 
                       {/* Sub-skills */}
                       <div className="space-y-3">
-                        {category.subSkills.map((skill, skillIndex) => (
-                          <div key={skillIndex} className="flex justify-between items-center">
+                        {category.subSkills.map((skill, skillIndex) => <div key={skillIndex} className="flex justify-between items-center">
                             <span className="text-sm text-gray-700">{skill.name}</span>
                             <div className="flex items-center space-x-2">
                               <div className="w-20 bg-gray-200 rounded-full h-2">
-                                <div 
-                                  className={`h-2 rounded-full ${category.color.replace('text-', 'bg-')}`}
-                                  style={{ width: `${skill.score * 10}%` }}
-                                ></div>
+                                <div className={`h-2 rounded-full ${category.color.replace('text-', 'bg-')}`} style={{
+                            width: `${skill.score * 10}%`
+                          }}></div>
                               </div>
                               <span className="text-sm font-medium text-gray-600 w-8">
                                 {skill.score}
                               </span>
                             </div>
-                          </div>
-                        ))}
+                          </div>)}
                       </div>
                     </div>
                   </CardContent>
-                </Card>
-              );
-            })}
+                </Card>;
+          })}
           </div>
         </div>
       </section>
@@ -338,8 +333,6 @@ const CriScorecard = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default CriScorecard;
