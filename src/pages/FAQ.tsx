@@ -135,9 +135,7 @@ const FAQ = () => {
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Additional Resources
             </h2>
-            <p className="text-xl text-gray-600">
-              Explore our comprehensive documentation and guides
-            </p>
+            <p className="text-xl text-gray-600">Something 's Brewing</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
