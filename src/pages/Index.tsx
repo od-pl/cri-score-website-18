@@ -6,17 +6,17 @@ const Index = () => {
   const painPoints = [{
     icon: "❌",
     stat: "54%",
-    text: "of employers don't trust marksheets",
+    text: "of employers don't trust marksheets</br><i>India Skills Report 2024</i>",
     color: "bg-red-50 border-red-200"
   }, {
     icon: "😕",
-    stat: "68%",
-    text: "of students have skill gaps",
+    stat: "72%",
+    text: "of students miss key workplace skills<br><i>AICTE-NEAT Report 2023</i>",
     color: "bg-orange-50 border-orange-200"
   }, {
     icon: "⏰",
     stat: "37 days",
-    text: "average hiring delay",
+    text: "average hiring delay<br><i>LinkedIn India, 2023</i>",
     color: "bg-yellow-50 border-yellow-200"
   }];
   const steps = [{
@@ -71,13 +71,13 @@ const Index = () => {
             <div className="space-y-8">
               <div className="space-y-4">
                 <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                  Your NAAC{" "}
+                Your Shortcut to Better{" "}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                    'Student Outcomes'
-                  </span>{" "}
+                    'NAAC Student Outcomes'
+                  {/* </span>{" "}
                   Score—Up{" "}
                   <span className="text-green-600">18%</span>{" "}
-                  in One Semester
+                  in One Semester */}
                 </h1>
                 <p className="text-xl text-gray-600 leading-relaxed">
                   AI-powered analytics to uncover hidden skill gaps and boost placement rates for your college.
@@ -97,11 +97,11 @@ const Index = () => {
               <div className="flex items-center space-x-6 text-sm text-gray-600">
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="w-5 h-5 text-green-500" />
-                  <span>1L+ Students Tested</span>
+                  <span>25k+ Students Tested</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="w-5 h-5 text-green-500" />
-                  <span>500+ Recruiters</span>
+                  <span>300+ Recruiters</span>
                 </div>
               </div>
             </div>
@@ -207,12 +207,12 @@ const Index = () => {
 
           <div className="grid md:grid-cols-3 gap-8 mt-12">
             <div className="text-center">
-              <div className="text-4xl font-bold text-yellow-300">1L+</div>
+              <div className="text-4xl font-bold text-yellow-300">25766</div>
               <div className="text-blue-100">Students Assessed</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-yellow-300">500+</div>
-              <div className="text-blue-100">Recruiting Partners</div>
+              <div className="text-4xl font-bold text-yellow-300">300+</div>
+              <div className="text-blue-100">Recruiters</div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-yellow-300">85%</div>
