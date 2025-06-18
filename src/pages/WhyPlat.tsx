@@ -248,9 +248,7 @@ const WhyPlat = () => {
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </Link>
-            <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 text-lg px-8 py-6 h-auto">
-              Download Case Studies
-            </Button>
+            
           </div>
         </div>
       </section>
