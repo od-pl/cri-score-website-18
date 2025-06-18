@@ -63,9 +63,9 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-slate-400 text-sm">© 2025 Offee Technologies. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <span className="text-xs text-slate-500 bg-slate-800 px-2 py-1 rounded">ISO 27001</span>
-              <span className="text-xs text-slate-500 bg-slate-800 px-2 py-1 rounded">GDPR</span>
-              <span className="text-xs text-slate-500 bg-slate-800 px-2 py-1 rounded">NAAC</span>
+              
+              
+              
             </div>
           </div>
         </div>
