@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, TrendingUp, Users, Clock, CheckCircle, Star, Award, Building2 } from "lucide-react";
 import { Link } from "react-router-dom";
+
 const Index = () => {
   const painPoints = [{
     icon: "❌",
@@ -74,10 +75,7 @@ const Index = () => {
                 Your Shortcut to Better{" "}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
                     'NAAC Student Outcomes'
-                  {/* </span>{" "}
-                  Score—Up{" "}
-                  <span className="text-green-600">18%</span>{" "}
-                  in One Semester */}
+                  </span>
                 </h1>
                 <p className="text-xl text-gray-600 leading-relaxed">
                   AI-powered analytics to uncover hidden skill gaps and boost placement rates for your college.
@@ -288,4 +286,5 @@ const Index = () => {
       </section>
     </div>;
 };
+
 export default Index;
