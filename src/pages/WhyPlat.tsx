@@ -209,7 +209,7 @@ const WhyPlat = () => {
             </div>
             
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
-              <h3 className="text-2xl font-bold mb-6">NAAC Score Improvement</h3>
+              <h3 className="text-2xl font-bold mb-6">NAAC Grade Improvement</h3>
               <div className="space-y-4">
                 <div className="flex justify-between items-center">
                   <span>Before PLAT</span>
