@@ -1,54 +1,41 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { TrendingUp, AlertTriangle, Award, ArrowRight, Building2, Users, BookOpen } from "lucide-react";
 import { Link } from "react-router-dom";
-
 const WhyPlat = () => {
-  const problems = [
-    {
-      title: "Marksheets Don't Equal Skills",
-      description: "85% CGPA students often lack industry-ready skills while 65% CGPA students with strong practical skills get overlooked.",
-      icon: AlertTriangle,
-      color: "text-red-600"
-    },
-    {
-      title: "Employer Trust Gap",
-      description: "54% of employers don't trust traditional academic scores as indicators of job readiness.",
-      icon: Users,
-      color: "text-orange-600"
-    },
-    {
-      title: "Hidden Skill Gaps",
-      description: "68% of students graduate without knowing their actual strengths and improvement areas.",
-      icon: BookOpen,
-      color: "text-yellow-600"
-    }
-  ];
-
-  const regulations = [
-    {
-      year: "2020",
-      title: "NEP 2020",
-      description: "Emphasis on skill-based education and outcome measurement",
-      logo: "🇮🇳"
-    },
-    {
-      year: "2023",
-      title: "NAAC Guidelines",
-      description: "Mandatory student outcome tracking for accreditation",
-      logo: "🎓"
-    },
-    {
-      year: "2024",
-      title: "UGC Mandate",
-      description: "Colleges must demonstrate measurable student outcomes",
-      logo: "📊"
-    }
-  ];
-
-  return (
-    <div className="min-h-screen pt-16">
+  const problems = [{
+    title: "Marksheets Don't Equal Skills",
+    description: "85% CGPA students often lack industry-ready skills while 65% CGPA students with strong practical skills get overlooked.",
+    icon: AlertTriangle,
+    color: "text-red-600"
+  }, {
+    title: "Employer Trust Gap",
+    description: "54% of employers don't trust traditional academic scores as indicators of job readiness.",
+    icon: Users,
+    color: "text-orange-600"
+  }, {
+    title: "Hidden Skill Gaps",
+    description: "68% of students graduate without knowing their actual strengths and improvement areas.",
+    icon: BookOpen,
+    color: "text-yellow-600"
+  }];
+  const regulations = [{
+    year: "2020",
+    title: "NEP 2020",
+    description: "Emphasis on skill-based education and outcome measurement",
+    logo: "🇮🇳"
+  }, {
+    year: "2023",
+    title: "NAAC Guidelines",
+    description: "Mandatory student outcome tracking for accreditation",
+    logo: "🎓"
+  }, {
+    year: "2024",
+    title: "UGC Mandate",
+    description: "Colleges must demonstrate measurable student outcomes",
+    logo: "📊"
+  }];
+  return <div className="min-h-screen pt-16">
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -130,9 +117,8 @@ const WhyPlat = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             {problems.map((problem, index) => {
-              const Icon = problem.icon;
-              return (
-                <Card key={index} className="hover:shadow-lg transition-all duration-300">
+            const Icon = problem.icon;
+            return <Card key={index} className="hover:shadow-lg transition-all duration-300">
                   <CardContent className="p-8">
                     <div className={`w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center mb-6`}>
                       <Icon className={`w-8 h-8 ${problem.color}`} />
@@ -140,9 +126,8 @@ const WhyPlat = () => {
                     <h3 className="text-xl font-bold text-gray-900 mb-4">{problem.title}</h3>
                     <p className="text-gray-600 leading-relaxed">{problem.description}</p>
                   </CardContent>
-                </Card>
-              );
-            })}
+                </Card>;
+          })}
           </div>
         </div>
       </section>
@@ -163,8 +148,7 @@ const WhyPlat = () => {
             <div className="absolute left-4 md:left-1/2 md:transform md:-translate-x-px h-full w-0.5 bg-blue-300"></div>
             
             <div className="space-y-8">
-              {regulations.map((reg, index) => (
-                <div key={index} className={`flex items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+              {regulations.map((reg, index) => <div key={index} className={`flex items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                   <div className={`flex-1 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
                     <Card className="bg-white shadow-lg">
                       <CardContent className="p-6">
@@ -185,8 +169,7 @@ const WhyPlat = () => {
                   </div>
                   
                   <div className="flex-1"></div>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
         </div>
@@ -197,12 +180,8 @@ const WhyPlat = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <h2 className="text-3xl lg:text-4xl font-bold">
-                Be an Early Mover
-              </h2>
-              <p className="text-xl text-green-100 leading-relaxed">
-                Colleges implementing outcome-based assessments now are seeing:
-              </p>
+              <h2 className="text-3xl lg:text-4xl font-bold">Take the Lead </h2>
+              <p className="text-xl text-green-100 leading-relaxed">Colleges using outcome-based assessments are now reporting:</p>
               
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
@@ -279,8 +258,6 @@ const WhyPlat = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default WhyPlat;
