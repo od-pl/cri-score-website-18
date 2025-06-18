@@ -170,9 +170,7 @@ const HowItWorks = () => {
                       <div className="text-3xl mb-4">{step.icon}</div>
                       <h3 className="text-lg font-bold text-gray-900 mb-2">{step.title}</h3>
                       <p className="text-gray-600 text-sm mb-3">{step.description}</p>
-                      <div className="bg-blue-50 text-blue-600 text-xs font-semibold px-2 py-1 rounded">
-                        {step.time}
-                      </div>
+                      
                     </CardContent>
                   </Card>
                   
