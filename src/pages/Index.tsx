@@ -108,7 +108,7 @@ const Index = () => {
 
             <div className="relative">
               <div className="bg-white rounded-2xl shadow-2xl p-8 border">
-                <img alt="Students looking at PLAT AI dashboard" className="rounded-lg w-full h-64 object-cover" src="/lovable-uploads/43a1e86e-242e-4145-b2a0-5200d685ffa4.png" />
+                <img alt="Students looking at PLAT AI dashboard" className="rounded-lg w-full h-64 object-cover" src="/lovable-uploads/86a57270-710b-43ab-a414-56c58b29425d.png" />
                 <div className="mt-6 space-y-4">
                   <div className="flex justify-between items-center">
                     <span className="text-sm font-medium text-gray-600">Career Readiness Index</span>
