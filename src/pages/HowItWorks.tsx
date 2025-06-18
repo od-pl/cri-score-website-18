@@ -92,7 +92,7 @@ const HowItWorks = () => {
           <div className="text-center mb-16">
             <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
               How{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500 ">
                 PLAT Works
               </span>
             </h1>
