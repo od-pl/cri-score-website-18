@@ -290,18 +290,14 @@ const HowItWorks = () => {
           <h2 className="text-3xl lg:text-4xl font-bold mb-6">
             Ready to Transform Your Students?
           </h2>
-          <p className="text-xl text-blue-100 mb-8 leading-relaxed">
-            See PLAT in action with a personalized demo for your institution
-          </p>
+          <p className="text-xl text-blue-100 mb-8 leading-relaxed">See PLAT in Action with a Personalized Demo for Your Institution</p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-6 h-auto font-semibold">
               Schedule Demo
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
-            <Button variant="outline" className="border-white text-white hover:bg-white/10 text-lg px-8 py-6 h-auto">
-              View CRI Scorecard
-            </Button>
+            
           </div>
         </div>
       </section>
