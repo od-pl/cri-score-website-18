@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 
 const CollegeCarousel = () => {
@@ -11,7 +12,7 @@ const CollegeCarousel = () => {
     { name: "KJ Somaiya Science and Commerce", logo: "/lovable-uploads/c160f5af-e32f-4e0f-ba4e-60d243038ddb.png" },
     { name: "SIES", logo: "/lovable-uploads/130e619f-7a64-4f1d-8a21-8a2b557c05a3.png" },
     { name: "Ruia", logo: "/lovable-uploads/42b1b0fa-e77f-4826-a701-5cce9896cef6.png" },
-    { name: "R A Podar", logo: "https://images.unsplash.com/photo-1562774053-701939374585?w=100&h=100&fit=crop&crop=center" }
+    { name: "R A Podar", logo: "/lovable-uploads/572a2911-60c9-4661-956e-57f7170076b3.png" }
   ];
 
   return (

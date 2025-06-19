@@ -65,28 +65,28 @@ const Index = () => {
       role: "Founder, GreenMentor",
       quote: "PLAT didn't just assess me—it validated my potential to solve real problems.",
       rating: 5,
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face"
+      image: "/lovable-uploads/795ddc5d-6585-4836-9198-93ae9e030d42.png"
     },
     {
       name: "Sandip Kathiriya",
       role: "Partner, Amazon India Ltd",
       quote: "PLAT helped me filter out the noise and focus on what I'm naturally good at.",
       rating: 4.5,
-      image: "https://images.unsplash.com/photo-1494790108755-2616b48ae2d6?w=150&h=150&fit=crop&crop=face"
+      image: "/lovable-uploads/77469080-a44e-47f0-9c8b-4342ab72624c.png"
     },
     {
       name: "Yash Kothari",
       role: "Head of Network Engineering Operations, Comcast",
       quote: "PLAT helped me think beyond technical skills and recognise my path early.",
       rating: 5,
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
+      image: "/lovable-uploads/74959d43-794e-4d8d-b8f9-2b9a1819bf7c.png"
     },
     {
       name: "Ananya Patel",
       role: "Jr.Strategy Analyst, Accenture Strategy",
       quote: "Increased my CRI score from 312 to 624—and secured 3 offers during final placements.",
       rating: 5,
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
+      image: "/lovable-uploads/e4b8e8c9-b0e6-499c-932b-11952dd7ecfe.png"
     }
   ];
 
