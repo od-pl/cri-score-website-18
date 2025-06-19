@@ -103,7 +103,7 @@ const Testimonials = () => {
       course: "MBA",
       initialCRI: 6.0,
       finalCRI: 8.5,
-      placement: "Jr.Strategy Analyst at Accenture Strategy",
+      placement: "Jr. Strategy Analyst at Accenture Strategy",
       story: "PLAT helped me decode my strengths and blind spots with precision. The skill insights weren’t generic—they showed me exactly where I needed to improve to match industry expectations. That confidence translated directly into how I pitched myself to recruiters and chose the right role to start my career.",
       image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
     }

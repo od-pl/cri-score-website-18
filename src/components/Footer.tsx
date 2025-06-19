@@ -6,15 +6,15 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <img src="/lovable-uploads/b0551156-51e1-4790-a52b-5b424414ebda.png" alt="PLAT Logo" className="h-8 w-auto brightness-0 invert" />
+            <img src="\lovable-uploads\PLAT-Logo-W.svg" alt="PLAT Logo" className="h-8 w-auto brightness-0 invert" />
             <p className="text-slate-300 text-sm">
               AI-powered analytics to uncover hidden skill gaps and boost placement rates for colleges and students.
             </p>
-            <div className="flex space-x-4">
+            {/* <div className="flex space-x-4">
               <Linkedin className="w-5 h-5 text-slate-400 hover:text-white cursor-pointer transition-colors" />
               <Twitter className="w-5 h-5 text-slate-400 hover:text-white cursor-pointer transition-colors" />
               <Globe className="w-5 h-5 text-slate-400 hover:text-white cursor-pointer transition-colors" />
-            </div>
+            </div> */}
           </div>
 
           {/* Product Links */}
@@ -45,11 +45,11 @@ const Footer = () => {
             <ul className="space-y-2 text-sm">
               <li className="flex items-center space-x-2">
                 <Mail className="w-4 h-4" />
-                <span className="text-slate-300">hello@offee.in</span>
+                <span className="text-slate-300">support@platskills.com</span>
               </li>
-              <li className="flex items-center space-x-2">
+              {/* <li className="flex items-center space-x-2">
                 <Phone className="w-4 h-4" />
-                <span className="text-slate-300">+91 98765 43210</span>
+                <span className="text-slate-300">+91 98765 43210</span> */}
               </li>
               <li className="flex items-center space-x-2">
                 <MapPin className="w-4 h-4" />
@@ -61,7 +61,7 @@ const Footer = () => {
 
         <div className="border-t border-slate-800 pt-8 mt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-slate-400 text-sm">© 2025 Offee Technologies. All rights reserved.</p>
+            <p className="text-slate-400 text-sm">© 2025 Orage Digital Pvt. Ltd. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               
               
