@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Linkedin, Twitter, Globe } from "lucide-react";
 
@@ -9,7 +8,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <img src="/lovable-uploads/PLAT-Logo-W.svg" alt="PLAT Logo" className="h-8 w-auto brightness-0 invert" />
+            <img src="/lovable-uploads/PLAT-Logo-W.svg" alt="PLAT Logo" className="h-8 w-auto" />
             <p className="text-slate-300 text-sm">
               AI-powered analytics to uncover hidden skill gaps and boost placement rates for colleges and students.
             </p>
