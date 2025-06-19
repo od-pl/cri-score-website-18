@@ -2,100 +2,111 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Brain, Cog, Zap, Heart, BookOpen, ArrowRight, Download, TrendingUp } from "lucide-react";
+import { motion } from "framer-motion";
+import SkillRadarChart from "@/components/SkillRadarChart";
+import AnimatedCounter from "@/components/AnimatedCounter";
+
 const CriScorecard = () => {
-  const skillCategories = [{
-    name: "Cognitive",
-    score: 8.2,
-    icon: Brain,
-    color: "text-blue-600",
-    bgColor: "bg-blue-50",
-    description: "Communication, Problem-Solving, Cognitive Abilities",
-    subSkills: [{
-      name: "Communication",
-      score: 8.5
-    }, {
-      name: "Problem Solving",
-      score: 7.8
-    }, {
-      name: "Cognitive Abilities",
-      score: 8.3
-    }]
-  }, {
-    name: "Practical",
-    score: 7.6,
-    icon: Cog,
-    color: "text-green-600",
-    bgColor: "bg-green-50",
-    description: "Literacy Skills, Productivity, Decision Making",
-    subSkills: [{
-      name: "Literacy Skills",
-      score: 7.9
-    }, {
-      name: "Productivity",
-      score: 7.2
-    }, {
-      name: "Decision Making",
-      score: 7.7
-    }]
-  }, {
-    name: "Adaptive",
-    score: 8.7,
-    icon: Zap,
-    color: "text-purple-600",
-    bgColor: "bg-purple-50",
-    description: "Creativity, Growth perspective, Learning Agility",
-    subSkills: [{
-      name: "Creativity",
-      score: 9.1
-    }, {
-      name: "Growth perspective",
-      score: 8.4
-    }, {
-      name: "Learning Agility",
-      score: 8.6
-    }]
-  }, {
-    name: "Socio-Emotional",
-    score: 8.0,
-    icon: Heart,
-    color: "text-red-600",
-    bgColor: "bg-red-50",
-    description: "Collaboration, Leadership, Emotional Intelligence",
-    subSkills: [{
-      name: "Collaboration",
-      score: 8.2
-    }, {
-      name: "Leadership",
-      score: 7.9
-    }, {
-      name: "Emotional Intelligence",
-      score: 7.9
-    }]
-  }, {
-    name: "Entrepreneurship",
-    score: 8.4,
-    icon: BookOpen,
-    color: "text-orange-600",
-    bgColor: "bg-orange-50",
-    description: "Innovation, Strategy, Leadership",
-    subSkills: [{
-      name: "Innovation",
-      score: 8.8
-    }, {
-      name: "Strategy",
-      score: 8.1
-    }, {
-      name: "Leadership",
-      score: 8.3
-    }]
-  }];
+  const skillCategories = [
+    {
+      name: "Cognitive",
+      score: 8.2,
+      icon: Brain,
+      color: "text-blue-600",
+      bgColor: "bg-blue-50",
+      description: "Communication, Problem-Solving, Cognitive Abilities",
+      subSkills: [
+        { name: "Communication", score: 8.5 },
+        { name: "Problem Solving", score: 7.8 },
+        { name: "Cognitive Abilities", score: 8.3 }
+      ]
+    },
+    {
+      name: "Practical",
+      score: 7.6,
+      icon: Cog,
+      color: "text-green-600",
+      bgColor: "bg-green-50",
+      description: "Literacy Skills, Productivity, Decision Making",
+      subSkills: [
+        { name: "Literacy Skills", score: 7.9 },
+        { name: "Productivity", score: 7.2 },
+        { name: "Decision Making", score: 7.7 }
+      ]
+    },
+    {
+      name: "Adaptive",
+      score: 8.7,
+      icon: Zap,
+      color: "text-purple-600",
+      bgColor: "bg-purple-50",
+      description: "Creativity, Growth perspective, Learning Agility",
+      subSkills: [
+        { name: "Creativity", score: 9.1 },
+        { name: "Growth perspective", score: 8.4 },
+        { name: "Learning Agility", score: 8.6 }
+      ]
+    },
+    {
+      name: "Socio-Emotional",
+      score: 8.0,
+      icon: Heart,
+      color: "text-red-600",
+      bgColor: "bg-red-50",
+      description: "Collaboration, Leadership, Emotional Intelligence",
+      subSkills: [
+        { name: "Collaboration", score: 8.2 },
+        { name: "Leadership", score: 7.9 },
+        { name: "Emotional Intelligence", score: 7.9 }
+      ]
+    },
+    {
+      name: "Entrepreneurship",
+      score: 8.4,
+      icon: BookOpen,
+      color: "text-orange-600",
+      bgColor: "bg-orange-50",
+      description: "Innovation, Strategy, Leadership",
+      subSkills: [
+        { name: "Innovation", score: 8.8 },
+        { name: "Strategy", score: 8.1 },
+        { name: "Leadership", score: 8.3 }
+      ]
+    }
+  ];
   const overallCRI = 8.2;
   const criColor = overallCRI >= 8 ? "text-green-600" : overallCRI >= 6 ? "text-yellow-600" : "text-red-600";
   const criLabel = overallCRI >= 8 ? "Excellent" : overallCRI >= 6 ? "Good" : "Needs Improvement";
-  return <div className="min-h-screen pt-16">
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-indigo-50 via-blue-50 to-cyan-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  return (
+    <div className="min-h-screen pt-16">
+      {/* Hero Section with Enhanced Background */}
+      <section className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-blue-50 to-cyan-50">
+          {/* Animated floating elements */}
+          <motion.div
+            className="absolute top-20 left-10 text-blue-200 opacity-60"
+            animate={{ y: [0, -20, 0], x: [0, 10, 0] }}
+            transition={{ duration: 4, repeat: Infinity }}
+          >
+            <span className="text-sm font-medium">Problem Solving</span>
+          </motion.div>
+          <motion.div
+            className="absolute top-40 right-20 text-purple-200 opacity-60"
+            animate={{ y: [0, -15, 0], x: [0, -10, 0] }}
+            transition={{ duration: 5, repeat: Infinity, delay: 1 }}
+          >
+            <span className="text-sm font-medium">Communication</span>
+          </motion.div>
+          <motion.div
+            className="absolute bottom-40 left-20 text-green-200 opacity-60"
+            animate={{ y: [0, -25, 0], x: [0, 15, 0] }}
+            transition={{ duration: 6, repeat: Infinity, delay: 2 }}
+          >
+            <span className="text-sm font-medium">Leadership</span>
+          </motion.div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
               CRI Scorecard:{" "}
@@ -103,22 +114,33 @@ const CriScorecard = () => {
                 CIBIL for Careers
               </span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">A comprehensive Career Readiness Index that gives students and employers a skill-first perspective of Employability</p>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              A comprehensive Career Readiness Index that gives students and employers a skill-first perspective of Employability
+            </p>
           </div>
 
-          {/* CRI Dial */}
+          {/* Enhanced CRI Dial */}
           <div className="max-w-2xl mx-auto mb-16">
             <Card className="bg-white shadow-2xl">
               <CardContent className="p-12 text-center">
                 <h3 className="text-2xl font-bold text-gray-900 mb-8">Career Readiness Index</h3>
                 
-                {/* Dial Visualization */}
-                <div className="relative w-64 h-32 mx-auto mb-8">
+                {/* Enhanced Dial Visualization */}
+                <div className="relative w-80 h-40 mx-auto mb-8">
                   <svg viewBox="0 0 200 100" className="w-full h-full">
                     {/* Background Arc */}
                     <path d="M 20 80 A 80 80 0 0 1 180 80" stroke="#e5e7eb" strokeWidth="12" fill="none" />
-                    {/* Progress Arc */}
-                    <path d="M 20 80 A 80 80 0 0 1 180 80" stroke="url(#gradient)" strokeWidth="12" fill="none" strokeDasharray={`${overallCRI / 10 * 251.3} 251.3`} strokeLinecap="round" />
+                    {/* Progress Arc with Animation */}
+                    <motion.path 
+                      d="M 20 80 A 80 80 0 0 1 180 80" 
+                      stroke="url(#gradient)" 
+                      strokeWidth="12" 
+                      fill="none" 
+                      strokeLinecap="round"
+                      initial={{ strokeDasharray: "0 251.3" }}
+                      animate={{ strokeDasharray: `${overallCRI / 10 * 251.3} 251.3` }}
+                      transition={{ duration: 2, ease: "easeOut" }}
+                    />
                     {/* Gradient Definition */}
                     <defs>
                       <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -127,20 +149,29 @@ const CriScorecard = () => {
                         <stop offset="100%" stopColor="#10b981" />
                       </linearGradient>
                     </defs>
-                    {/* Needle */}
-                    <g transform={`rotate(${overallCRI / 10 * 180 - 90} 100 80)`}>
+                    {/* Animated Needle */}
+                    <motion.g 
+                      initial={{ rotate: -90 }}
+                      animate={{ rotate: overallCRI / 10 * 180 - 90 }}
+                      transition={{ duration: 2, ease: "easeOut" }}
+                      style={{ transformOrigin: '100px 80px' }}
+                    >
                       <line x1="100" y1="80" x2="100" y2="30" stroke="#374151" strokeWidth="3" />
                       <circle cx="100" cy="80" r="6" fill="#374151" />
-                    </g>
+                    </motion.g>
                   </svg>
                   
-                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2">
-                    <div className={`text-4xl font-bold ${criColor}`}>{overallCRI}/10</div>
+                  {/* Score positioned to avoid overlap */}
+                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
+                    <div className={`text-4xl font-bold ${criColor}`}>
+                      <AnimatedCounter end={overallCRI} duration={2} />
+                      /10
+                    </div>
                     <div className={`text-sm font-semibold ${criColor}`}>{criLabel}</div>
                   </div>
                 </div>
 
-                <div className="flex justify-between text-xs text-gray-500 max-w-64 mx-auto">
+                <div className="flex justify-between text-xs text-gray-500 max-w-80 mx-auto">
                   <span>Needs Work</span>
                   <span>Good</span>
                   <span>Excellent</span>
@@ -151,7 +182,7 @@ const CriScorecard = () => {
         </div>
       </section>
 
-      {/* 5 Skill Categories */}
+      {/* 5 Skill Categories with Enhanced Progress Bars */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -165,8 +196,9 @@ const CriScorecard = () => {
 
           <div className="space-y-8">
             {skillCategories.map((category, index) => {
-            const Icon = category.icon;
-            return <Card key={index} className="hover:shadow-lg transition-all duration-300">
+              const Icon = category.icon;
+              return (
+                <Card key={index} className="hover:shadow-lg transition-all duration-300">
                   <CardContent className="p-8">
                     <div className="grid lg:grid-cols-3 gap-8 items-center">
                       {/* Category Info */}
@@ -183,40 +215,50 @@ const CriScorecard = () => {
                         </div>
                       </div>
 
-                      {/* Progress Visualization */}
+                      {/* Enhanced Progress Visualization */}
                       <div className="space-y-4">
                         <div className="flex justify-between items-center">
                           <span className="text-sm text-gray-600">Overall Score</span>
-                          <span className={`font-bold ${category.color}`}>{category.score}/10</span>
+                          <span className="font-bold text-yellow-600">{category.score}/10</span>
                         </div>
-                        <Progress value={category.score * 10} className="h-3" />
+                        <motion.div
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${category.score * 10}%` }}
+                          transition={{ duration: 1.5, ease: "easeOut" }}
+                          className="h-3 bg-yellow-500 rounded-full"
+                          style={{ width: `${category.score * 10}%` }}
+                        />
                       </div>
 
-                      {/* Sub-skills */}
+                      {/* Sub-skills remain unchanged */}
                       <div className="space-y-3">
-                        {category.subSkills.map((skill, skillIndex) => <div key={skillIndex} className="flex justify-between items-center">
+                        {category.subSkills.map((skill, skillIndex) => (
+                          <div key={skillIndex} className="flex justify-between items-center">
                             <span className="text-sm text-gray-700">{skill.name}</span>
                             <div className="flex items-center space-x-2">
                               <div className="w-20 bg-gray-200 rounded-full h-2">
-                                <div className={`h-2 rounded-full ${category.color.replace('text-', 'bg-')}`} style={{
-                            width: `${skill.score * 10}%`
-                          }}></div>
+                                <div 
+                                  className={`h-2 rounded-full ${category.color.replace('text-', 'bg-')}`} 
+                                  style={{ width: `${skill.score * 10}%` }}
+                                ></div>
                               </div>
                               <span className="text-sm font-medium text-gray-600 w-8">
                                 {skill.score}
                               </span>
                             </div>
-                          </div>)}
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </CardContent>
-                </Card>;
-          })}
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Sample Scorecard */}
+      {/* Sample Scorecard with Radar Chart */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -246,13 +288,11 @@ const CriScorecard = () => {
                 </div>
               </div>
 
-              {/* Radar Chart Placeholder */}
+              {/* Radar Chart and Recommendations */}
               <div className="grid md:grid-cols-2 gap-8 mb-8">
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-4">Skill Radar</h4>
-                  <div className="bg-gray-50 rounded-lg h-64 flex items-center justify-center border-2 border-dashed border-gray-300">
-                    <span className="text-gray-400">Interactive Radar Chart</span>
-                  </div>
+                  <SkillRadarChart />
                 </div>
                 
                 <div>
@@ -304,7 +344,6 @@ const CriScorecard = () => {
               <Download className="w-4 h-4 mr-2" />
               Download Sample Report
             </Button>
-            
           </div>
         </div>
       </section>
@@ -324,10 +363,11 @@ const CriScorecard = () => {
               Schedule a Pilot
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
-            
           </div>
         </div>
       </section>
-    </div>;
+    </div>
+  );
 };
+
 export default CriScorecard;
