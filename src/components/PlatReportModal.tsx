@@ -1,32 +1,19 @@
-
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Download, X, Loader2 } from "lucide-react";
+import { Download, X } from "lucide-react";
 
 interface PlatReportModalProps {
   isOpen: boolean;
   onClose: () => void;
+  onViewReport?: () => void;
 }
 
-const PlatReportModal = ({ isOpen, onClose }: PlatReportModalProps) => {
-  const [isDownloading, setIsDownloading] = useState(false);
-
-  const handleDownload = async () => {
-    setIsDownloading(true);
-    
-    // Simulate PDF generation delay
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    // Create download link for the sample report
-    const link = document.createElement('a');
-    link.href = '/lovable-uploads/e266738e-a1af-4058-8336-8fc95144ec1a.png';
-    link.download = 'Priya-Sharma-CRI-Report.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    
-    setIsDownloading(false);
+const PlatReportModal = ({ isOpen, onClose, onViewReport }: PlatReportModalProps) => {
+  const handleViewReport = () => {
+    onClose(); // Close this modal first
+    if (onViewReport) {
+      onViewReport(); // Open the report modal
+    }
   };
 
   return (
@@ -58,21 +45,11 @@ const PlatReportModal = ({ isOpen, onClose }: PlatReportModalProps) => {
         
         <div className="flex justify-center pt-4 border-t">
           <Button 
-            onClick={handleDownload}
-            disabled={isDownloading}
+            onClick={handleViewReport}
             className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 px-8"
           >
-            {isDownloading ? (
-              <>
-                <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                Generating PDF...
-              </>
-            ) : (
-              <>
-                <Download className="w-4 h-4 mr-2" />
-                Download PDF Report
-              </>
-            )}
+            <Download className="w-4 h-4 mr-2" />
+            View Report
           </Button>
         </div>
       </DialogContent>

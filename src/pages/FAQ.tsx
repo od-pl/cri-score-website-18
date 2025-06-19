@@ -2,6 +2,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { HelpCircle, IndianRupee, Shield, Phone, Mail, MessageCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const FAQ = () => {
   const faqs = [
@@ -213,9 +214,11 @@ const FAQ = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-6 h-auto font-semibold">
-              Schedule Demo
-            </Button>
+            <Link to="/contact#send-message">
+              <Button className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-6 h-auto font-semibold">
+                Schedule Demo
+              </Button>
+            </Link>
             {/* <Button variant="outline" className="border-white text-white hover:bg-white/10 text-lg px-8 py-6 h-auto">
               Contact Sales Team
             </Button> */}

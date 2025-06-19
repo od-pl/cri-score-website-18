@@ -6,8 +6,13 @@ import { motion } from "framer-motion";
 import SkillRadarChart from "@/components/SkillRadarChart";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import { Link } from "react-router-dom";
+import ReportViewModal from "@/components/ReportViewModal";
+import { useState } from "react";
 
 const CriScorecard = () => {
+  const [showReportModal, setShowReportModal] = useState(false);
+
   const skillCategories = [
     {
       name: "Cognitive",
@@ -313,9 +318,12 @@ const CriScorecard = () => {
           </Card>
 
           <div className="text-center mt-8">
-            <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 mr-4">
+            <Button 
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 mr-4"
+              onClick={() => setShowReportModal(true)}
+            >
               <Download className="w-4 h-4 mr-2" />
-              Download Sample Report
+              View Report
             </Button>
           </div>
         </div>
@@ -332,13 +340,20 @@ const CriScorecard = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-6 h-auto font-semibold">
-              Schedule a Pilot
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
+            <Link to="/contact#send-message">
+              <Button className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-6 h-auto font-semibold">
+                Schedule a Pilot
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
+
+      <ReportViewModal
+        isOpen={showReportModal}
+        onClose={() => setShowReportModal(false)}
+      />
     </div>
   );
 };

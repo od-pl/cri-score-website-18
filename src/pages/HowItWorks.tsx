@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Brain, MessageCircle, Zap, Target, RotateCcw, Shield, Cloud, Server, ArrowRight, Eye, Users, BarChart3 } from "lucide-react";
+import { Link } from "react-router-dom";
 const HowItWorks = () => {
   const skillLevels = [{
     level: "Level 1",
@@ -289,10 +290,12 @@ const HowItWorks = () => {
           <p className="text-xl text-blue-100 mb-8 leading-relaxed">See PLAT in action with a personalized demo for your institution</p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-6 h-auto font-semibold">
-              Schedule Demo
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
+            <Link to="/contact#send-message">
+              <Button className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-6 h-auto font-semibold">
+                Schedule Demo
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </Link>
             
           </div>
         </div>

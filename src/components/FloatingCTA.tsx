@@ -1,10 +1,11 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Download, Calendar, X } from "lucide-react";
+import ReportViewModal from "@/components/ReportViewModal";
 
 const FloatingCTA = () => {
   const [isVisible, setIsVisible] = useState(true);
+  const [showReportModal, setShowReportModal] = useState(false);
 
   if (!isVisible) return null;
 
@@ -26,16 +27,29 @@ const FloatingCTA = () => {
           See how PLAT can increase your placement rates by 18%
         </p>
         <div className="flex space-x-2">
-          <Button size="sm" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+          <Button 
+            size="sm" 
+            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+            onClick={() => window.location.href = '/contact#send-message'}
+          >
             <Calendar className="w-4 h-4 mr-1" />
             Book Demo
           </Button>
-          <Button variant="outline" size="sm">
+          <Button 
+            variant="outline" 
+            size="sm"
+            onClick={() => setShowReportModal(true)}
+          >
             <Download className="w-4 h-4 mr-1" />
             Report
           </Button>
         </div>
       </div>
+      
+      <ReportViewModal
+        isOpen={showReportModal}
+        onClose={() => setShowReportModal(false)}
+      />
     </div>
   );
 };

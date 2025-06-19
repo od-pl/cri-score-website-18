@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -7,9 +6,11 @@ import { Link } from "react-router-dom";
 import PlatReportModal from "@/components/PlatReportModal";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import CollegeCarousel from "@/components/CollegeCarousel";
+import ReportViewModal from "@/components/ReportViewModal";
 
 const Index = () => {
   const [showReportModal, setShowReportModal] = useState(false);
+  const [showViewReportModal, setShowViewReportModal] = useState(false);
 
   const painPoints = [
     {
@@ -110,16 +111,18 @@ const Index = () => {
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-lg px-8 py-6 h-auto">
-                  Book Demo
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
+                <Link to="/contact#send-message">
+                  <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-lg px-8 py-6 h-auto">
+                    Book Demo
+                    <ArrowRight className="ml-2 w-5 h-5" />
+                  </Button>
+                </Link>
                 <Button 
                   variant="outline" 
                   className="border-blue-600 text-blue-600 hover:bg-blue-50 text-lg px-8 py-6 h-auto"
-                  onClick={() => setShowReportModal(true)}
+                  onClick={() => setShowViewReportModal(true)}
                 >
-                  Download PLAT Report
+                  View Report
                 </Button>
               </div>
 
@@ -315,10 +318,12 @@ const Index = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-6 h-auto font-semibold">
-              Reach out to us
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
+            <Link to="/contact#send-message">
+              <Button className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-6 h-auto font-semibold">
+                Reach out to us
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </Link>
           </div>
 
           <div className="mt-8 text-blue-200 text-sm">
@@ -327,7 +332,12 @@ const Index = () => {
         </div>
       </section>
 
-      <PlatReportModal isOpen={showReportModal} onClose={() => setShowReportModal(false)} />
+      <PlatReportModal 
+        isOpen={showReportModal} 
+        onClose={() => setShowReportModal(false)} 
+        onViewReport={() => setShowViewReportModal(true)}
+      />
+      <ReportViewModal isOpen={showViewReportModal} onClose={() => setShowViewReportModal(false)} />
     </div>
   );
 };

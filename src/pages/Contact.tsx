@@ -111,7 +111,7 @@ const Contact = () => {
             <div>
               <Card>
                 <CardContent className="p-8">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h2>
+                  <h2 id="send-message" className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h2>
                   
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-4">

@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Brain, Cog, Zap, Heart, BookOpen, ArrowRight, FileText, Users2, Briefcase } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const CifFramework = () => {
   const cifPillars = [
@@ -314,10 +315,12 @@ const CifFramework = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-white text-purple-600 hover:bg-gray-100 text-lg px-8 py-6 h-auto font-semibold">
-              Schedule Framework Demo
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
+            <Link to="/contact#send-message">
+              <Button className="bg-white text-purple-600 hover:bg-gray-100 text-lg px-8 py-6 h-auto font-semibold">
+                Schedule Framework Demo
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </Link>
             <Button variant="outline" className="border-white text-white hover:bg-white/10 text-lg px-8 py-6 h-auto">
               <FileText className="mr-2 w-5 h-5" />
               Download Research Paper

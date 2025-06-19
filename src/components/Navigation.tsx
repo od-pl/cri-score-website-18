@@ -1,11 +1,12 @@
-
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import ReportViewModal from "@/components/ReportViewModal";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showReportModal, setShowReportModal] = useState(false);
   const location = useLocation();
 
   const navItems = [
@@ -55,12 +56,15 @@ const Navigation = () => {
             <Button 
               variant="outline" 
               className="border-gray-300 text-gray-700 hover:bg-gray-50 font-medium"
+              onClick={() => setShowReportModal(true)}
             >
-              Download Report
+              View Report
             </Button>
-            <Button className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-6">
-              Book Demo
-            </Button>
+            <Link to="/contact#send-message">
+              <Button className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-6">
+                Book Demo
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -98,17 +102,25 @@ const Navigation = () => {
                 <Button 
                   variant="outline" 
                   className="w-full border-gray-300 text-gray-700 font-medium"
+                  onClick={() => setShowReportModal(true)}
                 >
-                  Download Report
+                  View Report
                 </Button>
-                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium">
-                  Book Demo
-                </Button>
+                <Link to="/contact#send-message" className="w-full">
+                  <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium">
+                    Book Demo
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
         )}
       </div>
+      
+      <ReportViewModal
+        isOpen={showReportModal}
+        onClose={() => setShowReportModal(false)}
+      />
     </nav>
   );
 };
