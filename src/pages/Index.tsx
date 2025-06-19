@@ -55,7 +55,7 @@ const Index = () => {
   }, {
     name: "Yash Kothari",
     role: "Head of Network Engineering Operations, Comcast",
-    quote: "PLAT helped me think beyond technical skills and recognise the my path early.",
+    quote: "PLAT helped me think beyond technical skills and recognise my path early.",
     rating: 5,
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
   }, {
