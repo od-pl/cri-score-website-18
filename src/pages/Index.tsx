@@ -7,20 +7,20 @@ const Index = () => {
   const painPoints = [{
     icon: "❌",
     stat: "54%",
-    text: "of employers don't trust marksheets (India Skills Report 2024).",
-    subtitle: "India Skills Report 2024",
+    text: "of employers don't trust marksheets",
+    source: "India Skills Report 2024",
     color: "bg-red-50 border-red-200"
   }, {
     icon: "😕",
     stat: "72%",
-    text: "of students miss key workplace skills (AICTE-NEAT Report 2023).",
-    subtitle: "AICTE-NEAT Report 2023",
+    text: "of students miss key workplace skills",
+    source: "AICTE-NEAT Report 2023",
     color: "bg-orange-50 border-orange-200"
   }, {
     icon: "⏰",
     stat: "37 days",
-    text: "average hiring delay (LinkedIn India, 2023).",
-    subtitle: "LinkedIn India, 2023",
+    text: "average hiring delay",
+    source: "LinkedIn India, 2023",
     color: "bg-yellow-50 border-yellow-200"
   }];
   const steps = [{
@@ -142,7 +142,8 @@ const Index = () => {
                 <CardContent className="p-8 text-center">
                   <div className="text-4xl mb-4">{point.icon}</div>
                   <div className="text-4xl font-bold text-gray-900 mb-2">{point.stat}</div>
-                  <p className="text-gray-700 font-medium">{point.text}</p>
+                  <p className="text-gray-700 font-medium mb-1">{point.text}</p>
+                  <p className="text-gray-500 text-sm italic">{point.source}</p>
                 </CardContent>
               </Card>)}
           </div>
