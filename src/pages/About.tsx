@@ -101,9 +101,7 @@ const About = () => {
           <div className="text-center mb-16">
             <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
               About{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                Offee Technologies
-              </span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Offee </span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Transforming higher education through AI-powered career readiness assessment and outcome-based learning
@@ -169,8 +167,7 @@ const About = () => {
               From startup to market leader: 7 years of transforming education
             </p>
           </div>
-
-          <div className="relative">
+           <div className="relative">
             <div className="absolute left-4 md:left-1/2 md:transform md:-translate-x-px h-full w-0.5 bg-blue-300"></div>
             
             <div className="space-y-8">
@@ -200,7 +197,7 @@ const About = () => {
             </div>
           </div>
         </div>
-      </section> */}
+       </section> */}
 
       {/* Team */}
       
