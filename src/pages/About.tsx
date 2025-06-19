@@ -161,16 +161,17 @@ const About = () => {
     value: "18%",
     label: "Average Placement Increase"
   }];
-  return <div className="min-h-screen pt-16">
+  return (
+    <div className="min-h-screen pt-16">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-12 lg:mb-16">
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
               About{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Orage Digital</span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Transforming higher education through AI-powered career readiness assessment and outcome-based learning
             </p>
           </div>
@@ -240,140 +241,92 @@ const About = () => {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-16 bg-white">
+      <section className="py-12 lg:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Our Mission</h2>
-              <p className="text-xl text-gray-600 leading-relaxed mb-8">
-              We empower teachers to unlock student potential through smarter assessment and upskilling.
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div className="text-center lg:text-left">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Our Mission</h2>
+              <p className="text-lg sm:text-xl text-gray-600 leading-relaxed mb-8">
+                We empower teachers to unlock student potential through smarter assessment and upskilling.
               </p>
               
               <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
-                  <span className="text-gray-700">Empower students with clear visibility into their career readiness</span>
+                <div className="flex items-start space-x-3 justify-center lg:justify-start">
+                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-gray-700 text-sm lg:text-base text-left">Empower students with clear visibility into their career readiness</span>
                 </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
-                  <span className="text-gray-700">Help institutions improve placement outcomes and NAAC scores</span>
+                <div className="flex items-start space-x-3 justify-center lg:justify-start">
+                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-gray-700 text-sm lg:text-base text-left">Help institutions improve placement outcomes and NAAC scores</span>
                 </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
-                  <span className="text-gray-700">Enable employers to identify truly job-ready candidates</span>
+                <div className="flex items-start space-x-3 justify-center lg:justify-start">
+                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-gray-700 text-sm lg:text-base text-left">Enable employers to identify truly job-ready candidates</span>
                 </div>
               </div>
             </div>
             
-            <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
-              <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
-              <p className="text-blue-100 leading-relaxed">
-              To become the global standard for career readiness assessment, enabling every student to achieve their full potential and every institution to demonstrate measurable outcomes that align with 21st-century skill requirements.
+            <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-6 lg:p-8 text-white mt-8 lg:mt-0">
+              <h3 className="text-xl lg:text-2xl font-bold mb-4">Our Vision</h3>
+              <p className="text-blue-100 leading-relaxed text-sm lg:text-base">
+                To become the global standard for career readiness assessment, enabling every student to achieve their full potential and every institution to demonstrate measurable outcomes that align with 21st-century skill requirements.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Timeline */}
-      {/* <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Our Journey
-            </h2>
-            <p className="text-xl text-gray-600">
-              From startup to market leader: 7 years of transforming education
-            </p>
-          </div>
-           <div className="relative">
-            <div className="absolute left-4 md:left-1/2 md:transform md:-translate-x-px h-full w-0.5 bg-blue-300"></div>
-            
-            <div className="space-y-8">
-              {timeline.map((item, index) => <div key={index} className={`flex items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-                  <div className={`flex-1 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
-                    <Card className="bg-white shadow-lg hover:shadow-xl transition-all duration-300">
-                      <CardContent className="p-6">
-                        <div className="flex items-center mb-4">
-                          <Calendar className="w-5 h-5 text-blue-600 mr-2" />
-                          <span className="text-2xl font-bold text-blue-600">{item.year}</span>
-                        </div>
-                        <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
-                        <p className="text-gray-600 mb-4">{item.description}</p>
-                        <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
-                          <span className="text-sm font-medium text-blue-800">{item.milestone}</span>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </div>
-                  
-                  <div className="relative flex items-center justify-center">
-                    <div className="w-8 h-8 bg-blue-600 rounded-full border-4 border-white shadow-lg"></div>
-                  </div>
-                  
-                  <div className="flex-1"></div>
-                </div>)}
-            </div>
-          </div>
-        </div>
-       </section> */}
-
-      {/* Team */}
-      
-
       {/* Values */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-12 lg:py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-8 lg:mb-12">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Our Values
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-lg sm:text-xl text-gray-600">
               The principles that guide everything we do
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {values.map((value, index) => {
-            const Icon = value.icon;
-            return <Card key={index} className="bg-white hover:shadow-lg transition-all duration-300 text-center">
-                  <CardContent className="p-8">
-                    <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                      <Icon className="w-8 h-8 text-blue-600" />
+              const Icon = value.icon;
+              return (
+                <Card key={index} className="bg-white hover:shadow-lg transition-all duration-300 text-center">
+                  <CardContent className="p-6 lg:p-8">
+                    <div className="w-12 h-12 lg:w-16 lg:h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <Icon className="w-6 h-6 lg:w-8 lg:h-8 text-blue-600" />
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">{value.title}</h3>
-                    <p className="text-gray-600">{value.description}</p>
+                    <h3 className="text-lg lg:text-xl font-bold text-gray-900 mb-4">{value.title}</h3>
+                    <p className="text-gray-600 text-sm lg:text-base">{value.description}</p>
                   </CardContent>
-                </Card>;
-          })}
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Contact Info */}
-      
-
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-r from-purple-600 to-pink-600 text-white">
+      <section className="py-16 lg:py-20 bg-gradient-to-r from-purple-600 to-pink-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
             Join Our Mission
           </h2>
-          <p className="text-xl text-purple-100 mb-8 leading-relaxed">
+          <p className="text-lg sm:text-xl text-purple-100 mb-8 leading-relaxed">
             Be part of the transformation in higher education. Let's work together to prepare students for the future.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-white text-purple-600 hover:bg-gray-100 text-lg px-8 py-6 h-auto font-semibold">
+            <Button className="w-full sm:w-auto bg-white text-purple-600 hover:bg-gray-100 text-lg px-8 py-6 h-auto font-semibold">
               Partner with Us
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
-            {/* <Button variant="outline" className="border-white text-white hover:bg-white/10 text-lg px-8 py-6 h-auto">
-              Explore Careers
-             </Button> */}
           </div>
         </div>
       </section>
-    </div>;
+    </div>
+  );
 };
+
 export default About;
