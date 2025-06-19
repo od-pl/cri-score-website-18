@@ -117,34 +117,25 @@ const FAQ = () => {
       </section>
 
       {/* Support Channels */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Still Have Questions?
-            </h2>
-            <p className="text-xl text-gray-600">
-              Our support team is here to help you every step of the way
-            </p>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Still Have Questions?</h2>
+            <p className="text-xl text-gray-600">Get in touch with our support team</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {supportChannels.map((channel, index) => {
-              const Icon = channel.icon;
-              return (
-                <Card key={index} className="bg-white hover:shadow-lg transition-all duration-300">
-                  <CardContent className="p-8 text-center">
-                    <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                      <Icon className="w-8 h-8 text-blue-600" />
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{channel.title}</h3>
-                    <p className="text-gray-600 mb-4">{channel.description}</p>
-                    <div className="font-semibold text-blue-600 mb-2">{channel.contact}</div>
-                    <div className="text-sm text-gray-500">{channel.availability}</div>
-                  </CardContent>
-                </Card>
-              );
-            })}
+          <div className="flex justify-center">
+            <Card className="max-w-md w-full hover:shadow-lg transition-all duration-300">
+              <CardContent className="p-6">
+                <div className="flex items-center justify-center mb-4">
+                  <Mail className="w-8 h-8 text-blue-600" />
+                </div>
+                <h3 className="text-xl font-semibold text-center mb-2">{supportChannels[0].title}</h3>
+                <p className="text-gray-600 text-center mb-4">{supportChannels[0].description}</p>
+                <p className="text-blue-600 font-semibold text-center">{supportChannels[0].contact}</p>
+                <p className="text-sm text-gray-500 text-center mt-2">{supportChannels[0].availability}</p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>

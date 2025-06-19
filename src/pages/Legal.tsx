@@ -165,7 +165,7 @@ const Legal = () => {
                     <p>
                       For questions or concerns related to this Privacy Policy or your data rights, contact:
                       <br />
-                      <strong>Email:</strong> info@offee.in
+                      <strong>Email:</strong> support@platskills.com
                       <br />
                       <strong>Address:</strong> Orage Digital Pvt. Ltd. B-601, Keshav Shristi Complex, Lal Bahadur Shastri Road, Bhandup West, Mumbai, Maharashtra 400078, India.
                     </p>
@@ -357,26 +357,24 @@ const Legal = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-8 text-center">
-            <div className="bg-slate-800 rounded-lg p-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+            <div className="bg-slate-800 rounded-lg p-6 text-center">
               <Globe className="w-12 h-12 text-blue-400 mx-auto mb-4" />
               <h3 className="font-semibold mb-2">WASA</h3>
               <p className="text-sm text-slate-300">Web Application Security Audit (Cert-In)</p>
             </div>
             
-            <div className="bg-slate-800 rounded-lg p-6">
+            <div className="bg-slate-800 rounded-lg p-6 text-center">
               <Shield className="w-12 h-12 text-green-400 mx-auto mb-4" />
               <h3 className="font-semibold mb-2">ISO 9001 : 2015</h3>
               <p className="text-sm text-slate-300">Quailty Management</p>
             </div>
             
-            <div className="bg-slate-800 rounded-lg p-6">
+            <div className="bg-slate-800 rounded-lg p-6 text-center">
               <Lock className="w-12 h-12 text-purple-400 mx-auto mb-4" />
               <h3 className="font-semibold mb-2">ISO/IEC 27001 : 2022</h3>
-              <p className="text-sm text-slate-300">Information Security Management  </p>
+              <p className="text-sm text-slate-300">Information Security Management</p>
             </div>
-            
-            
           </div>
         </div>
       </section>
