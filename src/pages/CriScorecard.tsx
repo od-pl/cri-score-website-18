@@ -123,53 +123,78 @@ const CriScorecard = () => {
           <div className="max-w-2xl mx-auto mb-16">
             <Card className="bg-white shadow-2xl">
               <CardContent className="p-12 text-center">
-                <h3 className="text-2xl font-bold text-gray-900 mb-8">Career Readiness Index</h3>
-                
-                {/* Enhanced Dial Visualization */}
-                <div className="relative w-80 h-40 mx-auto mb-8">
-                  <svg viewBox="0 0 200 100" className="w-full h-full">
-                    {/* Background Arc */}
-                    <path d="M 20 80 A 80 80 0 0 1 180 80" stroke="#e5e7eb" strokeWidth="12" fill="none" />
-                    {/* Progress Arc with Animation */}
-                    <motion.path 
-                      d="M 20 80 A 80 80 0 0 1 180 80" 
-                      stroke="url(#gradient)" 
-                      strokeWidth="12" 
-                      fill="none" 
-                      strokeLinecap="round"
-                      initial={{ strokeDasharray: "0 251.3" }}
-                      animate={{ strokeDasharray: `${overallCRI / 10 * 251.3} 251.3` }}
-                      transition={{ duration: 2, ease: "easeOut" }}
-                    />
-                    {/* Gradient Definition */}
+                {/* Speedometer SVG */}
+                <div className="w-80 h-40 mx-auto mb-6 overflow-visible">
+                  <svg viewBox="0 0 200 120" className="w-full h-full overflow-visible">
                     <defs>
-                      <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stopColor="#ef4444" />
-                        <stop offset="50%" stopColor="#f59e0b" />
-                        <stop offset="100%" stopColor="#10b981" />
+                      {/* Red to Green Gradient */}
+                      <linearGradient id="speedometer-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#dc2626" />
+                        <stop offset="30%" stopColor="#ea580c" />
+                        <stop offset="60%" stopColor="#eab308" />
+                        <stop offset="100%" stopColor="#16a34a" />
+                      </linearGradient>
+                      
+                      {/* Background gradient for unfilled portion */}
+                      <linearGradient id="background-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#e5e7eb" />
+                        <stop offset="100%" stopColor="#e5e7eb" />
                       </linearGradient>
                     </defs>
+                    
+                    {/* Background Track */}
+                    <path 
+                      d="M 25 85 A 75 75 0 0 1 175 85" 
+                      stroke="#e5e7eb" 
+                      strokeWidth="8" 
+                      fill="none" 
+                      strokeLinecap="round"
+                    />
+                    
+                    {/* Progress Arc with Gradient */}
+                    <motion.path 
+                      d="M 25 85 A 75 75 0 0 1 175 85" 
+                      stroke="url(#speedometer-gradient)" 
+                      strokeWidth="8" 
+                      fill="none" 
+                      strokeLinecap="round"
+                      initial={{ strokeDasharray: "0 235.6" }}
+                      animate={{ strokeDasharray: `${overallCRI / 10 * 235.6} 235.6` }}
+                      transition={{ duration: 2.5, ease: "easeInOut" }}
+                    />
+                    
                     {/* Animated Needle */}
                     <motion.g 
                       initial={{ rotate: -90 }}
-                      animate={{ rotate: overallCRI / 10 * 180 - 90 }}
-                      transition={{ duration: 2, ease: "easeOut" }}
-                      style={{ transformOrigin: '100px 80px' }}
+                      animate={{ rotate: (overallCRI / 10) * 180 - 90 }}
+                      transition={{ duration: 2.5, ease: "easeInOut" }}
+                      transformOrigin="100 85"
                     >
-                      <line x1="100" y1="80" x2="100" y2="30" stroke="#374151" strokeWidth="3" />
-                      <circle cx="100" cy="80" r="6" fill="#374151" />
+                      {/* Main Needle */}
+                      <line 
+                        x1="100" y1="85" x2="100" y2="30" 
+                        stroke="#374151" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
                     </motion.g>
+                    
+                    {/* Center Circle */}
+                    <circle cx="100" cy="85" r="5" fill="#374151" />
+                    <circle cx="100" cy="85" r="2" fill="#ffffff" />
                   </svg>
-                  
-                  {/* Score positioned to avoid overlap */}
-                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
-                    <div className={`text-4xl font-bold ${criColor}`}>
-                      <AnimatedCounter end={overallCRI} duration={2} />
-                      /10
-                    </div>
-                    <div className={`text-sm font-semibold ${criColor}`}>{criLabel}</div>
-                  </div>
                 </div>
+                
+                {/* Counter Text - Separate from speedometer */}
+                <div className="flex items-center justify-center gap-3 mb-6">
+                  <span className={`text-2xl font-bold ${criColor}`}>
+                    <AnimatedCounter end={overallCRI} duration={2} />/10
+                  </span>
+                  <span className={`text-lg font-semibold ${criColor}`}>{criLabel}</span>
+                </div>
+                
+                {/* Title below counter */}
+                <h3 className="text-lg font-semibold text-gray-900 mb-6">Career Readiness Index</h3>
 
                 <div className="flex justify-between text-xs text-gray-500 max-w-80 mx-auto">
                   <span>Needs Work</span>
