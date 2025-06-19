@@ -12,7 +12,7 @@ interface AnimatedCounterProps {
 const AnimatedCounter = ({ end, duration = 2, suffix = "", className = "" }: AnimatedCounterProps) => {
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -58,7 +58,7 @@ const AnimatedCounter = ({ end, duration = 2, suffix = "", className = "" }: Ani
   }, [isVisible, end, duration]);
 
   return (
-    <motion.div
+    <motion.span
       ref={ref}
       initial={{ opacity: 0, y: 20 }}
       animate={isVisible ? { opacity: 1, y: 0 } : {}}
@@ -66,7 +66,7 @@ const AnimatedCounter = ({ end, duration = 2, suffix = "", className = "" }: Ani
       className={className}
     >
       {count}{suffix}
-    </motion.div>
+    </motion.span>
   );
 };
 

@@ -5,6 +5,7 @@ import { Brain, Cog, Zap, Heart, BookOpen, ArrowRight, Download, TrendingUp } fr
 import { motion } from "framer-motion";
 import SkillRadarChart from "@/components/SkillRadarChart";
 import AnimatedCounter from "@/components/AnimatedCounter";
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 const CriScorecard = () => {
   const skillCategories = [
@@ -123,74 +124,21 @@ const CriScorecard = () => {
           <div className="max-w-2xl mx-auto mb-16">
             <Card className="bg-white shadow-2xl">
               <CardContent className="p-12 text-center">
-                {/* Speedometer SVG */}
-                <div className="w-80 h-40 mx-auto mb-6 overflow-visible">
-                  <svg viewBox="0 0 200 120" className="w-full h-full overflow-visible">
-                    <defs>
-                      {/* Red to Green Gradient */}
-                      <linearGradient id="speedometer-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stopColor="#dc2626" />
-                        <stop offset="30%" stopColor="#ea580c" />
-                        <stop offset="60%" stopColor="#eab308" />
-                        <stop offset="100%" stopColor="#16a34a" />
-                      </linearGradient>
-                      
-                      {/* Background gradient for unfilled portion */}
-                      <linearGradient id="background-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stopColor="#e5e7eb" />
-                        <stop offset="100%" stopColor="#e5e7eb" />
-                      </linearGradient>
-                    </defs>
-                    
-                    {/* Background Track */}
-                    <path 
-                      d="M 25 85 A 75 75 0 0 1 175 85" 
-                      stroke="#e5e7eb" 
-                      strokeWidth="8" 
-                      fill="none" 
-                      strokeLinecap="round"
-                    />
-                    
-                    {/* Progress Arc with Gradient */}
-                    <motion.path 
-                      d="M 25 85 A 75 75 0 0 1 175 85" 
-                      stroke="url(#speedometer-gradient)" 
-                      strokeWidth="8" 
-                      fill="none" 
-                      strokeLinecap="round"
-                      initial={{ strokeDasharray: "0 235.6" }}
-                      animate={{ strokeDasharray: `${overallCRI / 10 * 235.6} 235.6` }}
-                      transition={{ duration: 2.5, ease: "easeInOut" }}
-                    />
-                    
-                    {/* Animated Needle */}
-                    <motion.g 
-                      initial={{ rotate: -90 }}
-                      animate={{ rotate: (overallCRI / 10) * 180 - 90 }}
-                      transition={{ duration: 2.5, ease: "easeInOut" }}
-                      transformOrigin="100 85"
-                    >
-                      {/* Main Needle */}
-                      <line 
-                        x1="100" y1="85" x2="100" y2="30" 
-                        stroke="#374151" 
-                        strokeWidth="3" 
-                        strokeLinecap="round"
-                      />
-                    </motion.g>
-                    
-                    {/* Center Circle */}
-                    <circle cx="100" cy="85" r="5" fill="#374151" />
-                    <circle cx="100" cy="85" r="2" fill="#ffffff" />
-                  </svg>
+                {/* Lottie Speedometer */}
+                <div className="w-96 h-48 mx-auto mb-6">
+                  <DotLottieReact
+                    src="https://lottie.host/d12b42c9-dc95-44fe-b161-271dd451c3f3/NQFnfnRf0e.lottie"
+                    loop
+                    autoplay
+                  />
                 </div>
                 
-                {/* Counter Text - Separate from speedometer */}
-                <div className="flex items-center justify-center gap-3 mb-6">
+                {/* Counter Text - All inline */}
+                <div className="flex items-center justify-center gap-2 mb-6">
                   <span className={`text-2xl font-bold ${criColor}`}>
                     <AnimatedCounter end={overallCRI} duration={2} />/10
                   </span>
-                  <span className={`text-lg font-semibold ${criColor}`}>{criLabel}</span>
+                  <span className={`text-2xl font-bold ${criColor}`}>{criLabel}</span>
                 </div>
                 
                 {/* Title below counter */}
