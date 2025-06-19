@@ -272,8 +272,8 @@ const HowItWorks = () => {
 
           <div className="text-center mt-12">
             <div className="inline-flex space-x-6 text-sm text-slate-400">
-              <span className="bg-slate-800 px-3 py-1 rounded">🔒 GDPR Compliant</span>
-              <span className="bg-slate-800 px-3 py-1 rounded">🛡️ SOC 2 Type II</span>
+              
+              
               
             </div>
           </div>
