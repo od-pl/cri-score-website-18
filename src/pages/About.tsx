@@ -1,7 +1,74 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Users, Target, Award, TrendingUp, ArrowRight, Calendar, MapPin, Mail } from "lucide-react";
+import { useEffect, useRef } from "react";
+
 const About = () => {
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  const products = [
+    {
+      logo: "GE",
+      name: "Green Exam",
+      color: "#22c55e", // Green
+      bgColor: "bg-green-50",
+      borderColor: "border-green-200"
+    },
+    {
+      logo: "ALMS",
+      name: "Admission Lifecycle Management System",
+      color: "#502bc9", // Purple
+      bgColor: "bg-purple-50",
+      borderColor: "border-purple-200"
+    },
+    {
+      logo: "AMS",
+      name: "Academic Assessment Management System",
+      color: "#2D5A95", // Blue
+      bgColor: "bg-blue-50",
+      borderColor: "border-blue-200"
+    },
+    {
+      logo: "PLAT",
+      name: "Progressive Learning Ability Test",
+      color: "#7c3aed", // Purple
+      bgColor: "bg-purple-50",
+      borderColor: "border-purple-200"
+    },
+    {
+      logo: "CRI",
+      name: "Career Readiness Index",
+      color: "#dc2626", // Red
+      bgColor: "bg-red-50",
+      borderColor: "border-red-200"
+    },
+    {
+      logo: "FBP",
+      name: "Fresher Job Portal",
+      color: "#059669", // Green
+      bgColor: "bg-green-50",
+      borderColor: "border-green-200",
+      comingSoon: true
+    }
+  ];
+
+  // Auto-scroll effect
+  useEffect(() => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+
+    const scroll = () => {
+      if (carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth) {
+        carousel.scrollLeft = 0;
+      } else {
+        carousel.scrollLeft += 1;
+      }
+    };
+
+    const interval = setInterval(scroll, 50); // Adjust speed here
+    return () => clearInterval(interval);
+  }, []);
+
   const timeline = [{
     year: "2018",
     title: "Foundation",
@@ -108,14 +175,66 @@ const About = () => {
             </p>
           </div>
 
-          {/* Stats */}
-          <div className="grid md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => <Card key={index} className="bg-white/70 backdrop-blur-sm text-center hover:shadow-lg transition-all duration-300">
-                <CardContent className="p-6">
-                  <div className="text-3xl font-bold text-blue-600 mb-2">{stat.value}</div>
-                  <div className="text-gray-600">{stat.label}</div>
-                </CardContent>
-              </Card>)}
+          {/* Product Carousel */}
+          <div className="relative mb-16">
+            {/* Left gradient fade */}
+            <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-blue-50 to-transparent z-10 pointer-events-none"></div>
+            
+            {/* Right gradient fade */}
+            <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-blue-50 to-transparent z-10 pointer-events-none"></div>
+            
+            {/* Carousel container */}
+            <div 
+              ref={carouselRef}
+              className="flex space-x-6 overflow-x-auto scroll-smooth"
+              style={{ 
+                scrollbarWidth: 'none', 
+                msOverflowStyle: 'none'
+              }}
+            >
+              {products.map((product, index) => (
+                <div key={index} className="flex-shrink-0 w-80 my-8">
+                  <Card className="bg-white hover:shadow-lg transition-all duration-300 h-full">
+                    <CardContent className="p-8 text-center h-full flex flex-col justify-center">
+                      <div 
+                        className="w-20 h-12 rounded-lg flex items-center justify-center mx-auto mb-4 text-white font-bold text-lg"
+                        style={{ backgroundColor: product.color }}
+                      >
+                        {product.logo}
+                      </div>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-2">{product.name}</h3>
+                      {product.comingSoon && (
+                        <span className="inline-block bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full">
+                          Coming Soon
+                        </span>
+                      )}
+                    </CardContent>
+                  </Card>
+                </div>
+              ))}
+              
+              {/* Duplicate cards for seamless loop */}
+              {products.map((product, index) => (
+                <div key={`duplicate-${index}`} className="flex-shrink-0 w-80 my-8">
+                  <Card className="bg-white hover:shadow-lg transition-all duration-300 h-full">
+                    <CardContent className="p-8 text-center h-full flex flex-col justify-center">
+                      <div 
+                        className="w-20 h-12 rounded-lg flex items-center justify-center mx-auto mb-4 text-white font-bold text-lg"
+                        style={{ backgroundColor: product.color }}
+                      >
+                        {product.logo}
+                      </div>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-2">{product.name}</h3>
+                      {product.comingSoon && (
+                        <span className="inline-block bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full">
+                          Coming Soon
+                        </span>
+                      )}
+                    </CardContent>
+                  </Card>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
