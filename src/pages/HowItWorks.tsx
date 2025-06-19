@@ -134,9 +134,7 @@ const HowItWorks = () => {
                         </div>
                         
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                          {level.skills.map((skill, skillIndex) => <div key={skillIndex} className="bg-gray-50 rounded-lg p-3 text-center">
-                              <span className="text-sm font-medium text-gray-700">{skill}</span>
-                            </div>)}
+                          {level.skills.map((skill, skillIndex) => {})}
                         </div>
                       </CardContent>
                     </Card>
