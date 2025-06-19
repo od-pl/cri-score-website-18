@@ -1,5 +1,8 @@
+
 import { Card, CardContent } from "@/components/ui/card";
-import { Star, Building2, TrendingUp, Users, Award } from "lucide-react";
+import { Star, Building2, TrendingUp, Users, Award, FileText, Search, Target, BarChart3, RefreshCw } from "lucide-react";
+import AnimatedCounter from "@/components/AnimatedCounter";
+import { motion } from "framer-motion";
 
 const Testimonials = () => {
   const caseStudies = [
@@ -71,13 +74,13 @@ const Testimonials = () => {
 
   const studentStories = [
     {
-      name: "Sachin Sengar",
+      name: "Achin Sengar",
       course: "Computer Science Engineering",
       initialCRI: 6.4,
       finalCRI: 8.7,
       placement: "Founder of GreenMentor",
       story: "When I saw innovation and environmental reasoning as my top skill areas, it gave me the confidence to pursue an idea I was unsure about. That led to building a carbon footprint calculator and, eventually, to global recognition. PLAT was the nudge that made me believe the idea was worth building.",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face"
+      image: "/lovable-uploads/cd4288ca-4a2e-4bf1-9e83-d0c775bbe8f5.png"
     },
     {
       name: "Sandip Kathiriya",
@@ -86,7 +89,7 @@ const Testimonials = () => {
       finalCRI: 8.3,
       placement: "Partner at Amazon India Ltd",
       story: "There's so much advice out there—it's overwhelming. What PLAT gave me was a clear, personalised snapshot of where I truly excel. I used that to focus my efforts during placements and choose roles that fit. That clarity shaped the way I prepared, interviewed, and now operate in my role at Amazon.",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b48ae2d6?w=150&h=150&fit=crop&crop=face"
+      image: "/lovable-uploads/09fb4a89-7967-4c57-a1fe-7dfdc27483b4.png"
     },
     {
       name: "Yash Kothari",
@@ -95,7 +98,7 @@ const Testimonials = () => {
       finalCRI: 8.9,
       placement: "Head of Network Engineering Operations at Comcast Inc",
       story: "I already knew I was technically inclined, but PLAT showed me I also had strengths in team coordination and decision-making. That changed the way I approached career planning—I didn't just apply for jobs, I looked for leadership tracks. That strategic mindset has made a big difference early in my journey.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
+      image: "/lovable-uploads/90f6b6c5-316c-4b86-b836-d9dc027672c3.png"
     },
     {
       name: "Ananya Patel",
@@ -104,15 +107,23 @@ const Testimonials = () => {
       finalCRI: 8.5,
       placement: "Jr. Strategy Analyst at Accenture Strategy",
       story: "PLAT helped me decode my strengths and blind spots with precision. The skill insights weren't generic—they showed me exactly where I needed to improve to match industry expectations. That confidence translated directly into how I pitched myself to recruiters and chose the right role to start my career.",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
+      image: "/lovable-uploads/f2fcac02-e171-41f8-a7da-b3d4c5665552.png"
     }
   ];
 
   const stats = [
-    { icon: Users, value: "25766", label: "Students Assessed" },
+    { icon: Users, value: 25766, label: "Students Assessed" },
     { icon: Building2, value: "50+", label: "Partner Colleges" },
-    { icon: TrendingUp, value: "18%", label: "Average Placement Increase" },
-    { icon: Award, value: "85%", label: "Student Engagement" }
+    { icon: TrendingUp, value: 18, label: "Average Placement Increase", suffix: "%" },
+    { icon: Award, value: 85, label: "Student Engagement", suffix: "%" }
+  ];
+
+  const lifecycleSteps = [
+    { name: "Initial Assessment", icon: FileText, color: "bg-blue-500", angle: 0 },
+    { name: "Gap Analysis", icon: Search, color: "bg-green-500", angle: 72 },
+    { name: "Personalized Up-Skilling", icon: Target, color: "bg-yellow-500", angle: 144 },
+    { name: "Progress Tracking", icon: BarChart3, color: "bg-purple-500", angle: 216 },
+    { name: "CRI Score Update", icon: RefreshCw, color: "bg-red-500", angle: 288 }
   ];
 
   return (
@@ -132,15 +143,21 @@ const Testimonials = () => {
             </p>
           </div>
 
-          {/* Stats */}
+          {/* Animated Stats */}
           <div className="grid md:grid-cols-4 gap-8 mb-16">
             {stats.map((stat, index) => {
               const Icon = stat.icon;
               return (
-                <Card key={index} className="bg-white/70 backdrop-blur-sm hover:shadow-lg transition-all duration-300">
+                <Card key={index} className="bg-white/70 backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover:scale-105">
                   <CardContent className="p-6 text-center">
                     <Icon className="w-8 h-8 text-blue-600 mx-auto mb-4" />
-                    <div className="text-3xl font-bold text-gray-900 mb-2">{stat.value}</div>
+                    <div className="text-3xl font-bold text-gray-900 mb-2">
+                      {typeof stat.value === 'number' ? (
+                        <AnimatedCounter end={stat.value} suffix={stat.suffix || ""} />
+                      ) : (
+                        stat.value
+                      )}
+                    </div>
                     <div className="text-gray-600">{stat.label}</div>
                   </CardContent>
                 </Card>
@@ -150,8 +167,86 @@ const Testimonials = () => {
         </div>
       </section>
 
-      {/* College Case Studies */}
+      {/* PLAT Assessment Lifecycle - Circular Animation */}
       <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              PLAT Assessment Lifecycle
+            </h2>
+            <p className="text-xl text-gray-600">
+              A continuous process of assessment, improvement, and growth
+            </p>
+          </div>
+
+          <div className="flex justify-center">
+            <div className="relative w-96 h-96">
+              {/* Central text */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="text-center">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">PLAT</h3>
+                  <p className="text-lg text-gray-600">ASSESSMENT</p>
+                  <p className="text-lg text-gray-600">LIFECYCLE</p>
+                </div>
+              </div>
+
+              {/* Circular steps */}
+              {lifecycleSteps.map((step, index) => {
+                const Icon = step.icon;
+                const radius = 160;
+                const centerX = 192;
+                const centerY = 192;
+                const x = centerX + radius * Math.cos((step.angle - 90) * Math.PI / 180);
+                const y = centerY + radius * Math.sin((step.angle - 90) * Math.PI / 180);
+
+                return (
+                  <motion.div
+                    key={index}
+                    className="absolute"
+                    style={{
+                      left: x - 40,
+                      top: y - 40,
+                    }}
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: index * 0.2, duration: 0.5 }}
+                    whileHover={{ scale: 1.1 }}
+                  >
+                    <Card className="w-20 h-20 cursor-pointer hover:shadow-lg transition-all duration-300">
+                      <CardContent className="p-2 flex flex-col items-center justify-center h-full">
+                        <div className={`w-8 h-8 ${step.color} rounded-full flex items-center justify-center mb-1`}>
+                          <Icon className="w-4 h-4 text-white" />
+                        </div>
+                      </CardContent>
+                    </Card>
+                    <div className="text-xs text-center mt-2 font-medium text-gray-700 max-w-20">
+                      {step.name}
+                    </div>
+                  </motion.div>
+                );
+              })}
+
+              {/* Connecting lines */}
+              <svg className="absolute inset-0 w-full h-full" style={{ pointerEvents: 'none' }}>
+                <circle
+                  cx="192"
+                  cy="192"
+                  r="160"
+                  fill="none"
+                  stroke="#e5e7eb"
+                  strokeWidth="2"
+                  strokeDasharray="10,5"
+                  className="animate-spin"
+                  style={{ animationDuration: '20s' }}
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* College Case Studies */}
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
@@ -166,9 +261,32 @@ const Testimonials = () => {
             {caseStudies.map((study, index) => (
               <Card key={index} className="hover:shadow-lg transition-all duration-300">
                 <CardContent className="p-8">
-                  <div className="grid lg:grid-cols-3 gap-8">
-                    {/* College Info */}
-                    <div className="lg:col-span-1">
+                  <div className="grid lg:grid-cols-2 gap-8">
+                    {/* Key Improvements - LEFT SIDE */}
+                    <div className="order-2 lg:order-1">
+                      <h4 className="font-semibold text-gray-900 mb-6 text-xl">Key Improvements</h4>
+                      <div className="space-y-6">
+                        {study.metrics.map((metric, metricIndex) => (
+                          <div key={metricIndex} className="flex items-center justify-between bg-white p-4 rounded-lg shadow-sm">
+                            <span className="text-gray-700 font-medium flex-1">{metric.label}</span>
+                            <div className="flex items-center space-x-4">
+                              <div className="text-center">
+                                <div className="text-sm text-gray-500">Before</div>
+                                <div className="text-lg font-bold text-red-600">{metric.before}</div>
+                              </div>
+                              <div className="text-gray-400 text-xl">→</div>
+                              <div className="text-center">
+                                <div className="text-sm text-gray-500">After</div>
+                                <div className="text-lg font-bold text-green-600">{metric.after}</div>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* College Info - RIGHT SIDE */}
+                    <div className="order-1 lg:order-2">
                       <div className="flex items-center mb-4">
                         <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mr-4">
                           <Building2 className="w-8 h-8 text-blue-600" />
@@ -180,10 +298,10 @@ const Testimonials = () => {
                       </div>
                       <h3 className="text-xl font-bold text-gray-900 mb-2">{study.collegeName}</h3>
                       <div className="text-2xl font-bold text-green-600 mb-4">{study.keyMetric}</div>
-                      <p className="text-gray-600 mb-6">{study.description}</p>
+                      <p className="text-gray-600 mb-6 leading-relaxed">{study.description}</p>
                       
                       {/* Testimonial */}
-                      <div className="bg-gray-50 rounded-lg p-4 border-l-4 border-blue-500">
+                      <div className="bg-blue-50 rounded-lg p-4 border-l-4 border-blue-500">
                         <p className="text-gray-700 italic mb-3">"{study.quote}"</p>
                         <div className="flex items-center">
                           <img 
@@ -198,29 +316,6 @@ const Testimonials = () => {
                         </div>
                       </div>
                     </div>
-
-                    {/* Metrics */}
-                    <div className="lg:col-span-2">
-                      <h4 className="font-semibold text-gray-900 mb-6">Key Improvements</h4>
-                      <div className="space-y-6">
-                        {study.metrics.map((metric, metricIndex) => (
-                          <div key={metricIndex} className="flex items-center justify-between">
-                            <span className="text-gray-700 font-medium">{metric.label}</span>
-                            <div className="flex items-center space-x-4">
-                              <div className="text-center">
-                                <div className="text-sm text-gray-500">Before</div>
-                                <div className="text-lg font-bold text-red-600">{metric.before}</div>
-                              </div>
-                              <div className="text-gray-400">→</div>
-                              <div className="text-center">
-                                <div className="text-sm text-gray-500">After</div>
-                                <div className="text-lg font-bold text-green-600">{metric.after}</div>
-                              </div>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
                   </div>
                 </CardContent>
               </Card>
@@ -230,7 +325,7 @@ const Testimonials = () => {
       </section>
 
       {/* Student Stories */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
@@ -243,59 +338,66 @@ const Testimonials = () => {
 
           <div className="grid md:grid-cols-2 gap-8">
             {studentStories.map((student, index) => (
-              <Card key={index} className="bg-white hover:shadow-lg transition-all duration-300">
-                <CardContent className="p-8">
-                  <div className="flex items-center mb-6">
-                    <img 
-                      src={student.image} 
-                      alt={student.name}
-                      className="w-16 h-16 rounded-full mr-4"
-                    />
-                    <div>
-                      <h3 className="text-xl font-bold text-gray-900">{student.name}</h3>
-                      <p className="text-gray-600">{student.course}</p>
-                    </div>
-                  </div>
-
-                  {/* CRI Improvement */}
-                  <div className="bg-gradient-to-r from-red-50 to-green-50 rounded-lg p-4 mb-6">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-sm font-medium text-gray-600">CRI Improvement</span>
-                      <span className="text-lg font-bold text-green-600">
-                        +{(student.finalCRI - student.initialCRI).toFixed(1)}
-                      </span>
-                    </div>
-                    <div className="flex items-center space-x-4">
-                      <div className="text-center">
-                        <div className="text-sm text-gray-500">Initial</div>
-                        <div className="text-xl font-bold text-red-600">{student.initialCRI}</div>
-                      </div>
-                      <div className="flex-1 h-2 bg-gradient-to-r from-red-300 to-green-300 rounded-full"></div>
-                      <div className="text-center">
-                        <div className="text-sm text-gray-500">Final</div>
-                        <div className="text-xl font-bold text-green-600">{student.finalCRI}</div>
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <Card className="bg-white hover:shadow-lg transition-all duration-300 hover:scale-105">
+                  <CardContent className="p-8">
+                    <div className="flex items-center mb-6">
+                      <img 
+                        src={student.image} 
+                        alt={student.name}
+                        className="w-16 h-16 rounded-full mr-4 object-cover"
+                      />
+                      <div>
+                        <h3 className="text-xl font-bold text-gray-900">{student.name}</h3>
+                        <p className="text-gray-600">{student.course}</p>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Placement */}
-                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-                    <div className="text-sm font-medium text-blue-600 mb-1">Placed at</div>
-                    <div className="text-lg font-bold text-blue-900">{student.placement}</div>
-                  </div>
+                    {/* CRI Improvement */}
+                    <div className="bg-gradient-to-r from-red-50 to-green-50 rounded-lg p-4 mb-6">
+                      <div className="flex justify-between items-center mb-2">
+                        <span className="text-sm font-medium text-gray-600">CRI Improvement</span>
+                        <span className="text-lg font-bold text-green-600">
+                          +{(student.finalCRI - student.initialCRI).toFixed(1)}
+                        </span>
+                      </div>
+                      <div className="flex items-center space-x-4">
+                        <div className="text-center">
+                          <div className="text-sm text-gray-500">Initial</div>
+                          <div className="text-xl font-bold text-red-600">{student.initialCRI}</div>
+                        </div>
+                        <div className="flex-1 h-2 bg-gradient-to-r from-red-300 to-green-300 rounded-full"></div>
+                        <div className="text-center">
+                          <div className="text-sm text-gray-500">Final</div>
+                          <div className="text-xl font-bold text-green-600">{student.finalCRI}</div>
+                        </div>
+                      </div>
+                    </div>
 
-                  {/* Story */}
-                  <p className="text-gray-700 italic">"{student.story}"</p>
+                    {/* Placement */}
+                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                      <div className="text-sm font-medium text-blue-600 mb-1">Placed at</div>
+                      <div className="text-lg font-bold text-blue-900">{student.placement}</div>
+                    </div>
 
-                  {/* Rating */}
-                  <div className="flex items-center mt-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-                    ))}
-                    <span className="text-sm text-gray-600 ml-2">Highly Satisfied</span>
-                  </div>
-                </CardContent>
-              </Card>
+                    {/* Story */}
+                    <p className="text-gray-700 italic mb-4">"{student.story}"</p>
+
+                    {/* Rating */}
+                    <div className="flex items-center">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                      ))}
+                      <span className="text-sm text-gray-600 ml-2">Highly Satisfied</span>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -312,7 +414,7 @@ const Testimonials = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-6 rounded-lg font-semibold transition-colors">
+            <button className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-6 rounded-lg font-semibold transition-colors hover:scale-105 transform duration-200">
               Start Your Transformation
             </button>
           </div>
