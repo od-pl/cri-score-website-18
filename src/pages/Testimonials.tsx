@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Star, Building2, TrendingUp, Users, Award } from "lucide-react";
 
@@ -9,7 +8,7 @@ const Testimonials = () => {
       collegeName: "Jamnalal Bajaj Institute of Management Studies (JBIMS)",
       location: "Mumbai",
       keyMetric: "20% Improved Placement Preparedness ",
-      description: "As one of India’s leading business schools, JBIMS adopted PLAT to enhance career readiness across its MBA cohort. By integrating CRI-based insights into its student development strategy, the institute was able to better align training efforts with individual student needs—leading to stronger interview performance and more focused preparation across key functional areas.",
+      description: "As one of India's leading business schools, JBIMS adopted PLAT to enhance career readiness across its MBA cohort. By integrating CRI-based insights into its student development strategy, the institute was able to better align training efforts with individual student needs—leading to stronger interview performance and more focused preparation across key functional areas.",
       quote: "PLAT gave us structured, actionable data that we had not accessed before. It helped faculty and placement teams work more precisely with students, resulting in improved preparedness and greater confidence during placements.",
       author: "Dr. Kavita R. Laghate",
       position: "Director",
@@ -25,7 +24,7 @@ const Testimonials = () => {
       collegeName: "SNDT Women's University",
       location: "Mumbai",
       keyMetric: "32% of Career Clarity Increased",
-      description: "SNDT Women’s University partnered with PLAT to introduce a structured, multi-departmental skill development initiative. The CRI framework enabled students to gain clarity on their strengths and development areas, resulting in measurable improvements in confidence, self-awareness, and employability.",
+      description: "SNDT Women's University partnered with PLAT to introduce a structured, multi-departmental skill development initiative. The CRI framework enabled students to gain clarity on their strengths and development areas, resulting in measurable improvements in confidence, self-awareness, and employability.",
       quote: "The CRI framework gave our students clear visibility into their strengths and areas for development. The improvement in confidence and job readiness across departments has been encouraging.",
       author: "Dr. Ruby Ojha",
       position: "Pro-Vice-Chancellor",
@@ -37,11 +36,11 @@ const Testimonials = () => {
       ]
     },
     {
-      logo: "Xavier’s",
-      collegeName: "St. Xavier’s College",
+      logo: "Xavier's",
+      collegeName: "St. Xavier's College",
       location: "Mumbai",
       keyMetric: "58% Improved Core Skills Identification",
-      description: "St. Xavier’s College began with a pilot of PLAT to explore student skills beyond academic performance. The results were transformative—58% of students identified their core strengths through PLAT’s structured skill-mapping. This shift in visibility led to full-scale adoption across the student body.",
+      description: "St. Xavier's College began with a pilot of PLAT to explore student skills beyond academic performance. The results were transformative—58% of students identified their core strengths through PLAT's structured skill-mapping. This shift in visibility led to full-scale adoption across the student body.",
       quote: "We realised our students are much more than their report cards. PLAT gave us a deeper understanding of their capabilities, and helped us bring skill-based development to the centre of our academic experience.",
       author: "Dr. Rajendra Shinde",
       position: "Principal",
@@ -86,7 +85,7 @@ const Testimonials = () => {
       initialCRI: 5.8,
       finalCRI: 8.3,
       placement: "Partner at Amazon India Ltd",
-      story: "There’s so much advice out there—it’s overwhelming. What PLAT gave me was a clear, personalised snapshot of where I truly excel. I used that to focus my efforts during placements and choose roles that fit. That clarity shaped the way I prepared, interviewed, and now operate in my role at Amazon.",
+      story: "There's so much advice out there—it's overwhelming. What PLAT gave me was a clear, personalised snapshot of where I truly excel. I used that to focus my efforts during placements and choose roles that fit. That clarity shaped the way I prepared, interviewed, and now operate in my role at Amazon.",
       image: "https://images.unsplash.com/photo-1494790108755-2616b48ae2d6?w=150&h=150&fit=crop&crop=face"
     },
     {
@@ -95,7 +94,7 @@ const Testimonials = () => {
       initialCRI: 7.1,
       finalCRI: 8.9,
       placement: "Head of Network Engineering Operations at Comcast Inc",
-      story: "I already knew I was technically inclined, but PLAT showed me I also had strengths in team coordination and decision-making. That changed the way I approached career planning—I didn’t just apply for jobs, I looked for leadership tracks. That strategic mindset has made a big difference early in my journey.",
+      story: "I already knew I was technically inclined, but PLAT showed me I also had strengths in team coordination and decision-making. That changed the way I approached career planning—I didn't just apply for jobs, I looked for leadership tracks. That strategic mindset has made a big difference early in my journey.",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
     },
     {
@@ -104,7 +103,7 @@ const Testimonials = () => {
       initialCRI: 6.0,
       finalCRI: 8.5,
       placement: "Jr. Strategy Analyst at Accenture Strategy",
-      story: "PLAT helped me decode my strengths and blind spots with precision. The skill insights weren’t generic—they showed me exactly where I needed to improve to match industry expectations. That confidence translated directly into how I pitched myself to recruiters and chose the right role to start my career.",
+      story: "PLAT helped me decode my strengths and blind spots with precision. The skill insights weren't generic—they showed me exactly where I needed to improve to match industry expectations. That confidence translated directly into how I pitched myself to recruiters and chose the right role to start my career.",
       image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
     }
   ];
@@ -255,7 +254,6 @@ const Testimonials = () => {
                     <div>
                       <h3 className="text-xl font-bold text-gray-900">{student.name}</h3>
                       <p className="text-gray-600">{student.course}</p>
-                      <p className="text-sm text-gray-500">{student.college}</p>
                     </div>
                   </div>
 
@@ -317,9 +315,6 @@ const Testimonials = () => {
             <button className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-6 rounded-lg font-semibold transition-colors">
               Start Your Transformation
             </button>
-            {/* <button className="border-2 border-white text-white hover:bg-white/10 text-lg px-8 py-6 rounded-lg transition-colors">
-              Talk to Our Team
-            </button> */}
           </div>
         </div>
       </section>
