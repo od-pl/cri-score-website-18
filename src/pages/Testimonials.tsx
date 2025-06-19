@@ -173,49 +173,26 @@ const Testimonials = () => {
           <div className="space-y-12">
             {caseStudies.map((study, index) => (
               <Card key={index} className="hover:shadow-lg transition-all duration-300">
-                <CardContent className="p-8">
-                  <div className="grid lg:grid-cols-2 gap-8">
-                    {/* Key Improvements - LEFT SIDE */}
-                    <div className="order-2 lg:order-1">
-                      <h4 className="font-semibold text-gray-900 mb-6 text-xl">Key Improvements</h4>
-                      <div className="space-y-6">
-                        {study.metrics.map((metric, metricIndex) => (
-                          <div key={metricIndex} className="flex items-center justify-between bg-white p-4 rounded-lg shadow-sm">
-                            <span className="text-gray-700 font-medium flex-1">{metric.label}</span>
-                            <div className="flex items-center space-x-4">
-                              <div className="text-center">
-                                <div className="text-sm text-gray-500">Before</div>
-                                <div className="text-lg font-bold text-red-600">{metric.before}</div>
-                              </div>
-                              <div className="text-gray-400 text-xl">→</div>
-                              <div className="text-center">
-                                <div className="text-sm text-gray-500">After</div>
-                                <div className="text-lg font-bold text-green-600">{metric.after}</div>
-                              </div>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* College Info - RIGHT SIDE */}
-                    <div className="order-1 lg:order-2">
-                      <div className="flex items-center mb-4">
-                        <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                <CardContent className="p-4 sm:p-6 lg:p-8">
+                  <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
+                    {/* College Info - TOP ON MOBILE, RIGHT ON DESKTOP */}
+                    <div className="order-1">
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
+                        <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
                           <Building2 className="w-8 h-8 text-blue-600" />
                         </div>
                         <div>
-                          <div className="text-2xl font-bold text-blue-600">{study.logo}</div>
+                          <div className="text-xl sm:text-2xl font-bold text-blue-600">{study.logo}</div>
                           <div className="text-sm text-gray-600">{study.location}</div>
                         </div>
                       </div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">{study.collegeName}</h3>
-                      <div className="text-2xl font-bold text-green-600 mb-4">{study.keyMetric}</div>
-                      <p className="text-gray-600 mb-6 leading-relaxed">{study.description}</p>
+                      <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">{study.collegeName}</h3>
+                      <div className="text-xl sm:text-2xl font-bold text-green-600 mb-4">{study.keyMetric}</div>
+                      <p className="text-gray-600 mb-6 leading-relaxed text-sm sm:text-base">{study.description}</p>
                       
                       {/* Testimonial */}
                       <div className="bg-blue-50 rounded-lg p-4 border-l-4 border-blue-500">
-                        <p className="text-gray-700 italic mb-3">"{study.quote}"</p>
+                        <p className="text-gray-700 italic mb-3 text-sm sm:text-base">"{study.quote}"</p>
                         <div className="flex items-center">
                           <img 
                             src={study.image} 
@@ -223,10 +200,33 @@ const Testimonials = () => {
                             className="w-10 h-10 rounded-full mr-3"
                           />
                           <div>
-                            <div className="font-semibold text-gray-900">{study.author}</div>
-                            <div className="text-sm text-gray-600">{study.position}</div>
+                            <div className="font-semibold text-gray-900 text-sm sm:text-base">{study.author}</div>
+                            <div className="text-xs sm:text-sm text-gray-600">{study.position}</div>
                           </div>
                         </div>
+                      </div>
+                    </div>
+
+                    {/* Key Improvements - BOTTOM ON MOBILE, LEFT ON DESKTOP */}
+                    <div className="order-2">
+                      <h4 className="font-semibold text-gray-900 mb-4 sm:mb-6 text-lg sm:text-xl">Key Improvements</h4>
+                      <div className="space-y-4 sm:space-y-6">
+                        {study.metrics.map((metric, metricIndex) => (
+                          <div key={metricIndex} className="flex flex-col sm:flex-row sm:items-center gap-3 bg-white p-3 sm:p-4 rounded-lg shadow-sm">
+                            <span className="text-gray-700 font-medium text-sm sm:text-base flex-1">{metric.label}</span>
+                            <div className="flex items-center justify-between sm:justify-end w-full sm:w-auto gap-4">
+                              <div className="text-center">
+                                <div className="text-xs sm:text-sm text-gray-500">Before</div>
+                                <div className="text-base sm:text-lg font-bold text-red-600">{metric.before}</div>
+                              </div>
+                              <div className="text-gray-400 text-lg sm:text-xl">→</div>
+                              <div className="text-center">
+                                <div className="text-xs sm:text-sm text-gray-500">After</div>
+                                <div className="text-base sm:text-lg font-bold text-green-600">{metric.after}</div>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </div>

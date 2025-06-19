@@ -130,12 +130,14 @@ const CriScorecard = () => {
             <Card className="bg-white shadow-2xl">
               <CardContent className="p-12 text-center">
                 {/* Lottie Speedometer */}
-                <div className="w-96 h-48 mx-auto mb-6">
-                  <DotLottieReact
-                    src="https://lottie.host/d12b42c9-dc95-44fe-b161-271dd451c3f3/NQFnfnRf0e.lottie"
-                    loop
-                    autoplay
-                  />
+                <div className="flex justify-center items-center">
+                  <div className="w-full max-w-[384px] aspect-[2/1]">
+                    <DotLottieReact
+                      src="https://lottie.host/d12b42c9-dc95-44fe-b161-271dd451c3f3/NQFnfnRf0e.lottie"
+                      loop
+                      autoplay
+                    />
+                  </div>
                 </div>
                 
                 {/* Counter Text - All inline */}
