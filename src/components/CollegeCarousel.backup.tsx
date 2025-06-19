@@ -15,13 +15,7 @@ const CollegeCarousel = () => {
   ];
 
   return (
-    <div className="relative overflow-hidden">
-      {/* Left fade effect */}
-      <div className="absolute left-0 top-0 w-7 h-full bg-gradient-to-r from-blue-600 to-transparent z-10 pointer-events-none"></div>
-      
-      {/* Right fade effect */}
-      <div className="absolute right-0 top-0 w-7 h-full bg-gradient-to-l from-blue-600 to-transparent z-10 pointer-events-none"></div>
-      
+    <div className="overflow-hidden">
       <motion.div
         className="flex space-x-8"
         animate={{
@@ -39,23 +33,17 @@ const CollegeCarousel = () => {
         {/* Duplicate the array for seamless loop */}
         {[...colleges, ...colleges].map((college, index) => (
           <div key={index} className="flex-shrink-0 w-48">
-            <div className="bg-white rounded-lg p-4 h-36 flex flex-col hover:shadow-lg transition-shadow duration-300">
-              {/* Image section - sticks to top with larger container */}
-              <div className="flex-shrink-0 flex justify-center items-center flex-1 min-h-[80px]">
-                <img 
-                  src={college.logo} 
-                  alt={college.name}
-                  className="max-w-[120px] max-h-[70px] w-auto h-auto object-contain"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.src = "https://images.unsplash.com/photo-1562774053-701939374585?w=100&h=100&fit=crop&crop=center";
-                  }}
-                />
-              </div>
-              {/* Text section - sticks to bottom */}
-              <div className="mt-auto text-center pt-2">
-                <div className="font-semibold text-sm text-gray-800 leading-tight">{college.name}</div>
-              </div>
+            <div className="bg-white/70 backdrop-blur-sm rounded-lg p-6 text-center hover:bg-white/90 transition-colors">
+              <img 
+                src={college.logo} 
+                alt={college.name}
+                className="w-16 h-16 mx-auto mb-4 object-contain"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.src = "https://images.unsplash.com/photo-1562774053-701939374585?w=100&h=100&fit=crop&crop=center";
+                }}
+              />
+              <div className="font-semibold text-sm text-gray-800">{college.name}</div>
             </div>
           </div>
         ))}
@@ -64,4 +52,4 @@ const CollegeCarousel = () => {
   );
 };
 
-export default CollegeCarousel;
+export default CollegeCarousel; 
