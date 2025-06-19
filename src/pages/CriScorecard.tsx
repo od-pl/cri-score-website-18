@@ -77,9 +77,9 @@ const CriScorecard = () => {
     icon: BookOpen,
     color: "text-orange-600",
     bgColor: "bg-orange-50",
-    description: "Communication, Strategy, Leadership",
+    description: "Innovation, Strategy, Leadership",
     subSkills: [{
-      name: "Communication",
+      name: "Innovation",
       score: 8.8
     }, {
       name: "Strategy",
@@ -236,7 +236,7 @@ const CriScorecard = () => {
                   <div>
                     <h3 className="text-2xl font-bold text-gray-900">Priya Sharma</h3>
                     <p className="text-gray-600">Computer Science Engineering</p>
-                    <p className="text-gray-600">JBIMS Mumbai | Final Year</p>
+                    <p className="text-gray-600">KJ Somaiya College of Engineering, Mumbai | Final Year</p>
                   </div>
                   <div className="text-right">
                     <div className="text-3xl font-bold text-green-600">{overallCRI}/10</div>
@@ -259,8 +259,8 @@ const CriScorecard = () => {
                   <h4 className="font-semibold text-gray-900 mb-4">Recommended Actions</h4>
                   <div className="space-y-3">
                     <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                      <h5 className="font-medium text-blue-900">Strengthen Technical Skills</h5>
-                      <p className="text-sm text-blue-700 mt-1">Focus on advanced algorithms and system design</p>
+                      <h5 className="font-medium text-blue-900">Strengthen Literacy Skills</h5>
+                      <p className="text-sm text-blue-700 mt-1">Focus on advanced research and digital literacy skills</p>
                     </div>
                     <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
                       <h5 className="font-medium text-yellow-900">Improve Communication</h5>
