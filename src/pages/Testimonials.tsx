@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Star, Building2, TrendingUp, Users, Award, FileText, Search, Target, BarChart3, RefreshCw } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
@@ -118,14 +117,6 @@ const Testimonials = () => {
     { icon: Award, value: 85, label: "Student Engagement", suffix: "%" }
   ];
 
-  const lifecycleSteps = [
-    { name: "Initial Assessment", icon: FileText, color: "bg-blue-500", angle: 0 },
-    { name: "Gap Analysis", icon: Search, color: "bg-green-500", angle: 72 },
-    { name: "Personalized Up-Skilling", icon: Target, color: "bg-yellow-500", angle: 144 },
-    { name: "Progress Tracking", icon: BarChart3, color: "bg-purple-500", angle: 216 },
-    { name: "CRI Score Update", icon: RefreshCw, color: "bg-red-500", angle: 288 }
-  ];
-
   return (
     <div className="min-h-screen pt-16">
       {/* Hero Section */}
@@ -163,84 +154,6 @@ const Testimonials = () => {
                 </Card>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-      {/* PLAT Assessment Lifecycle - Circular Animation */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              PLAT Assessment Lifecycle
-            </h2>
-            <p className="text-xl text-gray-600">
-              A continuous process of assessment, improvement, and growth
-            </p>
-          </div>
-
-          <div className="flex justify-center">
-            <div className="relative w-96 h-96">
-              {/* Central text */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">PLAT</h3>
-                  <p className="text-lg text-gray-600">ASSESSMENT</p>
-                  <p className="text-lg text-gray-600">LIFECYCLE</p>
-                </div>
-              </div>
-
-              {/* Circular steps */}
-              {lifecycleSteps.map((step, index) => {
-                const Icon = step.icon;
-                const radius = 160;
-                const centerX = 192;
-                const centerY = 192;
-                const x = centerX + radius * Math.cos((step.angle - 90) * Math.PI / 180);
-                const y = centerY + radius * Math.sin((step.angle - 90) * Math.PI / 180);
-
-                return (
-                  <motion.div
-                    key={index}
-                    className="absolute"
-                    style={{
-                      left: x - 40,
-                      top: y - 40,
-                    }}
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: index * 0.2, duration: 0.5 }}
-                    whileHover={{ scale: 1.1 }}
-                  >
-                    <Card className="w-20 h-20 cursor-pointer hover:shadow-lg transition-all duration-300">
-                      <CardContent className="p-2 flex flex-col items-center justify-center h-full">
-                        <div className={`w-8 h-8 ${step.color} rounded-full flex items-center justify-center mb-1`}>
-                          <Icon className="w-4 h-4 text-white" />
-                        </div>
-                      </CardContent>
-                    </Card>
-                    <div className="text-xs text-center mt-2 font-medium text-gray-700 max-w-20">
-                      {step.name}
-                    </div>
-                  </motion.div>
-                );
-              })}
-
-              {/* Connecting lines */}
-              <svg className="absolute inset-0 w-full h-full" style={{ pointerEvents: 'none' }}>
-                <circle
-                  cx="192"
-                  cy="192"
-                  r="160"
-                  fill="none"
-                  stroke="#e5e7eb"
-                  strokeWidth="2"
-                  strokeDasharray="10,5"
-                  className="animate-spin"
-                  style={{ animationDuration: '20s' }}
-                />
-              </svg>
-            </div>
           </div>
         </div>
       </section>
