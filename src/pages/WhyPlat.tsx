@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { TrendingUp, AlertTriangle, Award, ArrowRight, Building2, Users, BookOpen } from "lucide-react";
@@ -7,17 +6,20 @@ import { Link } from "react-router-dom";
 const WhyPlat = () => {
   const problems = [{
     title: "Marksheets ≠ Skills",
-    description: "Despite strong academic scores, 78% of young professionals struggle with real-world workplace demands (Skill Financing Report 2023 – Financial Express).",
+    description: "Despite strong academic scores, 78% of young professionals struggle with real-world workplace demands.",
+    citation: "Skill Financing Report 2023 – Financial Express",
     icon: AlertTriangle,
     color: "text-red-600"
   }, {
     title: "Employer Trust Gap",
-    description: "Nearly half of all employers say most graduates lack the skills they expect—even if their marks look good on paper (India Skills Report 2024 – Wheebox, AICTE, CII).",
+    description: "Nearly half of all employers say most graduates lack the skills they expect—even if their marks look good on paper.",
+    citation: "India Skills Report 2024 – Wheebox, AICTE, CII",
     icon: Users,
     color: "text-orange-600"
   }, {
     title: "Hidden Skill Gaps",
-    description: "65% of students graduate without a clear understanding of their own strengths and areas that need improvement (Ministry of Skill Development & Entrepreneurship, 2023).",
+    description: "65% of students graduate without a clear understanding of their own strengths and areas that need improvement.",
+    citation: "Ministry of Skill Development & Entrepreneurship, 2023",
     icon: BookOpen,
     color: "text-yellow-600"
   }];
@@ -130,7 +132,10 @@ const WhyPlat = () => {
                       <Icon className={`w-6 h-6 lg:w-8 lg:h-8 ${problem.color}`} />
                     </div>
                     <h3 className="text-lg lg:text-xl font-bold text-gray-900 mb-4">{problem.title}</h3>
-                    <p className="text-gray-600 leading-relaxed text-sm lg:text-base">{problem.description}</p>
+                    <p className="text-gray-600 leading-relaxed text-sm lg:text-base mb-4">{problem.description}</p>
+                    <div className="text-xs text-gray-500 italic border-t border-gray-200 pt-3">
+                      Source: {problem.citation}
+                    </div>
                   </CardContent>
                 </Card>
               );
