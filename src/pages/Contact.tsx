@@ -55,7 +55,7 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Address",
-      details: ["Offee - Orage Digital Pvt Ltd", "B-601, Keshav Shristi Complex,", "Lal Bahadur Shastri Road,", "Mumbai, Maharashtra 400078"],
+      details: ["Offee - Orage Digital Pvt Ltd", "306, Bhairav Milestone,", "Above Hotel Tribe, Road 16U,", "Wagle Industrial Estate,", "Thane, Maharashtra 400604"],
       availability: "Visit by appointment"
     },
     {
