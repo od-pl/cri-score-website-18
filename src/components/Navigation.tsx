@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, FileText } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import ReportViewModal from "@/components/ReportViewModal";
 
 const Navigation = () => {
@@ -60,7 +60,6 @@ const Navigation = () => {
                 className="border-gray-300 text-gray-700 hover:bg-gray-50 font-medium text-sm px-4"
                 onClick={() => setShowReportModal(true)}
               >
-                <FileText className="w-4 h-4 mr-2" />
                 View Report
               </Button>
               <Link to="/contact#send-message">
@@ -110,7 +109,6 @@ const Navigation = () => {
                       setIsOpen(false);
                     }}
                   >
-                    <FileText className="w-4 h-4 mr-2" />
                     View Report
                   </Button>
                   <Link to="/contact#send-message" className="w-full" onClick={() => setIsOpen(false)}>
