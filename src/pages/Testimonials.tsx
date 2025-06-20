@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Star, Building2, TrendingUp, Users, Award, FileText, Search, Target, BarChart3, RefreshCw } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Testimonials = () => {
   const caseStudies = [
@@ -327,9 +328,11 @@ const Testimonials = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-6 rounded-lg font-semibold transition-colors hover:scale-105 transform duration-200">
-              Start Your Transformation
-            </button>
+            <Link to="/contact#send-message">
+              <button className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-6 rounded-lg font-semibold transition-colors hover:scale-105 transform duration-200">
+                Start Your Transformation
+              </button>
+            </Link>
           </div>
         </div>
       </section>

@@ -199,7 +199,7 @@ const WhyPlat = () => {
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 lg:p-6">
                   <div className="text-2xl lg:text-3xl font-bold text-yellow-300">+2.3</div>
-                  <div className="text-green-100 text-sm lg:text-base">NAAC Score Improvement</div>
+                  <div className="text-green-100 text-sm lg:text-base">NAAC Grade Improvement</div>
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 lg:p-6">
                   <div className="text-2xl lg:text-3xl font-bold text-yellow-300">85%</div>

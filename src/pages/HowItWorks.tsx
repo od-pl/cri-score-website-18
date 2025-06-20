@@ -288,7 +288,7 @@ const HowItWorks = () => {
               <TabsTrigger value="tp">T&P Officer</TabsTrigger>
               <TabsTrigger value="student">Student</TabsTrigger>
             </TabsList>
-            
+
             {dashboards.map((dashboard, index) => {
               const Icon = dashboard.icon;
               const tabValue = index === 0 ? 'vc' : index === 1 ? 'hod' : index === 2 ? 'tp' : 'student';
@@ -310,8 +310,8 @@ const HowItWorks = () => {
                           <p className="text-gray-600">{dashboard.description}</p>
                         </div>
                       </div>
-                      
-                      <div className="grid md:grid-cols-2 gap-8">
+
+                      <div className="grid md:grid-cols-2 gap-8 items-center">
                         <div>
                           <h4 className="font-semibold text-gray-900 mb-4">Key Features</h4>
                           <ul className="space-y-2">
