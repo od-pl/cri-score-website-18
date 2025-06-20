@@ -75,7 +75,7 @@ const Navigation = () => {
               <Button
                 variant="ghost"
                 size="sm"
-                onClick={() => setIs Open(!isOpen)}
+                onClick={() => setIsOpen(!isOpen)}
                 className="p-2"
               >
                 {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
