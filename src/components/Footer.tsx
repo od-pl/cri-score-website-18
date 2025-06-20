@@ -1,5 +1,6 @@
+
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Linkedin, Twitter, Globe } from "lucide-react";
+import { Mail, MapPin, Globe } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -12,11 +13,6 @@ const Footer = () => {
             <p className="text-slate-300 text-sm">
               AI-powered analytics to uncover hidden skill gaps and boost placement rates for colleges and students.
             </p>
-            {/* <div className="flex space-x-4">
-              <Linkedin className="w-5 h-5 text-slate-400 hover:text-white cursor-pointer transition-colors" />
-              <Twitter className="w-5 h-5 text-slate-400 hover:text-white cursor-pointer transition-colors" />
-              <Globe className="w-5 h-5 text-slate-400 hover:text-white cursor-pointer transition-colors" />
-            </div> */}
           </div>
 
           {/* Product Links */}
@@ -46,7 +42,7 @@ const Footer = () => {
             <h3 className="font-semibold mb-4">Contact</h3>
             <ul className="space-y-2 text-sm">
               <li className="flex items-center space-x-2">
-                <Mail className="w-4 h-4" />
+                <Mail className="w-4 h-4 text-slate-400" />
                 <a 
                   href="mailto:support@platskills.com" 
                   className="text-slate-300 hover:text-white transition-colors"
@@ -54,12 +50,8 @@ const Footer = () => {
                   support@platskills.com
                 </a>
               </li>
-              {/* <li className="flex items-center space-x-2">
-                <Phone className="w-4 h-4" />
-                <span className="text-slate-300">+91 98765 43210</span>
-              </li> */}
               <li className="flex items-center space-x-2">
-                <MapPin className="w-4 h-4" />
+                <MapPin className="w-4 h-4 text-slate-400" />
                 <span className="text-slate-300">Mumbai, India</span>
               </li>
             </ul>
@@ -70,9 +62,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-slate-400 text-sm">© 2025 Orage Digital Pvt. Ltd. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              
-              
-              
+              {/* Additional links can be added here if needed */}
             </div>
           </div>
         </div>

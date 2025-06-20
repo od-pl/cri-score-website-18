@@ -1,6 +1,7 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Download, Calendar, X } from "lucide-react";
+import { FileText, Calendar, X } from "lucide-react";
 import ReportViewModal from "@/components/ReportViewModal";
 
 const FloatingCTA = () => {
@@ -40,7 +41,7 @@ const FloatingCTA = () => {
             size="sm"
             onClick={() => setShowReportModal(true)}
           >
-            <Download className="w-4 h-4 mr-1" />
+            <FileText className="w-4 h-4 mr-1" />
             Report
           </Button>
         </div>
