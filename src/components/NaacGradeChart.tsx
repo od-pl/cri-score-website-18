@@ -37,11 +37,8 @@ const NaacGradeChart = () => {
             <div className="relative">
               <Progress 
                 value={beforePercentage} 
-                className="h-4 bg-gray-200"
+                className="h-4 bg-gray-200 [&>div]:bg-red-500"
               />
-              <style jsx>{`
-                .bg-primary { background-color: #ef4444 !important; }
-              `}</style>
             </div>
           </div>
 
@@ -58,7 +55,7 @@ const NaacGradeChart = () => {
             <div className="relative">
               <Progress 
                 value={afterPercentage} 
-                className="h-4 bg-gray-200"
+                className="h-4 bg-gray-200 [&>div]:bg-green-500"
               />
             </div>
           </div>
