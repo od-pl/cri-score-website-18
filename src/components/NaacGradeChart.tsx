@@ -1,15 +1,9 @@
 
-import { Progress } from "@/components/ui/progress";
 import { Card, CardContent } from "@/components/ui/card";
 
 const NaacGradeChart = () => {
-  const beforeGrade = 2.8;
-  const afterGrade = 4.1;
-  const maxGrade = 5.0;
-
-  // Calculate percentages for progress bars
-  const beforePercentage = (beforeGrade / maxGrade) * 100;
-  const afterPercentage = (afterGrade / maxGrade) * 100;
+  const beforeGrade = "B+";
+  const afterGrade = "A+";
 
   return (
     <Card className="bg-gradient-to-br from-blue-50 to-indigo-50 border-none shadow-lg">
@@ -19,65 +13,39 @@ const NaacGradeChart = () => {
             NAAC Grade Improvement
           </h3>
           <p className="text-gray-600">
-            Real impact on institutional accreditation scores
+            Real impact on institution's accreditation score
           </p>
         </div>
 
-        <div className="space-y-8">
-          {/* Before PLAT */}
-          <div className="space-y-3">
-            <div className="flex justify-between items-center">
-              <span className="text-lg font-semibold text-gray-700">
-                Before PLAT
-              </span>
-              <span className="text-2xl font-bold text-red-600">
-                {beforeGrade}
-              </span>
+        <div className="flex justify-center items-end space-x-12 mb-6">
+          {/* Before Bar */}
+          <div className="flex flex-col items-center">
+            <div className="relative flex flex-col justify-end items-center">
+              <div className="w-20 h-32 bg-gray-300 rounded-t-lg flex items-center justify-center mb-4">
+                <span className="text-xl font-bold text-white">{beforeGrade}</span>
+              </div>
             </div>
-            <div className="relative">
-              <Progress 
-                value={beforePercentage} 
-                className="h-4 bg-gray-200 [&>div]:bg-red-500"
-              />
-            </div>
+            <span className="text-lg font-semibold text-gray-700 mt-2">Before</span>
           </div>
 
-          {/* After PLAT */}
-          <div className="space-y-3">
-            <div className="flex justify-between items-center">
-              <span className="text-lg font-semibold text-gray-700">
-                After PLAT
-              </span>
-              <span className="text-2xl font-bold text-green-600">
-                {afterGrade}
-              </span>
+          {/* After Bar */}
+          <div className="flex flex-col items-center">
+            <div className="relative flex flex-col justify-end items-center">
+              <div className="w-20 h-48 bg-green-600 rounded-t-lg flex items-center justify-center mb-4">
+                <span className="text-xl font-bold text-white">{afterGrade}</span>
+              </div>
             </div>
-            <div className="relative">
-              <Progress 
-                value={afterPercentage} 
-                className="h-4 bg-gray-200 [&>div]:bg-green-500"
-              />
-            </div>
-          </div>
-
-          {/* Improvement indicator */}
-          <div className="text-center pt-4 border-t border-gray-200">
-            <div className="inline-flex items-center space-x-2">
-              <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-              <span className="text-lg font-semibold text-green-600">
-                +{(afterGrade - beforeGrade).toFixed(1)} Grade Improvement
-              </span>
-            </div>
+            <span className="text-lg font-semibold text-gray-700 mt-2">After</span>
           </div>
         </div>
 
-        {/* Grade scale reference */}
-        <div className="mt-6 pt-4 border-t border-gray-200">
-          <div className="flex justify-between text-sm text-gray-500">
-            <span>Poor (0.0)</span>
-            <span>Average (2.5)</span>
-            <span>Good (3.5)</span>
-            <span>Excellent (5.0)</span>
+        {/* Improvement indicator */}
+        <div className="text-center pt-4 border-t border-gray-200">
+          <div className="inline-flex items-center space-x-2">
+            <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+            <span className="text-lg font-semibold text-green-600">
+              Significant Grade Improvement
+            </span>
           </div>
         </div>
       </CardContent>
