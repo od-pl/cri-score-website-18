@@ -3,7 +3,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { TrendingUp, AlertTriangle, Award, ArrowRight, Building2, Users, BookOpen } from "lucide-react";
 import { Link } from "react-router-dom";
 import NaacGradeChart from "@/components/NaacGradeChart";
-
 const WhyPlat = () => {
   const problems = [{
     title: "Marksheets ≠ Skills",
@@ -24,7 +23,6 @@ const WhyPlat = () => {
     icon: BookOpen,
     color: "text-yellow-600"
   }];
-
   const regulations = [{
     year: "2020",
     title: "NEP 2020",
@@ -41,9 +39,7 @@ const WhyPlat = () => {
     description: "Colleges must demonstrate measurable student outcomes",
     logo: "📊"
   }];
-
-  return (
-    <div className="min-h-screen pt-16">
+  return <div className="min-h-screen pt-16">
       {/* Hero Section */}
       <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -125,9 +121,8 @@ const WhyPlat = () => {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {problems.map((problem, index) => {
-              const Icon = problem.icon;
-              return (
-                <Card key={index} className="hover:shadow-lg transition-all duration-300">
+            const Icon = problem.icon;
+            return <Card key={index} className="hover:shadow-lg transition-all duration-300">
                   <CardContent className="p-6 lg:p-8">
                     <div className={`w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-gray-100 flex items-center justify-center mb-6`}>
                       <Icon className={`w-6 h-6 lg:w-8 lg:h-8 ${problem.color}`} />
@@ -138,9 +133,8 @@ const WhyPlat = () => {
                       Source: {problem.citation}
                     </div>
                   </CardContent>
-                </Card>
-              );
-            })}
+                </Card>;
+          })}
           </div>
         </div>
       </section>
@@ -161,8 +155,7 @@ const WhyPlat = () => {
             <div className="absolute left-4 lg:left-1/2 lg:transform lg:-translate-x-px h-full w-0.5 bg-blue-300"></div>
             
             <div className="space-y-6 lg:space-y-8">
-              {regulations.map((reg, index) => (
-                <div key={index} className={`flex items-center ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
+              {regulations.map((reg, index) => <div key={index} className={`flex items-center ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
                   <div className={`flex-1 ${index % 2 === 0 ? 'lg:pr-8' : 'lg:pl-8'} pl-10 lg:pl-0`}>
                     <Card className="bg-white shadow-lg">
                       <CardContent className="p-6">
@@ -183,8 +176,7 @@ const WhyPlat = () => {
                   </div>
                   
                   <div className="flex-1 hidden lg:block"></div>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
         </div>
@@ -217,10 +209,7 @@ const WhyPlat = () => {
                 </div>
               </div>
               
-              <Button className="w-full sm:w-auto bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-3">
-                See How CRI Helps
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
+              
             </div>
             
             <div className="mt-8 lg:mt-0">
@@ -246,8 +235,6 @@ const WhyPlat = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default WhyPlat;
