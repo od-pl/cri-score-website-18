@@ -309,25 +309,25 @@ const Index = () => {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-16 lg:py-20 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 text-white">
+      <section className="py-16 lg:py-20 bg-gradient-to-r from-green-400 via-emerald-500 to-teal-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold mb-6 text-gray-900">
             Ready to Boost Your College's Placement Rate?
           </h2>
-          <p className="text-lg sm:text-xl text-blue-100 mb-8 leading-relaxed">
+          <p className="text-lg sm:text-xl text-gray-800 mb-8 leading-relaxed">
             Join leading colleges already using PLAT to improve NAAC outcomes and student success
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact#send-message">
-              <Button className="w-full sm:w-auto bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-6 h-auto font-semibold">
+              <Button className="w-full sm:w-auto bg-white text-green-600 hover:bg-gray-100 text-lg px-8 py-6 h-auto font-semibold">
                 Reach out to us
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </Link>
           </div>
 
-          <div className="mt-8 text-blue-200 text-sm">
+          <div className="mt-8 text-gray-700 text-sm">
             ✓ Try our Pilot Program ✓ Analyse reports ✓ Full support included
           </div>
         </div>
