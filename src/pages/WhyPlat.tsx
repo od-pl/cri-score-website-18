@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { TrendingUp, AlertTriangle, Award, ArrowRight, Building2, Users, BookOpen } from "lucide-react";
 import { Link } from "react-router-dom";
+import NaacGradeChart from "@/components/NaacGradeChart";
 
 const WhyPlat = () => {
   const problems = [{
@@ -189,7 +190,7 @@ const WhyPlat = () => {
         </div>
       </section>
 
-      {/* Early Mover Advantage */}
+      {/* Early Mover Advantage with NAAC Chart */}
       <section className="py-12 lg:py-16 bg-gradient-to-r from-green-600 to-blue-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -222,28 +223,8 @@ const WhyPlat = () => {
               </Button>
             </div>
             
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 lg:p-8 mt-8 lg:mt-0">
-              <h3 className="text-xl lg:text-2xl font-bold mb-6">NAAC Grade Improvement</h3>
-              <div className="space-y-4">
-                <div className="flex justify-between items-center">
-                  <span className="text-sm lg:text-base">Before PLAT</span>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-24 lg:w-32 bg-white/20 rounded-full h-3">
-                      <div className="bg-red-400 h-3 rounded-full w-3/5"></div>
-                    </div>
-                    <span className="font-bold">2.8</span>
-                  </div>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-sm lg:text-base">After PLAT</span>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-24 lg:w-32 bg-white/20 rounded-full h-3">
-                      <div className="bg-green-400 h-3 rounded-full w-5/6"></div>
-                    </div>
-                    <span className="font-bold">4.1</span>
-                  </div>
-                </div>
-              </div>
+            <div className="mt-8 lg:mt-0">
+              <NaacGradeChart />
             </div>
           </div>
         </div>
