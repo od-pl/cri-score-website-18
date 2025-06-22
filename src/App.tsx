@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -28,21 +29,23 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
-        <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+        <div className="min-h-screen w-full bg-gradient-to-br from-slate-50 to-blue-50">
           <Navigation />
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/why-plat" element={<WhyPlat />} />
-            <Route path="/how-it-works" element={<HowItWorks />} />
-            <Route path="/cri-scorecard" element={<CriScorecard />} />
-            <Route path="/cif-framework" element={<CifFramework />} />
-            <Route path="/testimonials" element={<Testimonials />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/legal" element={<Legal />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <main className="w-full">
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/why-plat" element={<WhyPlat />} />
+              <Route path="/how-it-works" element={<HowItWorks />} />
+              <Route path="/cri-scorecard" element={<CriScorecard />} />
+              <Route path="/cif-framework" element={<CifFramework />} />
+              <Route path="/testimonials" element={<Testimonials />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/legal" element={<Legal />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
           <FloatingCTA />
           <Footer />
         </div>
