@@ -1,9 +1,8 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { Brain, MessageCircle, Zap, Target, RotateCcw, Shield, Cloud, Server, ArrowRight, Eye, Users, BarChart3, User, Book, Lightbulb, TrendingUp, RefreshCw, Globe, Lock, FileText, Search } from "lucide-react";
+import { Brain, MessageCircle, Zap, Target, RotateCcw, Shield, Cloud, Server, ArrowRight, Eye, Users, BarChart3, User, Book, Lightbulb, TrendingUp, RefreshCw, Globe, Lock, FileText, Search, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -79,6 +78,33 @@ const HowItWorks = () => {
     }
   ];
 
+  const processSteps = [
+    {
+      title: "Test",
+      description: "Comprehensive skill assessment",
+      icon: FileText,
+      color: "bg-blue-500"
+    },
+    {
+      title: "Micro Tasks",
+      description: "Targeted skill building",
+      icon: Target,
+      color: "bg-orange-500"
+    },
+    {
+      title: "Skill Improvement",
+      description: "Measurable progress",
+      icon: TrendingUp,
+      color: "bg-green-500"
+    },
+    {
+      title: "CRI Score",
+      description: "Career Readiness Index",
+      icon: BarChart3,
+      color: "bg-purple-500"
+    }
+  ];
+
   const dashboards = [
     {
       role: "Vice Chancellor",
@@ -142,8 +168,86 @@ const HowItWorks = () => {
           </div>
         </section>
 
-        {/* 3-Level Skill Assessment - Staircase */}
+        {/* Process Flow Section */}
         <section className="py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                Simple 4-Step Process
+              </h2>
+              <p className="text-xl text-gray-600">
+                From Assessment to Career Readiness
+              </p>
+            </div>
+
+            {/* Desktop Process Flow */}
+            <div className="hidden md:flex items-center justify-between mb-16">
+              {processSteps.map((step, index) => {
+                const Icon = step.icon;
+                return (
+                  <div key={index} className="flex items-center">
+                    <div className="flex flex-col items-center">
+                      <Card className="w-48 h-40 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-white border-2 border-gray-100">
+                        <CardContent className="p-6 flex flex-col items-center justify-center h-full text-center">
+                          <div className={`w-16 h-16 rounded-full ${step.color} flex items-center justify-center mb-4`}>
+                            <Icon className="w-8 h-8 text-white" />
+                          </div>
+                          <h3 className="text-lg font-bold text-gray-900 mb-2">{step.title}</h3>
+                          <p className="text-sm text-gray-600">{step.description}</p>
+                        </CardContent>
+                      </Card>
+                    </div>
+                    
+                    {/* Improved Arrow */}
+                    {index < processSteps.length - 1 && (
+                      <div className="flex items-center mx-6">
+                        <div className="w-12 h-0.5 bg-gradient-to-r from-blue-400 to-blue-600"></div>
+                        <div className="relative">
+                          <ChevronRight className="w-6 h-6 text-blue-600 bg-white rounded-full border-2 border-blue-600 p-1" />
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Mobile Process Flow */}
+            <div className="md:hidden space-y-6">
+              {processSteps.map((step, index) => {
+                const Icon = step.icon;
+                return (
+                  <div key={index} className="relative">
+                    <Card className="bg-white border-2 border-gray-100">
+                      <CardContent className="p-6 flex items-center">
+                        <div className={`w-12 h-12 rounded-full ${step.color} flex items-center justify-center mr-4 flex-shrink-0`}>
+                          <Icon className="w-6 h-6 text-white" />
+                        </div>
+                        <div>
+                          <h3 className="text-lg font-bold text-gray-900 mb-1">{step.title}</h3>
+                          <p className="text-sm text-gray-600">{step.description}</p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                    
+                    {/* Mobile Arrow */}
+                    {index < processSteps.length - 1 && (
+                      <div className="flex justify-center my-4">
+                        <div className="flex flex-col items-center">
+                          <div className="w-0.5 h-6 bg-gradient-to-b from-blue-400 to-blue-600"></div>
+                          <ChevronRight className="w-6 h-6 text-blue-600 bg-white rounded-full border-2 border-blue-600 p-1 rotate-90" />
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* 3-Level Skill Assessment - Staircase */}
+        <section className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
