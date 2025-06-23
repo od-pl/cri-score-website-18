@@ -6,6 +6,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { MapPin, Phone, Mail, Clock, Send, Calendar, Users, Building2, BookOpen } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
+import { gatherTrackingData, fetchLocationData } from "@/utils/trackingUtils";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -17,22 +19,86 @@ const Contact = () => {
     enquiryType: "",
     message: ""
   });
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for your interest. Our team will contact you within 24 hours.",
-    });
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      organization: "",
-      role: "",
-      enquiryType: "",
-      message: ""
-    });
+    setIsSubmitting(true);
+
+    try {
+      // Gather tracking data
+      const trackingData = gatherTrackingData();
+      const locationData = await fetchLocationData();
+      
+      // Determine if this is a high intent enquiry
+      const isHighIntent = ['demo', 'pricing'].includes(formData.enquiryType.toLowerCase());
+      
+      // Prepare tags based on enquiry type and high intent
+      const tags = [];
+      if (isHighIntent) tags.push('HighIntent');
+      if (formData.enquiryType) tags.push(formData.enquiryType);
+      
+      // Insert into Supabase
+      const { error } = await supabase
+        .from('enquiries')
+        .insert({
+          full_name: formData.name,
+          email: formData.email,
+          phone_number: formData.phone || null,
+          role: formData.role || null,
+          organization: formData.organization,
+          enquiry_type: formData.enquiryType || null,
+          message: formData.message || null,
+          source_page: trackingData.source_page,
+          campaign_id: trackingData.campaign_id || null,
+          utm_source: trackingData.utm_source || null,
+          utm_medium: trackingData.utm_medium || null,
+          utm_campaign: trackingData.utm_campaign || null,
+          referrer_url: trackingData.referrer_url || null,
+          user_agent: trackingData.user_agent,
+          device_type: trackingData.device_type,
+          browser: trackingData.browser,
+          ip_address: locationData.ip_address || null,
+          location_city: locationData.location_city || null,
+          location_country: locationData.location_country || null,
+          clarity_session_id: trackingData.clarity_session_id || null,
+          is_high_intent: isHighIntent,
+          source_type: trackingData.source_type,
+          tags: tags.length > 0 ? tags : null,
+        });
+
+      if (error) {
+        console.error('Supabase error:', error);
+        throw error;
+      }
+
+      toast({
+        title: "Message Sent!",
+        description: "Thank you for your interest. Our team will contact you within 24 hours.",
+      });
+      
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        organization: "",
+        role: "",
+        enquiryType: "",
+        message: ""
+      });
+      
+    } catch (error) {
+      console.error('Form submission error:', error);
+      toast({
+        title: "Error",
+        description: "There was an issue submitting your form. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (field: string, value: string) => {
@@ -40,12 +106,6 @@ const Contact = () => {
   };
 
   const contactInfo = [
-    // {
-    //   icon: Phone,
-    //   title: "Phone",
-    //   details: ["+91 98765 43210", "+91 98765 43211"],
-    //   availability: "Mon-Fri, 9 AM - 6 PM"
-    // },
     {
       icon: Mail,
       title: "Email",
@@ -124,6 +184,7 @@ const Contact = () => {
                           onChange={(e) => handleInputChange('name', e.target.value)}
                           placeholder="Your full name"
                           required
+                          disabled={isSubmitting}
                         />
                       </div>
                       <div>
@@ -136,6 +197,7 @@ const Contact = () => {
                           onChange={(e) => handleInputChange('email', e.target.value)}
                           placeholder="your.email@college.edu"
                           required
+                          disabled={isSubmitting}
                         />
                       </div>
                     </div>
@@ -149,13 +211,18 @@ const Contact = () => {
                           value={formData.phone}
                           onChange={(e) => handleInputChange('phone', e.target.value)}
                           placeholder="+91 98765 43210"
+                          disabled={isSubmitting}
                         />
                       </div>
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
                           Your Role
                         </label>
-                        <Select value={formData.role} onValueChange={(value) => handleInputChange('role', value)}>
+                        <Select 
+                          value={formData.role} 
+                          onValueChange={(value) => handleInputChange('role', value)}
+                          disabled={isSubmitting}
+                        >
                           <SelectTrigger>
                             <SelectValue placeholder="Select your role" />
                           </SelectTrigger>
@@ -179,6 +246,7 @@ const Contact = () => {
                         onChange={(e) => handleInputChange('organization', e.target.value)}
                         placeholder="Your college or institution name"
                         required
+                        disabled={isSubmitting}
                       />
                     </div>
 
@@ -186,7 +254,11 @@ const Contact = () => {
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         Enquiry Type
                       </label>
-                      <Select value={formData.enquiryType} onValueChange={(value) => handleInputChange('enquiryType', value)}>
+                      <Select 
+                        value={formData.enquiryType} 
+                        onValueChange={(value) => handleInputChange('enquiryType', value)}
+                        disabled={isSubmitting}
+                      >
                         <SelectTrigger>
                           <SelectValue placeholder="Select enquiry type" />
                         </SelectTrigger>
@@ -212,12 +284,17 @@ const Contact = () => {
                         onChange={(e) => handleInputChange('message', e.target.value)}
                         placeholder="Tell us more about your requirements, number of students, current challenges, etc."
                         rows={5}
+                        disabled={isSubmitting}
                       />
                     </div>
 
-                    <Button type="submit" className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+                    <Button 
+                      type="submit" 
+                      className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+                      disabled={isSubmitting}
+                    >
                       <Send className="w-4 h-4 mr-2" />
-                      Send Message
+                      {isSubmitting ? 'Sending...' : 'Send Message'}
                     </Button>
                   </form>
                 </CardContent>
@@ -279,14 +356,6 @@ const Contact = () => {
                       <div className="text-sm text-gray-600">Get detailed information packet</div>
                     </div>
                   </Button>
-                  
-                  {/* <Button variant="outline" className="justify-start h-auto p-4">
-                    <Users className="w-5 h-5 mr-3" />
-                    <div className="text-left">
-                      <div className="font-medium">Join Webinar</div>
-                      <div className="text-sm text-gray-600">Attend our next live session</div>
-                    </div>
-                  </Button> */}
                 </div>
               </div>
             </div>
