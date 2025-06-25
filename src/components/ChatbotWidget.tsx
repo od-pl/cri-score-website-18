@@ -1,8 +1,11 @@
+
 import { useState } from "react";
 import { MessageCircle, X, Send, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import ReportViewModal from "./ReportViewModal";
+import PlatReportModal from "./PlatReportModal";
 
 interface Message {
   id: string;
@@ -17,9 +20,11 @@ const ChatbotWidget = () => {
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [error, setError] = useState("");
+  const [isPlatReportModalOpen, setIsPlatReportModalOpen] = useState(false);
+  const [isReportViewModalOpen, setIsReportViewModalOpen] = useState(false);
 
-  const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
-  const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${GEMINI_API_KEY}`;
+  const GEMINI_API_KEY = 'AIzaSyDi86gmWYmteG9pdnRxedfbqjcBLtICC8g';
+  const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
 
   // Updated PLAT marketing knowledge base
   const knowledgeBase = `
@@ -83,10 +88,16 @@ const ChatbotWidget = () => {
       setIsTyping(false);
       setMessages(prev => [...prev, {
         id: Date.now().toString(),
-        text: `Here's a link to view a sample PLAT report: <a href="#" class="text-blue-600 underline">View Report</a>`,
+        text: `Here's a link to view a sample PLAT report: <button class="text-blue-600 underline bg-transparent border-none cursor-pointer" onclick="window.openReportModal()">View Report</button>`,
         type: 'bot',
         timestamp: new Date()
       }]);
+      
+      // Add global function to open report modal
+      (window as any).openReportModal = () => {
+        setIsPlatReportModalOpen(true);
+      };
+      
       return;
     }
 
@@ -125,13 +136,13 @@ const ChatbotWidget = () => {
       {!isOpen && (
         <Button
           onClick={openChat}
-          className="fixed bottom-6 left-6 w-14 h-14 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 shadow-lg z-50 p-0"
+          className="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 shadow-lg z-50 p-0"
         >
           <MessageCircle className="w-6 h-6 text-white" />
         </Button>
       )}
       {isOpen && (
-        <Card className="fixed bottom-6 left-6 w-96 h-[600px] shadow-2xl z-50 flex flex-col">
+        <Card className="fixed bottom-6 right-6 w-96 h-[600px] shadow-2xl z-50 flex flex-col animate-slide-in-right">
           <CardHeader className="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-4 rounded-t-lg flex justify-between">
             <div>
               <h3 className="text-lg font-semibold">🌟 Nisha</h3>
@@ -173,6 +184,17 @@ const ChatbotWidget = () => {
           </CardContent>
         </Card>
       )}
+
+      <PlatReportModal 
+        isOpen={isPlatReportModalOpen} 
+        onClose={() => setIsPlatReportModalOpen(false)}
+        onViewReport={() => setIsReportViewModalOpen(true)}
+      />
+      
+      <ReportViewModal 
+        isOpen={isReportViewModalOpen} 
+        onClose={() => setIsReportViewModalOpen(false)}
+      />
     </>
   );
 };
