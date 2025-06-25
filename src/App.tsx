@@ -19,6 +19,7 @@ import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import FloatingCTA from "./components/FloatingCTA";
 import ScrollToTop from "./components/ScrollToTop";
+import ChatbotWidget from "./components/ChatbotWidget";
 
 const queryClient = new QueryClient();
 
@@ -47,6 +48,7 @@ const App = () => (
             </Routes>
           </main>
           <FloatingCTA />
+          <ChatbotWidget />
           <Footer />
         </div>
       </BrowserRouter>

@@ -22,6 +22,7 @@ export type Database = {
           ip_address: string | null
           is_client_account_created: boolean | null
           is_high_intent: boolean | null
+          landing_page: string | null
           lead_score: number | null
           location_city: string | null
           location_country: string | null
@@ -34,6 +35,7 @@ export type Database = {
           source_type: string | null
           submitted_at: string
           tags: string[] | null
+          url: string | null
           user_agent: string | null
           utm_campaign: string | null
           utm_medium: string | null
@@ -51,6 +53,7 @@ export type Database = {
           ip_address?: string | null
           is_client_account_created?: boolean | null
           is_high_intent?: boolean | null
+          landing_page?: string | null
           lead_score?: number | null
           location_city?: string | null
           location_country?: string | null
@@ -63,6 +66,7 @@ export type Database = {
           source_type?: string | null
           submitted_at?: string
           tags?: string[] | null
+          url?: string | null
           user_agent?: string | null
           utm_campaign?: string | null
           utm_medium?: string | null
@@ -80,6 +84,7 @@ export type Database = {
           ip_address?: string | null
           is_client_account_created?: boolean | null
           is_high_intent?: boolean | null
+          landing_page?: string | null
           lead_score?: number | null
           location_city?: string | null
           location_country?: string | null
@@ -92,6 +97,7 @@ export type Database = {
           source_type?: string | null
           submitted_at?: string
           tags?: string[] | null
+          url?: string | null
           user_agent?: string | null
           utm_campaign?: string | null
           utm_medium?: string | null
