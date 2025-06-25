@@ -18,8 +18,8 @@ const ChatbotWidget = () => {
   const [isTyping, setIsTyping] = useState(false);
   const [error, setError] = useState("");
 
-  const GEMINI_API_KEY = 'AIzaSyDi86gmWYmteG9pdnRxedfbqjcBLtICC8g';
-  const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
+  const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
+  const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${GEMINI_API_KEY}`;
 
   // Updated PLAT marketing knowledge base
   const knowledgeBase = `
