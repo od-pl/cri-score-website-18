@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
@@ -44,7 +43,7 @@ const CriScorecard = () => {
     {
       name: "Adaptive",
       score: 8.7,
-      institution_wideIcon: Zap,
+      icon: Zap,
       color: "text-purple-600",
       bgColor: "bg-purple-50",
       description: "Creativity, Growth perspective, Learning Agility",
