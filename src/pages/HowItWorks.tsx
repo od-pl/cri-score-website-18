@@ -1,8 +1,9 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { Brain, MessageCircle, Zap, Target, RotateCcw, Shield, Cloud, Server, ArrowRight, Eye, Users, BarChart3, User, Book, Lightbulb, TrendingUp, RefreshCw, Globe, Lock, FileText, Search, ChevronRight } from "lucide-react";
+import { Brain, MessageCircle, Zap, Target, RotateCcw, Shield, Cloud, Server, ArrowRight, Eye, Users, BarChart3, User, Book, Lightbulb, TrendingUp, RefreshCw, Globe, Lock, FileText, Search, ChevronRight, Calendar, AlertTriangle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -46,35 +47,35 @@ const HowItWorks = () => {
       icon: FileText, 
       color: "bg-blue-500", 
       angle: 0,
-      description: "Comprehensive skill testing across all CIF dimensions"
+      description: "Risk heat-map in 24 h"
     },
     { 
       name: "Gap Analysis", 
       icon: Search, 
       color: "bg-green-500", 
       angle: 72,
-      description: "AI identifies specific areas needing improvement"
+      description: "Auto-generated for every student"
     },
     { 
-      name: "Personalized Up-Skilling", 
+      name: "Personal Up-Skilling", 
       icon: Target, 
       color: "bg-yellow-500", 
       angle: 144,
-      description: "Micro-tasks and exercises targeting weak areas"
+      description: "10-min/day tasks in LMS"
     },
     { 
       name: "Progress Tracking", 
       icon: BarChart3, 
       color: "bg-purple-500", 
       angle: 216,
-      description: "Smart dashboards that turn data into direction for every student"
+      description: "CRI jumps visibly next semester"
     },
     { 
       name: "CRI Score Update", 
       icon: RefreshCw, 
       color: "bg-red-500", 
       angle: 288,
-      description: "Updated Career Readiness Index reflecting growth"
+      description: "Shareable certificate, recruiter API"
     }
   ];
 
@@ -107,28 +108,70 @@ const HowItWorks = () => {
 
   const dashboards = [
     {
-      role: "Vice Chancellor",
+      role: "VICE-CHANCELLOR",
       icon: Eye,
-      features: ["Institution-wide analytics", "Placement trends", "Department comparisons", "ROI metrics"],
+      features: ["Campus-wide skill heat-map", "NAAC Criterion 2 reports", "ROI calculator"],
       description: "Strategic overview of institutional outcomes"
     },
     {
       role: "HOD", 
       icon: Users,
-      features: ["Department performance", "Student progress tracking", "Faculty insights", "Curriculum gaps"],
+      features: ["Course-level gap list", "Suggested syllabus tweaks"],
       description: "Departmental management and improvement"
     },
     {
-      role: "T&P Officer",
+      role: "T&P OFFICER",
       icon: BarChart3,
-      features: ["Placement readiness", "Recruiter matching", "Success predictions", "Industry alignment"],
+      features: ["Ranked CRI list", "Recruiter filter", "Offer-rate tracker"],
       description: "Training and placement optimization"
     },
     {
-      role: "Student",
+      role: "STUDENT",
       icon: User,
-      features: ["Individual Analysis", "Semester-wise Analysis", "Level-Up MicroTasks", "Real AI Feedback", "Class Leaderboard"],
+      features: ["Personal radar chart", "Micro-task queue", "CRI growth bar"],
       description: "Personal skill development and progress tracking"
+    }
+  ];
+
+  const criticalProblems = [
+    {
+      title: "Marksheets ≠ Skills",
+      stat: "78%",
+      description: "young professionals struggle on the job.",
+      impact: "Costs recruiters ₹1.2 Cr/year in churn.",
+      color: "bg-red-50 border-red-200"
+    },
+    {
+      title: "Employer Trust Gap",
+      stat: "49%",
+      description: "of hiring managers reject on-campus toppers.",
+      impact: "Damages college placement reputation.",
+      color: "bg-orange-50 border-orange-200"
+    },
+    {
+      title: "Hidden Skill Gaps",
+      stat: "65%",
+      description: "of graduates don't know their own strengths.",
+      impact: "Leads to mis-aligned career paths and lower CTCs.",
+      color: "bg-yellow-50 border-yellow-200"
+    }
+  ];
+
+  const regulatoryTimeline = [
+    {
+      year: "NEP 2020",
+      description: "Mandates skill-based learning",
+      status: "completed"
+    },
+    {
+      year: "NAAC 2023",
+      description: "Compulsory outcome tracking",
+      status: "completed"
+    },
+    {
+      year: "UGC 2024",
+      description: "Evidence of measurable student skills",
+      status: "current"
     }
   ];
 
@@ -158,8 +201,8 @@ const HowItWorks = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
-                How{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">PLAT Works</span>
+                Life Cycle{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Assessment to Upskilling</span>
               </h1>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 A comprehensive system that measures, improves, and tracks student career readiness through AI-powered analytics
@@ -168,157 +211,100 @@ const HowItWorks = () => {
           </div>
         </section>
 
-        {/* Process Flow Section */}
+        {/* Problem/Solution Section */}
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                Simple 4-Step Process
-              </h2>
-              <p className="text-xl text-gray-600">
-                From Assessment to Career Readiness
-              </p>
-            </div>
+            <div className="grid md:grid-cols-2 gap-12">
+              {/* Problem */}
+              <div className="bg-red-50 rounded-2xl p-8 border-2 border-red-200">
+                <div className="text-red-600 font-bold text-sm uppercase tracking-wide mb-4">PROBLEM</div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">High GPA ≠ Job Readiness</h3>
+                <blockquote className="text-gray-700 italic text-lg leading-relaxed">
+                  "I scored 9.2 CGPA and still failed every tech interview."
+                </blockquote>
+                <p className="text-sm text-gray-600 mt-2">— Final-year CS student</p>
+              </div>
 
-            {/* Desktop Process Flow */}
-            <div className="hidden md:flex items-center justify-between mb-16">
-              {processSteps.map((step, index) => {
-                const Icon = step.icon;
-                return (
-                  <div key={index} className="flex items-center">
-                    <div className="flex flex-col items-center">
-                      <Card className="w-48 h-40 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-white border-2 border-gray-100">
-                        <CardContent className="p-6 flex flex-col items-center justify-center h-full text-center">
-                          <div className={`w-16 h-16 rounded-full ${step.color} flex items-center justify-center mb-4`}>
-                            <Icon className="w-8 h-8 text-white" />
-                          </div>
-                          <h3 className="text-lg font-bold text-gray-900 mb-2">{step.title}</h3>
-                          <p className="text-sm text-gray-600">{step.description}</p>
-                        </CardContent>
-                      </Card>
-                    </div>
-                    
-                    {/* Improved Arrow */}
-                    {index < processSteps.length - 1 && (
-                      <div className="flex items-center mx-6">
-                        <div className="w-12 h-0.5 bg-gradient-to-r from-blue-400 to-blue-600"></div>
-                        <div className="relative">
-                          <ChevronRight className="w-6 h-6 text-blue-600 bg-white rounded-full border-2 border-blue-600 p-1" />
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Mobile Process Flow */}
-            <div className="md:hidden space-y-6">
-              {processSteps.map((step, index) => {
-                const Icon = step.icon;
-                return (
-                  <div key={index} className="relative">
-                    <Card className="bg-white border-2 border-gray-100">
-                      <CardContent className="p-6 flex items-center">
-                        <div className={`w-12 h-12 rounded-full ${step.color} flex items-center justify-center mr-4 flex-shrink-0`}>
-                          <Icon className="w-6 h-6 text-white" />
-                        </div>
-                        <div>
-                          <h3 className="text-lg font-bold text-gray-900 mb-1">{step.title}</h3>
-                          <p className="text-sm text-gray-600">{step.description}</p>
-                        </div>
-                      </CardContent>
-                    </Card>
-                    
-                    {/* Mobile Arrow */}
-                    {index < processSteps.length - 1 && (
-                      <div className="flex justify-center my-4">
-                        <div className="flex flex-col items-center">
-                          <div className="w-0.5 h-6 bg-gradient-to-b from-blue-400 to-blue-600"></div>
-                          <ChevronRight className="w-6 h-6 text-blue-600 bg-white rounded-full border-2 border-blue-600 p-1 rotate-90" />
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
+              {/* Solution */}
+              <div className="bg-green-50 rounded-2xl p-8 border-2 border-green-200">
+                <div className="text-green-600 font-bold text-sm uppercase tracking-wide mb-4">SOLUTION</div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">CRI-Verified Talent Wins Offers</h3>
+                <blockquote className="text-gray-700 italic text-lg leading-relaxed">
+                  "My 8.4 CRI score landed me at Microsoft; recruiters saw exactly what I can do."
+                </blockquote>
+                <p className="text-sm text-gray-600 mt-2">— PLAT Success Story</p>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* 3-Level Skill Assessment - Staircase */}
+        {/* Three Critical Problems */}
         <section className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                3-Level Skill Assessment
+                Three Critical Problems
               </h2>
               <p className="text-xl text-gray-600">
-                Comprehensive Evaluation across Cognitive, Applied, and Industry-Ready Skills
+                The hidden costs of traditional assessment methods
               </p>
             </div>
 
-            {/* Desktop Staircase Layout */}
-            <div className="hidden md:block relative">
-              <div className="relative flex items-end justify-center space-x-8 mb-16">
-                {skillLevels.map((level, index) => {
-                  const Icon = level.icon;
-                  const marginBottom = index === 0 ? 'mb-0' : index === 1 ? 'mb-20' : 'mb-40';
-                  return (
-                    <Tooltip key={index}>
-                      <TooltipTrigger asChild>
-                        <div className={`relative ${marginBottom}`}>
-                          <Card className={`${level.bgColor} ${level.borderColor} border-2 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 w-80 cursor-pointer`}>
-                            <CardContent className="p-8">
-                              <div className="flex items-center mb-4">
-                                <div className={`w-12 h-12 rounded-full ${level.color} flex items-center justify-center mr-4`}>
-                                  <Icon className="w-6 h-6 text-white" />
-                                </div>
-                                <div>
-                                  <div className="text-sm font-semibold text-gray-500 uppercase tracking-wide">{level.level}</div>
-                                  <h3 className="text-xl font-bold text-gray-900">{level.title}</h3>
-                                </div>
-                              </div>
-                              <p className="text-gray-600 text-sm leading-relaxed">{level.description}</p>
-                            </CardContent>
-                          </Card>
-                          
-                          {/* Step indicator */}
-                          <div className={`absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-16 h-6 ${level.color} rounded-t-lg flex items-center justify-center`}>
-                            <span className="text-white font-bold text-sm">{index + 1}</span>
-                          </div>
-                        </div>
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>{level.description}</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  );
-                })}
-              </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {criticalProblems.map((problem, index) => (
+                <Card key={index} className={`${problem.color} border-2 hover:shadow-lg transition-all duration-300`}>
+                  <CardContent className="p-6">
+                    <div className="text-3xl font-bold text-gray-900 mb-2">{index + 1}.</div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">{problem.title}</h3>
+                    <div className="mb-4">
+                      <span className="text-2xl font-bold text-red-600">{problem.stat} </span>
+                      <span className="text-gray-700">{problem.description}</span>
+                    </div>
+                    <div className="text-sm text-gray-600 font-medium">
+                      → {problem.impact}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Regulatory Timeline */}
+        <section className="py-16 bg-slate-900 text-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+                Regulatory Timeline "Clock"
+              </h2>
+              <p className="text-xl text-slate-300">
+                Compliance deadlines are approaching fast
+              </p>
             </div>
 
-            {/* Mobile Vertical Stack */}
-            <div className="md:hidden space-y-6">
-              {skillLevels.map((level, index) => {
-                const Icon = level.icon;
-                return (
-                  <Card key={index} className={`${level.bgColor} ${level.borderColor} border-2`}>
-                    <CardContent className="p-6">
-                      <div className="flex items-center mb-4">
-                        <div className={`w-12 h-12 rounded-full ${level.color} flex items-center justify-center mr-4`}>
-                          <Icon className="w-6 h-6 text-white" />
-                        </div>
-                        <div>
-                          <div className="text-sm font-semibold text-gray-500 uppercase tracking-wide">{level.level}</div>
-                          <h3 className="text-lg font-bold text-gray-900">{level.title}</h3>
-                        </div>
-                      </div>
-                      <p className="text-gray-600 text-sm leading-relaxed">{level.description}</p>
-                    </CardContent>
-                  </Card>
-                );
-              })}
+            <div className="flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 md:space-x-8 mb-12">
+              {regulatoryTimeline.map((item, index) => (
+                <div key={index} className="flex flex-col items-center text-center">
+                  <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-4 ${
+                    item.status === 'completed' ? 'bg-green-500' : 
+                    item.status === 'current' ? 'bg-yellow-500' : 'bg-gray-500'
+                  }`}>
+                    <Calendar className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-lg font-bold mb-2">{item.year}</h3>
+                  <p className="text-slate-300 text-sm">{item.description}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Deadline Alert */}
+            <div className="bg-red-600 rounded-lg p-6 text-center">
+              <div className="flex items-center justify-center mb-4">
+                <AlertTriangle className="w-8 h-8 text-white mr-3" />
+                <h3 className="text-2xl font-bold">NEXT CYCLE DEADLINE</h3>
+              </div>
+              <div className="text-3xl font-bold mb-2">Dec 2026</div>
+              <div className="text-lg text-red-100">≈ 18 months left</div>
             </div>
           </div>
         </section>
@@ -335,18 +321,8 @@ const HowItWorks = () => {
 
             <div className="flex justify-center">
               <div className="relative w-96 h-96">
-                {/* Connecting lines - Behind everything */}
+                {/* Connecting lines */}
                 <svg className="absolute inset-0 w-full h-full z-0" style={{ pointerEvents: 'none' }}>
-                  <defs>
-                    <style>
-                      {`
-                        @keyframes rotate {
-                          from { transform: rotate(0deg); }
-                          to { transform: rotate(360deg); }
-                        }
-                      `}
-                    </style>
-                  </defs>
                   <circle
                     cx="192"
                     cy="192"
@@ -425,7 +401,7 @@ const HowItWorks = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                Stakeholder Dashboards
+                Stakeholder Dashboards Teasers
               </h2>
               <p className="text-xl text-gray-600">
                 Tailored insights for every role in your institution
@@ -492,6 +468,92 @@ const HowItWorks = () => {
                 );
               })}
             </Tabs>
+
+            {/* CTA for Technical Deck */}
+            <div className="text-center mt-12">
+              <Link to="/contact#send-message">
+                <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-lg px-8 py-6 h-auto font-semibold">
+                  Request Technical Deck
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* 3-Level Skill Assessment */}
+        <section className="py-16 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                3-Level Skill Assessment
+              </h2>
+              <p className="text-xl text-gray-600">
+                Comprehensive Evaluation across Cognitive, Applied, and Industry-Ready Skills
+              </p>
+            </div>
+
+            {/* Desktop Staircase Layout */}
+            <div className="hidden md:block relative">
+              <div className="relative flex items-end justify-center space-x-8 mb-16">
+                {skillLevels.map((level, index) => {
+                  const Icon = level.icon;
+                  const marginBottom = index === 0 ? 'mb-0' : index === 1 ? 'mb-20' : 'mb-40';
+                  return (
+                    <Tooltip key={index}>
+                      <TooltipTrigger asChild>
+                        <div className={`relative ${marginBottom}`}>
+                          <Card className={`${level.bgColor} ${level.borderColor} border-2 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 w-80 cursor-pointer`}>
+                            <CardContent className="p-8">
+                              <div className="flex items-center mb-4">
+                                <div className={`w-12 h-12 rounded-full ${level.color} flex items-center justify-center mr-4`}>
+                                  <Icon className="w-6 h-6 text-white" />
+                                </div>
+                                <div>
+                                  <div className="text-sm font-semibold text-gray-500 uppercase tracking-wide">{level.level}</div>
+                                  <h3 className="text-xl font-bold text-gray-900">{level.title}</h3>
+                                </div>
+                              </div>
+                              <p className="text-gray-600 text-sm leading-relaxed">{level.description}</p>
+                            </CardContent>
+                          </Card>
+                          
+                          <div className={`absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-16 h-6 ${level.color} rounded-t-lg flex items-center justify-center`}>
+                            <span className="text-white font-bold text-sm">{index + 1}</span>
+                          </div>
+                        </div>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>{level.description}</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Mobile Vertical Stack */}
+            <div className="md:hidden space-y-6">
+              {skillLevels.map((level, index) => {
+                const Icon = level.icon;
+                return (
+                  <Card key={index} className={`${level.bgColor} ${level.borderColor} border-2`}>
+                    <CardContent className="p-6">
+                      <div className="flex items-center mb-4">
+                        <div className={`w-12 h-12 rounded-full ${level.color} flex items-center justify-center mr-4`}>
+                          <Icon className="w-6 h-6 text-white" />
+                        </div>
+                        <div>
+                          <div className="text-sm font-semibold text-gray-500 uppercase tracking-wide">{level.level}</div>
+                          <h3 className="text-lg font-bold text-gray-900">{level.title}</h3>
+                        </div>
+                      </div>
+                      <p className="text-gray-600 text-sm leading-relaxed">{level.description}</p>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
           </div>
         </section>
 
@@ -537,7 +599,7 @@ const HowItWorks = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact#send-message">
                 <Button className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-6 h-auto font-semibold">
-                  Schedule Demo
+                  Show Me the 7-Min Walkthrough
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
