@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -162,7 +163,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="inline-block px-6 py-2 bg-blue-100 rounded-full mb-4">
-              <span className="text-blue-700 font-medium">"Students > Report cards alone"</span>
+              <span className="text-blue-700 font-medium">&quot;Students {`>`} Report cards alone&quot;</span>
             </div>
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-4">
               🚀 Our belief: Students are more than marksheets.
@@ -174,7 +175,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Pain Points Section - Updated Order */}
+      {/* Pain Points Section */}
       <section className="py-8 sm:py-12 lg:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 lg:mb-12">
@@ -244,7 +245,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Success Stories Section - Updated heading */}
+      {/* Success Stories Section */}
       <section className="py-8 sm:py-12 lg:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 lg:mb-12">
@@ -334,7 +335,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Final CTA Section - Updated */}
+      {/* Final CTA Section */}
       <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-green-400 via-emerald-500 to-teal-600 text-white bg-orange-500">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 text-gray-900 leading-tight">
