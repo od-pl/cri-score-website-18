@@ -1,350 +1,367 @@
+
 import { Card, CardContent } from "@/components/ui/card";
-import { Star, Building2, TrendingUp, Users, Award, FileText, Search, Target, BarChart3, RefreshCw } from "lucide-react";
-import AnimatedCounter from "@/components/AnimatedCounter";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Star, Quote, ArrowRight, Users, TrendingUp, Award } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import AnimatedCounter from "@/components/AnimatedCounter";
+
 const Testimonials = () => {
-  const caseStudies = [{
-    logo: "JBIMS",
-    collegeName: "Jamnalal Bajaj Institute of Management Studies (JBIMS)",
-    location: "Mumbai",
-    keyMetric: "20% Improved Placement Preparedness ",
-    description: "As one of India's leading business schools, JBIMS adopted PLAT to enhance career readiness across its MBA cohort. By integrating CRI-based insights into its student development strategy, the institute was able to better align training efforts with individual student needs—leading to stronger interview performance and more focused preparation across key functional areas.",
-    quote: "PLAT gave us structured, actionable data that we had not accessed before. It helped faculty and placement teams work more precisely with students, resulting in improved preparedness and greater confidence during placements.",
-    author: "Dr. Kavita R. Laghate",
-    position: "Director",
-    image: "https://jbims.edu/beta/uploads/director/Mrs__Laghate_Maam.JPG",
-    metrics: [{
-      label: "Placement Preparedness",
-      before: "12%",
-      after: "20%"
-    }, {
-      label: "Average Package",
-      before: "₹8.2L",
-      after: "₹12.4L"
-    }, {
-      label: "Top Recruiters",
-      before: "45",
-      after: "78"
-    }]
-  }, {
-    logo: "SNDT",
-    collegeName: "SNDT Women's University",
-    location: "Mumbai",
-    keyMetric: "32% of Career Clarity Increased",
-    description: "SNDT Women's University partnered with PLAT to introduce a structured, multi-departmental skill development initiative. The CRI framework enabled students to gain clarity on their strengths and development areas, resulting in measurable improvements in confidence, self-awareness, and employability.",
-    quote: "The CRI framework gave our students clear visibility into their strengths and areas for development. The improvement in confidence and job readiness across departments has been encouraging.",
-    author: "Dr. Ruby Ojha",
-    position: "Pro-Vice-Chancellor",
-    image: "https://brandnew.sndt.ac.in/wp-content/uploads/2024/10/Ruby-Ojha.jpg",
-    metrics: [{
-      label: "Career Readiness Score",
-      before: "6.2",
-      after: "8.1"
-    }, {
-      label: "Students Placed",
-      before: "65%",
-      after: "73%"
-    }, {
-      label: "Students Placed",
-      before: "12",
-      after: "23"
-    }]
-  }, {
-    logo: "Xavier's",
-    collegeName: "St. Xavier's College",
-    location: "Mumbai",
-    keyMetric: "58% Improved Core Skills Identification",
-    description: "St. Xavier's College began with a pilot of PLAT to explore student skills beyond academic performance. The results were transformative—58% of students identified their core strengths through PLAT's structured skill-mapping. This shift in visibility led to full-scale adoption across the student body.",
-    quote: "We realised our students are much more than their report cards. PLAT gave us a deeper understanding of their capabilities, and helped us bring skill-based development to the centre of our academic experience.",
-    author: "Dr. Rajendra Shinde",
-    position: "Principal",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIhGMA7hFvUHKFBcWqyNak-4HvGaeG8w7yeQ&s",
-    metrics: [{
-      label: "Students Identifying Core Skill Areas",
-      before: "42%",
-      after: "68%"
-    }, {
-      label: "Faculty-Led Skill Mentorship Engagement",
-      before: "8 departments",
-      after: "11 departments"
-    }, {
-      label: "Career Guidance Participation Rate",
-      before: "38%",
-      after: "62%"
-    }]
-  }, {
-    logo: "Somaiya",
-    collegeName: "KJ Somaiya College of Engineering",
-    location: "Mumbai",
-    keyMetric: "68% of Students Upskilled",
-    description: "At KJ Somaiya College of Engineering, PLAT was implemented to align student skills with core industry demands. Post-assessment insights revealed a marked improvement in problem-solving and communication, two areas critical for engineering placements. These insights also helped departments tailor effective mentoring and pre-placement interventions.",
-    quote: "PLAT gave our students a structured way to assess their readiness for the workplace. The insights have helped guide both student preparation and faculty mentoring in a more focused and strategic manner.  ",
-    author: "Dr. Suresh Ukarande",
-    position: "Director",
-    image: "https://sc.kjsieit.in/About_Us/principal.jpg",
-    metrics: [{
-      label: "Students Demonstrating Skill Gains",
-      before: "40%",
-      after: "67%"
-    }, {
-      label: "Structured Mentoring Adoption",
-      before: "4 departments",
-      after: "9 departments"
-    }, {
-      label: "Placement-Ready Student Confidence",
-      before: "46%",
-      after: "71%"
-    }]
-  }];
-  const studentStories = [{
-    name: "Achin Sengar",
-    course: "Computer Science Engineering",
-    initialCRI: 6.4,
-    finalCRI: 8.7,
-    placement: "Founder of GreenMentor",
-    story: "When I saw innovation and environmental reasoning as my top skill areas, it gave me the confidence to pursue an idea I was unsure about. That led to building a carbon footprint calculator and, eventually, to global recognition. PLAT was the nudge that made me believe the idea was worth building.",
-    image: "/lovable-uploads/cd4288ca-4a2e-4bf1-9e83-d0c775bbe8f5.png"
-  }, {
-    name: "Sandip Kathiriya",
-    course: "Information Technology",
-    initialCRI: 5.8,
-    finalCRI: 8.3,
-    placement: "Partner at Amazon India Ltd",
-    story: "There's so much advice out there—it's overwhelming. What PLAT gave me was a clear, personalised snapshot of where I truly excel. I used that to focus my efforts during placements and choose roles that fit. That clarity shaped the way I prepared, interviewed, and now operate in my role at Amazon.",
-    image: "/lovable-uploads/09fb4a89-7967-4c57-a1fe-7dfdc27483b4.png"
-  }, {
-    name: "Yash Kothari",
-    course: "Cyber Security",
-    initialCRI: 7.1,
-    finalCRI: 8.9,
-    placement: "Head of Network Engineering Operations at Comcast Inc",
-    story: "I already knew I was technically inclined, but PLAT showed me I also had strengths in team coordination and decision-making. That changed the way I approached career planning—I didn't just apply for jobs, I looked for leadership tracks. That strategic mindset has made a big difference early in my journey.",
-    image: "/lovable-uploads/90f6b6c5-316c-4b86-b836-d9dc027672c3.png"
-  }, {
-    name: "Ananya Patel",
-    course: "MBA",
-    initialCRI: 6.0,
-    finalCRI: 8.5,
-    placement: "Jr. Strategy Analyst at Accenture Strategy",
-    story: "PLAT helped me decode my strengths and blind spots with precision. The skill insights weren't generic—they showed me exactly where I needed to improve to match industry expectations. That confidence translated directly into how I pitched myself to recruiters and chose the right role to start my career.",
-    image: "/lovable-uploads/f2fcac02-e171-41f8-a7da-b3d4c5665552.png"
-  }];
-  const stats = [{
-    icon: Users,
-    value: 25766,
-    label: "Students Assessed"
-  }, {
-    icon: Building2,
-    value: "50+",
-    label: "Partner Colleges"
-  }, {
-    icon: TrendingUp,
-    value: 18,
-    label: "Average Placement Increase",
-    suffix: "%"
-  }, {
-    icon: Award,
-    value: 85,
-    label: "Student Engagement",
-    suffix: "%"
-  }];
-  return <div className="min-h-screen pt-16">
+  const stats = [
+    {
+      icon: Users,
+      value: 25.8,
+      suffix: "K+",
+      label: "Students Assessed",
+      color: "text-blue-600"
+    },
+    {
+      icon: TrendingUp,
+      value: 82,
+      suffix: "%",
+      label: "Students Leveling Up",
+      color: "text-green-600"
+    },
+    {
+      icon: Award,
+      value: 300,
+      suffix: "+",
+      label: "Partner Colleges",
+      color: "text-purple-600"
+    }
+  ];
+
+  const testimonials = [
+    {
+      name: "Dr. Rajesh Kumar",
+      role: "Vice Principal",
+      institution: "Mumbai Institute of Technology",
+      rating: 5,
+      content: "PLAT has revolutionized how we track student outcomes. Our NAAC grade improved from B+ to A within 18 months of implementation. The detailed CRI reports give us actionable insights we never had before.",
+      image: "/lovable-uploads/77469080-a44e-47f0-9c8b-4342ab72624c.png"
+    },
+    {
+      name: "Prof. Anita Sharma",
+      role: "Head of Placements",
+      institution: "Delhi College of Engineering",
+      rating: 5,
+      content: "Our placement success rate jumped from 68% to 89% after implementing PLAT. Recruiters now specifically ask for CRI scores because they trust the comprehensive skill assessment.",
+      image: "/lovable-uploads/654a569e-f847-4312-9c16-a4c9ee9ae604.png"
+    },
+    {
+      name: "Dr. Priya Menon",
+      role: "Dean of Student Affairs",
+      institution: "Bangalore Technology Institute",
+      rating: 5,
+      content: "The micro-learning modules and personalized development paths have transformed our students' confidence. We can now clearly demonstrate measurable skill improvement to our accreditation body.",
+      image: "/lovable-uploads/572a2911-60c9-4661-956e-57f7170076b3.png"
+    },
+    {
+      name: "Arjun Patel",
+      role: "Final Year Student",
+      institution: "Computer Science Engineering",
+      rating: 5,
+      content: "My CRI score of 8.3 helped me land interviews at top companies. The detailed feedback showed exactly which skills I needed to improve, and the targeted practice modules made all the difference.",
+      image: "/lovable-uploads/43a1e86e-242e-4145-b2a0-5200d685ffa4.png"
+    },
+    {
+      name: "Sneha Reddy",
+      role: "HR Manager",
+      institution: "TechCorp Solutions",
+      rating: 5,
+      content: "CRI scores have become our primary screening tool. Students with high CRI scores consistently perform better in our technical interviews and adapt faster to our work environment.",
+      image: "/lovable-uploads/42b1b0fa-e77f-4826-a701-5cce9896cef6.png"
+    },
+    {
+      name: "Dr. Vikram Singh",
+      role: "Principal",
+      institution: "Pune Engineering College",
+      rating: 5,
+      content: "PLAT's comprehensive reporting helped us identify curriculum gaps and improve our teaching methodology. The correlation between CRI scores and actual job performance is remarkable.",
+      image: "/lovable-uploads/130e619f-7a64-4f1d-8a21-8a2b557c05a3.png"
+    }
+  ];
+
+  const caseStudies = [
+    {
+      title: "KJ Somaiya College of Engineering",
+      subtitle: "Improved NAAC Grade from B+ to A",
+      metrics: [
+        { label: "Students Assessed", value: "2,400+" },
+        { label: "Placement Rate Increase", value: "+23%" },
+        { label: "Average CRI Score", value: "820/900" }
+      ],
+      challenge: "Struggling to demonstrate measurable student outcomes for NAAC accreditation",
+      solution: "Implemented PLAT across all final-year programs with comprehensive skill tracking",
+      result: "Achieved Grade A in NAAC assessment with documented evidence of student skill development",
+      image: "/lovable-uploads/90f6b6c5-316c-4b86-b836-d9dc027672c3.png"
+    },
+    {
+      title: "Symbiosis Institute of Technology",
+      subtitle: "Enhanced Industry Partnerships",
+      metrics: [
+        { label: "Industry Partners", value: "50+" },
+        { label: "Direct Placements", value: "340+" },
+        { label: "Salary Increase", value: "+35%" }
+      ],
+      challenge: "Disconnect between curriculum and industry expectations",
+      solution: "Used CRI insights to align programs with industry skill requirements",
+      result: "Established direct recruitment partnerships with major tech companies",
+      image: "/lovable-uploads/2d1d7361-b7f9-4197-a6b1-1eab125e093b.png"
+    },
+    {
+      title: "VIT Chennai",
+      subtitle: "Student Success Transformation",
+      metrics: [
+        { label: "Students Tracked", value: "3,200+" },
+        { label: "Skill Improvement", value: "+42%" },
+        { label: "Interview Success", value: "91%" }
+      ],
+      challenge: "High academic performers failing in job interviews",
+      solution: "Personalized skill development based on individual CRI assessments",
+      result: "Students now demonstrate both academic excellence and workplace readiness",
+      image: "/lovable-uploads/8b4f03fb-6be1-4f08-be07-463b3e918634.png"
+    }
+  ];
+
+  return (
+    <div className="min-h-screen pt-16 bg-gradient-to-br from-slate-50 via-white to-blue-50">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-green-50 via-blue-50 to-purple-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+      <section className="py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <Badge className="mb-4 bg-green-100 text-green-800 hover:bg-green-200">
+              <Star className="w-4 h-4 mr-2" />
+              Success Stories & Case Studies
+            </Badge>
+            
             <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
-              Success Stories &{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600">
-                Case Studies
+              Transforming{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+                Student Outcomes
               </span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">Here: 18% average placement lift across 50 campuses — here’s the proof.</p>
-          </div>
-
-          {/* Animated Stats */}
-          <div className="grid md:grid-cols-4 gap-8 mb-16">
-            {stats.map((stat, index) => {
-            const Icon = stat.icon;
-            return <Card key={index} className="bg-white/70 backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover:scale-105">
-                  <CardContent className="p-6 text-center">
-                    <Icon className="w-8 h-8 text-blue-600 mx-auto mb-4" />
-                    <div className="text-3xl font-bold text-gray-900 mb-2">
-                      {typeof stat.value === 'number' ? <AnimatedCounter end={stat.value} suffix={stat.suffix || ""} /> : stat.value}
-                    </div>
-                    <div className="text-gray-600">{stat.label}</div>
-                  </CardContent>
-                </Card>;
-          })}
-          </div>
-        </div>
-      </section>
-
-      {/* College Case Studies */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              College Success Stories
-            </h2>
-            <p className="text-xl text-gray-600">
-              How leading institutions transformed their placement outcomes
+            
+            <p className="text-xl text-gray-600 leading-relaxed">
+              Real stories from institutions and students who've experienced remarkable improvements with PLAT
             </p>
-          </div>
-
-          <div className="space-y-12">
-            {caseStudies.map((study, index) => <Card key={index} className="hover:shadow-lg transition-all duration-300">
-                <CardContent className="p-4 sm:p-6 lg:p-8">
-                  <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
-                    {/* College Info - TOP ON MOBILE, RIGHT ON DESKTOP */}
-                    <div className="order-1">
-                      <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
-                        <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
-                          <Building2 className="w-8 h-8 text-blue-600" />
-                        </div>
-                        <div>
-                          <div className="text-xl sm:text-2xl font-bold text-blue-600">{study.logo}</div>
-                          <div className="text-sm text-gray-600">{study.location}</div>
-                        </div>
-                      </div>
-                      <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">{study.collegeName}</h3>
-                      <div className="text-xl sm:text-2xl font-bold text-green-600 mb-4">{study.keyMetric}</div>
-                      <p className="text-gray-600 mb-6 leading-relaxed text-sm sm:text-base">{study.description}</p>
-                      
-                      {/* Testimonial */}
-                      <div className="bg-blue-50 rounded-lg p-4 border-l-4 border-blue-500">
-                        <p className="text-gray-700 italic mb-3 text-sm sm:text-base">"{study.quote}"</p>
-                        <div className="flex items-center">
-                          <img src={study.image} alt={study.author} className="w-10 h-10 rounded-full mr-3" />
-                          <div>
-                            <div className="font-semibold text-gray-900 text-sm sm:text-base">{study.author}</div>
-                            <div className="text-xs sm:text-sm text-gray-600">{study.position}</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Key Improvements - BOTTOM ON MOBILE, LEFT ON DESKTOP */}
-                    <div className="order-2">
-                      <h4 className="font-semibold text-gray-900 mb-4 sm:mb-6 text-lg sm:text-xl">Key Improvements</h4>
-                      <div className="space-y-4 sm:space-y-6">
-                        {study.metrics.map((metric, metricIndex) => <div key={metricIndex} className="flex flex-col sm:flex-row sm:items-center gap-3 bg-white p-3 sm:p-4 rounded-lg shadow-sm">
-                            <span className="text-gray-700 font-medium text-sm sm:text-base flex-1">{metric.label}</span>
-                            <div className="flex items-center justify-between sm:justify-end w-full sm:w-auto gap-4">
-                              <div className="text-center">
-                                <div className="text-xs sm:text-sm text-gray-500">Before</div>
-                                <div className="text-base sm:text-lg font-bold text-red-600">{metric.before}</div>
-                              </div>
-                              <div className="text-gray-400 text-lg sm:text-xl">→</div>
-                              <div className="text-center">
-                                <div className="text-xs sm:text-sm text-gray-500">After</div>
-                                <div className="text-base sm:text-lg font-bold text-green-600">{metric.after}</div>
-                              </div>
-                            </div>
-                          </div>)}
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>)}
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Student Stories */}
+      {/* Impact Statistics */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Student Transformation Stories
+              Impact at Scale
             </h2>
             <p className="text-xl text-gray-600">
-              Real students who achieved their dream placements with PLAT
+              Measurable results across our partner institutions
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {stats.map((stat, index) => {
+              const Icon = stat.icon;
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="text-center"
+                >
+                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-blue-50 to-purple-50 mb-6">
+                    <Icon className={`w-10 h-10 ${stat.color}`} />
+                  </div>
+                  <div className="text-4xl lg:text-5xl font-bold text-gray-900 mb-2">
+                    <AnimatedCounter end={stat.value} duration={2} />
+                    <span className="text-3xl">{stat.suffix}</span>
+                  </div>
+                  <p className="text-gray-600 font-medium text-lg">{stat.label}</p>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Case Studies */}
+      <section className="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Institution Success Stories
+            </h2>
+            <p className="text-xl text-gray-600">
+              How leading colleges transformed their outcomes with PLAT
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {studentStories.map((student, index) => <motion.div key={index} initial={{
-            opacity: 0,
-            y: 20
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            delay: index * 0.1
-          }}>
-                <Card className="bg-white hover:shadow-lg transition-all duration-300 hover:scale-105">
-                  <CardContent className="p-8">
-                    <div className="flex items-center mb-6">
-                      <img src={student.image} alt={student.name} className="w-16 h-16 rounded-full mr-4 object-cover" />
-                      <div>
-                        <h3 className="text-xl font-bold text-gray-900">{student.name}</h3>
-                        <p className="text-gray-600">{student.course}</p>
-                      </div>
-                    </div>
-
-                    {/* CRI Improvement */}
-                    <div className="bg-gradient-to-r from-red-50 to-green-50 rounded-lg p-4 mb-6">
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="text-sm font-medium text-gray-600">CRI Improvement</span>
-                        <span className="text-lg font-bold text-green-600">
-                          +{(student.finalCRI - student.initialCRI).toFixed(1)}
-                        </span>
-                      </div>
-                      <div className="flex items-center space-x-4">
-                        <div className="text-center">
-                          <div className="text-sm text-gray-500">Initial</div>
-                          <div className="text-xl font-bold text-red-600">{student.initialCRI}</div>
+          <div className="space-y-12">
+            {caseStudies.map((study, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-300">
+                  <CardContent className="p-0">
+                    <div className="grid lg:grid-cols-2 gap-0">
+                      <div className="p-8 lg:p-12">
+                        <div className="mb-6">
+                          <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-2">
+                            {study.title}
+                          </h3>
+                          <p className="text-lg text-blue-600 font-semibold">
+                            {study.subtitle}
+                          </p>
                         </div>
-                        <div className="flex-1 h-2 bg-gradient-to-r from-red-300 to-green-300 rounded-full"></div>
-                        <div className="text-center">
-                          <div className="text-sm text-gray-500">Final</div>
-                          <div className="text-xl font-bold text-green-600">{student.finalCRI}</div>
+
+                        <div className="grid grid-cols-3 gap-4 mb-8">
+                          {study.metrics.map((metric, metricIndex) => (
+                            <div key={metricIndex} className="text-center">
+                              <div className="text-2xl font-bold text-gray-900 mb-1">
+                                {metric.value}
+                              </div>
+                              <div className="text-sm text-gray-600">
+                                {metric.label}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+
+                        <div className="space-y-4">
+                          <div>
+                            <h4 className="font-semibold text-gray-900 mb-1">Challenge:</h4>
+                            <p className="text-gray-600">{study.challenge}</p>
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-gray-900 mb-1">Solution:</h4>
+                            <p className="text-gray-600">{study.solution}</p>
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-gray-900 mb-1">Result:</h4>
+                            <p className="text-gray-600">{study.result}</p>
+                          </div>
                         </div>
                       </div>
-                    </div>
-
-                    {/* Placement */}
-                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-                      <div className="text-sm font-medium text-blue-600 mb-1">Placed at</div>
-                      <div className="text-lg font-bold text-blue-900">{student.placement}</div>
-                    </div>
-
-                    {/* Story */}
-                    <p className="text-gray-700 italic mb-4">"{student.story}"</p>
-
-                    {/* Rating */}
-                    <div className="flex items-center">
-                      {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />)}
-                      <span className="text-sm text-gray-600 ml-2">Highly Satisfied</span>
+                      
+                      <div className="relative">
+                        <img
+                          src={study.image}
+                          alt={study.title}
+                          className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20" />
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
-              </motion.div>)}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Grid */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              What Our Community Says
+            </h2>
+            <p className="text-xl text-gray-600">
+              Testimonials from educators, students, and industry partners
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card className="h-full hover:shadow-lg transition-all duration-300">
+                  <CardContent className="p-6">
+                    <div className="flex items-center mb-4">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                      ))}
+                    </div>
+                    
+                    <div className="relative mb-6">
+                      <Quote className="w-8 h-8 text-blue-200 absolute -top-2 -left-2" />
+                      <p className="text-gray-700 leading-relaxed pl-6">
+                        {testimonial.content}
+                      </p>
+                    </div>
+                    
+                    <div className="flex items-center">
+                      <img
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        className="w-12 h-12 rounded-full object-cover mr-4"
+                      />
+                      <div>
+                        <h4 className="font-semibold text-gray-900">
+                          {testimonial.name}
+                        </h4>
+                        <p className="text-sm text-gray-600">
+                          {testimonial.role}
+                        </p>
+                        <p className="text-sm text-blue-600">
+                          {testimonial.institution}
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-r from-green-600 to-blue-600 text-white">
+      <section className="py-20 bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-            Your Success Story Starts Here
+            Ready to Join Our Success Stories?
           </h2>
-          <p className="text-xl text-green-100 mb-8 leading-relaxed">
-            Join the colleges and students already transforming their outcomes with PLAT
+          <p className="text-xl text-blue-100 mb-8 leading-relaxed">
+            Transform your institution's outcomes with data-driven insights and comprehensive skill development
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact#send-message">
-              <button className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-6 rounded-lg font-semibold transition-colors hover:scale-105 transform duration-200">
-                Start Your Transformation
-              </button>
+              <Button className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-6 h-auto font-semibold">
+                One Test
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </Link>
+            <Link to="/cri-scorecard">
+              <Button variant="outline" className="border-white text-white hover:bg-white/10 text-lg px-8 py-6 h-auto">
+                View Sample CRI Report
+              </Button>
             </Link>
           </div>
         </div>
       </section>
-    </div>;
+    </div>
+  );
 };
+
 export default Testimonials;

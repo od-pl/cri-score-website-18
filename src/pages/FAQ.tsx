@@ -137,9 +137,9 @@ const FAQ = () => {
           <div className="grid md:grid-cols-2 gap-8">
             <Card className="bg-blue-50 border-blue-200 hover:shadow-lg transition-all duration-300">
               <CardContent className="p-8">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Implementation Guide</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Implementation Gallery</h3>
                 <p className="text-gray-600 mb-6">
-                  Step-by-step guide to implementing PLAT at your institution, including best practices and common pitfalls to avoid.
+                  Explore a visual gallery showcasing the PLAT implementation process, offering valuable resources, case studies, and expert insights to guide your institution's success.
                 </p>
                 <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">Gallery</Button>
               </CardContent>
@@ -167,11 +167,11 @@ const FAQ = () => {
 
             <Card className="bg-orange-50 border-orange-200 hover:shadow-lg transition-all duration-300">
               <CardContent className="p-8">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Webinar Series</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Insights Blog</h3>
                 <p className="text-gray-600 mb-6">
-                  Regular webinars featuring success stories, new features, and expert discussions on outcome-based education.
+                  Stay informed with our insightful blog, featuring success stories, product updates, and expert commentary on the evolving landscape of outcome-based education.
                 </p>
-                <Button variant="outline" className="border-orange-600 text-orange-600 hover:bg-orange-50">Blog </Button>
+                <Button variant="outline" className="border-orange-600 text-orange-600 hover:bg-orange-50">Blog</Button>
               </CardContent>
             </Card>
           </div>
