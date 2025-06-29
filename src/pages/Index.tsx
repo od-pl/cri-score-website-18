@@ -312,9 +312,7 @@ const Index = () => {
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 text-gray-900 leading-tight">
             Ready to Boost Your College's Placement Rate?
           </h2>
-          <p className="text-base sm:text-lg lg:text-xl text-gray-800 mb-6 sm:mb-8 leading-relaxed max-w-3xl mx-auto">
-            Join leading colleges already using PLAT to improve NAAC outcomes and student success
-          </p>
+          <p className="text-base sm:text-lg lg:text-xl text-gray-800 mb-6 sm:mb-8 leading-relaxed max-w-3xl mx-auto">✓ Free Pilot Cohort — keep it only if the Skill-Intelligence Dashboard wows you </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact#send-message" className="w-full sm:w-auto">
