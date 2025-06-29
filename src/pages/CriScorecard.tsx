@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { Brain, Cog, Zap, Heart, BookOpen, ArrowRight, Download, TrendingUp, MessageSquare, Users, Target } from "lucide-react";
+import { Brain, Cog, Zap, Heart, BookOpen, ArrowRight, Download, TrendingUp } from "lucide-react";
 import { motion } from "framer-motion";
 import SkillRadarChart from "@/components/SkillRadarChart";
 import AnimatedCounter from "@/components/AnimatedCounter";
@@ -100,52 +100,52 @@ const CriScorecard = () => {
       score: 8.3
     }]
   }];
-  
   const overallCRI = 8.2;
   const criColor = overallCRI >= 8 ? "text-green-600" : overallCRI >= 6 ? "text-yellow-600" : "text-red-600";
   const criLabel = overallCRI >= 8 ? "Excellent" : overallCRI >= 6 ? "Good" : "Needs Improvement";
-  
-  const floatingSkills = [
-    { name: "Problem Solving", x: 10, y: 20, delay: 0 },
-    { name: "Communication", x: 80, y: 15, delay: 1 },
-    { name: "Leadership", x: 15, y: 70, delay: 2 },
-    { name: "Creativity", x: 85, y: 75, delay: 1.5 },
-    { name: "Analytical", x: 50, y: 10, delay: 0.5 }
-  ];
-
-  return <div className="min-h-screen pt-16 bg-gradient-to-br from-slate-50 via-white to-blue-50">
+  return <div className="min-h-screen pt-16">
       {/* Hero Section */}
       <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
-          {/* Floating Skills */}
-          {floatingSkills.map((skill, index) => (
-            <motion.div 
-              key={index}
-              className="absolute text-blue-300 opacity-60 text-sm font-medium"
-              style={{ left: `${skill.x}%`, top: `${skill.y}%` }}
-              animate={{
-                y: [0, -20, 0],
-                x: [0, 10, 0]
-              }} 
-              transition={{
-                duration: 4 + index,
-                repeat: Infinity,
-                delay: skill.delay
-              }}
-            >
-              {skill.name}
-            </motion.div>
-          ))}
+          <motion.div className="absolute top-20 left-10 text-blue-300 opacity-60" animate={{
+          y: [0, -20, 0],
+          x: [0, 10, 0]
+        }} transition={{
+          duration: 4,
+          repeat: Infinity
+        }}>
+            <span className="text-sm font-medium text-white">Problem Solving</span>
+          </motion.div>
+          <motion.div className="absolute top-40 right-20 text-purple-300 opacity-60" animate={{
+          y: [0, -15, 0],
+          x: [0, -10, 0]
+        }} transition={{
+          duration: 5,
+          repeat: Infinity,
+          delay: 1
+        }}>
+            <span className="text-sm font-medium text-white">Communication</span>
+          </motion.div>
+          <motion.div className="absolute bottom-40 left-20 text-green-300 opacity-60" animate={{
+          y: [0, -25, 0],
+          x: [0, 15, 0]
+        }} transition={{
+          duration: 6,
+          repeat: Infinity,
+          delay: 2
+        }}>
+            <span className="text-sm font-medium text-white">Leadership</span>
+          </motion.div>
         </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6">
-              CRI Scorecard
+              CRI Scorecard — The{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
+                CIBIL Score for Careers
+              </span>
             </h1>
-            <h2 className="text-2xl lg:text-3xl text-cyan-400 mb-6">
-              — The CIBIL Score for Careers
-            </h2>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
               One number recruiters trust, five skill pillars students can grow.
             </p>
@@ -182,7 +182,7 @@ const CriScorecard = () => {
       </section>
 
       {/* HOW WE CALCULATE CRI Section */}
-      <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
+      <section className="py-16 bg-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
@@ -191,7 +191,7 @@ const CriScorecard = () => {
             <div className="max-w-4xl mx-auto">
               <div className="bg-white rounded-2xl p-8 shadow-lg border">
                 <div className="text-2xl font-bold text-gray-900 mb-6">
-                  One trusted Career Readiness Index (0-900) = Academic Scores + PLAT Skill Score + Upskill Effort*
+                  Academic Scores + PLAT Skill Score + Upskill Effort* = One trusted Career Readiness Index (0-900)
                 </div>
                 <p className="text-sm text-gray-600 italic">
                   *Upskill effort includes internships, on-job training, certified courses and extra-curricular impact, all verified by our API hooks.
@@ -319,7 +319,7 @@ const CriScorecard = () => {
       </section>
 
       {/* New Sample CRI Scorecard Section - Replaced with SkillRadar */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="text-center mb-12">
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
             SAMPLE CRI SCORECARD
@@ -340,7 +340,7 @@ const CriScorecard = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 text-white">
+      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-6">
             Give Your Students a Competitive Edge
@@ -352,7 +352,7 @@ const CriScorecard = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact#send-message">
               <Button className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-6 h-auto font-semibold">
-                One Test
+                Show Me the 7-Min Walkthrough
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </Link>
