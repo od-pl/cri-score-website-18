@@ -323,9 +323,7 @@ const Index = () => {
             </Link>
           </div>
 
-          <div className="mt-6 sm:mt-8 text-gray-700 text-sm sm:text-base my-[33px]">
-            ✓ Free Pilot Cohort — keep it only if the Skill-Intelligence Dashboard wows you ✓ Analyse reports ✓ Full support included
-          </div>
+          <div className="mt-6 sm:mt-8 text-gray-700 text-sm sm:text-base my-[33px]">Join leading colleges already using PLAT to improve NAAC outcomes and student success</div>
         </div>
       </section>
 
