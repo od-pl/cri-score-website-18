@@ -138,7 +138,7 @@ const Index = () => {
       </section>
 
       {/* Students > Report Cards Section */}
-      <section className="py-8 sm:py-12 lg:py-16 bg-white-to-r from-blue-50 to-purple-50 ">
+      <section className="py-8 sm:py-12 lg:py-16 bg-white ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="inline-block px-6 py-2 bg-blue-100 rounded-full mb-4">
