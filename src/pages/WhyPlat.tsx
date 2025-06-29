@@ -47,8 +47,7 @@ const WhyPlat = () => {
             <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
               Why Traditional Assessment is{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-orange-600">
-                Failing Students
-              </span>
+Failing Students</span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               The disconnect between academic scores and industry requirements is creating a crisis in higher education
