@@ -171,7 +171,7 @@ const FAQ = () => {
                 <p className="text-gray-600 mb-6">
                   Regular webinars featuring success stories, new features, and expert discussions on outcome-based education.
                 </p>
-                <Button variant="outline" className="border-orange-600 text-orange-600 hover:bg-orange-50">Sneak Peek Soon</Button>
+                <Button variant="outline" className="border-orange-600 text-orange-600 hover:bg-orange-50">Blog </Button>
               </CardContent>
             </Card>
           </div>
