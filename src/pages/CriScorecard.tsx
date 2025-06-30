@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
@@ -10,8 +11,10 @@ import { Link } from "react-router-dom";
 import ReportViewModal from "@/components/ReportViewModal";
 import SkillRadar from "@/components/SkillRadar";
 import { useState } from "react";
+
 const CriScorecard = () => {
   const [showReportModal, setShowReportModal] = useState(false);
+
   const skillCategories = [{
     name: "Cognitive",
     score: 8.2,
@@ -98,42 +101,47 @@ const CriScorecard = () => {
       score: 8.3
     }]
   }];
+
   const overallCRI = 8.2;
   const criColor = overallCRI >= 8 ? "text-green-600" : overallCRI >= 6 ? "text-yellow-600" : "text-red-600";
   const criLabel = overallCRI >= 8 ? "Excellent" : overallCRI >= 6 ? "Good" : "Needs Improvement";
-  return <div className="min-h-screen pt-16">
+
+  const floatingSkills = [
+    { name: "Problem Solving", delay: 0, x: 10, y: -20 },
+    { name: "Communication", delay: 1, x: -10, y: -15 },
+    { name: "Leadership", delay: 2, x: 15, y: -25 },
+    { name: "Creativity", delay: 1.5, x: -15, y: -18 },
+    { name: "Analytics", delay: 0.5, x: 12, y: -22 }
+  ];
+
+  return (
+    <div className="min-h-screen pt-16">
       {/* Hero Section */}
       <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
-          <motion.div className="absolute top-20 left-10 text-blue-300 opacity-60" animate={{
-          y: [0, -20, 0],
-          x: [0, 10, 0]
-        }} transition={{
-          duration: 4,
-          repeat: Infinity
-        }}>
-            <span className="text-sm font-medium text-white">Problem Solving</span>
-          </motion.div>
-          <motion.div className="absolute top-40 right-20 text-purple-300 opacity-60" animate={{
-          y: [0, -15, 0],
-          x: [0, -10, 0]
-        }} transition={{
-          duration: 5,
-          repeat: Infinity,
-          delay: 1
-        }}>
-            <span className="text-sm font-medium text-white">Communication</span>
-          </motion.div>
-          <motion.div className="absolute bottom-40 left-20 text-green-300 opacity-60" animate={{
-          y: [0, -25, 0],
-          x: [0, 15, 0]
-        }} transition={{
-          duration: 6,
-          repeat: Infinity,
-          delay: 2
-        }}>
-            <span className="text-sm font-medium text-white">Leadership</span>
-          </motion.div>
+          {floatingSkills.map((skill, index) => (
+            <motion.div 
+              key={index}
+              className={`absolute text-blue-300 opacity-60 ${
+                index === 0 ? 'top-20 left-10' : 
+                index === 1 ? 'top-40 right-20' : 
+                index === 2 ? 'bottom-40 left-20' :
+                index === 3 ? 'top-60 left-1/4' :
+                'bottom-20 right-1/4'
+              }`}
+              animate={{
+                y: [0, skill.y, 0],
+                x: [0, skill.x, 0]
+              }}
+              transition={{
+                duration: 4 + index,
+                repeat: Infinity,
+                delay: skill.delay
+              }}
+            >
+              <span className="text-sm font-medium text-white">{skill.name}</span>
+            </motion.div>
+          ))}
         </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -141,7 +149,11 @@ const CriScorecard = () => {
             <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6">
               CRI Scorecard — The{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
-                CIBIL Score for Careers
+                CIBIL Score
+              </span>
+              <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
+                for Careers
               </span>
             </h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
@@ -188,7 +200,11 @@ const CriScorecard = () => {
             </h2>
             <div className="max-w-4xl mx-auto">
               <div className="bg-white rounded-2xl p-8 shadow-lg border">
-                <div className="text-2xl font-bold text-gray-900 mb-6">One trusted Career Readiness Index (0-900) = Academic Scores + PLAT Skill Score + Upskill Effort</div>
+                <div className="text-2xl font-bold text-gray-900 mb-6">
+                  Career Readiness Index (0–900)
+                  <br />
+                  = PLAT Skill Score + Academic Scores + Upskill Effort + Co-Curriculum
+                </div>
                 <p className="text-sm text-gray-600 italic">
                   *Upskill effort includes internships, on-job training, certified courses and extra-curricular impact, all verified by our API hooks.
                 </p>
@@ -212,19 +228,26 @@ const CriScorecard = () => {
 
           <div className="space-y-8">
             {skillCategories.map((category, index) => {
-            const Icon = category.icon;
-            return <motion.div key={index} initial={{
-              opacity: 0,
-              y: 20
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} transition={{
-              duration: 0.6,
-              delay: index * 0.1
-            }} viewport={{
-              once: true
-            }}>
+              const Icon = category.icon;
+              return (
+                <motion.div
+                  key={index}
+                  initial={{
+                    opacity: 0,
+                    y: 20
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0
+                  }}
+                  transition={{
+                    duration: 0.6,
+                    delay: index * 0.1
+                  }}
+                  viewport={{
+                    once: true
+                  }}
+                >
                   <Card className="hover:shadow-lg transition-all duration-300">
                     <CardContent className="p-8">
                       <div className="grid lg:grid-cols-3 gap-8 items-center">
@@ -248,68 +271,96 @@ const CriScorecard = () => {
                               <AnimatedCounter end={category.score} duration={2} />/10
                             </span>
                           </div>
-                          <motion.div className="h-3 bg-gray-200 rounded-full overflow-hidden" initial={{
-                        width: 0
-                      }} whileInView={{
-                        width: "100%"
-                      }} transition={{
-                        duration: 1,
-                        delay: 0.5
-                      }} viewport={{
-                        once: true
-                      }}>
-                            <motion.div className="h-full bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full" initial={{
-                          width: 0
-                        }} whileInView={{
-                          width: `${category.score * 10}%`
-                        }} transition={{
-                          duration: 1.5,
-                          delay: 0.8,
-                          ease: "easeOut"
-                        }} viewport={{
-                          once: true
-                        }} />
+                          <motion.div 
+                            className="h-3 bg-gray-200 rounded-full overflow-hidden"
+                            initial={{
+                              width: 0
+                            }}
+                            whileInView={{
+                              width: "100%"
+                            }}
+                            transition={{
+                              duration: 1,
+                              delay: 0.5
+                            }}
+                            viewport={{
+                              once: true
+                            }}
+                          >
+                            <motion.div 
+                              className="h-full bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full"
+                              initial={{
+                                width: 0
+                              }}
+                              whileInView={{
+                                width: `${category.score * 10}%`
+                              }}
+                              transition={{
+                                duration: 1.5,
+                                delay: 0.8,
+                                ease: "easeOut"
+                              }}
+                              viewport={{
+                                once: true
+                              }}
+                            />
                           </motion.div>
                         </div>
 
                         <div className="space-y-3">
-                          {category.subSkills.map((skill, skillIndex) => <motion.div key={skillIndex} className="flex justify-between items-center" initial={{
-                        opacity: 0,
-                        x: 20
-                      }} whileInView={{
-                        opacity: 1,
-                        x: 0
-                      }} transition={{
-                        duration: 0.5,
-                        delay: skillIndex * 0.1 + 1
-                      }} viewport={{
-                        once: true
-                      }}>
+                          {category.subSkills.map((skill, skillIndex) => (
+                            <motion.div
+                              key={skillIndex}
+                              className="flex justify-between items-center"
+                              initial={{
+                                opacity: 0,
+                                x: 20
+                              }}
+                              whileInView={{
+                                opacity: 1,
+                                x: 0
+                              }}
+                              transition={{
+                                duration: 0.5,
+                                delay: skillIndex * 0.1 + 1
+                              }}
+                              viewport={{
+                                once: true
+                              }}
+                            >
                               <span className="text-sm text-gray-700">{skill.name}</span>
                               <div className="flex items-center space-x-2">
                                 <div className="w-20 bg-gray-200 rounded-full h-2 overflow-hidden">
-                                  <motion.div className={`h-2 rounded-full ${category.color.replace('text-', 'bg-')}`} initial={{
-                              width: 0
-                            }} whileInView={{
-                              width: `${skill.score * 10}%`
-                            }} transition={{
-                              duration: 1,
-                              delay: skillIndex * 0.1 + 1.2
-                            }} viewport={{
-                              once: true
-                            }} />
+                                  <motion.div 
+                                    className={`h-2 rounded-full ${category.color.replace('text-', 'bg-')}`}
+                                    initial={{
+                                      width: 0
+                                    }}
+                                    whileInView={{
+                                      width: `${skill.score * 10}%`
+                                    }}
+                                    transition={{
+                                      duration: 1,
+                                      delay: skillIndex * 0.1 + 1.2
+                                    }}
+                                    viewport={{
+                                      once: true
+                                    }}
+                                  />
                                 </div>
                                 <span className="text-sm font-medium text-gray-600 w-8">
                                   <AnimatedCounter end={skill.score} duration={1.5} />
                                 </span>
                               </div>
-                            </motion.div>)}
+                            </motion.div>
+                          ))}
                         </div>
                       </div>
                     </CardContent>
                   </Card>
-                </motion.div>;
-          })}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -348,7 +399,7 @@ const CriScorecard = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact#send-message">
               <Button className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-6 h-auto font-semibold">
-                Show Me the 7-Min Walkthrough
+                Take One Test
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </Link>
@@ -357,6 +408,8 @@ const CriScorecard = () => {
       </section>
 
       <ReportViewModal isOpen={showReportModal} onClose={() => setShowReportModal(false)} />
-    </div>;
+    </div>
+  );
 };
+
 export default CriScorecard;

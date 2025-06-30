@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -7,9 +8,11 @@ import PlatReportModal from "@/components/PlatReportModal";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import CollegeCarousel from "@/components/CollegeCarousel";
 import ReportViewModal from "@/components/ReportViewModal";
+
 const Index = () => {
   const [showReportModal, setShowReportModal] = useState(false);
   const [showViewReportModal, setShowViewReportModal] = useState(false);
+
   const painPoints = [{
     icon: "❌",
     stat: "54%",
@@ -29,6 +32,7 @@ const Index = () => {
     source: "LinkedIn India 2023",
     color: "bg-yellow-50 border-yellow-200"
   }];
+
   const steps = [{
     step: "STEP 1",
     title: "Test",
@@ -50,6 +54,7 @@ const Index = () => {
     description: "Recruiter-trusted Career Readiness Index, shareable on LinkedIn",
     icon: "🏆"
   }];
+
   const testimonials = [{
     name: "Sachin Sengar",
     role: "Founder, GreenMentor",
@@ -75,7 +80,9 @@ const Index = () => {
     rating: 5,
     image: "/lovable-uploads/e4b8e8c9-b0e6-499c-932b-11952dd7ecfe.png"
   }];
-  return <div className="min-h-screen">
+
+  return (
+    <div className="min-h-screen">
       {/* Hero Section - Updated Banner */}
       <section className="relative py-8 sm:py-12 lg:py-24 xl:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50"></div>
@@ -98,7 +105,7 @@ const Index = () => {
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
                 <Link to="/contact#send-message" className="w-full sm:w-auto">
                   <Button className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 h-auto font-medium">
-                    One Test
+                    Take One Test
                     <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
                   </Button>
                 </Link>
@@ -138,7 +145,7 @@ const Index = () => {
       </section>
 
       {/* Students > Report Cards Section */}
-      <section className="py-8 sm:py-12 lg:py-16 bg-white ">
+      <section className="py-8 sm:py-12 lg:py-16 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="inline-block px-6 py-2 bg-blue-100 rounded-full mb-4">
@@ -166,15 +173,17 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-            {painPoints.map((point, index) => <Card key={index} className={`${point.color} border-2 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation`}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-12">
+            {painPoints.map((point, index) => (
+              <Card key={index} className={`${point.color} border-2 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation`}>
                 <CardContent className="p-4 sm:p-6 lg:p-8 text-center">
                   <div className="text-2xl sm:text-3xl lg:text-4xl mb-3 sm:mb-4">{point.icon}</div>
                   <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">{point.stat}</div>
                   <p className="text-gray-700 font-medium mb-1 text-sm sm:text-base">{point.text}</p>
                   <p className="text-gray-500 text-xs sm:text-sm italic">{point.source}</p>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -192,7 +201,8 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {steps.map((step, index) => <div key={index} className="relative">
+            {steps.map((step, index) => (
+              <div key={index} className="relative">
                 <Card className="bg-white hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation h-full">
                   <CardContent className="p-4 sm:p-6 text-center h-full flex flex-col justify-center">
                     <div className="text-xs font-bold text-blue-600 mb-2">{step.step}</div>
@@ -201,10 +211,13 @@ const Index = () => {
                     <p className="text-gray-600 text-sm sm:text-base leading-relaxed">{step.description}</p>
                   </CardContent>
                 </Card>
-                {index < steps.length - 1 && <div className="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2">
+                {index < steps.length - 1 && (
+                  <div className="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2">
                     <ArrowRight className="w-5 h-5 xl:w-6 xl:h-6 text-blue-600" />
-                  </div>}
-              </div>)}
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
 
           <div className="text-center mt-8 lg:mt-12">
@@ -231,7 +244,8 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {testimonials.map((testimonial, index) => <Card key={index} className="hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation h-full">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation h-full">
                 <CardContent className="p-4 sm:p-6 h-full flex flex-col">
                   <div className="flex items-center mb-3 sm:mb-4">
                     <img src={testimonial.image} alt={testimonial.name} className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover mr-3 flex-shrink-0" />
@@ -241,11 +255,14 @@ const Index = () => {
                     </div>
                   </div>
                   <div className="flex mb-2 sm:mb-3">
-                    {[...Array(Math.floor(testimonial.rating))].map((_, i) => <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 fill-current" />)}
+                    {[...Array(Math.floor(testimonial.rating))].map((_, i) => (
+                      <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 fill-current" />
+                    ))}
                   </div>
                   <p className="text-gray-700 text-xs sm:text-sm italic flex-1">"{testimonial.quote}"</p>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
 
           <div className="text-center mt-8 lg:mt-12">
@@ -260,7 +277,7 @@ const Index = () => {
       </section>
 
       {/* Trust Metrics Section with CTA */}
-      <section className="py-8 sm:py-12 lg:py-16 bg-blue-600 text-white">
+      <section className="py-8 sm:py-12 lg:py-16 bg-gradient-to-r from-blue-500 to-indigo-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 lg:mb-12">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4">
@@ -275,22 +292,22 @@ const Index = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mt-8 lg:mt-12">
             <div className="text-center">
-              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-yellow-300">
-                <AnimatedCounter end={152482} />
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-yellow-300">
+                <AnimatedCounter end={152.5} suffix="K" />
               </div>
-              <div className="text-blue-100 text-sm sm:text-base">Students Assessed</div>
+              <div className="text-blue-100 text-base sm:text-lg">Students</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-yellow-300">
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-yellow-300">
                 <AnimatedCounter end={300} suffix="+" />
               </div>
-              <div className="text-blue-100 text-sm sm:text-base">Recruiters</div>
+              <div className="text-blue-100 text-base sm:text-lg">Recruiters</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-yellow-300">
-                <AnimatedCounter end={85} suffix="%" />
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-yellow-300">
+                <AnimatedCounter end={84.2} suffix="%" />
               </div>
-              <div className="text-blue-100 text-sm sm:text-base">Placement Success Rate</div>
+              <div className="text-blue-100 text-base sm:text-lg">Placement</div>
             </div>
           </div>
 
@@ -317,7 +334,7 @@ const Index = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact#send-message" className="w-full sm:w-auto">
               <Button className="w-full sm:w-auto bg-white text-green-600 hover:bg-gray-100 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 h-auto font-semibold touch-manipulation">
-                Show Me the 7-Min Walkthrough
+                Take One Test
                 <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
               </Button>
             </Link>
@@ -329,6 +346,8 @@ const Index = () => {
 
       <PlatReportModal isOpen={showReportModal} onClose={() => setShowReportModal(false)} onViewReport={() => setShowViewReportModal(true)} />
       <ReportViewModal isOpen={showViewReportModal} onClose={() => setShowViewReportModal(false)} />
-    </div>;
+    </div>
+  );
 };
+
 export default Index;
