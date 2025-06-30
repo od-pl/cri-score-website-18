@@ -7,11 +7,9 @@ import PlatReportModal from "@/components/PlatReportModal";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import CollegeCarousel from "@/components/CollegeCarousel";
 import ReportViewModal from "@/components/ReportViewModal";
-
 const Index = () => {
   const [showReportModal, setShowReportModal] = useState(false);
   const [showViewReportModal, setShowViewReportModal] = useState(false);
-
   const painPoints = [{
     icon: "❌",
     stat: "54%",
@@ -31,7 +29,6 @@ const Index = () => {
     source: "LinkedIn India 2023",
     color: "bg-yellow-50 border-yellow-200"
   }];
-
   const steps = [{
     step: "STEP 1",
     title: "Test",
@@ -53,7 +50,6 @@ const Index = () => {
     description: "Recruiter-trusted Career Readiness Index, shareable on LinkedIn",
     icon: "🏆"
   }];
-
   const testimonials = [{
     name: "Sachin Sengar",
     role: "Founder, GreenMentor",
@@ -79,10 +75,8 @@ const Index = () => {
     rating: 5,
     image: "/lovable-uploads/e4b8e8c9-b0e6-499c-932b-11952dd7ecfe.png"
   }];
-
-  return (
-    <div className="min-h-screen">
-      {/* Hero Section - Updated CTA */}
+  return <div className="min-h-screen">
+      {/* Hero Section - Updated Banner */}
       <section className="relative py-8 sm:py-12 lg:py-24 xl:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -104,7 +98,7 @@ const Index = () => {
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
                 <Link to="/contact#send-message" className="w-full sm:w-auto">
                   <Button className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 h-auto font-medium">
-                    Take One Test
+                    One Test
                     <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
                   </Button>
                 </Link>
@@ -143,10 +137,10 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Students > Report Cards Section - Updated background for contrast */}
-      <section className="py-8 sm:py-12 lg:py-16 bg-gradient-to-br from-gray-50 to-blue-50">
+      {/* Students > Report Cards Section */}
+      <section className="py-8 sm:py-12 lg:py-16 bg-white ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center">
             <div className="inline-block px-6 py-2 bg-blue-100 rounded-full mb-4">
               <span className="text-blue-700 font-medium">&quot;Students {`>`} Report cards alone&quot;</span>
             </div>
@@ -160,7 +154,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Pain Points Section - White background maintained for contrast */}
+      {/* Pain Points Section */}
       <section className="py-8 sm:py-12 lg:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 lg:mb-12">
@@ -265,8 +259,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Trust Metrics Section with Updated Stats and Styling */}
-      <section className="py-8 sm:py-12 lg:py-16 bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-600 text-white">
+      {/* Trust Metrics Section with CTA */}
+      <section className="py-8 sm:py-12 lg:py-16 bg-blue-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 lg:mb-12">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4">
@@ -281,22 +275,22 @@ const Index = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mt-8 lg:mt-12">
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-yellow-300 mb-2">
-                152.5K
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-yellow-300">
+                <AnimatedCounter end={152482} />
               </div>
-              <div className="text-blue-100 text-base sm:text-lg">Students Assessed</div>
+              <div className="text-blue-100 text-sm sm:text-base">Students Assessed</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-yellow-300 mb-2">
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-yellow-300">
                 <AnimatedCounter end={300} suffix="+" />
               </div>
-              <div className="text-blue-100 text-base sm:text-lg">Recruiters</div>
+              <div className="text-blue-100 text-sm sm:text-base">Recruiters</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-yellow-300 mb-2">
-                84.2%
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-yellow-300">
+                <AnimatedCounter end={85} suffix="%" />
               </div>
-              <div className="text-blue-100 text-base sm:text-lg">Placement Success Rate</div>
+              <div className="text-blue-100 text-sm sm:text-base">Placement Success Rate</div>
             </div>
           </div>
 
@@ -312,40 +306,29 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Final CTA Section - Improved positioning and styling */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-green-400 via-emerald-500 to-teal-600 text-white">
+      {/* Final CTA Section */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-green-400 via-emerald-500 to-teal-600 text-white bg-orange-500">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 text-gray-900 leading-tight">
             Ready to Boost Your College's Placement Rate?
           </h2>
+          <p className="text-base sm:text-lg lg:text-xl text-gray-800 mb-6 sm:mb-8 leading-relaxed max-w-3xl mx-auto">✓ Free Pilot Cohort — keep it only if the Skill-Intelligence Dashboard wows you </p>
           
-          {/* Free Pilot Cohort - moved to top with better styling */}
-          <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4 sm:p-6 mb-6 sm:mb-8 max-w-3xl mx-auto">
-            <p className="text-lg sm:text-xl text-white font-medium leading-relaxed">
-              ✓ Free Pilot Cohort — keep it only if the Skill-Intelligence Dashboard wows you
-            </p>
-          </div>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6 sm:mb-8">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact#send-message" className="w-full sm:w-auto">
               <Button className="w-full sm:w-auto bg-white text-green-600 hover:bg-gray-100 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 h-auto font-semibold touch-manipulation">
-                Take One Test
+                Show Me the 7-Min Walkthrough
                 <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
               </Button>
             </Link>
           </div>
 
-          {/* Join leading colleges text - moved to bottom with smaller font */}
-          <div className="text-gray-700 text-sm sm:text-base opacity-90">
-            Join leading colleges already using PLAT to improve NAAC outcomes and student success
-          </div>
+          <div className="mt-6 sm:mt-8 text-gray-700 text-sm sm:text-base my-[33px]">Join leading colleges already using PLAT to improve NAAC outcomes and student success</div>
         </div>
       </section>
 
       <PlatReportModal isOpen={showReportModal} onClose={() => setShowReportModal(false)} onViewReport={() => setShowViewReportModal(true)} />
       <ReportViewModal isOpen={showViewReportModal} onClose={() => setShowViewReportModal(false)} />
-    </div>
-  );
+    </div>;
 };
-
 export default Index;

@@ -10,10 +10,8 @@ import { Link } from "react-router-dom";
 import ReportViewModal from "@/components/ReportViewModal";
 import SkillRadar from "@/components/SkillRadar";
 import { useState } from "react";
-
 const CriScorecard = () => {
   const [showReportModal, setShowReportModal] = useState(false);
-  
   const skillCategories = [{
     name: "Cognitive",
     score: 8.2,
@@ -103,52 +101,38 @@ const CriScorecard = () => {
   const overallCRI = 8.2;
   const criColor = overallCRI >= 8 ? "text-green-600" : overallCRI >= 6 ? "text-yellow-600" : "text-red-600";
   const criLabel = overallCRI >= 8 ? "Excellent" : overallCRI >= 6 ? "Good" : "Needs Improvement";
-  return (
-    <div className="min-h-screen pt-16">
-      {/* Hero Section - Remove blue dots background */}
+  return <div className="min-h-screen pt-16">
+      {/* Hero Section */}
       <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
-          {/* Floating skills elements - added as requested */}
-          <motion.div 
-            className="absolute top-20 left-10 text-blue-300 opacity-70" 
-            animate={{
-              y: [0, -20, 0],
-              x: [0, 10, 0]
-            }} 
-            transition={{
-              duration: 4,
-              repeat: Infinity
-            }}
-          >
-            <span className="text-lg font-medium text-white bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">Problem Solving</span>
+          <motion.div className="absolute top-20 left-10 text-blue-300 opacity-60" animate={{
+          y: [0, -20, 0],
+          x: [0, 10, 0]
+        }} transition={{
+          duration: 4,
+          repeat: Infinity
+        }}>
+            <span className="text-sm font-medium text-white">Problem Solving</span>
           </motion.div>
-          <motion.div 
-            className="absolute top-40 right-20 text-purple-300 opacity-70" 
-            animate={{
-              y: [0, -15, 0],
-              x: [0, -10, 0]
-            }} 
-            transition={{
-              duration: 5,
-              repeat: Infinity,
-              delay: 1
-            }}
-          >
-            <span className="text-lg font-medium text-white bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">Communication</span>
+          <motion.div className="absolute top-40 right-20 text-purple-300 opacity-60" animate={{
+          y: [0, -15, 0],
+          x: [0, -10, 0]
+        }} transition={{
+          duration: 5,
+          repeat: Infinity,
+          delay: 1
+        }}>
+            <span className="text-sm font-medium text-white">Communication</span>
           </motion.div>
-          <motion.div 
-            className="absolute bottom-40 left-20 text-green-300 opacity-70" 
-            animate={{
-              y: [0, -25, 0],
-              x: [0, 15, 0]
-            }} 
-            transition={{
-              duration: 6,
-              repeat: Infinity,
-              delay: 2
-            }}
-          >
-            <span className="text-lg font-medium text-white bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">Leadership</span>
+          <motion.div className="absolute bottom-40 left-20 text-green-300 opacity-60" animate={{
+          y: [0, -25, 0],
+          x: [0, 15, 0]
+        }} transition={{
+          duration: 6,
+          repeat: Infinity,
+          delay: 2
+        }}>
+            <span className="text-sm font-medium text-white">Leadership</span>
           </motion.div>
         </div>
         
@@ -156,11 +140,8 @@ const CriScorecard = () => {
           <div className="text-center mb-16">
             <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6">
               CRI Scorecard — The{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 block mt-2">
-                CIBIL Score
-              </span>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
-                for Careers
+                CIBIL Score for Careers
               </span>
             </h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
@@ -198,7 +179,7 @@ const CriScorecard = () => {
         </div>
       </section>
 
-      {/* HOW WE CALCULATE CRI Section - Updated formula */}
+      {/* HOW WE CALCULATE CRI Section */}
       <section className="py-16 bg-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -207,14 +188,7 @@ const CriScorecard = () => {
             </h2>
             <div className="max-w-4xl mx-auto">
               <div className="bg-white rounded-2xl p-8 shadow-lg border">
-                <div className="text-center mb-6">
-                  <div className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
-                    Career Readiness Index (0–900)
-                  </div>
-                  <div className="text-xl lg:text-2xl font-bold text-blue-600">
-                    = PLAT Skill Score + Academic Scores + Upskill Effort + Co-Curriculum
-                  </div>
-                </div>
+                <div className="text-2xl font-bold text-gray-900 mb-6">One trusted Career Readiness Index (0-900) = Academic Scores + PLAT Skill Score + Upskill Effort</div>
                 <p className="text-sm text-gray-600 italic">
                   *Upskill effort includes internships, on-job training, certified courses and extra-curricular impact, all verified by our API hooks.
                 </p>
@@ -374,7 +348,7 @@ const CriScorecard = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact#send-message">
               <Button className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-6 h-auto font-semibold">
-                Take One Test
+                Show Me the 7-Min Walkthrough
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </Link>
@@ -383,8 +357,6 @@ const CriScorecard = () => {
       </section>
 
       <ReportViewModal isOpen={showReportModal} onClose={() => setShowReportModal(false)} />
-    </div>
-  );
+    </div>;
 };
-
 export default CriScorecard;
