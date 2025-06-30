@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
@@ -11,7 +10,6 @@ import { Link } from "react-router-dom";
 import ReportViewModal from "@/components/ReportViewModal";
 import SkillRadar from "@/components/SkillRadar";
 import { useState } from "react";
-
 const CriScorecard = () => {
   const [showReportModal, setShowReportModal] = useState(false);
   const skillCategories = [{
@@ -190,9 +188,7 @@ const CriScorecard = () => {
             </h2>
             <div className="max-w-4xl mx-auto">
               <div className="bg-white rounded-2xl p-8 shadow-lg border">
-                <div className="text-2xl font-bold text-gray-900 mb-6">
-                  Academic Scores + PLAT Skill Score + Upskill Effort* = One trusted Career Readiness Index (0-900)
-                </div>
+                <div className="text-2xl font-bold text-gray-900 mb-6">One trusted Career Readiness Index (0-900) = Academic Scores + PLAT Skill Score + Upskill Effort</div>
                 <p className="text-sm text-gray-600 italic">
                   *Upskill effort includes internships, on-job training, certified courses and extra-curricular impact, all verified by our API hooks.
                 </p>
