@@ -1,8 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { TrendingUp, AlertTriangle, Award, ArrowRight, Building2, Users, BookOpen } from "lucide-react";
+import { TrendingUp, AlertTriangle, Award, ArrowRight, Building2, Users, BookOpen, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
 import NaacGradeChart from "@/components/NaacGradeChart";
+
 const WhyPlat = () => {
   const problems = [{
     title: "Marksheets ≠ Skills",
@@ -38,8 +39,14 @@ const WhyPlat = () => {
     title: "UGC Mandate",
     description: "Colleges must demonstrate measurable student outcomes",
     logo: "📊"
+  }, {
+    year: "2026",
+    title: "2026 Deadline",
+    description: "Outcome-based proof must be demonstrated for NAAC compliance",
+    logo: "📅"
   }];
-  return <div className="min-h-screen pt-16">
+  return (
+    <div className="min-h-screen pt-16">
       {/* Hero Section */}
       <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -138,7 +145,7 @@ Failing Students</span>
         </div>
       </section>
 
-      {/* Regulatory Pressure */}
+      {/* Regulatory Pressure - Updated with 2026 deadline */}
       <section className="py-12 lg:py-16 bg-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 lg:mb-12">
@@ -154,7 +161,8 @@ Failing Students</span>
             <div className="absolute left-4 lg:left-1/2 lg:transform lg:-translate-x-px h-full w-0.5 bg-blue-300"></div>
             
             <div className="space-y-6 lg:space-y-8">
-              {regulations.map((reg, index) => <div key={index} className={`flex items-center ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
+              {regulations.map((reg, index) => (
+                <div key={index} className={`flex items-center ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
                   <div className={`flex-1 ${index % 2 === 0 ? 'lg:pr-8' : 'lg:pl-8'} pl-10 lg:pl-0`}>
                     <Card className="bg-white shadow-lg">
                       <CardContent className="p-6">
@@ -175,7 +183,8 @@ Failing Students</span>
                   </div>
                   
                   <div className="flex-1 hidden lg:block"></div>
-                </div>)}
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -234,6 +243,8 @@ Failing Students</span>
           </div>
         </div>
       </section>
-    </div>;
+    </div>
+  );
 };
+
 export default WhyPlat;

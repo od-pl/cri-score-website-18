@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -79,33 +78,6 @@ const HowItWorks = () => {
     }
   ];
 
-  const processSteps = [
-    {
-      title: "Test",
-      description: "Comprehensive skill assessment",
-      icon: FileText,
-      color: "bg-blue-500"
-    },
-    {
-      title: "Micro Tasks",
-      description: "Targeted skill building",
-      icon: Target,
-      color: "bg-orange-500"
-    },
-    {
-      title: "Skill Improvement",
-      description: "Measurable progress",
-      icon: TrendingUp,
-      color: "bg-green-500"
-    },
-    {
-      title: "CRI Score",
-      description: "Career Readiness Index",
-      icon: BarChart3,
-      color: "bg-purple-500"
-    }
-  ];
-
   const dashboards = [
     {
       role: "VICE-CHANCELLOR",
@@ -130,48 +102,6 @@ const HowItWorks = () => {
       icon: User,
       features: ["Personal radar chart", "Micro-task queue", "CRI growth bar"],
       description: "Personal skill development and progress tracking"
-    }
-  ];
-
-  const criticalProblems = [
-    {
-      title: "Marksheets ≠ Skills",
-      stat: "78%",
-      description: "young professionals struggle on the job.",
-      impact: "Costs recruiters ₹1.2 Cr/year in churn.",
-      color: "bg-red-50 border-red-200"
-    },
-    {
-      title: "Employer Trust Gap",
-      stat: "49%",
-      description: "of hiring managers reject on-campus toppers.",
-      impact: "Damages college placement reputation.",
-      color: "bg-orange-50 border-orange-200"
-    },
-    {
-      title: "Hidden Skill Gaps",
-      stat: "65%",
-      description: "of graduates don't know their own strengths.",
-      impact: "Leads to mis-aligned career paths and lower CTCs.",
-      color: "bg-yellow-50 border-yellow-200"
-    }
-  ];
-
-  const regulatoryTimeline = [
-    {
-      year: "NEP 2020",
-      description: "Mandates skill-based learning",
-      status: "completed"
-    },
-    {
-      year: "NAAC 2023",
-      description: "Compulsory outcome tracking",
-      status: "completed"
-    },
-    {
-      year: "UGC 2024",
-      description: "Evidence of measurable student skills",
-      status: "current"
     }
   ];
 
@@ -211,7 +141,7 @@ const HowItWorks = () => {
           </div>
         </section>
 
-        {/* Problem/Solution Section */}
+        {/* Section 1: Problem/Solution - Restructured */}
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-2 gap-12">
@@ -238,79 +168,84 @@ const HowItWorks = () => {
           </div>
         </section>
 
-        {/* Three Critical Problems */}
+        {/* Section 2: 3-Level Skill Assessment */}
         <section className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                Three Critical Problems
+                3-Level Skill Assessment
               </h2>
               <p className="text-xl text-gray-600">
-                The hidden costs of traditional assessment methods
+                Comprehensive Evaluation across Cognitive, Applied, and Industry-Ready Skills
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {criticalProblems.map((problem, index) => (
-                <Card key={index} className={`${problem.color} border-2 hover:shadow-lg transition-all duration-300`}>
-                  <CardContent className="p-6">
-                    <div className="text-3xl font-bold text-gray-900 mb-2">{index + 1}.</div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">{problem.title}</h3>
-                    <div className="mb-4">
-                      <span className="text-2xl font-bold text-red-600">{problem.stat} </span>
-                      <span className="text-gray-700">{problem.description}</span>
-                    </div>
-                    <div className="text-sm text-gray-600 font-medium">
-                      → {problem.impact}
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Regulatory Timeline */}
-        <section className="py-16 bg-slate-900 text-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-                Regulatory Timeline "Clock"
-              </h2>
-              <p className="text-xl text-slate-300">
-                Compliance deadlines are approaching fast
-              </p>
-            </div>
-
-            <div className="flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 md:space-x-8 mb-12">
-              {regulatoryTimeline.map((item, index) => (
-                <div key={index} className="flex flex-col items-center text-center">
-                  <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-4 ${
-                    item.status === 'completed' ? 'bg-green-500' : 
-                    item.status === 'current' ? 'bg-yellow-500' : 'bg-gray-500'
-                  }`}>
-                    <Calendar className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-lg font-bold mb-2">{item.year}</h3>
-                  <p className="text-slate-300 text-sm">{item.description}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* Deadline Alert */}
-            <div className="bg-red-600 rounded-lg p-6 text-center">
-              <div className="flex items-center justify-center mb-4">
-                <AlertTriangle className="w-8 h-8 text-white mr-3" />
-                <h3 className="text-2xl font-bold">NEXT CYCLE DEADLINE</h3>
+            {/* Desktop Staircase Layout */}
+            <div className="hidden md:block relative">
+              <div className="relative flex items-end justify-center space-x-8 mb-16">
+                {skillLevels.map((level, index) => {
+                  const Icon = level.icon;
+                  const marginBottom = index === 0 ? 'mb-0' : index === 1 ? 'mb-20' : 'mb-40';
+                  return (
+                    <Tooltip key={index}>
+                      <TooltipTrigger asChild>
+                        <div className={`relative ${marginBottom}`}>
+                          <Card className={`${level.bgColor} ${level.borderColor} border-2 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 w-80 cursor-pointer`}>
+                            <CardContent className="p-8">
+                              <div className="flex items-center mb-4">
+                                <div className={`w-12 h-12 rounded-full ${level.color} flex items-center justify-center mr-4`}>
+                                  <Icon className="w-6 h-6 text-white" />
+                                </div>
+                                <div>
+                                  <div className="text-sm font-semibold text-gray-500 uppercase tracking-wide">{level.level}</div>
+                                  <h3 className="text-xl font-bold text-gray-900">{level.title}</h3>
+                                </div>
+                              </div>
+                              <p className="text-gray-600 text-sm leading-relaxed">{level.description}</p>
+                            </CardContent>
+                          </Card>
+                          
+                          <div className={`absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-16 h-6 ${level.color} rounded-t-lg flex items-center justify-center`}>
+                            <span className="text-white font-bold text-sm">{index + 1}</span>
+                          </div>
+                        </div>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>{level.description}</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  );
+                })}
               </div>
-              <div className="text-3xl font-bold mb-2">Dec 2026</div>
-              <div className="text-lg text-red-100">≈ 18 months left</div>
+            </div>
+
+            {/* Mobile Vertical Stack */}
+            <div className="md:hidden space-y-6">
+              {skillLevels.map((level, index) => {
+                const Icon = level.icon;
+                return (
+                  <Card key={index} className={`${level.bgColor} ${level.borderColor} border-2`}>
+                    <CardContent className="p-6">
+                      <div className="flex items-center mb-4">
+                        <div className={`w-12 h-12 rounded-full ${level.color} flex items-center justify-center mr-4`}>
+                          <Icon className="w-6 h-6 text-white" />
+                        </div>
+                        <div>
+                          <div className="text-sm font-semibold text-gray-500 uppercase tracking-wide">{level.level}</div>
+                          <h3 className="text-lg font-bold text-gray-900">{level.title}</h3>
+                        </div>
+                      </div>
+                      <p className="text-gray-600 text-sm leading-relaxed">{level.description}</p>
+                    </CardContent>
+                  </Card>
+                );
+              })}
             </div>
           </div>
         </section>
 
-        {/* Assessment to Upskilling Lifecycle */}
-        <section className="py-16 bg-gray-50">
+        {/* Section 3: Assessment to Upskilling Lifecycle */}
+        <section className="py-16 bg-blue-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
@@ -396,12 +331,47 @@ const HowItWorks = () => {
           </div>
         </section>
 
-        {/* Stakeholder Dashboards */}
+        {/* Section 4: Compliance & Certifications */}
+        <section className="py-16 bg-slate-900 text-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+                Compliance & Certifications
+              </h2>
+              <p className="text-xl text-slate-300">
+                We maintain the highest standards of data protection and compliance
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                { title: "WASA", description: "Web Application Security Audit (Cert-In)", icon: Globe },
+                { title: "ISO 9001:2015", description: "Quality Management", icon: Shield },
+                { title: "ISO/IEC 27001:2022", description: "Information Security Management", icon: Lock }
+              ].map((feature, index) => {
+                const Icon = feature.icon;
+                return (
+                  <Card key={index} className="bg-slate-800 border-slate-700">
+                    <CardContent className="p-8 text-center">
+                      <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <Icon className="w-8 h-8 text-white" />
+                      </div>
+                      <h3 className="text-xl font-bold text-white mb-4">{feature.title}</h3>
+                      <p className="text-slate-300">{feature.description}</p>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* Section 5: Stakeholder Dashboards */}
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                Stakeholder Dashboards Teasers
+                Stakeholder Dashboards
               </h2>
               <p className="text-xl text-gray-600">
                 Tailored insights for every role in your institution
@@ -481,113 +451,6 @@ const HowItWorks = () => {
           </div>
         </section>
 
-        {/* 3-Level Skill Assessment */}
-        <section className="py-16 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                3-Level Skill Assessment
-              </h2>
-              <p className="text-xl text-gray-600">
-                Comprehensive Evaluation across Cognitive, Applied, and Industry-Ready Skills
-              </p>
-            </div>
-
-            {/* Desktop Staircase Layout */}
-            <div className="hidden md:block relative">
-              <div className="relative flex items-end justify-center space-x-8 mb-16">
-                {skillLevels.map((level, index) => {
-                  const Icon = level.icon;
-                  const marginBottom = index === 0 ? 'mb-0' : index === 1 ? 'mb-20' : 'mb-40';
-                  return (
-                    <Tooltip key={index}>
-                      <TooltipTrigger asChild>
-                        <div className={`relative ${marginBottom}`}>
-                          <Card className={`${level.bgColor} ${level.borderColor} border-2 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 w-80 cursor-pointer`}>
-                            <CardContent className="p-8">
-                              <div className="flex items-center mb-4">
-                                <div className={`w-12 h-12 rounded-full ${level.color} flex items-center justify-center mr-4`}>
-                                  <Icon className="w-6 h-6 text-white" />
-                                </div>
-                                <div>
-                                  <div className="text-sm font-semibold text-gray-500 uppercase tracking-wide">{level.level}</div>
-                                  <h3 className="text-xl font-bold text-gray-900">{level.title}</h3>
-                                </div>
-                              </div>
-                              <p className="text-gray-600 text-sm leading-relaxed">{level.description}</p>
-                            </CardContent>
-                          </Card>
-                          
-                          <div className={`absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-16 h-6 ${level.color} rounded-t-lg flex items-center justify-center`}>
-                            <span className="text-white font-bold text-sm">{index + 1}</span>
-                          </div>
-                        </div>
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>{level.description}</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Mobile Vertical Stack */}
-            <div className="md:hidden space-y-6">
-              {skillLevels.map((level, index) => {
-                const Icon = level.icon;
-                return (
-                  <Card key={index} className={`${level.bgColor} ${level.borderColor} border-2`}>
-                    <CardContent className="p-6">
-                      <div className="flex items-center mb-4">
-                        <div className={`w-12 h-12 rounded-full ${level.color} flex items-center justify-center mr-4`}>
-                          <Icon className="w-6 h-6 text-white" />
-                        </div>
-                        <div>
-                          <div className="text-sm font-semibold text-gray-500 uppercase tracking-wide">{level.level}</div>
-                          <h3 className="text-lg font-bold text-gray-900">{level.title}</h3>
-                        </div>
-                      </div>
-                      <p className="text-gray-600 text-sm leading-relaxed">{level.description}</p>
-                    </CardContent>
-                  </Card>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* Compliance & Certifications */}
-        <section className="py-16 bg-slate-900 text-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-                Compliance & Certifications
-              </h2>
-              <p className="text-xl text-slate-300">
-                We maintain the highest standards of data protection and compliance
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              {complianceFeatures.map((feature, index) => {
-                const Icon = feature.icon;
-                return (
-                  <Card key={index} className="bg-slate-800 border-slate-700">
-                    <CardContent className="p-8 text-center">
-                      <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <Icon className="w-8 h-8 text-white" />
-                      </div>
-                      <h3 className="text-xl font-bold text-white mb-4">{feature.title}</h3>
-                      <p className="text-slate-300">{feature.description}</p>
-                    </CardContent>
-                  </Card>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
         {/* Call to Action */}
         <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -599,7 +462,7 @@ const HowItWorks = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact#send-message">
                 <Button className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-6 h-auto font-semibold">
-                  Show Me the 7-Min Walkthrough
+                  Take One Test
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
