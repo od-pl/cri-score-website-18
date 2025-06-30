@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -26,6 +27,7 @@ const FAQ = () => {
     question: "Is PLAT easy to implement?",
     answer: "Yes, PLAT is easy to implement. The platform is cloud-based and requires no special hardware or software. We also provide comprehensive training and support to help you get started."
   }];
+  
   const additionalResources = [{
     title: "Gallery",
     description: "Explore a visual gallery showcasing the PLAT implementation process, offering valuable resources, case studies, and expert insights to guide your institution's success.",
@@ -41,6 +43,13 @@ const FAQ = () => {
     bgColor: "bg-orange-50",
     link: "/testimonials"
   }, {
+    title: "Video Tutorials",
+    description: "Comprehensive video library covering platform usage, interpretation of results, and student engagement strategies.",
+    icon: Video,
+    color: "bg-purple-500",
+    bgColor: "bg-purple-50",
+    link: "/contact"
+  }, {
     title: "Expert Consultation",
     description: "Schedule a personalized consultation with our education specialists to discuss your specific needs and implementation strategy.",
     icon: Users,
@@ -48,6 +57,7 @@ const FAQ = () => {
     bgColor: "bg-green-50",
     link: "/contact"
   }];
+  
   return <div className="min-h-screen pt-16">
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
@@ -79,7 +89,7 @@ const FAQ = () => {
         </div>
       </section>
 
-      {/* Additional Resources Section - Updated descriptions */}
+      {/* Additional Resources Section - Updated with Video Tutorials */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -91,7 +101,7 @@ const FAQ = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {additionalResources.map((resource, index) => {
               const Icon = resource.icon;
               return <Card key={index} className={`${resource.bgColor} border-2 hover:shadow-lg transition-all duration-300 group cursor-pointer`}>
