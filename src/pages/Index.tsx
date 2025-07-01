@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -8,11 +7,9 @@ import PlatReportModal from "@/components/PlatReportModal";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import CollegeCarousel from "@/components/CollegeCarousel";
 import ReportViewModal from "@/components/ReportViewModal";
-
 const Index = () => {
   const [showReportModal, setShowReportModal] = useState(false);
   const [showViewReportModal, setShowViewReportModal] = useState(false);
-
   const painPoints = [{
     icon: "❌",
     stat: "54%",
@@ -32,7 +29,6 @@ const Index = () => {
     source: "LinkedIn India 2023",
     color: "bg-yellow-50 border-yellow-200"
   }];
-
   const steps = [{
     step: "STEP 1",
     title: "Test",
@@ -54,7 +50,6 @@ const Index = () => {
     description: "Recruiter-trusted Career Readiness Index, shareable on LinkedIn",
     icon: "🏆"
   }];
-
   const testimonials = [{
     name: "Sachin Sengar",
     role: "Founder, GreenMentor",
@@ -80,9 +75,7 @@ const Index = () => {
     rating: 5,
     image: "/lovable-uploads/e4b8e8c9-b0e6-499c-932b-11952dd7ecfe.png"
   }];
-
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       {/* Hero Section - Updated Banner */}
       <section className="relative py-8 sm:py-12 lg:py-24 xl:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50"></div>
@@ -132,7 +125,7 @@ const Index = () => {
                 <div className="mt-4 sm:mt-6 space-y-3 sm:space-y-4">
                   <div className="flex justify-between items-center">
                     <span className="text-xs sm:text-sm font-medium text-gray-600">Career Readiness Index</span>
-                    <span className="text-lg sm:text-xl lg:text-2xl font-bold text-green-600">840/900</span>
+                    <span className="text-lg sm:text-xl lg:text-2xl font-bold text-green-600">842/900</span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2 sm:h-3">
                     <div className="bg-gradient-to-r from-green-400 to-green-600 h-2 sm:h-3 rounded-full w-4/5"></div>
@@ -174,16 +167,14 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-12">
-            {painPoints.map((point, index) => (
-              <Card key={index} className={`${point.color} border-2 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation`}>
+            {painPoints.map((point, index) => <Card key={index} className={`${point.color} border-2 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation`}>
                 <CardContent className="p-4 sm:p-6 lg:p-8 text-center">
                   <div className="text-2xl sm:text-3xl lg:text-4xl mb-3 sm:mb-4">{point.icon}</div>
                   <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">{point.stat}</div>
                   <p className="text-gray-700 font-medium mb-1 text-sm sm:text-base">{point.text}</p>
                   <p className="text-gray-500 text-xs sm:text-sm italic">{point.source}</p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -201,8 +192,7 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {steps.map((step, index) => (
-              <div key={index} className="relative">
+            {steps.map((step, index) => <div key={index} className="relative">
                 <Card className="bg-white hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation h-full">
                   <CardContent className="p-4 sm:p-6 text-center h-full flex flex-col justify-center">
                     <div className="text-xs font-bold text-blue-600 mb-2">{step.step}</div>
@@ -211,13 +201,10 @@ const Index = () => {
                     <p className="text-gray-600 text-sm sm:text-base leading-relaxed">{step.description}</p>
                   </CardContent>
                 </Card>
-                {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2">
+                {index < steps.length - 1 && <div className="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2">
                     <ArrowRight className="w-5 h-5 xl:w-6 xl:h-6 text-blue-600" />
-                  </div>
-                )}
-              </div>
-            ))}
+                  </div>}
+              </div>)}
           </div>
 
           <div className="text-center mt-8 lg:mt-12">
@@ -244,8 +231,7 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation h-full">
+            {testimonials.map((testimonial, index) => <Card key={index} className="hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation h-full">
                 <CardContent className="p-4 sm:p-6 h-full flex flex-col">
                   <div className="flex items-center mb-3 sm:mb-4">
                     <img src={testimonial.image} alt={testimonial.name} className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover mr-3 flex-shrink-0" />
@@ -255,14 +241,11 @@ const Index = () => {
                     </div>
                   </div>
                   <div className="flex mb-2 sm:mb-3">
-                    {[...Array(Math.floor(testimonial.rating))].map((_, i) => (
-                      <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 fill-current" />
-                    ))}
+                    {[...Array(Math.floor(testimonial.rating))].map((_, i) => <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 fill-current" />)}
                   </div>
                   <p className="text-gray-700 text-xs sm:text-sm italic flex-1">"{testimonial.quote}"</p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
 
           <div className="text-center mt-8 lg:mt-12">
@@ -346,8 +329,6 @@ const Index = () => {
 
       <PlatReportModal isOpen={showReportModal} onClose={() => setShowReportModal(false)} onViewReport={() => setShowViewReportModal(true)} />
       <ReportViewModal isOpen={showViewReportModal} onClose={() => setShowViewReportModal(false)} />
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
