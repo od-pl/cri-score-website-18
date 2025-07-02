@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { ArrowRight, Book, Video, FileText, Download, Mail, Phone, MessageCircle, Clock, CheckCircle, Users, Award, Building2, TrendingUp, Target, Search, Settings, Shield, Globe, BarChart3, BookOpen, Play } from "lucide-react";
+import { ArrowRight, Book, Video, FileText, Download, Mail, Phone, MessageCircle, Clock, CheckCircle, Users, Award, Building2, TrendingUp, Target, Search, Settings, Shield, Globe, BarChart3, BookOpen, Play, ImageIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const FAQ = () => {
@@ -83,11 +83,12 @@ const FAQ = () => {
 
   const supportResources = [
     {
-      title: "Implementation Guide",
-      description: "Comprehensive guide for institutional setup and deployment",
-      icon: Book,
-      buttonText: "Download Guide",
-      color: "bg-blue-50 border-blue-200 hover:bg-blue-100"
+      title: "Gallery",
+      description: "View our certifications, achievements, and visual showcase",
+      icon: ImageIcon,
+      buttonText: "View Gallery",
+      color: "bg-blue-50 border-blue-200 hover:bg-blue-100",
+      link: "/gallery"
     },
     {
       title: "Video Tutorials",
@@ -97,11 +98,12 @@ const FAQ = () => {
       color: "bg-green-50 border-green-200 hover:bg-green-100"
     },
     {
-      title: "API Documentation",
-      description: "Technical documentation for developers and system administrators",
-      icon: FileText,
-      buttonText: "View Docs",
-      color: "bg-purple-50 border-purple-200 hover:bg-purple-100"
+      title: "Blog",
+      description: "Latest insights, best practices, and thought leadership articles",
+      icon: BookOpen,
+      buttonText: "Read Blog",
+      color: "bg-purple-50 border-purple-200 hover:bg-purple-100",
+      link: "/blog"
     },
     {
       title: "Sample Reports",
@@ -202,8 +204,8 @@ const FAQ = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {supportResources.map((resource, index) => {
               const ResourceIcon = resource.icon;
-              return (
-                <Card key={index} className={`${resource.color} border-2 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 h-full flex flex-col`}>
+              const CardContent = (
+                <Card className={`${resource.color} border-2 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 h-full flex flex-col cursor-pointer`}>
                   <CardContent className="p-8 text-center flex flex-col h-full justify-between">
                     <div>
                       <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-md">
@@ -218,6 +220,16 @@ const FAQ = () => {
                     </Button>
                   </CardContent>
                 </Card>
+              );
+
+              return resource.link ? (
+                <Link key={index} to={resource.link} target="_blank" rel="noopener noreferrer">
+                  {CardContent}
+                </Link>
+              ) : (
+                <div key={index}>
+                  {CardContent}
+                </div>
               );
             })}
           </div>

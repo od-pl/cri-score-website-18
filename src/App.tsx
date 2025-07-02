@@ -11,6 +11,8 @@ import CriScorecard from "./pages/CriScorecard";
 import CifFramework from "./pages/CifFramework";
 import Testimonials from "./pages/Testimonials";
 import FAQ from "./pages/FAQ";
+import Gallery from "./pages/Gallery";
+import Blog from "./pages/Blog";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Legal from "./pages/Legal";
@@ -41,6 +43,8 @@ const App = () => (
               <Route path="/cif-framework" element={<CifFramework />} />
               <Route path="/testimonials" element={<Testimonials />} />
               <Route path="/faq" element={<FAQ />} />
+              <Route path="/gallery" element={<Gallery />} />
+              <Route path="/blog" element={<Blog />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/legal" element={<Legal />} />
