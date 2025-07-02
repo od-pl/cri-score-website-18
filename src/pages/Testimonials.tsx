@@ -3,6 +3,7 @@ import { Star, Building2, TrendingUp, Users, Award, FileText, Search, Target, Ba
 import AnimatedCounter from "@/components/AnimatedCounter";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+
 const Testimonials = () => {
   const caseStudies = [{
     logo: "JBIMS",
@@ -130,26 +131,33 @@ const Testimonials = () => {
     story: "PLAT helped me decode my strengths and blind spots with precision. The skill insights weren't generic—they showed me exactly where I needed to improve to match industry expectations. That confidence translated directly into how I pitched myself to recruiters and chose the right role to start my career.",
     image: "/lovable-uploads/f2fcac02-e171-41f8-a7da-b3d4c5665552.png"
   }];
-  const stats = [{
-    icon: Users,
-    value: 25766,
-    label: "Students Assessed"
-  }, {
-    icon: Building2,
-    value: "50+",
-    label: "Partner Colleges"
-  }, {
-    icon: TrendingUp,
-    value: 18,
-    label: "Average Placement Increase",
-    suffix: "%"
-  }, {
-    icon: Award,
-    value: 85,
-    label: "Student Engagement",
-    suffix: "%"
-  }];
-  return <div className="min-h-screen pt-16">
+  const stats = [
+    {
+      icon: Users,
+      value: 25766,
+      label: "Students"
+    },
+    {
+      icon: Building2,
+      value: "50+",
+      label: "Partner Colleges"
+    },
+    {
+      icon: TrendingUp,
+      value: 18,
+      label: "Average Placement Increase",
+      suffix: "%"
+    },
+    {
+      icon: Award,
+      value: 82,
+      label: "Student Leveling Up",
+      suffix: "%"
+    }
+  ];
+
+  return (
+    <div className="min-h-screen pt-16">
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-green-50 via-blue-50 to-purple-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -160,23 +168,31 @@ const Testimonials = () => {
                 Case Studies
               </span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">Here: 18% average placement lift across 50 campuses — here’s the proof.</p>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Here: 18% average placement lift across 50 campuses — here's the proof.
+            </p>
           </div>
 
           {/* Animated Stats */}
           <div className="grid md:grid-cols-4 gap-8 mb-16">
             {stats.map((stat, index) => {
-            const Icon = stat.icon;
-            return <Card key={index} className="bg-white/70 backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover:scale-105">
+              const Icon = stat.icon;
+              return (
+                <Card key={index} className="bg-white/70 backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover:scale-105">
                   <CardContent className="p-6 text-center">
                     <Icon className="w-8 h-8 text-blue-600 mx-auto mb-4" />
                     <div className="text-3xl font-bold text-gray-900 mb-2">
-                      {typeof stat.value === 'number' ? <AnimatedCounter end={stat.value} suffix={stat.suffix || ""} /> : stat.value}
+                      {typeof stat.value === 'number' ? (
+                        <AnimatedCounter end={stat.value} suffix={stat.suffix || ""} />
+                      ) : (
+                        stat.value
+                      )}
                     </div>
                     <div className="text-gray-600">{stat.label}</div>
                   </CardContent>
-                </Card>;
-          })}
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -345,6 +361,8 @@ const Testimonials = () => {
           </div>
         </div>
       </section>
-    </div>;
+    </div>
+  );
 };
+
 export default Testimonials;
