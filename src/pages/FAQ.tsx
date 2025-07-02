@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -204,7 +205,7 @@ const FAQ = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {supportResources.map((resource, index) => {
               const ResourceIcon = resource.icon;
-              const CardContent = (
+              const CardWrapper = (
                 <Card className={`${resource.color} border-2 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 h-full flex flex-col cursor-pointer`}>
                   <CardContent className="p-8 text-center flex flex-col h-full justify-between">
                     <div>
@@ -224,11 +225,11 @@ const FAQ = () => {
 
               return resource.link ? (
                 <Link key={index} to={resource.link} target="_blank" rel="noopener noreferrer">
-                  {CardContent}
+                  {CardWrapper}
                 </Link>
               ) : (
                 <div key={index}>
-                  {CardContent}
+                  {CardWrapper}
                 </div>
               );
             })}
