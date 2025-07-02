@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -429,40 +430,44 @@ const HowItWorks = () => {
                 const Icon = dashboard.icon;
                 const tabValue = index === 0 ? 'vc' : index === 1 ? 'hod' : index === 2 ? 'tp' : 'student';
                 const dashboardImage = index === 0 ? '/lovable-uploads/ad9fd5d4-e263-45b5-bde2-867b14c3b35e.png' : index === 1 ? '/lovable-uploads/d5b7ad41-dd4d-42fc-ba47-84ff6d7230fc.png' : index === 2 ? '/lovable-uploads/ad9fd5d4-e263-45b5-bde2-867b14c3b35e.png' : '/lovable-uploads/a2e906e2-57ef-4a11-bc41-adf34f73645f.png';
-                return <TabsContent key={index} value={tabValue} className="mt-8">
-                  <Card>
-                    <CardContent className="p-8">
-                      <div className="flex items-center mb-8">
-                        <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mr-6 flex-shrink-0">
-                          <Icon className="w-8 h-8 text-blue-600" />
-                        </div>
-                        <div>
-                          <h3 className="text-2xl font-bold text-gray-900">{dashboard.role}</h3>
-                          <p className="text-gray-600">{dashboard.description}</p>
-                        </div>
-                      </div>
-
-                      <div className="grid md:grid-cols-2 gap-8 items-start">
-                        <div className="space-y-4">
-                          <h4 className="font-semibold text-gray-900 text-lg">Key Features</h4>
-                          <ul className="space-y-3">
-                            {dashboard.features.map((feature, featureIndex) => <li key={featureIndex} className="flex items-start space-x-3">
-                                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                                <span className="text-gray-700">{feature}</span>
-                              </li>)}
-                          </ul>
-                        </div>
-                        
-                        <div className="bg-gray-50 rounded-lg p-6">
-                          <div className="text-sm text-gray-500 mb-4 font-medium">Dashboard Preview</div>
-                          <div className="bg-white rounded-lg border overflow-hidden shadow-sm">
-                            <img src={dashboardImage} alt={`${dashboard.role} Dashboard`} className="w-full h-48 object-cover object-top" />
+                return (
+                  <TabsContent key={index} value={tabValue} className="mt-8">
+                    <Card>
+                      <CardContent className="p-8">
+                        <div className="flex items-center mb-8">
+                          <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mr-6 flex-shrink-0">
+                            <Icon className="w-8 h-8 text-blue-600" />
+                          </div>
+                          <div>
+                            <h3 className="text-2xl font-bold text-gray-900">{dashboard.role}</h3>
+                            <p className="text-gray-600">{dashboard.description}</p>
                           </div>
                         </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </TabsContent>;
+
+                        <div className="grid md:grid-cols-2 gap-8 items-start">
+                          <div className="space-y-4">
+                            <h4 className="font-semibold text-gray-900 text-lg">Key Features</h4>
+                            <ul className="space-y-3">
+                              {dashboard.features.map((feature, featureIndex) => (
+                                <li key={featureIndex} className="flex items-start space-x-3">
+                                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                                  <span className="text-gray-700">{feature}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                          
+                          <div className="bg-gray-50 rounded-lg p-6">
+                            <div className="text-sm text-gray-500 mb-4 font-medium">Dashboard Preview</div>
+                            <div className="bg-white rounded-lg border overflow-hidden shadow-sm">
+                              <img src={dashboardImage} alt={`${dashboard.role} Dashboard`} className="w-full h-48 object-cover object-top" />
+                            </div>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </TabsContent>
+                );
               })}
             </Tabs>
 
