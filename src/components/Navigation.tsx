@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -71,14 +70,6 @@ const Navigation = () => {
 
             {/* Mobile CTA + Menu */}
             <div className="lg:hidden flex items-center space-x-2">
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => setShowReportModal(true)}
-                className="text-xs px-2 py-1 h-8"
-              >
-                Report
-              </Button>
               <Button
                 variant="ghost"
                 size="sm"

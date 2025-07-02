@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -119,7 +118,7 @@ const Index = () => {
                   className="w-full sm:w-auto border-blue-600 text-blue-600 hover:bg-blue-50 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 h-auto font-medium" 
                   onClick={() => setShowViewReportModal(true)}
                 >
-                  Grab Sample CRI PDF
+                  View Report
                 </Button>
               </div>
 
@@ -153,23 +152,6 @@ const Index = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Students > Report Cards Section */}
-      <section className="py-8 sm:py-12 lg:py-16 bg-gradient-to-br from-gray-50 to-blue-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <div className="inline-block px-6 py-2 bg-blue-100 rounded-full mb-4">
-              <span className="text-blue-700 font-medium">&quot;Students {`>`} Report cards alone&quot;</span>
-            </div>
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-              🚀 Our belief: Students are more than marksheets.
-            </h2>
-            <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
-              PLAT makes their true potential visible—to faculty, recruiters, and themselves.
-            </p>
           </div>
         </div>
       </section>
@@ -249,7 +231,7 @@ const Index = () => {
               Success Stories & Case Studies
             </h2>
             <p className="text-base sm:text-lg lg:text-xl text-gray-600">
-              18% average placement lift across 50 campuses — here's the proof.
+              18% average placement lift across 50 campuses - here's the proof.
             </p>
           </div>
 
@@ -307,7 +289,7 @@ const Index = () => {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mt-8 lg:mt-12">
             <div className="text-center">
               <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-yellow-300">
-                <AnimatedCounter end={152.5} suffix="K" />
+                <AnimatedCounter end={1.52} suffix="L" />
               </div>
               <div className="text-blue-100 text-base sm:text-lg">Students</div>
             </div>

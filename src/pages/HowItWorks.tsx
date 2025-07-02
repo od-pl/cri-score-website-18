@@ -136,6 +136,23 @@ const HowItWorks = () => {
           </div>
         </section>
 
+        {/* Highlight Card Section */}
+        <section className="py-16 bg-white">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-gradient-to-br from-blue-200 to-purple-200 rounded-2xl shadow-xl p-8 sm:p-12 text-center">
+              <div className="inline-block px-4 py-2 bg-white/50 rounded-full mb-6">
+                <span className="font-semibold text-indigo-900">Our Belief</span>
+              </div>
+              <h2 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-4">
+                Students Are More Than Marksheets
+              </h2>
+              <p className="text-lg text-gray-800 max-w-3xl mx-auto">
+                PLAT makes their true potential visible—to faculty, recruiters, and themselves.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* 4-Step How PLAT Transforms Students */}
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -411,14 +428,14 @@ const HowItWorks = () => {
             </Tabs>
 
             {/* CTA for Technical Deck */}
-            <div className="text-center mt-12">
+            {/* <div className="text-center mt-12">
               <Link to="/contact#send-message">
                 <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-lg px-8 py-6 h-auto font-semibold">
                   Request Technical Deck
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
-            </div>
+            </div> */}
           </div>
         </section>
 

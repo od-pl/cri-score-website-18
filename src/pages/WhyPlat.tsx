@@ -51,7 +51,7 @@ const WhyPlat = () => {
           <div className="text-center mb-8 lg:mb-12">
             <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
               Why Traditional Assessment is{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-orange-600">Failing Students Because They're More Than Just a Report Card</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-orange-600">Failing</span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               The disconnect between academic scores and industry requirements is creating a crisis in higher education
@@ -174,7 +174,7 @@ const WhyPlat = () => {
                     </Card>
                   </div>
                   
-                  <div className="relative flex items-center justify-center absolute left-4 lg:relative lg:left-auto">
+                  <div className="absolute left-4 lg:left-1/2 lg:-translate-x-1/2 flex items-center justify-center">
                     <div className="w-8 h-8 bg-blue-600 rounded-full border-4 border-white shadow-lg"></div>
                   </div>
                   
@@ -194,21 +194,21 @@ const WhyPlat = () => {
               <p className="text-lg sm:text-xl text-green-100 leading-relaxed">Colleges using outcome-based assessments are now reporting:</p>
               
               <div className="grid sm:grid-cols-2 gap-4 lg:gap-6">
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 lg:p-6">
-                  <div className="text-2xl lg:text-3xl font-bold text-yellow-300">+18%</div>
-                  <div className="text-green-100 text-sm lg:text-base">Placement Rate Increase</div>
+                <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 lg:p-6">
+                  <div className="text-2xl lg:text-3xl font-bold text-[#17a34a]">+18%</div>
+                  <div className="text-gray-900 text-sm lg:text-base">Placement Rate Increase</div>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 lg:p-6">
-                  <div className="text-2xl lg:text-3xl font-bold text-yellow-300">+2.3</div>
-                  <div className="text-green-100 text-sm lg:text-base">NAAC Grade Improvement</div>
+                <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 lg:p-6">
+                  <div className="text-2xl lg:text-3xl font-bold text-[#17a34a]">+2.3</div>
+                  <div className="text-gray-900 text-sm lg:text-base">NAAC Grade Improvement</div>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 lg:p-6">
-                  <div className="text-2xl lg:text-3xl font-bold text-yellow-300">85%</div>
-                  <div className="text-green-100 text-sm lg:text-base">Student Satisfaction</div>
+                <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 lg:p-6">
+                  <div className="text-2xl lg:text-3xl font-bold text-[#17a34a]">85%</div>
+                  <div className="text-gray-900 text-sm lg:text-base">Student Satisfaction</div>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 lg:p-6">
-                  <div className="text-2xl lg:text-3xl font-bold text-yellow-300">3x</div>
-                  <div className="text-green-100 text-sm lg:text-base">Industry Partnerships</div>
+                <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 lg:p-6">
+                  <div className="text-2xl lg:text-3xl font-bold text-[#17a34a]">3x</div>
+                  <div className="text-gray-900 text-sm lg:text-base">Industry Partnerships</div>
                 </div>
               </div>
               

@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 
 const SkillRadar = () => {
@@ -167,20 +166,7 @@ const SkillRadar = () => {
   return (
     <div className="w-full max-w-7xl mx-auto p-8 bg-gradient-to-br from-slate-50 via-white to-blue-50 min-h-screen">
       {/* Floating particles background */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-2 h-2 bg-blue-400 rounded-full opacity-20 animate-pulse"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${3 + Math.random() * 2}s`
-            }}
-          />
-        ))}
-      </div>
+      {/* Removed blue dots overlay */}
 
       {/* Header with glassmorphism effect */}
       <div className="relative bg-white/70 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 p-8 mb-8">
@@ -231,7 +217,7 @@ const SkillRadar = () => {
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl font-bold text-gray-900">
                 Skill Radar 
-                <span className="text-lg text-gray-500 ml-2">✨</span>
+                <span className="text-lg text-gray-500 ml-2"></span>
               </h2>
               <button 
                 onClick={startAnimation}
@@ -570,8 +556,8 @@ const SkillRadar = () => {
                       {action.icon}
                     </div>
                     <div className="flex-1">
-                      <h3 className={`font-bold text-${action.color}-900 mb-2 group-hover:text-${action.color}-700 transition-colors`}>
-                        • {action.title}
+                      <h3 className="font-bold mb-2 group-hover:opacity-90 transition-colors" style={{ color: '#1a398c' }}>
+                        {action.title}
                       </h3>
                       <p className={`text-${action.color}-700 text-sm mb-3`}>
                         {action.description}

@@ -134,8 +134,10 @@ const Testimonials = () => {
   const stats = [
     {
       icon: Users,
-      value: 25766,
-      label: "Students"
+      value: 1.52,
+      label: "Students",
+      mode: 'lakh',
+      duration: 3
     },
     {
       icon: Building2,
@@ -169,7 +171,7 @@ const Testimonials = () => {
               </span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Here: 18% average placement lift across 50 campuses — here's the proof.
+              18% average placement lift across 50 campuses - here's the proof.
             </p>
           </div>
 
@@ -182,10 +184,14 @@ const Testimonials = () => {
                   <CardContent className="p-6 text-center">
                     <Icon className="w-8 h-8 text-blue-600 mx-auto mb-4" />
                     <div className="text-3xl font-bold text-gray-900 mb-2">
-                      {typeof stat.value === 'number' ? (
-                        <AnimatedCounter end={stat.value} suffix={stat.suffix || ""} />
+                      {stat.mode === 'lakh' ? (
+                        <AnimatedCounter end={stat.value as number} duration={3} mode="lakh" />
                       ) : (
-                        stat.value
+                        typeof stat.value === 'number' ? (
+                          <AnimatedCounter end={stat.value} suffix={stat.suffix || ""} duration={3} />
+                        ) : (
+                          stat.value
+                        )
                       )}
                     </div>
                     <div className="text-gray-600">{stat.label}</div>

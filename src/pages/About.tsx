@@ -43,8 +43,8 @@ const About = () => {
       borderColor: "border-red-200"
     },
     {
-      logo: "FBP",
-      name: "Fresher Job Portal",
+      logo: "R",
+      name: "PLAT Recruit",
       color: "#059669", // Green
       bgColor: "bg-green-50",
       borderColor: "border-green-200",
@@ -196,16 +196,18 @@ const About = () => {
               {products.map((product, index) => (
                 <div key={index} className="flex-shrink-0 w-80 my-8">
                   <Card className="bg-white hover:shadow-lg transition-all duration-300 h-full">
-                    <CardContent className="p-8 text-center h-full flex flex-col justify-center">
-                      <div 
-                        className="w-20 h-12 rounded-lg flex items-center justify-center mx-auto mb-4 text-white font-bold text-lg"
-                        style={{ backgroundColor: product.color }}
-                      >
-                        {product.logo}
+                    <CardContent className="p-8 text-center h-full flex flex-col justify-between">
+                      <div>
+                        <div 
+                          className="w-20 h-12 rounded-lg flex items-center justify-center mx-auto mb-4 text-white font-bold text-lg"
+                          style={{ backgroundColor: product.color }}
+                        >
+                          {product.logo}
+                        </div>
+                        <h3 className="text-lg font-semibold text-gray-900 mb-2">{product.name}</h3>
                       </div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2">{product.name}</h3>
                       {product.comingSoon && (
-                        <span className="inline-block bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full">
+                        <span className="inline-block bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full mt-4">
                           Coming Soon
                         </span>
                       )}
@@ -218,16 +220,18 @@ const About = () => {
               {products.map((product, index) => (
                 <div key={`duplicate-${index}`} className="flex-shrink-0 w-80 my-8">
                   <Card className="bg-white hover:shadow-lg transition-all duration-300 h-full">
-                    <CardContent className="p-8 text-center h-full flex flex-col justify-center">
-                      <div 
-                        className="w-20 h-12 rounded-lg flex items-center justify-center mx-auto mb-4 text-white font-bold text-lg"
-                        style={{ backgroundColor: product.color }}
-                      >
-                        {product.logo}
+                    <CardContent className="p-8 text-center h-full flex flex-col justify-between">
+                      <div>
+                        <div 
+                          className="w-20 h-12 rounded-lg flex items-center justify-center mx-auto mb-4 text-white font-bold text-lg"
+                          style={{ backgroundColor: product.color }}
+                        >
+                          {product.logo}
+                        </div>
+                        <h3 className="text-lg font-semibold text-gray-900 mb-2">{product.name}</h3>
                       </div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2">{product.name}</h3>
                       {product.comingSoon && (
-                        <span className="inline-block bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full">
+                        <span className="inline-block bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full mt-4">
                           Coming Soon
                         </span>
                       )}

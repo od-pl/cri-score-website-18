@@ -31,7 +31,7 @@ const CollegeCarousel = () => {
           x: {
             repeat: Infinity,
             repeatType: "loop",
-            duration: 20,
+            duration: 29,
             ease: "linear",
           },
         }}
