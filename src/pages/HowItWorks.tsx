@@ -6,11 +6,13 @@ import { Brain, MessageCircle, Zap, Target, RotateCcw, Shield, Cloud, Server, Ar
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState } from "react";
+
 const HowItWorks = () => {
   const [hoveredStep, setHoveredStep] = useState<number | null>(null);
+  
   const steps = [{
     step: "STEP 1",
-    title: "Test",
+    title: "Test", 
     description: "AI Skill X-Ray pinpoints hidden gaps",
     icon: "📝"
   }, {
@@ -19,7 +21,7 @@ const HowItWorks = () => {
     description: "Daily 3-min challenges close those gaps fast",
     icon: "💪"
   }, {
-    step: "STEP 3",
+    step: "STEP 3", 
     title: "Skill Lift",
     description: "Average CRI jumps +120 points by next semester",
     icon: "📈"
@@ -29,6 +31,7 @@ const HowItWorks = () => {
     description: "Recruiter-trusted Career Readiness Index, shareable on LinkedIn",
     icon: "🏆"
   }];
+
   const skillLevels = [{
     level: "Level 1",
     title: "Foundational Assessment",
@@ -39,7 +42,7 @@ const HowItWorks = () => {
     borderColor: "border-blue-200"
   }, {
     level: "Level 2",
-    title: "Intermediate Assessment",
+    title: "Intermediate Assessment", 
     description: "Deepens understanding and application of knowledge, presenting moderate challenges to bridge foundational skills with advanced problem-solving",
     icon: Target,
     color: "bg-green-500",
@@ -54,6 +57,7 @@ const HowItWorks = () => {
     bgColor: "bg-yellow-50",
     borderColor: "border-yellow-200"
   }];
+
   const lifecycleSteps = [{
     name: "Initial Assessment",
     icon: FileText,
@@ -85,6 +89,7 @@ const HowItWorks = () => {
     angle: 288,
     description: "Shareable certificate, recruiter API"
   }];
+
   const dashboards = [{
     role: "VICE-CHANCELLOR",
     icon: Eye,
@@ -106,6 +111,7 @@ const HowItWorks = () => {
     features: ["Personal radar chart", "Micro-task queue", "CRI growth bar"],
     description: "Personal skill development and progress tracking"
   }];
+
   const complianceFeatures = [{
     title: "WASA",
     description: "Web Application Security Audit (Cert-In)",
@@ -119,6 +125,7 @@ const HowItWorks = () => {
     description: "Information Security Management",
     icon: Lock
   }];
+
   return <TooltipProvider>
       <div className="min-h-screen pt-16">
         {/* Hero Section */}
@@ -165,20 +172,37 @@ const HowItWorks = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {steps.map((step, index) => <div key={index} className="relative">
-                  <Card className="bg-white hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation h-full">
-                    <CardContent className="p-6 text-center h-full flex flex-col justify-center">
-                      <div className="text-xs font-bold text-blue-600 mb-2">{step.step}</div>
-                      <div className="text-3xl lg:text-4xl mb-4">{step.icon}</div>
-                      <h3 className="text-lg lg:text-xl font-bold text-gray-900 mb-2">{step.title}</h3>
-                      <p className="text-gray-600 text-sm leading-relaxed">{step.description}</p>
-                    </CardContent>
-                  </Card>
-                  {index < steps.length - 1 && <div className="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2">
-                      <ArrowRight className="w-6 h-6 text-blue-600" />
-                    </div>}
-                </div>)}
+            <div className="relative">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4">
+                {steps.map((step, index) => (
+                  <div key={index} className="relative flex flex-col items-center">
+                    <Card className="bg-white hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation h-full w-full max-w-xs">
+                      <CardContent className="p-6 text-center h-full flex flex-col justify-center">
+                        <div className="text-xs font-bold text-blue-600 mb-2">{step.step}</div>
+                        <div className="text-3xl lg:text-4xl mb-4">{step.icon}</div>
+                        <h3 className="text-lg lg:text-xl font-bold text-gray-900 mb-2">{step.title}</h3>
+                        <p className="text-gray-600 text-sm leading-relaxed">{step.description}</p>
+                      </CardContent>
+                    </Card>
+                  </div>
+                ))}
+              </div>
+              
+              {/* Arrows positioned between cards */}
+              <div className="hidden lg:block">
+                {[0, 1, 2].map((index) => (
+                  <div 
+                    key={index} 
+                    className="absolute top-1/2 transform -translate-y-1/2"
+                    style={{
+                      left: `${25 + (index * 25)}%`,
+                      transform: 'translateX(-50%) translateY(-50%)'
+                    }}
+                  >
+                    <ArrowRight className="w-6 h-6 text-blue-600" />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -462,4 +486,5 @@ const HowItWorks = () => {
       </div>
     </TooltipProvider>;
 };
+
 export default HowItWorks;
