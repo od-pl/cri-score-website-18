@@ -85,11 +85,11 @@ const CriScorecard = () => {
     }
   ];
 
-  const overallCRI = 8.2;
-  const criColor = overallCRI >= 8 ? "text-green-600" : overallCRI >= 6 ? "text-yellow-600" : "text-red-600";
-  const criLabel = overallCRI >= 8 ? "Excellent" : overallCRI >= 6 ? "Good" : "Needs Improvement";
+  const overallCRI = 842;
+  const maxCRI = 900;
+  const criColor = overallCRI >= 800 ? "text-green-600" : overallCRI >= 600 ? "text-yellow-600" : "text-red-600";
+  const criLabel = overallCRI >= 800 ? "Excellent" : overallCRI >= 600 ? "Good" : "Needs Improvement";
 
-  // Data for the components
   const radarChartData = [
     { subject: 'Cognitive', A: 80, fullMark: 100 },
     { subject: 'Practical', A: 90, fullMark: 100 },
@@ -143,8 +143,6 @@ const CriScorecard = () => {
       progressColor: 'bg-green-500'
     }
   ];
-
-  // --- Sub-components ---
 
   const SkillRadar = () => (
     <div className="bg-white p-6 rounded-2xl shadow-md">
@@ -295,7 +293,7 @@ const CriScorecard = () => {
                 
                 <div className="flex items-center justify-center gap-2 mb-6">
                   <span className="text-2xl font-bold text-green-600">
-                    <AnimatedCounter end={overallCRI} duration={2} />/10
+                    <AnimatedCounter end={overallCRI} duration={2} />/{maxCRI}
                   </span>
                   <span className="text-2xl font-bold text-green-600">{criLabel}</span>
                 </div>
