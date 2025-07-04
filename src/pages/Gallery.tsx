@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -12,8 +11,8 @@ const Gallery = () => {
   const galleryItems = [
     {
       id: 1,
-      title: "PLAT 4-Step Process",
-      description: "Complete journey from assessment to CRI score achievement",
+      title: "4-Step Process",
+      description: "Shows the complete PLAT journey with proper arrows",
       image: "/lovable-uploads/014e5f5b-9267-4dcc-bb0e-c34cf18bbbcc.png",
       category: "process",
       type: "infographic"
@@ -21,7 +20,7 @@ const Gallery = () => {
     {
       id: 2,
       title: "Assessment to Upskilling Lifecycle", 
-      description: "From entry assessment to career readiness and continuous growth",
+      description: "Displays the comprehensive process flow",
       image: "/lovable-uploads/b1029307-8f34-4d6d-a5df-595fadcee834.png",
       category: "process",
       type: "flowchart"
@@ -29,7 +28,7 @@ const Gallery = () => {
     {
       id: 3,
       title: "CRI Score Display",
-      description: "Visual representation of Career Readiness Index scoring",
+      description: "Shows the scoring visualization (842/900 format)",
       image: "/lovable-uploads/f4aeef9b-daa9-4828-9d93-7eca027f44dc.png",
       category: "scoring",
       type: "dashboard"
@@ -37,15 +36,15 @@ const Gallery = () => {
     {
       id: 4,
       title: "Support Services",
-      description: "Comprehensive support options for users",
+      description: "Contact options (without phone support, email updated to support@platskills.com)",
       image: "/lovable-uploads/705f4bc1-c8c8-4d97-8200-2a45cf8548c5.png",
       category: "support",
       type: "service"
     },
     {
       id: 5,
-      title: "Traditional Assessment Issues",
-      description: "Understanding the disconnect between academic scores and industry requirements",
+      title: "Traditional Assessment Analysis",
+      description: "Insights about assessment challenges (title updated to remove \"Why\")",
       image: "/lovable-uploads/42c91544-eef3-418b-9674-ba5cc8c4410a.png",
       category: "insights",
       type: "analysis"
