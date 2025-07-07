@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { TrendingUp, AlertTriangle, Award, ArrowRight, Building2, Users, BookOpen } from "lucide-react";
 import { Link } from "react-router-dom";
 import NaacGradeChart from "@/components/NaacGradeChart";
+
 const WhyPlat = () => {
   const problems = [{
     title: "Marksheets ≠ Skills",
@@ -11,7 +12,7 @@ const WhyPlat = () => {
     icon: AlertTriangle,
     color: "text-red-600"
   }, {
-    title: "Employer Trust Gap",
+    title: "Employer Trust Gap", 
     description: "Nearly half of all employers say most graduates lack the skills they expect—even if their marks look good on paper.",
     citation: "India Skills Report 2024 – Wheebox, AICTE, CII",
     icon: Users,
@@ -23,6 +24,7 @@ const WhyPlat = () => {
     icon: BookOpen,
     color: "text-yellow-600"
   }];
+
   const regulations = [{
     year: "2020",
     title: "NEP 2020",
@@ -44,13 +46,14 @@ const WhyPlat = () => {
     description: "Outcome-based proof must be demonstrated for NAAC compliance",
     logo: "📅"
   }];
+
   return <div className="min-h-screen pt-16">
       {/* Hero Section */}
       <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 lg:mb-12">
             <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
-              Why Traditional Assessment is{" "}
+              Traditional Assessment is{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-orange-600">Failing</span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -240,4 +243,5 @@ const WhyPlat = () => {
       </section>
     </div>;
 };
+
 export default WhyPlat;
