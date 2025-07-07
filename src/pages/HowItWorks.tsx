@@ -1,8 +1,9 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { Brain, MessageCircle, Zap, Target, RotateCcw, Shield, Cloud, Server, ArrowRight, Eye, Users, BarChart3, User, Book, Lightbulb, TrendingUp, RefreshCw, Globe, Lock, FileText, Search, ChevronRight, Calendar, AlertTriangle } from "lucide-react";
+import { Brain, MessageCircle, Zap, Target, RotateCcw, Shield, Cloud, Server, ArrowRight, Eye, Users, BarChart3, User, Book, Lightbulb, TrendingUp, RefreshCw, Globe, Lock, FileText, Search, ChevronRight, Calendar, AlertTriangle, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -62,31 +63,36 @@ const HowItWorks = () => {
     name: "Initial Assessment",
     icon: FileText,
     color: "bg-blue-500",
-    angle: 0,
+    bgColor: "bg-blue-100",
+    textColor: "text-blue-500",
     description: "Risk heat-map in 24 h"
   }, {
     name: "Gap Analysis",
     icon: Search,
     color: "bg-green-500",
-    angle: 72,
+    bgColor: "bg-green-100",
+    textColor: "text-green-500",
     description: "Auto-generated for every student"
   }, {
     name: "Personal Up-Skilling",
-    icon: Target,
+    icon: Clock,
     color: "bg-yellow-500",
-    angle: 144,
+    bgColor: "bg-yellow-100",
+    textColor: "text-yellow-500",
     description: "10-min/day tasks in LMS"
   }, {
     name: "Progress Tracking",
     icon: BarChart3,
     color: "bg-purple-500",
-    angle: 216,
+    bgColor: "bg-purple-100",
+    textColor: "text-purple-500",
     description: "CRI jumps visibly next semester"
   }, {
     name: "CRI Score Update",
     icon: RefreshCw,
     color: "bg-red-500",
-    angle: 288,
+    bgColor: "bg-red-100",
+    textColor: "text-red-500",
     description: "Shareable certificate, recruiter API"
   }];
 
@@ -163,46 +169,84 @@ const HowItWorks = () => {
         {/* 4-Step How PLAT Transforms Students */}
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                 4-step "How PLAT Transforms Students"
               </h2>
-              <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-                Co-created by psychometricians and industry leaders, PLAT uses AI to identify skill gaps and nurture real-world competencies
+              <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-600">
+                Co-created by psychometricians and industry leaders, PLAT uses AI to identify skill gaps and nurture real-world competencies.
               </p>
             </div>
 
-            <div className="relative">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4">
-                {steps.map((step, index) => (
-                  <div key={index} className="relative flex flex-col items-center">
-                    <Card className="bg-white hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation h-full w-full max-w-xs">
-                      <CardContent className="p-6 text-center h-full flex flex-col justify-center">
-                        <div className="text-xs font-bold text-blue-600 mb-2">{step.step}</div>
-                        <div className="text-3xl lg:text-4xl mb-4">{step.icon}</div>
-                        <h3 className="text-lg lg:text-xl font-bold text-gray-900 mb-2">{step.title}</h3>
-                        <p className="text-gray-600 text-sm leading-relaxed">{step.description}</p>
-                      </CardContent>
-                    </Card>
-                  </div>
-                ))}
+            {/* Steps Row */}
+            <div className="relative flex flex-col md:flex-row items-stretch justify-center md:items-center gap-y-8 md:gap-y-0">
+
+              {/* Step 1 */}
+              <div className="flex-1 w-full px-2">
+                <div className="relative flex flex-col items-center justify-center text-center p-6 bg-white rounded-xl shadow-lg border border-gray-200 h-full min-h-[220px]">
+                  <div className="text-5xl mb-4">📝</div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Test</h3>
+                  <p className="text-gray-600">AI Skill X-Ray pinpoints hidden gaps</p>
+                </div>
               </div>
-              
-              {/* Arrows positioned between cards */}
-              <div className="hidden lg:block">
-                {[0, 1, 2].map((index) => (
-                  <div 
-                    key={index} 
-                    className="absolute top-1/2 transform -translate-y-1/2"
-                    style={{
-                      left: `${25 + (index * 25)}%`,
-                      transform: 'translateX(-50%) translateY(-50%)'
-                    }}
-                  >
-                    <ArrowRight className="w-6 h-6 text-blue-600" />
-                  </div>
-                ))}
+
+              {/* Arrow */}
+              <div className="hidden md:flex items-center justify-center px-2 text-blue-600">
+                <ArrowRight className="h-10 w-10" />
               </div>
+              <div className="flex md:hidden items-center justify-center my-2 text-blue-600 w-full">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M16 17l-4 4m0 0l-4-4m4 4V3" />
+                </svg>
+              </div>
+
+              {/* Step 2 */}
+              <div className="flex-1 w-full px-2">
+                <div className="relative flex flex-col items-center justify-center text-center p-6 bg-white rounded-xl shadow-lg border border-gray-200 h-full min-h-[220px]">
+                  <div className="text-5xl mb-4">💪</div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Micro-Tasks</h3>
+                  <p className="text-gray-600">Daily 3-min challenges close those gaps fast</p>
+                </div>
+              </div>
+
+              {/* Arrow */}
+              <div className="hidden md:flex items-center justify-center px-2 text-blue-600">
+                <ArrowRight className="h-10 w-10" />
+              </div>
+              <div className="flex md:hidden items-center justify-center my-2 text-blue-600 w-full">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M16 17l-4 4m0 0l-4-4m4 4V3" />
+                </svg>
+              </div>
+
+              {/* Step 3 */}
+              <div className="flex-1 w-full px-2">
+                <div className="relative flex flex-col items-center justify-center text-center p-6 bg-white rounded-xl shadow-lg border border-gray-200 h-full min-h-[220px]">
+                  <div className="text-5xl mb-4">📈</div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Skill Lift</h3>
+                  <p className="text-gray-600">Average CRI jumps +120 points by next semester</p>
+                </div>
+              </div>
+
+              {/* Arrow */}
+              <div className="hidden md:flex items-center justify-center px-2 text-blue-600">
+                <ArrowRight className="h-10 w-10" />
+              </div>
+              <div className="flex md:hidden items-center justify-center my-2 text-blue-600 w-full">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M16 17l-4 4m0 0l-4-4m4 4V3" />
+                </svg>
+              </div>
+
+              {/* Step 4 */}
+              <div className="flex-1 w-full px-2">
+                <div className="relative flex flex-col items-center justify-center text-center p-6 bg-white rounded-xl shadow-lg border border-gray-200 h-full min-h-[220px]">
+                  <div className="text-5xl mb-4">🏆</div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">CRI Score</h3>
+                  <p className="text-gray-600">Recruiter-trusted Career Readiness Index, shareable on LinkedIn</p>
+                </div>
+              </div>
+
             </div>
           </div>
         </section>
@@ -293,54 +337,56 @@ const HowItWorks = () => {
         </section>
 
         {/* Assessment to Upskilling Lifecycle */}
-        <section className="py-16 bg-gray-50">
+        <section className="bg-white py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            <div className="text-center">
+              <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
                 Assessment to Upskilling Lifecycle
               </h2>
-              <p className="text-xl text-gray-600">
+              <p className="mt-4 text-lg text-gray-600">
                 From Entry Assessment to Career Readiness and Continuous Growth
               </p>
             </div>
-            
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <div className="grid md:grid-cols-5 gap-6">
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <FileText className="w-8 h-8 text-blue-600" />
-                  </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Initial Assessment</h3>
-                  <p className="text-sm text-gray-600">Risk heat-map in 24 h</p>
-                </div>
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Search className="w-8 h-8 text-green-600" />
-                  </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Gap Analysis</h3>
-                  <p className="text-sm text-gray-600">Auto-generated for every student</p>
-                </div>
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Target className="w-8 h-8 text-yellow-600" />
-                  </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Personal Up-Skilling</h3>
-                  <p className="text-sm text-gray-600">10-min/day tasks in LMS</p>
-                </div>
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <BarChart3 className="w-8 h-8 text-purple-600" />
-                  </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Progress Tracking</h3>
-                  <p className="text-sm text-gray-600">CRI jumps visibly next semester</p>
-                </div>
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <RefreshCw className="w-8 h-8 text-red-600" />
-                  </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">CRI Score Update</h3>
-                  <p className="text-sm text-gray-600">Shareable certificate, recruiter API</p>
-                </div>
+
+            {/* Lifecycle Steps Container */}
+            <div className="mt-20">
+              <div className="flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 md:space-x-4">
+
+                {lifecycleSteps.map((step, index) => {
+                  const Icon = step.icon;
+                  const isLast = index === lifecycleSteps.length - 1;
+                  
+                  return (
+                    <div key={index} className="flex flex-col items-center text-center">
+                      <div className={`flex items-center justify-center w-20 h-20 ${step.bgColor} rounded-full`}>
+                        <Icon className={`w-10 h-10 ${step.textColor}`} />
+                      </div>
+                      <h3 className="mt-4 text-lg font-semibold text-gray-900">{step.name}</h3>
+                      <p className="mt-1 text-sm text-gray-500 max-w-[170px]">{step.description}</p>
+                      
+                      {/* Arrow - only show if not last item */}
+                      {!isLast && (
+                        <>
+                          {/* Arrow (Desktop) */}
+                          <div className="hidden md:block text-gray-300 absolute" style={{
+                            left: `${85 + (index * 20)}%`,
+                            top: '50%',
+                            transform: 'translateY(-50%)'
+                          }}>
+                            <ArrowRight className="w-12 h-12" />
+                          </div>
+                          {/* Arrow (Mobile) */}
+                          <div className="block md:hidden text-gray-300 mt-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-8 h-8">
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
+                            </svg>
+                          </div>
+                        </>
+                      )}
+                    </div>
+                  );
+                })}
+
               </div>
             </div>
           </div>
@@ -450,16 +496,6 @@ const HowItWorks = () => {
                   </TabsContent>;
             })}
             </Tabs>
-
-            {/* CTA for Technical Deck */}
-            {/* <div className="text-center mt-12">
-              <Link to="/contact#send-message">
-                <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-lg px-8 py-6 h-auto font-semibold">
-                  Request Technical Deck
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
-              </Link>
-            </div> */}
           </div>
         </section>
 
