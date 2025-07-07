@@ -192,7 +192,9 @@ const HowItWorks = () => {
 
               {/* Arrow */}
               <div className="hidden md:flex items-center justify-center px-2 text-blue-600">
-                <ArrowRight className="h-10 w-10" />
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
               </div>
               <div className="flex md:hidden items-center justify-center my-2 text-blue-600 w-full">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -211,7 +213,9 @@ const HowItWorks = () => {
 
               {/* Arrow */}
               <div className="hidden md:flex items-center justify-center px-2 text-blue-600">
-                <ArrowRight className="h-10 w-10" />
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
               </div>
               <div className="flex md:hidden items-center justify-center my-2 text-blue-600 w-full">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -230,7 +234,9 @@ const HowItWorks = () => {
 
               {/* Arrow */}
               <div className="hidden md:flex items-center justify-center px-2 text-blue-600">
-                <ArrowRight className="h-10 w-10" />
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
               </div>
               <div className="flex md:hidden items-center justify-center my-2 text-blue-600 w-full">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -357,7 +363,7 @@ const HowItWorks = () => {
                   const isLast = index === lifecycleSteps.length - 1;
                   
                   return (
-                    <div key={index} className="flex flex-col items-center text-center">
+                    <div key={index} className="flex flex-col items-center text-center relative">
                       <div className={`flex items-center justify-center w-20 h-20 ${step.bgColor} rounded-full`}>
                         <Icon className={`w-10 h-10 ${step.textColor}`} />
                       </div>
@@ -368,12 +374,10 @@ const HowItWorks = () => {
                       {!isLast && (
                         <>
                           {/* Arrow (Desktop) */}
-                          <div className="hidden md:block text-gray-300 absolute" style={{
-                            left: `${85 + (index * 20)}%`,
-                            top: '50%',
-                            transform: 'translateY(-50%)'
-                          }}>
-                            <ArrowRight className="w-12 h-12" />
+                          <div className="hidden md:block absolute left-full top-10 transform translate-x-2 text-gray-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-12 h-12">
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                            </svg>
                           </div>
                           {/* Arrow (Mobile) */}
                           <div className="block md:hidden text-gray-300 mt-4">
