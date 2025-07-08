@@ -38,16 +38,17 @@ const Contact = () => {
       const tags = [];
       if (isHighIntent) tags.push('HighIntent');
       if (formData.enquiryType) tags.push(formData.enquiryType);
-      
-      // Insert into Supabase
-      const { error } = await supabase
-        .from('enquiries')
-        .insert({
+
+      // Send to backend API
+      const response = await fetch('https://plat-web-api.offee.in/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
           full_name: formData.name,
           email: formData.email,
-          phone_number: formData.phone || null,
-          role: formData.role || null,
+          phone: formData.phone || null,
           organization: formData.organization,
+          role: formData.role || null,
           enquiry_type: formData.enquiryType || null,
           message: formData.message || null,
           source_page: trackingData.source_page,
@@ -66,11 +67,12 @@ const Contact = () => {
           is_high_intent: isHighIntent,
           source_type: trackingData.source_type,
           tags: tags.length > 0 ? tags : null,
-        });
+        }),
+      });
 
-      if (error) {
-        console.error('Supabase error:', error);
-        throw error;
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to submit');
       }
 
       toast({

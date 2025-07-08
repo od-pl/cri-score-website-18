@@ -66,6 +66,11 @@ const Navigation = () => {
                   Book Demo
                 </Button>
               </Link>
+              {/* <Link to="/admin/contacts">
+                <Button className="bg-gray-800 hover:bg-gray-900 text-white font-medium px-4 xl:px-6 text-sm py-2">
+                  Admin Console
+                </Button>
+              </Link> */}
             </div>
 
             {/* Mobile CTA + Menu */}
