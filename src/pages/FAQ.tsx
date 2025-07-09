@@ -126,7 +126,7 @@ const FAQ = () => {
       title: "Live Chat",
       description: "Instant assistance for quick queries",
       icon: MessageCircle,
-      contact: "Available 9 AM - 6 PM IST",
+      contact: "Available 24/7",
       color: "bg-purple-50"
     }
   ];
