@@ -1,9 +1,8 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { ArrowRight, Book, Video, FileText, Download, Mail, Phone, MessageCircle, Clock, CheckCircle, Users, Award, Building2, TrendingUp, Target, Search, Settings, Shield, Globe, BarChart3, BookOpen, Play, ImageIcon } from "lucide-react";
+import { ArrowRight, Book, Video, FileText, Download, Mail, MessageCircle, Clock, CheckCircle, Users, Award, Building2, TrendingUp, Target, Search, Settings, Shield, Globe, BarChart3, BookOpen, Play, ImageIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const FAQ = () => {
@@ -120,15 +119,8 @@ const FAQ = () => {
       title: "Email Support",
       description: "Get detailed responses within 24 hours",
       icon: Mail,
-      contact: "support@plat.co.in",
+      contact: "support@platskills.com",
       color: "bg-blue-50"
-    },
-    {
-      title: "Phone Support",
-      description: "Speak with our experts during business hours",
-      icon: Phone,
-      contact: "+91-XXXX-XXXXXX",
-      color: "bg-green-50"
     },
     {
       title: "Live Chat",
@@ -249,11 +241,11 @@ const FAQ = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 justify-items-center">
             {contactMethods.map((method, index) => {
               const MethodIcon = method.icon;
               return (
-                <Card key={index} className={`${method.color} border-2 hover:shadow-lg transition-all duration-300`}>
+                <Card key={index} className={`${method.color} border-2 hover:shadow-lg transition-all duration-300 max-w-md w-full`}>
                   <CardContent className="p-8 text-center">
                     <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-md">
                       <MethodIcon className="w-8 h-8 text-gray-700" />
