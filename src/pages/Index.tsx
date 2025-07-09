@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -40,7 +41,7 @@ const Index = () => {
     {
       icon: Brain,
       title: "AI-Powered Assessment",
-      description: "7-minute skill X-ray identifies hidden gaps across 5 career-critical dimensions"
+      description: "Skill assessment identifies hidden gaps across 5 career-critical dimensions"
     },
     {
       icon: Target,
@@ -102,7 +103,7 @@ const Index = () => {
                   score by 18% in one semester.
                 </h1>
                 <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                  AI pinpoints hidden skill gaps in 7 minutes to boost placement rates for your college.
+                  AI pinpoints hidden skill gaps to boost placement rates for your college.
                 </p>
               </div>
               
@@ -125,7 +126,7 @@ const Index = () => {
               <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6 text-sm text-gray-600 justify-center lg:justify-start">
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500" />
-                  <span>1,52,482 Students Tested</span>
+                  <span>1,52,482 Students</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500" />
