@@ -39,7 +39,7 @@ const ChatbotWidget = () => {
   const initializeChat = () => {
     const welcomeMessage: Message = {
       id: Date.now().toString(),
-      text: `👋 Welcome! I'm Nisha, your PLAT AI assistant.<br><br>🔹 AI-powered analytics to uncover hidden skill gaps<br>🔹 25k+ Students Tested & 300+ Recruiters<br>🔹 CRI Score: 840/900<br><br>How can I help you today? <strong>Type 'demo' to book a demo</strong> or <strong>'report'</strong> to view a sample report!`,
+      text: `👋 Welcome!<br><br>How can I help you today? <br><strong>Type 'demo' to book a demo</strong> or <strong>'report'</strong> to view a sample report!`,
       type: 'bot',
       timestamp: new Date()
     };
@@ -143,12 +143,12 @@ const ChatbotWidget = () => {
       )}
       {isOpen && (
         <Card className="fixed bottom-6 right-6 w-96 h-[600px] shadow-2xl z-50 flex flex-col animate-slide-in-right">
-          <CardHeader className="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-4 rounded-t-lg flex justify-between">
+          <CardHeader className="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-4 rounded-t-lg flex flex-row items-center justify-between pt-4">
             <div>
-              <h3 className="text-lg font-semibold">🌟 Nisha</h3>
+              <h3 className="text-lg font-semibold">Hello, I'm Nisha</h3>
               <p className="text-sm opacity-90">Your PLAT AI Assistant</p>
             </div>
-            <div className="flex gap-2">
+            <div className="flex gap-2 ml-4">
               <Button variant="ghost" size="sm" onClick={newChat} className="text-white hover:bg-white/20 p-1 h-8 w-8">
                 <RotateCcw className="w-4 h-4" />
               </Button>
@@ -176,7 +176,7 @@ const ChatbotWidget = () => {
             </div>
             {error && <div className="p-4 bg-red-50 text-red-600 text-sm">{error}</div>}
             <div className="p-4 border-t border-gray-200 flex">
-              <Input value={inputValue} onChange={e=>setInputValue(e.target.value)} placeholder="Ask about PLAT… 'demo' or 'report'" onKeyPress={e=>e.key==='Enter'&&sendMessage()} className="flex-1 text-sm" />
+              <Input value={inputValue} onChange={e=>setInputValue(e.target.value)} placeholder="Got a question about PLAT?" onKeyPress={e=>e.key==='Enter'&&sendMessage()} className="flex-1 text-sm" />
               <Button onClick={sendMessage} disabled={!inputValue.trim()||isTyping} className="bg-blue-500 hover:bg-blue-600 ml-2">
                 <Send className="w-4 h-4 text-white" />
               </Button>
