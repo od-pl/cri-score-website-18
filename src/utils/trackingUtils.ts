@@ -119,3 +119,20 @@ export const fetchLocationData = async (): Promise<LocationData> => {
     return {};
   }
 };
+
+// Track user interactions
+export const trackUserInteraction = (eventType: string, eventData?: any) => {
+  try {
+    console.log('User interaction tracked:', {
+      event_type: eventType,
+      event_data: eventData,
+      timestamp: new Date().toISOString(),
+      tracking_data: gatherTrackingData()
+    });
+    
+    // Here you could add additional tracking logic like sending to analytics services
+    // For now, we're just logging to console
+  } catch (error) {
+    console.log('Error tracking user interaction:', error);
+  }
+};
