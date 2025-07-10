@@ -27,7 +27,7 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // Gather tracking data
+      // Gather tracking data.
       const trackingData = gatherTrackingData();
       const locationData = await fetchLocationData();
       
