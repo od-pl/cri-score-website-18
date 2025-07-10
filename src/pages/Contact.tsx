@@ -1,16 +1,111 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { MapPin, Phone, Mail, Clock, Send, Calendar, Users, Building2, BookOpen } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Send, Calendar, Users, Building2, BookOpen, Loader2 } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
+// import { supabase } from "@/integrations/supabase/client";
 import { gatherTrackingData, fetchLocationData } from "@/utils/trackingUtils";
 
+// TypeScript interfaces for form data
+interface FormData {
+  name: string;
+  email: string;
+  phone: string;
+  organization: string;
+  role: string;
+  enquiryType: string;
+  message: string;
+}
+
+interface FormErrors {
+  name?: string;
+  email?: string;
+  phone?: string;
+  organization?: string;
+  role?: string;
+  enquiryType?: string;
+  message?: string;
+}
+
+interface LocationData {
+  ip_address?: string;
+  location_city?: string;
+  location_country?: string;
+}
+
+// Form validation functions
+const validateEmail = (email: string): boolean => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+
+const validatePhone = (phone: string): boolean => {
+  if (!phone) return true; // Phone is optional
+  const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+  return phoneRegex.test(phone.replace(/\s/g, ''));
+};
+
+const validateForm = (data: FormData): FormErrors => {
+  const errors: FormErrors = {};
+
+  // Name validation
+  if (!data.name.trim()) {
+    errors.name = "Full name is required";
+  } else if (data.name.trim().length < 2) {
+    errors.name = "Name must be at least 2 characters long";
+  } else if (data.name.trim().length > 100) {
+    errors.name = "Name must be less than 100 characters";
+  }
+
+  // Email validation
+  if (!data.email.trim()) {
+    errors.email = "Email is required";
+  } else if (!validateEmail(data.email)) {
+    errors.email = "Please enter a valid email address";
+  }
+
+  // Phone validation
+  if (data.phone && !validatePhone(data.phone)) {
+    errors.phone = "Please enter a valid phone number";
+  }
+
+  // Organization validation
+  if (!data.organization.trim()) {
+    errors.organization = "Organization is required";
+  } else if (data.organization.trim().length < 2) {
+    errors.organization = "Organization must be at least 2 characters long";
+  } else if (data.organization.trim().length > 200) {
+    errors.organization = "Organization must be less than 200 characters";
+  }
+
+  // Message validation
+  if (data.message && data.message.length > 1000) {
+    errors.message = "Message must be less than 1000 characters";
+  }
+
+  return errors;
+};
+
+// Debounce function
+const useDebounce = (callback: Function, delay: number) => {
+  const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
+
+  const debouncedCallback = useCallback((...args: any[]) => {
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+    const newTimeoutId = setTimeout(() => callback(...args), delay);
+    setTimeoutId(newTimeoutId);
+  }, [callback, delay, timeoutId]);
+
+  return debouncedCallback;
+};
+
 const Contact = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     phone: "",
@@ -20,16 +115,41 @@ const Contact = () => {
     message: ""
   });
   
+  const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isLoadingLocation, setIsLoadingLocation] = useState(false);
+  const [locationData, setLocationData] = useState<LocationData>({});
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  // Debounced form submission
+  const debouncedSubmit = useDebounce(async (formData: FormData) => {
+    if (isSubmitting) return;
+    
     setIsSubmitting(true);
+    setIsLoadingLocation(true);
 
     try {
       // Gather tracking data
       const trackingData = gatherTrackingData();
-      const locationData = await fetchLocationData();
+      
+      // Fetch location data with fallback
+      let locationResult: LocationData = {};
+      try {
+        locationResult = await fetchLocationData();
+        setLocationData(locationResult);
+      } catch (error) {
+        console.warn('Failed to fetch location data, using fallback:', error);
+        // Fallback: try alternative IP service
+        try {
+          const fallbackResponse = await fetch('https://api.ipify.org?format=json');
+          const fallbackData = await fallbackResponse.json();
+          locationResult = { ip_address: fallbackData.ip };
+        } catch (fallbackError) {
+          console.warn('Fallback location service also failed:', fallbackError);
+          // Continue without location data
+        }
+      } finally {
+        setIsLoadingLocation(false);
+      }
       
       // Determine if this is a high intent enquiry
       const isHighIntent = ['demo', 'pricing'].includes(formData.enquiryType.toLowerCase());
@@ -39,10 +159,13 @@ const Contact = () => {
       if (isHighIntent) tags.push('HighIntent');
       if (formData.enquiryType) tags.push(formData.enquiryType);
 
-      // Send to backend API
+      // Send to backend API with CORS error handling
       const response = await fetch('https://platskills.com/web-api/contact', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
         body: JSON.stringify({
           full_name: formData.name,
           email: formData.email,
@@ -60,9 +183,9 @@ const Contact = () => {
           user_agent: trackingData.user_agent,
           device_type: trackingData.device_type,
           browser: trackingData.browser,
-          ip_address: locationData.ip_address || null,
-          location_city: locationData.location_city || null,
-          location_country: locationData.location_country || null,
+          ip_address: locationResult.ip_address || null,
+          location_city: locationResult.location_city || null,
+          location_country: locationResult.location_country || null,
           clarity_session_id: trackingData.clarity_session_id || null,
           is_high_intent: isHighIntent,
           source_type: trackingData.source_type,
@@ -71,8 +194,16 @@ const Contact = () => {
       });
 
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || 'Failed to submit');
+        const errorData = await response.json().catch(() => ({ error: 'Network error' }));
+        
+        // Handle specific error types
+        if (response.status === 0 || response.status === 403) {
+          throw new Error('CORS error: Unable to submit form. Please check your network connection.');
+        } else if (response.status >= 500) {
+          throw new Error('Server error: Please try again later.');
+        } else {
+          throw new Error(errorData.error || `HTTP ${response.status}: Failed to submit`);
+        }
       }
 
       toast({
@@ -90,21 +221,54 @@ const Contact = () => {
         enquiryType: "",
         message: ""
       });
+      setErrors({});
       
     } catch (error) {
       console.error('Form submission error:', error);
       toast({
         title: "Error",
-        description: "There was an issue submitting your form. Please try again.",
+        description: error instanceof Error ? error.message : "There was an issue submitting your form. Please try again.",
         variant: "destructive",
       });
     } finally {
       setIsSubmitting(false);
     }
+  }, 300); // 300ms debounce
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Validate form
+    const validationErrors = validateForm(formData);
+    setErrors(validationErrors);
+    
+    if (Object.keys(validationErrors).length > 0) {
+      toast({
+        title: "Validation Error",
+        description: "Please fix the errors in the form before submitting.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    // Submit with debouncing
+    debouncedSubmit(formData);
   };
 
-  const handleInputChange = (field: string, value: string) => {
+  const handleInputChange = (field: keyof FormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
+    
+    // Clear error when user starts typing
+    if (errors[field]) {
+      setErrors(prev => ({ ...prev, [field]: undefined }));
+    }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    // Handle Enter key for form submission
+    if (e.key === 'Enter' && e.ctrlKey) {
+      handleSubmit(e as any);
+    }
   };
 
   const contactInfo = [
@@ -175,49 +339,73 @@ const Contact = () => {
                 <CardContent className="p-8">
                   <h2 id="send-message" className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h2>
                   
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form onSubmit={handleSubmit} className="space-y-6" onKeyDown={handleKeyDown}>
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                           Full Name *
                         </label>
                         <Input
+                          id="name"
                           value={formData.name}
                           onChange={(e) => handleInputChange('name', e.target.value)}
                           placeholder="Your full name"
                           required
                           disabled={isSubmitting}
+                          aria-describedby={errors.name ? "name-error" : undefined}
+                          aria-invalid={!!errors.name}
                         />
+                        {errors.name && (
+                          <p id="name-error" className="mt-1 text-sm text-red-600" role="alert">
+                            {errors.name}
+                          </p>
+                        )}
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                           Email Address *
                         </label>
                         <Input
+                          id="email"
                           type="email"
                           value={formData.email}
                           onChange={(e) => handleInputChange('email', e.target.value)}
                           placeholder="your.email@college.edu"
                           required
                           disabled={isSubmitting}
+                          aria-describedby={errors.email ? "email-error" : undefined}
+                          aria-invalid={!!errors.email}
                         />
+                        {errors.email && (
+                          <p id="email-error" className="mt-1 text-sm text-red-600" role="alert">
+                            {errors.email}
+                          </p>
+                        )}
                       </div>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
                           Phone Number
                         </label>
                         <Input
+                          id="phone"
                           value={formData.phone}
                           onChange={(e) => handleInputChange('phone', e.target.value)}
                           placeholder="+91 98765 43210"
                           disabled={isSubmitting}
+                          aria-describedby={errors.phone ? "phone-error" : undefined}
+                          aria-invalid={!!errors.phone}
                         />
+                        {errors.phone && (
+                          <p id="phone-error" className="mt-1 text-sm text-red-600" role="alert">
+                            {errors.phone}
+                          </p>
+                        )}
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label htmlFor="role" className="block text-sm font-medium text-gray-700 mb-2">
                           Your Role
                         </label>
                         <Select 
@@ -225,7 +413,7 @@ const Contact = () => {
                           onValueChange={(value) => handleInputChange('role', value)}
                           disabled={isSubmitting}
                         >
-                          <SelectTrigger>
+                          <SelectTrigger id="role" aria-describedby={errors.role ? "role-error" : undefined}>
                             <SelectValue placeholder="Select your role" />
                           </SelectTrigger>
                           <SelectContent>
@@ -236,24 +424,37 @@ const Contact = () => {
                             ))}
                           </SelectContent>
                         </Select>
+                        {errors.role && (
+                          <p id="role-error" className="mt-1 text-sm text-red-600" role="alert">
+                            {errors.role}
+                          </p>
+                        )}
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label htmlFor="organization" className="block text-sm font-medium text-gray-700 mb-2">
                         Organization/College *
                       </label>
                       <Input
+                        id="organization"
                         value={formData.organization}
                         onChange={(e) => handleInputChange('organization', e.target.value)}
                         placeholder="Your college or institution name"
                         required
                         disabled={isSubmitting}
+                        aria-describedby={errors.organization ? "organization-error" : undefined}
+                        aria-invalid={!!errors.organization}
                       />
+                      {errors.organization && (
+                        <p id="organization-error" className="mt-1 text-sm text-red-600" role="alert">
+                          {errors.organization}
+                        </p>
+                      )}
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label htmlFor="enquiryType" className="block text-sm font-medium text-gray-700 mb-2">
                         Enquiry Type
                       </label>
                       <Select 
@@ -261,7 +462,7 @@ const Contact = () => {
                         onValueChange={(value) => handleInputChange('enquiryType', value)}
                         disabled={isSubmitting}
                       >
-                        <SelectTrigger>
+                        <SelectTrigger id="enquiryType" aria-describedby={errors.enquiryType ? "enquiryType-error" : undefined}>
                           <SelectValue placeholder="Select enquiry type" />
                         </SelectTrigger>
                         <SelectContent>
@@ -275,29 +476,67 @@ const Contact = () => {
                           ))}
                         </SelectContent>
                       </Select>
+                      {errors.enquiryType && (
+                        <p id="enquiryType-error" className="mt-1 text-sm text-red-600" role="alert">
+                          {errors.enquiryType}
+                        </p>
+                      )}
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
                         Message
                       </label>
                       <Textarea
+                        id="message"
                         value={formData.message}
                         onChange={(e) => handleInputChange('message', e.target.value)}
                         placeholder="Tell us more about your requirements, number of students, current challenges, etc."
                         rows={5}
                         disabled={isSubmitting}
+                        aria-describedby={errors.message ? "message-error" : undefined}
+                        aria-invalid={!!errors.message}
                       />
+                      {errors.message && (
+                        <p id="message-error" className="mt-1 text-sm text-red-600" role="alert">
+                          {errors.message}
+                        </p>
+                      )}
+                      <p className="mt-1 text-sm text-gray-500">
+                        {formData.message.length}/1000 characters
+                      </p>
                     </div>
 
                     <Button 
                       type="submit" 
                       className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
                       disabled={isSubmitting}
+                      aria-describedby="submit-status"
                     >
-                      <Send className="w-4 h-4 mr-2" />
-                      {isSubmitting ? 'Sending...' : 'Send Message'}
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="w-4 h-4 mr-2" />
+                          Send Message
+                        </>
+                      )}
                     </Button>
+                    
+                    {/* Loading indicator for location data */}
+                    {isLoadingLocation && (
+                      <div className="flex items-center justify-center text-sm text-gray-600">
+                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                        Gathering location data...
+                      </div>
+                    )}
+                    
+                    <div id="submit-status" className="sr-only" aria-live="polite">
+                      {isSubmitting ? "Form is being submitted" : "Form is ready to submit"}
+                    </div>
                   </form>
                 </CardContent>
               </Card>
@@ -321,7 +560,7 @@ const Contact = () => {
                       <CardContent className="p-6">
                         <div className="flex items-start space-x-4">
                           <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <Icon className="w-6 h-6 text-blue-600" />
+                            <Icon className="w-6 h-6 text-blue-600" aria-hidden="true" />
                           </div>
                           <div>
                             <h3 className="font-semibold text-gray-900 mb-2">{info.title}</h3>
@@ -344,7 +583,7 @@ const Contact = () => {
                 <h3 className="font-semibold text-gray-900">Quick Actions</h3>
                 <div className="grid gap-4">
                   <Button variant="outline" className="justify-start h-auto p-4">
-                    <Calendar className="w-5 h-5 mr-3" />
+                    <Calendar className="w-5 h-5 mr-3" aria-hidden="true" />
                     <div className="text-left">
                       <div className="font-medium">Schedule Demo</div>
                       <div className="text-sm text-gray-600">Book a personalized 30-min demo</div>
@@ -352,7 +591,7 @@ const Contact = () => {
                   </Button>
                   
                   <Button variant="outline" className="justify-start h-auto p-4">
-                    <BookOpen className="w-5 h-5 mr-3" />
+                    <BookOpen className="w-5 h-5 mr-3" aria-hidden="true" />
                     <div className="text-left">
                       <div className="font-medium">Download Brochure</div>
                       <div className="text-sm text-gray-600">Get detailed information packet</div>
@@ -364,28 +603,6 @@ const Contact = () => {
           </div>
         </div>
       </section>
-
-      {/* Map Section */}
-      {/* <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Office</h2>
-            <p className="text-xl text-gray-600">We're located in the heart of Mumbai's business district</p>
-          </div>
-
-          <Card>
-            <CardContent className="p-0">
-              <div className="relative bg-gray-200 rounded-lg h-96 flex items-center justify-center">
-                <div className="text-center">
-                  <MapPin className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                  <p className="text-gray-600">Interactive Map</p>
-                  <p className="text-sm text-gray-500">Bandra Kurla Complex, Mumbai</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section> */}
 
       {/* FAQ Section */}
       <section className="py-16 bg-white">

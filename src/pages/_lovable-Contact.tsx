@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, Clock, Phone, Send, CheckCircle } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
-import { supabase } from "@/integrations/supabase/client";
+// import { supabase } from "@/integrations/supabase/client";
 import { trackUserInteraction } from "@/utils/trackingUtils";
 
 const Contact = () => {
@@ -53,38 +53,38 @@ const Contact = () => {
       const utmMedium = urlParams.get('utm_medium');
       const utmCampaign = urlParams.get('utm_campaign');
 
-      // Prepare the data for Supabase
-      const enquiryData = {
-        full_name: formData.fullName,
-        email: formData.email,
-        organization: formData.organization,
-        role: formData.role,
-        phone_number: formData.phoneNumber,
-        message: formData.message,
-        enquiry_type: 'contact_form',
-        source_page: 'contact',
-        url: currentUrl,
-        referrer_url: referrer,
-        user_agent: userAgent,
-        utm_source: utmSource,
-        utm_medium: utmMedium,
-        utm_campaign: utmCampaign,
-        submitted_at: new Date().toISOString()
-      };
+      // Prepare the data for Supabase (commented out)
+      // const enquiryData = {
+      //   full_name: formData.fullName,
+      //   email: formData.email,
+      //   organization: formData.organization,
+      //   role: formData.role,
+      //   phone_number: formData.phoneNumber,
+      //   message: formData.message,
+      //   enquiry_type: 'contact_form',
+      //   source_page: 'contact',
+      //   url: currentUrl,
+      //   referrer_url: referrer,
+      //   user_agent: userAgent,
+      //   utm_source: utmSource,
+      //   utm_medium: utmMedium,
+      //   utm_campaign: utmCampaign,
+      //   submitted_at: new Date().toISOString()
+      // };
 
-      // Insert into Supabase
-      const { error } = await supabase
-        .from('enquiries')
-        .insert([enquiryData]);
+      // Insert into Supabase (commented out)
+      // const { error } = await supabase
+      //   .from('enquiries')
+      //   .insert([enquiryData]);
 
-      if (error) {
-        console.error('Error submitting form:', error);
-        toast({
-          title: "Error",
-          description: "There was an error submitting your message. Please try again.",
-          variant: "destructive",
-        });
-      } else {
+      // if (error) {
+      //   console.error('Error submitting form:', error);
+      //   toast({
+      //     title: "Error",
+      //     description: "There was an error submitting your message. Please try again.",
+      //     variant: "destructive",
+      //   });
+      // } else {
         toast({
           title: "Message Sent!",
           description: "Thank you for your message. We'll get back to you soon.",
@@ -99,7 +99,7 @@ const Contact = () => {
           phoneNumber: "",
           message: ""
         });
-      }
+      // }
     } catch (error) {
       console.error('Error submitting form:', error);
       toast({
