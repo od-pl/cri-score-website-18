@@ -1,10 +1,8 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Star, Building2, TrendingUp, Users, Award, FileText, Search, Target, BarChart3, RefreshCw, ArrowRight } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-
 const Testimonials = () => {
   const caseStudies = [{
     logo: "JBIMS",
@@ -99,7 +97,6 @@ const Testimonials = () => {
       after: "71%"
     }]
   }];
-
   const studentStories = [{
     name: "Achin Sengar",
     course: "Computer Science Engineering",
@@ -133,60 +130,47 @@ const Testimonials = () => {
     story: "PLAT helped me decode my strengths and blind spots with precision. The skill insights weren't generic—they showed me exactly where I needed to improve to match industry expectations. That confidence translated directly into how I pitched myself to recruiters and chose the right role to start my career.",
     image: "/lovable-uploads/f2fcac02-e171-41f8-a7da-b3d4c5665552.png"
   }];
-
-  const stats = [
-    {
-      icon: Users,
-      value: 1.52,
-      label: "Students",
-      mode: 'lakh',
-      duration: 3
-    },
-    {
-      icon: Building2,
-      value: "50+",
-      label: "Partner Colleges"
-    },
-    {
-      icon: TrendingUp,
-      value: 18,
-      label: "Average Placement Increase",
-      suffix: "%"
-    },
-    {
-      icon: Award,
-      value: 82,
-      label: "Student Leveling Up",
-      suffix: "%"
-    }
-  ];
+  const stats = [{
+    icon: Users,
+    value: 1.52,
+    label: "Students",
+    mode: 'lakh',
+    duration: 3
+  }, {
+    icon: Building2,
+    value: "50+",
+    label: "Partner Colleges"
+  }, {
+    icon: TrendingUp,
+    value: 18,
+    label: "Average Placement Increase",
+    suffix: "%"
+  }, {
+    icon: Award,
+    value: 82,
+    label: "Student Leveling Up",
+    suffix: "%"
+  }];
 
   // Assessment to Upskilling Lifecycle Steps
-  const lifecycleSteps = [
-    {
-      icon: FileText,
-      title: "75-min Assessment",
-      description: "Comprehensive skill evaluation across 5 dimensions"
-    },
-    {
-      icon: BarChart3,
-      title: "CRI Score Generation",
-      description: "Career Readiness Index on 0-900 scale"
-    },
-    {
-      icon: Target,
-      title: "Personalized Micro-Tasks",
-      description: "Daily 3-5 minute skill-building activities"
-    },
-    {
-      icon: RefreshCw,
-      title: "Continuous Improvement",
-      description: "Monthly progress tracking and CRI updates"
-    }
-  ];
-
-  return (
-    <div className="min-h-screen pt-16">
+  const lifecycleSteps = [{
+    icon: FileText,
+    title: "75-min Assessment",
+    description: "Comprehensive skill evaluation across 5 dimensions"
+  }, {
+    icon: BarChart3,
+    title: "CRI Score Generation",
+    description: "Career Readiness Index on 0-900 scale"
+  }, {
+    icon: Target,
+    title: "Personalized Micro-Tasks",
+    description: "Daily 3-5 minute skill-building activities"
+  }, {
+    icon: RefreshCw,
+    title: "Continuous Improvement",
+    description: "Monthly progress tracking and CRI updates"
+  }];
+  return <div className="min-h-screen pt-16">
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-green-50 via-blue-50 to-purple-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -205,56 +189,21 @@ const Testimonials = () => {
           {/* Animated Stats */}
           <div className="grid md:grid-cols-4 gap-8 mb-16">
             {stats.map((stat, index) => {
-              const Icon = stat.icon;
-              return (
-                <Card key={index} className="bg-white/70 backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover:scale-105">
+            const Icon = stat.icon;
+            return <Card key={index} className="bg-white/70 backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover:scale-105">
                   <CardContent className="p-6 text-center">
                     <Icon className="w-8 h-8 text-blue-600 mx-auto mb-4" />
                     <div className="text-3xl font-bold text-gray-900 mb-2">
-                      {stat.mode === 'lakh' ? (
-                        <AnimatedCounter end={stat.value as number} duration={3} mode="lakh" />
-                      ) : (
-                        typeof stat.value === 'number' ? (
-                          <AnimatedCounter end={stat.value} suffix={stat.suffix || ""} duration={3} />
-                        ) : (
-                          stat.value
-                        )
-                      )}
+                      {stat.mode === 'lakh' ? <AnimatedCounter end={stat.value as number} duration={3} mode="lakh" /> : typeof stat.value === 'number' ? <AnimatedCounter end={stat.value} suffix={stat.suffix || ""} duration={3} /> : stat.value}
                     </div>
                     <div className="text-gray-600">{stat.label}</div>
                   </CardContent>
-                </Card>
-              );
-            })}
+                </Card>;
+          })}
           </div>
 
           {/* Assessment to Upskilling Lifecycle */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-xl p-8 mb-16">
-            <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 text-center mb-12">
-              Assessment to Upskilling Lifecycle
-            </h2>
-            <div className="flex flex-col lg:flex-row items-center justify-center space-y-8 lg:space-y-0 lg:space-x-4">
-              {lifecycleSteps.map((step, index) => {
-                const Icon = step.icon;
-                return (
-                  <div key={index} className="flex flex-col lg:flex-row items-center">
-                    <div className="flex flex-col items-center text-center max-w-xs">
-                      <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                        <Icon className="w-8 h-8 text-blue-600" />
-                      </div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2">{step.title}</h3>
-                      <p className="text-sm text-gray-600">{step.description}</p>
-                    </div>
-                    {index < lifecycleSteps.length - 1 && (
-                      <div className="flex items-center justify-center lg:mx-6 my-6 lg:my-0">
-                        <ArrowRight className="w-6 h-6 text-blue-600 rotate-90 lg:rotate-0" />
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+          
         </div>
       </section>
 
@@ -422,8 +371,6 @@ const Testimonials = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default Testimonials;
