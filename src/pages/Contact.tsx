@@ -89,7 +89,7 @@ const validateForm = (data: FormData): FormErrors => {
   return errors;
 };
 
-// Debounce function
+// Debounce function.
 const useDebounce = (callback: Function, delay: number) => {
   const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
 
