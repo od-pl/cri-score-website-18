@@ -140,7 +140,7 @@ const ChatbotWidget = () => {
   const initializeChat = () => {
     const welcomeMessage: Message = {
       id: Date.now().toString(),
-      text: `👋 Hello! I'm <strong>PLAT-Bot</strong>, your intelligent assistant for career readiness solutions.<br><br>🎯 <strong>Quick Stats:</strong><br>• 1.52L+ students assessed<br>• 50+ partner colleges<br>• 18% avg placement increase<br>• CRI scores trusted by 350+ recruiters<br><br>How can I help you transform student outcomes today?<br><br>💡 Try: <strong>"Tell me about NAAC benefits"</strong> or <strong>"Show me a demo"</strong>`,
+      text: `👋 Hello! I'm <strong>PLAT-Bot</strong>, your intelligent assistant for career readiness solutions.<br><br><strong>Quick Stats:</strong><br>• 1.52L+ students assessed<br>• 50+ partner colleges<br>• 18% avg placement increase<br>• CRI scores trusted by 350+ recruiters<br><br>How can I help you transform student outcomes today?<br><br>💡 Try: <strong>"Tell me about NAAC benefits"</strong>`,
       type: 'bot',
       timestamp: new Date()
     };
@@ -314,7 +314,7 @@ const ChatbotWidget = () => {
             </div>
             {error && <div className="p-4 bg-red-50 text-red-600 text-sm">{error}</div>}
             <div className="p-4 border-t border-gray-200 flex">
-              <Input value={inputValue} onChange={e=>setInputValue(e.target.value)} placeholder="Ask about NAAC benefits, pricing, demo..." onKeyPress={e=>e.key==='Enter'&&sendMessage()} className="flex-1 text-sm" />
+              <Input value={inputValue} onChange={e=>setInputValue(e.target.value)} placeholder="Ask me anything about PLAT" onKeyPress={e=>e.key==='Enter'&&sendMessage()} className="flex-1 text-sm" />
               <Button onClick={sendMessage} disabled={!inputValue.trim()||isTyping} className="bg-blue-500 hover:bg-blue-600 ml-2">
                 <Send className="w-4 h-4 text-white" />
               </Button>
