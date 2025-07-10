@@ -128,7 +128,7 @@ const Contact = () => {
     setIsLoadingLocation(true);
 
     try {
-      // Gather tracking data
+      // Gather tracking data.
       const trackingData = gatherTrackingData();
       
       // Fetch location data with fallback
