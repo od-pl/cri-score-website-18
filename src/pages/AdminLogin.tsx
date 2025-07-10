@@ -8,7 +8,7 @@ const AdminLogin = ({ onLogin }: { onLogin: (token: string) => void }) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
-    const res = await fetch("https://plat-web-api.offee.in/api/admin/login", {
+    const res = await fetch("https://platskills.com/web-api/admin/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, password }),
