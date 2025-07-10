@@ -1,5 +1,6 @@
+
 import { Card, CardContent } from "@/components/ui/card";
-import { Star, Building2, TrendingUp, Users, Award, FileText, Search, Target, BarChart3, RefreshCw } from "lucide-react";
+import { Star, Building2, TrendingUp, Users, Award, FileText, Search, Target, BarChart3, RefreshCw, ArrowRight } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -40,14 +41,14 @@ const Testimonials = () => {
     image: "https://brandnew.sndt.ac.in/wp-content/uploads/2024/10/Ruby-Ojha.jpg",
     metrics: [{
       label: "Career Readiness Score",
-      before: "6.2",
-      after: "8.1"
+      before: "CRI 620",
+      after: "CRI 810"
     }, {
       label: "Students Placed",
       before: "65%",
       after: "73%"
     }, {
-      label: "Students Placed",
+      label: "Industry Partnerships",
       before: "12",
       after: "23"
     }]
@@ -98,39 +99,41 @@ const Testimonials = () => {
       after: "71%"
     }]
   }];
+
   const studentStories = [{
     name: "Achin Sengar",
     course: "Computer Science Engineering",
-    initialCRI: 6.4,
-    finalCRI: 8.7,
+    initialCRI: 576,
+    finalCRI: 783,
     placement: "Founder of GreenMentor",
     story: "When I saw innovation and environmental reasoning as my top skill areas, it gave me the confidence to pursue an idea I was unsure about. That led to building a carbon footprint calculator and, eventually, to global recognition. PLAT was the nudge that made me believe the idea was worth building.",
     image: "/lovable-uploads/cd4288ca-4a2e-4bf1-9e83-d0c775bbe8f5.png"
   }, {
     name: "Sandip Kathiriya",
     course: "Information Technology",
-    initialCRI: 5.8,
-    finalCRI: 8.3,
+    initialCRI: 522,
+    finalCRI: 747,
     placement: "Partner at Amazon India Ltd",
     story: "There's so much advice out there—it's overwhelming. What PLAT gave me was a clear, personalised snapshot of where I truly excel. I used that to focus my efforts during placements and choose roles that fit. That clarity shaped the way I prepared, interviewed, and now operate in my role at Amazon.",
     image: "/lovable-uploads/09fb4a89-7967-4c57-a1fe-7dfdc27483b4.png"
   }, {
     name: "Yash Kothari",
     course: "Cyber Security",
-    initialCRI: 7.1,
-    finalCRI: 8.9,
+    initialCRI: 639,
+    finalCRI: 801,
     placement: "Head of Network Engineering Operations at Comcast Inc",
     story: "I already knew I was technically inclined, but PLAT showed me I also had strengths in team coordination and decision-making. That changed the way I approached career planning—I didn't just apply for jobs, I looked for leadership tracks. That strategic mindset has made a big difference early in my journey.",
     image: "/lovable-uploads/90f6b6c5-316c-4b86-b836-d9dc027672c3.png"
   }, {
     name: "Ananya Patel",
     course: "MBA",
-    initialCRI: 6.0,
-    finalCRI: 8.5,
+    initialCRI: 540,
+    finalCRI: 765,
     placement: "Jr. Strategy Analyst at Accenture Strategy",
     story: "PLAT helped me decode my strengths and blind spots with precision. The skill insights weren't generic—they showed me exactly where I needed to improve to match industry expectations. That confidence translated directly into how I pitched myself to recruiters and chose the right role to start my career.",
     image: "/lovable-uploads/f2fcac02-e171-41f8-a7da-b3d4c5665552.png"
   }];
+
   const stats = [
     {
       icon: Users,
@@ -155,6 +158,30 @@ const Testimonials = () => {
       value: 82,
       label: "Student Leveling Up",
       suffix: "%"
+    }
+  ];
+
+  // Assessment to Upskilling Lifecycle Steps
+  const lifecycleSteps = [
+    {
+      icon: FileText,
+      title: "75-min Assessment",
+      description: "Comprehensive skill evaluation across 5 dimensions"
+    },
+    {
+      icon: BarChart3,
+      title: "CRI Score Generation",
+      description: "Career Readiness Index on 0-900 scale"
+    },
+    {
+      icon: Target,
+      title: "Personalized Micro-Tasks",
+      description: "Daily 3-5 minute skill-building activities"
+    },
+    {
+      icon: RefreshCw,
+      title: "Continuous Improvement",
+      description: "Monthly progress tracking and CRI updates"
     }
   ];
 
@@ -199,6 +226,34 @@ const Testimonials = () => {
                 </Card>
               );
             })}
+          </div>
+
+          {/* Assessment to Upskilling Lifecycle */}
+          <div className="bg-white/80 backdrop-blur-sm rounded-xl p-8 mb-16">
+            <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 text-center mb-12">
+              Assessment to Upskilling Lifecycle
+            </h2>
+            <div className="flex flex-col lg:flex-row items-center justify-center space-y-8 lg:space-y-0 lg:space-x-4">
+              {lifecycleSteps.map((step, index) => {
+                const Icon = step.icon;
+                return (
+                  <div key={index} className="flex flex-col lg:flex-row items-center">
+                    <div className="flex flex-col items-center text-center max-w-xs">
+                      <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                        <Icon className="w-8 h-8 text-blue-600" />
+                      </div>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-2">{step.title}</h3>
+                      <p className="text-sm text-gray-600">{step.description}</p>
+                    </div>
+                    {index < lifecycleSteps.length - 1 && (
+                      <div className="flex items-center justify-center lg:mx-6 my-6 lg:my-0">
+                        <ArrowRight className="w-6 h-6 text-blue-600 rotate-90 lg:rotate-0" />
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
@@ -311,18 +366,18 @@ const Testimonials = () => {
                       <div className="flex justify-between items-center mb-2">
                         <span className="text-sm font-medium text-gray-600">CRI Improvement</span>
                         <span className="text-lg font-bold text-green-600">
-                          +{(student.finalCRI - student.initialCRI).toFixed(1)}
+                          +{student.finalCRI - student.initialCRI}
                         </span>
                       </div>
                       <div className="flex items-center space-x-4">
                         <div className="text-center">
                           <div className="text-sm text-gray-500">Initial</div>
-                          <div className="text-xl font-bold text-red-600">{student.initialCRI}</div>
+                          <div className="text-xl font-bold text-red-600">CRI {student.initialCRI}</div>
                         </div>
                         <div className="flex-1 h-2 bg-gradient-to-r from-red-300 to-green-300 rounded-full"></div>
                         <div className="text-center">
                           <div className="text-sm text-gray-500">Final</div>
-                          <div className="text-xl font-bold text-green-600">{student.finalCRI}</div>
+                          <div className="text-xl font-bold text-green-600">CRI {student.finalCRI}</div>
                         </div>
                       </div>
                     </div>
