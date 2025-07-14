@@ -9,7 +9,7 @@ import { toast } from "@/hooks/use-toast";
 // import { supabase } from "@/integrations/supabase/client";
 import { gatherTrackingData, fetchLocationData } from "@/utils/trackingUtils";
 
-// TypeScript interfaces for form data.
+// TypeScript interfaces for form data
 interface FormData {
   name: string;
   email: string;
