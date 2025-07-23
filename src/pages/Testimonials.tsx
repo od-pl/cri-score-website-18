@@ -20,8 +20,8 @@ const Testimonials = () => {
       after: "20%"
     }, {
       label: "Average Package",
-      before: "₹8.2L",
-      after: "₹12.4L"
+      before: "₹24.7L",
+      after: "₹26.4L"
     }, {
       label: "Top Recruiters",
       before: "45",
