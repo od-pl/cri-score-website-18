@@ -1,15 +1,18 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, TrendingUp, Users, Clock, CheckCircle, Star, Award, Building2, IndianRupee, Brain, Target, Zap } from "lucide-react";
+import { ArrowRight, TrendingUp, Users, Clock, CheckCircle, Star, Award, Building2, IndianRupee, Brain, Target, Zap, FileDown, BookOpen, TrendingDown, BarChart } from "lucide-react";
 import { Link } from "react-router-dom";
 import PlatReportModal from "@/components/PlatReportModal";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import CollegeCarousel from "@/components/CollegeCarousel";
 import ReportViewModal from "@/components/ReportViewModal";
+
 const Index = () => {
   const [showReportModal, setShowReportModal] = useState(false);
   const [showViewReportModal, setShowViewReportModal] = useState(false);
+
   const painPoints = [{
     icon: "❌",
     stat: "54%",
@@ -29,19 +32,66 @@ const Index = () => {
     source: "LinkedIn India 2023",
     color: "bg-yellow-50 border-yellow-200"
   }];
+
   const platFeatures = [{
     icon: Brain,
     title: "AI-Powered Assessment",
-    description: "Skill assessment identifies hidden gaps across 5 career-critical dimensions"
+    description: "Program-specific, scenario-based skill assessment"
   }, {
     icon: Target,
     title: "Personalized Upskilling",
-    description: "Daily 3-minute micro-tasks designed to close specific skill gaps fast"
+    description: "Daily 10-minute micro-tasks that move the needle"
   }, {
     icon: Zap,
-    title: "CRI Score",
-    description: "Industry-trusted Career Readiness Index that recruiters rely on for hiring decisions"
+    title: "CRI Score (0–900)",
+    description: "One number recruiters and IQAC can rely on"
   }];
+
+  const iqacFeatures = [{
+    icon: TrendingDown,
+    title: "Automated Learner Classification",
+    description: "Slow/average/advanced, by program & semester"
+  }, {
+    icon: BookOpen,
+    title: "Personalized Remediation",
+    description: "Micro-tasks mapped to Bloom's levels; bilingual support"
+  }, {
+    icon: BarChart,
+    title: "Evidence for NAAC Criteria 2 & 3",
+    description: "Semester-on-semester growth reports, exportable to SSR"
+  }, {
+    icon: Users,
+    title: "Faculty & TPO Alerts",
+    description: "Who needs help now, who's placement-ready"
+  }];
+
+  const howItWorksSteps = [{
+    step: "STEP 1",
+    title: "Test",
+    description: "AI Skill X-Ray pinpoints hidden gaps",
+    icon: "📝"
+  }, {
+    step: "STEP 2",
+    title: "Micro-Tasks",
+    description: "Daily 10-min challenges close those gaps fast",
+    icon: "💪"
+  }, {
+    step: "STEP 3",
+    title: "Skill Lift",
+    description: "Average CRI jumps +120 points by next semester",
+    icon: "📈"
+  }, {
+    step: "STEP 4",
+    title: "CRI Score",
+    description: "Recruiter-trusted Career Readiness Index, shareable on LinkedIn",
+    icon: "🏆"
+  }, {
+    step: "STEP 5",
+    title: "Sync to HR Systems",
+    description: "CRI + skills auto-sync to employer ATS/HRMS so students appear where hiring decisions happen",
+    icon: "🔄"
+  }];
+
   const testimonials = [{
     name: "Sachin Sengar",
     role: "Founder, GreenMentor",
@@ -67,7 +117,9 @@ const Index = () => {
     rating: 5,
     image: "/lovable-uploads/e4b8e8c9-b0e6-499c-932b-11952dd7ecfe.png"
   }];
-  return <div className="min-h-screen">
+
+  return (
+    <div className="min-h-screen">
       {/* Hero Section - Updated Banner */}
       <section className="relative py-8 sm:py-12 lg:py-24 xl:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50"></div>
@@ -83,7 +135,7 @@ const Index = () => {
                   score by 18% in one semester.
                 </h1>
                 <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                  AI pinpoints hidden skill gaps to boost placement rates for your college.
+                  AI pinpoints hidden skill gaps to boost placement rates—and pushes verified CRI directly into employer ATS/HRMS systems.
                 </p>
               </div>
               
@@ -129,6 +181,21 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Belief Strip */}
+      <section className="py-6 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <div className="inline-flex items-center space-x-3">
+              <span className="text-2xl">🚀</span>
+              <div>
+                <span className="font-bold text-lg">Our belief: Students are more than marksheets.</span>
+                <p className="text-blue-100 mt-1">PLAT makes their true potential visible—to faculty, recruiters, and themselves.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Pain Points Section */}
       <section className="py-8 sm:py-12 lg:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -142,32 +209,37 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-12">
-            {painPoints.map((point, index) => <Card key={index} className={`${point.color} border-2 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation`}>
+            {painPoints.map((point, index) => (
+              <Card key={index} className={`${point.color} border-2 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation`}>
                 <CardContent className="p-4 sm:p-6 lg:p-8 text-center">
                   <div className="text-2xl sm:text-3xl lg:text-4xl mb-3 sm:mb-4">{point.icon}</div>
                   <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">{point.stat}</div>
                   <p className="text-gray-700 font-medium mb-1 text-sm sm:text-base">{point.text}</p>
                   <p className="text-gray-500 text-xs sm:text-sm italic">{point.source}</p>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* What is PLAT Section */}
+      {/* What is PLAT Section - Updated */}
       <section className="py-8 sm:py-12 lg:py-16 bg-gradient-to-br from-purple-50 to-indigo-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 lg:mb-12">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
               What is PLAT?
             </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-4xl mx-auto px-4">PLAT is a semester -wise assessment that tracks and improves student employability across 21st century skills "13 key skills". It offers individual skill reports and aligns with NEP,NAAC, and UGC outcomes.</p>
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-4xl mx-auto px-4">
+              PLAT is your campus skills-intelligence layer. Each semester, a 75-minute adaptive assessment maps real skill gaps, assigns daily 10-minute micro-tasks to fix them, and updates a recruiter-trusted CRI (0–900).
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {platFeatures.map((feature, index) => {
-            const Icon = feature.icon;
-            return <Card key={index} className="bg-white hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation h-full">
+              const Icon = feature.icon;
+              return (
+                <Card key={index} className="bg-white hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation h-full">
                   <CardContent className="p-6 sm:p-8 text-center h-full flex flex-col justify-center">
                     <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                       <Icon className="w-8 h-8 text-blue-600" />
@@ -175,8 +247,9 @@ const Index = () => {
                     <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
                     <p className="text-gray-600 text-sm sm:text-base leading-relaxed">{feature.description}</p>
                   </CardContent>
-                </Card>;
-          })}
+                </Card>
+              );
+            })}
           </div>
 
           <div className="text-center mt-8 lg:mt-12">
@@ -184,6 +257,73 @@ const Index = () => {
               <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-sm sm:text-base px-6 py-3 touch-manipulation">
                 Learn How PLAT Works
                 <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works Steps */}
+      <section className="py-8 sm:py-12 lg:py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 lg:mb-12">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
+              How PLAT Works
+            </h2>
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600">
+              From assessment to career readiness in 5 simple steps
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8">
+            {howItWorksSteps.map((step, index) => (
+              <Card key={index} className="bg-white hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation h-full">
+                <CardContent className="p-4 sm:p-6 text-center h-full flex flex-col justify-center">
+                  <div className="text-4xl mb-4">{step.icon}</div>
+                  <div className="text-xs font-semibold text-blue-600 mb-2">{step.step}</div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-3">{step.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{step.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* IQAC & Equity Section - New */}
+      <section className="py-8 sm:py-12 lg:py-16 bg-gradient-to-br from-green-50 to-emerald-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 lg:mb-12">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
+              FOR IQAC Team
+            </h2>
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
+              Identify slow and fast learners early. Prove measurable improvement.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-8">
+            {iqacFeatures.map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <Card key={index} className="bg-white hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation h-full">
+                  <CardContent className="p-6 text-center h-full flex flex-col justify-center">
+                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Icon className="w-6 h-6 text-green-600" />
+                    </div>
+                    <h3 className="text-base font-bold text-gray-900 mb-2">{feature.title}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+
+          <div className="text-center">
+            <Link to="/contact#send-message">
+              <Button className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white text-sm sm:text-base px-6 py-3 touch-manipulation">
+                <FileDown className="mr-2 w-4 h-4" />
+                Download the IQAC Evidence Pack (PDF)
               </Button>
             </Link>
           </div>
@@ -203,7 +343,8 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {testimonials.map((testimonial, index) => <Card key={index} className="hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation h-full">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation h-full">
                 <CardContent className="p-4 sm:p-6 h-full flex flex-col">
                   <div className="flex items-center mb-3 sm:mb-4">
                     <img src={testimonial.image} alt={testimonial.name} className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover mr-3 flex-shrink-0" />
@@ -213,11 +354,14 @@ const Index = () => {
                     </div>
                   </div>
                   <div className="flex mb-2 sm:mb-3">
-                    {[...Array(Math.floor(testimonial.rating))].map((_, i) => <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 fill-current" />)}
+                    {[...Array(Math.floor(testimonial.rating))].map((_, i) => (
+                      <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 fill-current" />
+                    ))}
                   </div>
                   <p className="text-gray-700 text-xs sm:text-sm italic flex-1">"{testimonial.quote}"</p>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
 
           <div className="text-center mt-8 lg:mt-12">
@@ -303,6 +447,8 @@ const Index = () => {
 
       <PlatReportModal isOpen={showReportModal} onClose={() => setShowReportModal(false)} onViewReport={() => setShowViewReportModal(true)} />
       <ReportViewModal isOpen={showViewReportModal} onClose={() => setShowViewReportModal(false)} />
-    </div>;
+    </div>
+  );
 };
+
 export default Index;
