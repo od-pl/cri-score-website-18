@@ -281,9 +281,7 @@ const Index = () => {
       {/* Final CTA Section */}
       <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-green-400 via-emerald-500 to-teal-600 text-white bg-orange-500">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 text-gray-900 leading-tight">
-            Ready to Boost Your College's Placement Rate?
-          </h2>
+          <h2 className="text-xl sm:text-2xl md:text-3xl xl:text-5xl font-bold mb-4 sm:mb-6 text-gray-900 leading-tight lg:text-3xl">Ready to Boost Your Institute 2 steps ahead than others?</h2>
           <p className="text-base sm:text-lg lg:text-xl text-gray-800 mb-6 sm:mb-8 leading-relaxed max-w-3xl mx-auto">
             ✓ Free Pilot Cohort — keep it only if the Skill-Intelligence Dashboard wows you 
           </p>
