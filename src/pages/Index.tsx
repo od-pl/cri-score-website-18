@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -278,11 +277,13 @@ const Index = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8">
             {howItWorksSteps.map((step, index) => (
               <Card key={index} className="bg-white hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation h-full">
-                <CardContent className="p-4 sm:p-6 text-center h-full flex flex-col justify-center">
-                  <div className="text-4xl mb-4">{step.icon}</div>
-                  <div className="text-xs font-semibold text-blue-600 mb-2">{step.step}</div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-3">{step.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{step.description}</p>
+                <CardContent className="p-4 sm:p-6 text-center h-full flex flex-col justify-start min-h-[280px]">
+                  <div className="flex flex-col items-center flex-1">
+                    <div className="text-4xl mb-4 flex items-center justify-center h-16">{step.icon}</div>
+                    <div className="text-xs font-semibold text-blue-600 mb-2 uppercase tracking-wide">{step.step}</div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-3">{step.title}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed flex-1 flex items-center">{step.description}</p>
+                  </div>
                 </CardContent>
               </Card>
             ))}
