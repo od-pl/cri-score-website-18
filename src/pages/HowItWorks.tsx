@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -7,13 +6,11 @@ import { Brain, MessageCircle, Zap, Target, RotateCcw, Shield, Cloud, Server, Ar
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState } from "react";
-
 const HowItWorks = () => {
   const [hoveredStep, setHoveredStep] = useState<number | null>(null);
-  
   const steps = [{
     step: "STEP 1",
-    title: "Test", 
+    title: "Test",
     description: "AI Skill X-Ray pinpoints hidden gaps",
     icon: "📝"
   }, {
@@ -22,7 +19,7 @@ const HowItWorks = () => {
     description: "Daily 3-min challenges close those gaps fast",
     icon: "💪"
   }, {
-    step: "STEP 3", 
+    step: "STEP 3",
     title: "Skill Lift",
     description: "Average CRI jumps +120 points by next semester",
     icon: "📈"
@@ -32,7 +29,6 @@ const HowItWorks = () => {
     description: "Recruiter-trusted Career Readiness Index, shareable on LinkedIn",
     icon: "🏆"
   }];
-
   const skillLevels = [{
     level: "Level 1",
     title: "Foundational Assessment",
@@ -43,7 +39,7 @@ const HowItWorks = () => {
     borderColor: "border-blue-200"
   }, {
     level: "Level 2",
-    title: "Intermediate Assessment", 
+    title: "Intermediate Assessment",
     description: "Deepens understanding and application of knowledge, presenting moderate challenges to bridge foundational skills with advanced problem-solving",
     icon: Target,
     color: "bg-green-500",
@@ -58,7 +54,6 @@ const HowItWorks = () => {
     bgColor: "bg-yellow-50",
     borderColor: "border-yellow-200"
   }];
-
   const lifecycleSteps = [{
     name: "Initial Assessment",
     icon: FileText,
@@ -95,7 +90,6 @@ const HowItWorks = () => {
     textColor: "text-red-500",
     description: "Shareable certificate, recruiter API"
   }];
-
   const dashboards = [{
     role: "VICE-CHANCELLOR",
     icon: Eye,
@@ -117,7 +111,6 @@ const HowItWorks = () => {
     features: ["Personal radar chart", "Micro-task queue", "CRI growth bar"],
     description: "Personal skill development and progress tracking"
   }];
-
   const complianceFeatures = [{
     title: "WASA",
     description: "Web Application Security Audit (Cert-In)",
@@ -131,7 +124,6 @@ const HowItWorks = () => {
     description: "Information Security Management",
     icon: Lock
   }];
-
   return <TooltipProvider>
       <div className="min-h-screen pt-16">
         {/* Hero Section */}
@@ -359,11 +351,9 @@ const HowItWorks = () => {
               <div className="flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 md:space-x-4">
 
                 {lifecycleSteps.map((step, index) => {
-                  const Icon = step.icon;
-                  const isLast = index === lifecycleSteps.length - 1;
-                  
-                  return (
-                    <div key={index} className="flex flex-col items-center text-center relative">
+                const Icon = step.icon;
+                const isLast = index === lifecycleSteps.length - 1;
+                return <div key={index} className="flex flex-col items-center text-center relative">
                       <div className={`flex items-center justify-center w-20 h-20 ${step.bgColor} rounded-full`}>
                         <Icon className={`w-10 h-10 ${step.textColor}`} />
                       </div>
@@ -371,8 +361,7 @@ const HowItWorks = () => {
                       <p className="mt-1 text-sm text-gray-500 max-w-[170px]">{step.description}</p>
                       
                       {/* Arrow - only show if not last item */}
-                      {!isLast && (
-                        <>
+                      {!isLast && <>
                           {/* Arrow (Desktop) */}
                           <div className="hidden md:block absolute left-full top-10 transform translate-x-2 text-gray-300">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-12 h-12">
@@ -385,11 +374,9 @@ const HowItWorks = () => {
                               <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
                             </svg>
                           </div>
-                        </>
-                      )}
-                    </div>
-                  );
-                })}
+                        </>}
+                    </div>;
+              })}
 
               </div>
             </div>
@@ -526,5 +513,4 @@ const HowItWorks = () => {
       </div>
     </TooltipProvider>;
 };
-
 export default HowItWorks;
