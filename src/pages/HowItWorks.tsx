@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { Brain, MessageCircle, Zap, Target, RotateCcw, Shield, Cloud, Server, ArrowRight, Eye, Users, BarChart3, User, Book, Lightbulb, TrendingUp, RefreshCw, Globe, Lock, FileText, Search, ChevronRight, Calendar, AlertTriangle, Clock } from "lucide-react";
+import { Brain, MessageCircle, Zap, Target, RotateCcw, Shield, Cloud, Server, ArrowRight, Eye, Users, BarChart3, User, Book, Lightbulb, TrendingUp, RefreshCw, Globe, Lock, FileText, Search, ChevronRight, Calendar, AlertTriangle, Clock, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -34,6 +34,12 @@ const HowItWorks = () => {
       title: "CRI Score",
       description: "Recruiter-trusted Career Readiness Index, shareable on LinkedIn",
       icon: "🏆"
+    },
+    {
+      step: "STEP 5",
+      title: "Sync to HR Systems",
+      description: "CRI + skills auto-sync to employer ATS/HRMS so students appear where hiring decisions happen",
+      icon: "🔄"
     }
   ];
 
@@ -190,7 +196,7 @@ const HowItWorks = () => {
           </div>
         </section>
 
-        {/* 5-Step How PLAT Works - Updated with better alignment */}
+        {/* 5-Step How PLAT Works - Updated with arrows and better alignment */}
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
@@ -202,41 +208,125 @@ const HowItWorks = () => {
               </p>
             </div>
 
-            {/* Steps Grid - Fixed alignment and spacing */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-3">
-              {/* Steps 1-4 */}
-              {steps.map((step, index) => (
-                <Card key={index} className="bg-white hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 h-full">
-                  <CardContent className="p-4 text-center h-full flex flex-col">
-                    <div className="flex flex-col items-center flex-1 justify-between min-h-[240px]">
-                      <div className="flex flex-col items-center">
-                        <div className="text-3xl mb-3 h-12 flex items-center justify-center">{step.icon}</div>
-                        <div className="text-xs font-semibold text-blue-600 mb-2 uppercase tracking-wide">{step.step}</div>
-                        <h3 className="text-lg font-bold text-gray-900 mb-3 min-h-[24px]">{step.title}</h3>
+            {/* Desktop Layout with Arrows */}
+            <div className="hidden lg:block">
+              <div className="flex items-center justify-center gap-4">
+                {steps.map((step, index) => (
+                  <div key={index} className="flex items-center">
+                    {/* Step Card */}
+                    <Card className="bg-white hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 w-56">
+                      <CardContent className="p-6 text-center">
+                        <div className="flex flex-col items-center justify-between min-h-[280px]">
+                          <div className="flex flex-col items-center">
+                            <div className="text-4xl mb-4 h-16 flex items-center justify-center">{step.icon}</div>
+                            <div className="text-xs font-semibold text-blue-600 mb-3 uppercase tracking-wide">{step.step}</div>
+                            <h3 className="text-lg font-bold text-gray-900 mb-4 min-h-[48px] flex items-center justify-center text-center">{step.title}</h3>
+                          </div>
+                          <div className="flex-1 flex items-center justify-center">
+                            <p className="text-gray-600 text-sm leading-relaxed text-center">{step.description}</p>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    {/* Arrow (only show if not last item) */}
+                    {index < steps.length - 1 && (
+                      <div className="mx-3 text-blue-600">
+                        <ArrowRight className="w-8 h-8" />
                       </div>
-                      <div className="flex-1 flex items-center justify-center">
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Tablet Layout (2 rows) */}
+            <div className="hidden md:block lg:hidden">
+              {/* First Row - Steps 1-3 */}
+              <div className="flex items-center justify-center gap-4 mb-8">
+                {steps.slice(0, 3).map((step, index) => (
+                  <div key={index} className="flex items-center">
+                    <Card className="bg-white hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 w-52">
+                      <CardContent className="p-5 text-center">
+                        <div className="flex flex-col items-center justify-between min-h-[260px]">
+                          <div className="flex flex-col items-center">
+                            <div className="text-3xl mb-3 h-12 flex items-center justify-center">{step.icon}</div>
+                            <div className="text-xs font-semibold text-blue-600 mb-2 uppercase tracking-wide">{step.step}</div>
+                            <h3 className="text-base font-bold text-gray-900 mb-3 min-h-[40px] flex items-center justify-center text-center">{step.title}</h3>
+                          </div>
+                          <div className="flex-1 flex items-center justify-center">
+                            <p className="text-gray-600 text-sm leading-relaxed text-center">{step.description}</p>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                    {index < 2 && (
+                      <div className="mx-2 text-blue-600">
+                        <ArrowRight className="w-6 h-6" />
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+
+              {/* Arrow Down */}
+              <div className="text-center mb-8">
+                <div className="text-blue-600">
+                  <ChevronDown className="w-8 h-8 mx-auto" />
+                </div>
+              </div>
+
+              {/* Second Row - Steps 4-5 */}
+              <div className="flex items-center justify-center gap-4">
+                {steps.slice(3, 5).map((step, index) => (
+                  <div key={index + 3} className="flex items-center">
+                    <Card className="bg-white hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 w-52">
+                      <CardContent className="p-5 text-center">
+                        <div className="flex flex-col items-center justify-between min-h-[260px]">
+                          <div className="flex flex-col items-center">
+                            <div className="text-3xl mb-3 h-12 flex items-center justify-center">{step.icon}</div>
+                            <div className="text-xs font-semibold text-blue-600 mb-2 uppercase tracking-wide">{step.step}</div>
+                            <h3 className="text-base font-bold text-gray-900 mb-3 min-h-[40px] flex items-center justify-center text-center">{step.title}</h3>
+                          </div>
+                          <div className="flex-1 flex items-center justify-center">
+                            <p className="text-gray-600 text-sm leading-relaxed text-center">{step.description}</p>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                    {index < 1 && (
+                      <div className="mx-2 text-blue-600">
+                        <ArrowRight className="w-6 h-6" />
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Mobile Layout (Vertical Stack) */}
+            <div className="md:hidden space-y-6">
+              {steps.map((step, index) => (
+                <div key={index} className="flex flex-col items-center">
+                  <Card className="bg-white hover:shadow-lg transition-all duration-300 w-full max-w-sm">
+                    <CardContent className="p-6 text-center">
+                      <div className="flex flex-col items-center">
+                        <div className="text-4xl mb-4">{step.icon}</div>
+                        <div className="text-xs font-semibold text-blue-600 mb-2 uppercase tracking-wide">{step.step}</div>
+                        <h3 className="text-lg font-bold text-gray-900 mb-4">{step.title}</h3>
                         <p className="text-gray-600 text-sm leading-relaxed text-center">{step.description}</p>
                       </div>
+                    </CardContent>
+                  </Card>
+                  
+                  {/* Arrow Down (only show if not last item) */}
+                  {index < steps.length - 1 && (
+                    <div className="my-4 text-blue-600">
+                      <ChevronDown className="w-6 h-6" />
                     </div>
-                  </CardContent>
-                </Card>
+                  )}
+                </div>
               ))}
-
-              {/* Step 5 - Sync to HR Systems */}
-              <Card className="bg-white hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 h-full">
-                <CardContent className="p-4 text-center h-full flex flex-col">
-                  <div className="flex flex-col items-center flex-1 justify-between min-h-[240px]">
-                    <div className="flex flex-col items-center">
-                      <div className="text-3xl mb-3 h-12 flex items-center justify-center">🔄</div>
-                      <div className="text-xs font-semibold text-blue-600 mb-2 uppercase tracking-wide">STEP 5</div>
-                      <h3 className="text-lg font-bold text-gray-900 mb-3 min-h-[24px]">Sync to HR Systems</h3>
-                    </div>
-                    <div className="flex-1 flex items-center justify-center">
-                      <p className="text-gray-600 text-sm leading-relaxed text-center">CRI + skills auto-sync to employer ATS/HRMS so students appear where hiring decisions happen</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
             </div>
           </div>
         </section>
@@ -246,10 +336,28 @@ const HowItWorks = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-2 gap-12">
               {/* Problem */}
-              
+              <div className="space-y-6">
+                <h2 className="text-2xl font-bold text-gray-900">The Problem</h2>
+                <Card className="bg-white shadow-md">
+                  <CardContent className="p-6">
+                    <p className="text-gray-700">
+                      Traditional education often overlooks critical skill gaps, leaving students underprepared for the demands of the modern job market.
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
 
               {/* Solution */}
-              
+              <div className="space-y-6">
+                <h2 className="text-2xl font-bold text-gray-900">Our Solution</h2>
+                <Card className="bg-white shadow-md">
+                  <CardContent className="p-6">
+                    <p className="text-gray-700">
+                      PLAT offers a data-driven approach to identify and bridge these gaps, ensuring students are career-ready and competitive.
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
             </div>
           </div>
         </section>
