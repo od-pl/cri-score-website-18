@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -7,110 +8,109 @@ import PlatReportModal from "@/components/PlatReportModal";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import CollegeCarousel from "@/components/CollegeCarousel";
 import ReportViewModal from "@/components/ReportViewModal";
+
 const Index = () => {
   const [showReportModal, setShowReportModal] = useState(false);
   const [showViewReportModal, setShowViewReportModal] = useState(false);
-  const painPoints = [{
-    icon: "❌",
-    stat: "54%",
-    text: "of recruiters distrust marksheets alone",
-    source: "India Skills Report 2024",
-    color: "bg-red-50 border-red-200"
-  }, {
-    icon: "😕",
-    stat: "72%",
-    text: "of graduates miss core workplace skills",
-    source: "AICTE-NEAT Data 2023",
-    color: "bg-orange-50 border-orange-200"
-  }, {
-    icon: "⏰",
-    stat: "37-day",
-    text: "average delay in campus hiring",
-    source: "LinkedIn India 2023",
-    color: "bg-yellow-50 border-yellow-200"
-  }];
-  const platFeatures = [{
-    icon: Brain,
-    title: "AI-Powered Assessment",
-    description: "Program-specific, scenario-based skill assessment"
-  }, {
-    icon: Target,
-    title: "Personalized Upskilling",
-    description: "Daily 10-minute micro-tasks that move the needle"
-  }, {
-    icon: Zap,
-    title: "CRI Score (0–900)",
-    description: "One number recruiters and IQAC can rely on"
-  }];
-  const iqacFeatures = [{
-    icon: TrendingDown,
-    title: "Automated Learner Classification",
-    description: "Slow/average/advanced, by program & semester"
-  }, {
-    icon: BookOpen,
-    title: "Personalized Remediation",
-    description: "Micro-tasks mapped to Bloom's levels; bilingual support"
-  }, {
-    icon: BarChart,
-    title: "Evidence for NAAC Criteria 2 & 3",
-    description: "Semester-on-semester growth reports, exportable to SSR"
-  }, {
-    icon: Users,
-    title: "Faculty & TPO Alerts",
-    description: "Who needs help now, who's placement-ready"
-  }];
-  const howItWorksSteps = [{
-    step: "STEP 1",
-    title: "Test",
-    description: "AI Skill X-Ray pinpoints hidden gaps",
-    icon: "📝"
-  }, {
-    step: "STEP 2",
-    title: "Micro-Tasks",
-    description: "Daily 10-min challenges close those gaps fast",
-    icon: "💪"
-  }, {
-    step: "STEP 3",
-    title: "Skill Lift",
-    description: "Average CRI jumps +120 points by next semester",
-    icon: "📈"
-  }, {
-    step: "STEP 4",
-    title: "CRI Score",
-    description: "Recruiter-trusted Career Readiness Index, shareable on LinkedIn",
-    icon: "🏆"
-  }, {
-    step: "STEP 5",
-    title: "Sync to HR Systems",
-    description: "CRI + skills auto-sync to employer ATS/HRMS so students appear where hiring decisions happen",
-    icon: "🔄"
-  }];
-  const testimonials = [{
-    name: "Sachin Sengar",
-    role: "Founder, GreenMentor",
-    quote: "PLAT didn't just assess me—it validated my potential to solve real problems.",
-    rating: 5,
-    image: "/lovable-uploads/795ddc5d-6585-4836-9198-93ae9e030d42.png"
-  }, {
-    name: "Sandip Kathiriya",
-    role: "Partner, Amazon India Ltd",
-    quote: "PLAT helped me filter out the noise and focus on what I'm naturally good at.",
-    rating: 4.5,
-    image: "/lovable-uploads/77469080-a44e-47f0-9c8b-4342ab72624c.png"
-  }, {
-    name: "Yash Kothari",
-    role: "Head of Network Engineering Operations, Comcast",
-    quote: "PLAT helped me think beyond technical skills and recognise my path early.",
-    rating: 5,
-    image: "/lovable-uploads/74959d43-794e-4d8d-b8f9-2b9a1819bf7c.png"
-  }, {
-    name: "Ananya Patel",
-    role: "Jr.Strategy Analyst, Accenture Strategy",
-    quote: "Increased my CRI score from 312 to 624—and secured 3 offers during final placements.",
-    rating: 5,
-    image: "/lovable-uploads/e4b8e8c9-b0e6-499c-932b-11952dd7ecfe.png"
-  }];
-  return <div className="min-h-screen">
+
+  const painPoints = [
+    {
+      icon: "❌",
+      stat: "54%",
+      text: "of recruiters distrust marksheets alone",
+      source: "India Skills Report 2024",
+      color: "bg-red-50 border-red-200"
+    },
+    {
+      icon: "😕",
+      stat: "72%",
+      text: "of graduates miss core workplace skills",
+      source: "AICTE-NEAT Data 2023",
+      color: "bg-orange-50 border-orange-200"
+    },
+    {
+      icon: "⏰",
+      stat: "37-day",
+      text: "average delay in campus hiring",
+      source: "LinkedIn India 2023",
+      color: "bg-yellow-50 border-yellow-200"
+    }
+  ];
+
+  const platFeatures = [
+    {
+      icon: Brain,
+      title: "AI-Powered Assessment",
+      description: "Program-specific, scenario-based skill assessment"
+    },
+    {
+      icon: Target,
+      title: "Personalized Upskilling",
+      description: "Daily 10-minute micro-tasks that move the needle"
+    },
+    {
+      icon: Zap,
+      title: "CRI Score (0–900)",
+      description: "One number recruiters and IQAC can rely on"
+    }
+  ];
+
+  const iqacFeatures = [
+    {
+      icon: TrendingDown,
+      title: "Automated Learner Classification",
+      description: "Slow/average/advanced, by program & semester"
+    },
+    {
+      icon: BookOpen,
+      title: "Personalized Remediation",
+      description: "Micro-tasks mapped to Bloom's levels; bilingual support"
+    },
+    {
+      icon: BarChart,
+      title: "Evidence for NAAC Criteria 2 & 3",
+      description: "Semester-on-semester growth reports, exportable to SSR"
+    },
+    {
+      icon: Users,
+      title: "Faculty & TPO Alerts",
+      description: "Who needs help now, who's placement-ready"
+    }
+  ];
+
+  const testimonials = [
+    {
+      name: "Sachin Sengar",
+      role: "Founder, GreenMentor",
+      quote: "PLAT didn't just assess me—it validated my potential to solve real problems.",
+      rating: 5,
+      image: "/lovable-uploads/795ddc5d-6585-4836-9198-93ae9e030d42.png"
+    },
+    {
+      name: "Sandip Kathiriya",
+      role: "Partner, Amazon India Ltd",
+      quote: "PLAT helped me filter out the noise and focus on what I'm naturally good at.",
+      rating: 4.5,
+      image: "/lovable-uploads/77469080-a44e-47f0-9c8b-4342ab72624c.png"
+    },
+    {
+      name: "Yash Kothari",
+      role: "Head of Network Engineering Operations, Comcast",
+      quote: "PLAT helped me think beyond technical skills and recognise my path early.",
+      rating: 5,
+      image: "/lovable-uploads/74959d43-794e-4d8d-b8f9-2b9a1819bf7c.png"
+    },
+    {
+      name: "Ananya Patel",
+      role: "Jr.Strategy Analyst, Accenture Strategy",
+      quote: "Increased my CRI score from 312 to 624—and secured 3 offers during final placements.",
+      rating: 5,
+      image: "/lovable-uploads/e4b8e8c9-b0e6-499c-932b-11952dd7ecfe.png"
+    }
+  ];
+
+  return (
+    <div className="min-h-screen">
       {/* Hero Section - Updated Banner */}
       <section className="relative py-8 sm:py-12 lg:py-24 xl:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50"></div>
@@ -200,14 +200,16 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-12">
-            {painPoints.map((point, index) => <Card key={index} className={`${point.color} border-2 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation`}>
+            {painPoints.map((point, index) => (
+              <Card key={index} className={`${point.color} border-2 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation`}>
                 <CardContent className="p-4 sm:p-6 lg:p-8 text-center">
                   <div className="text-2xl sm:text-3xl lg:text-4xl mb-3 sm:mb-4">{point.icon}</div>
                   <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">{point.stat}</div>
                   <p className="text-gray-700 font-medium mb-1 text-sm sm:text-base">{point.text}</p>
                   <p className="text-gray-500 text-xs sm:text-sm italic">{point.source}</p>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -226,8 +228,9 @@ const Index = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {platFeatures.map((feature, index) => {
-            const Icon = feature.icon;
-            return <Card key={index} className="bg-white hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation h-full">
+              const Icon = feature.icon;
+              return (
+                <Card key={index} className="bg-white hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation h-full">
                   <CardContent className="p-6 sm:p-8 text-center h-full flex flex-col justify-center">
                     <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                       <Icon className="w-8 h-8 text-blue-600" />
@@ -235,8 +238,9 @@ const Index = () => {
                     <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
                     <p className="text-gray-600 text-sm sm:text-base leading-relaxed">{feature.description}</p>
                   </CardContent>
-                </Card>;
-          })}
+                </Card>
+              );
+            })}
           </div>
 
           <div className="text-center mt-8 lg:mt-12">
@@ -250,45 +254,23 @@ const Index = () => {
         </div>
       </section>
 
-      {/* How It Works Steps */}
-      <section className="py-8 sm:py-12 lg:py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 lg:mb-12">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
-              How PLAT Works
-            </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-600">
-              From assessment to career readiness in 5 simple steps
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8">
-            {howItWorksSteps.map((step, index) => <Card key={index} className="bg-white hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation h-full">
-                <CardContent className="p-4 sm:p-6 text-center h-full flex flex-col justify-start min-h-[280px]">
-                  <div className="flex flex-col items-center flex-1">
-                    <div className="text-4xl mb-4 flex items-center justify-center h-16">{step.icon}</div>
-                    <div className="text-xs font-semibold text-blue-600 mb-2 uppercase tracking-wide">{step.step}</div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-3">{step.title}</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed flex-1 flex items-center">{step.description}</p>
-                  </div>
-                </CardContent>
-              </Card>)}
-          </div>
-        </div>
-      </section>
-
       {/* IQAC & Equity Section - New */}
       <section className="py-8 sm:py-12 lg:py-16 bg-gradient-to-br from-green-50 to-emerald-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 lg:mb-12">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-3 sm:mb-4 lg:text-5xl">Identify Slow and Fast Learners </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">Prove measurable improvement.</p>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-3 sm:mb-4 lg:text-5xl">
+              Identify Slow and Fast Learners
+            </h2>
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
+              Prove measurable improvement.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-8">
             {iqacFeatures.map((feature, index) => {
-            const Icon = feature.icon;
-            return <Card key={index} className="bg-white hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation h-full">
+              const Icon = feature.icon;
+              return (
+                <Card key={index} className="bg-white hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation h-full">
                   <CardContent className="p-6 text-center h-full flex flex-col justify-center">
                     <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                       <Icon className="w-6 h-6 text-green-600" />
@@ -296,8 +278,9 @@ const Index = () => {
                     <h3 className="text-base font-bold text-gray-900 mb-2">{feature.title}</h3>
                     <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
                   </CardContent>
-                </Card>;
-          })}
+                </Card>
+              );
+            })}
           </div>
 
           <div className="text-center">
@@ -324,7 +307,8 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {testimonials.map((testimonial, index) => <Card key={index} className="hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation h-full">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation h-full">
                 <CardContent className="p-4 sm:p-6 h-full flex flex-col">
                   <div className="flex items-center mb-3 sm:mb-4">
                     <img src={testimonial.image} alt={testimonial.name} className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover mr-3 flex-shrink-0" />
@@ -334,11 +318,14 @@ const Index = () => {
                     </div>
                   </div>
                   <div className="flex mb-2 sm:mb-3">
-                    {[...Array(Math.floor(testimonial.rating))].map((_, i) => <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 fill-current" />)}
+                    {[...Array(Math.floor(testimonial.rating))].map((_, i) => (
+                      <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 fill-current" />
+                    ))}
                   </div>
                   <p className="text-gray-700 text-xs sm:text-sm italic flex-1">"{testimonial.quote}"</p>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
 
           <div className="text-center mt-8 lg:mt-12">
@@ -402,7 +389,9 @@ const Index = () => {
       {/* Final CTA Section */}
       <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-green-400 via-emerald-500 to-teal-600 text-white bg-orange-500">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-xl sm:text-2xl md:text-3xl xl:text-5xl font-bold mb-4 sm:mb-6 text-gray-900 leading-tight lg:text-3xl">Ready to Boost Your Institute 2 steps ahead than others?</h2>
+          <h2 className="text-xl sm:text-2xl md:text-3xl xl:text-5xl font-bold mb-4 sm:mb-6 text-gray-900 leading-tight lg:text-3xl">
+            Ready to Boost Your Institute 2 steps ahead than others?
+          </h2>
           <p className="text-base sm:text-lg lg:text-xl text-gray-800 mb-6 sm:mb-8 leading-relaxed max-w-3xl mx-auto">
             ✓ Free Pilot Cohort — keep it only if the Skill-Intelligence Dashboard wows you 
           </p>
@@ -424,6 +413,8 @@ const Index = () => {
 
       <PlatReportModal isOpen={showReportModal} onClose={() => setShowReportModal(false)} onViewReport={() => setShowViewReportModal(true)} />
       <ReportViewModal isOpen={showViewReportModal} onClose={() => setShowViewReportModal(false)} />
-    </div>;
+    </div>
+  );
 };
+
 export default Index;
