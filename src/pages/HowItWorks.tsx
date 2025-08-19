@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -14,7 +13,7 @@ const HowItWorks = () => {
   const steps = [
     {
       step: "STEP 1",
-      title: "Test",
+      title: "Test", 
       description: "AI Skill X-Ray pinpoints hidden gaps",
       icon: "📝"
     },
@@ -25,7 +24,7 @@ const HowItWorks = () => {
       icon: "💪"
     },
     {
-      step: "STEP 3",
+      step: "STEP 3", 
       title: "Skill Lift",
       description: "Average CRI jumps +120 points by next semester",
       icon: "📈"
@@ -50,7 +49,7 @@ const HowItWorks = () => {
     },
     {
       level: "Level 2",
-      title: "Intermediate Assessment",
+      title: "Intermediate Assessment", 
       description: "Deepens understanding and application of knowledge, presenting moderate challenges to bridge foundational skills with advanced problem-solving",
       icon: Target,
       color: "bg-green-500",
@@ -168,7 +167,7 @@ const HowItWorks = () => {
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Assessment to Upskilling</span>
               </h1>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                A comprehensive system that measures, improves, and tracks student career readiness through AI-powered analytics
+                Co-created by psychometricians and industry leaders, PLAT uses AI to identify skill gaps and nurture real-world competencies
               </p>
             </div>
           </div>
@@ -191,7 +190,7 @@ const HowItWorks = () => {
           </div>
         </section>
 
-        {/* 4-Step How PLAT Transforms Students - Updated */}
+        {/* 5-Step How PLAT Works - Updated with better alignment */}
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
@@ -203,30 +202,38 @@ const HowItWorks = () => {
               </p>
             </div>
 
-            {/* Steps Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8">
+            {/* Steps Grid - Fixed alignment and spacing */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-3">
               {/* Steps 1-4 */}
               {steps.map((step, index) => (
-                <Card key={index} className="bg-white hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation h-full">
-                  <CardContent className="p-4 sm:p-6 text-center h-full flex flex-col justify-start min-h-[280px]">
-                    <div className="flex flex-col items-center flex-1">
-                      <div className="text-4xl mb-4 flex items-center justify-center h-16">{step.icon}</div>
-                      <div className="text-xs font-semibold text-blue-600 mb-2 uppercase tracking-wide">{step.step}</div>
-                      <h3 className="text-lg font-bold text-gray-900 mb-3">{step.title}</h3>
-                      <p className="text-gray-600 text-sm leading-relaxed flex-1 flex items-center">{step.description}</p>
+                <Card key={index} className="bg-white hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 h-full">
+                  <CardContent className="p-4 text-center h-full flex flex-col">
+                    <div className="flex flex-col items-center flex-1 justify-between min-h-[240px]">
+                      <div className="flex flex-col items-center">
+                        <div className="text-3xl mb-3 h-12 flex items-center justify-center">{step.icon}</div>
+                        <div className="text-xs font-semibold text-blue-600 mb-2 uppercase tracking-wide">{step.step}</div>
+                        <h3 className="text-lg font-bold text-gray-900 mb-3 min-h-[24px]">{step.title}</h3>
+                      </div>
+                      <div className="flex-1 flex items-center justify-center">
+                        <p className="text-gray-600 text-sm leading-relaxed text-center">{step.description}</p>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
               ))}
 
               {/* Step 5 - Sync to HR Systems */}
-              <Card className="bg-white hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation h-full">
-                <CardContent className="p-4 sm:p-6 text-center h-full flex flex-col justify-start min-h-[280px]">
-                  <div className="flex flex-col items-center flex-1">
-                    <div className="text-4xl mb-4 flex items-center justify-center h-16">🔄</div>
-                    <div className="text-xs font-semibold text-blue-600 mb-2 uppercase tracking-wide">STEP 5</div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-3">Sync to HR Systems</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed flex-1 flex items-center">CRI + skills auto-sync to employer ATS/HRMS so students appear where hiring decisions happen</p>
+              <Card className="bg-white hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 h-full">
+                <CardContent className="p-4 text-center h-full flex flex-col">
+                  <div className="flex flex-col items-center flex-1 justify-between min-h-[240px]">
+                    <div className="flex flex-col items-center">
+                      <div className="text-3xl mb-3 h-12 flex items-center justify-center">🔄</div>
+                      <div className="text-xs font-semibold text-blue-600 mb-2 uppercase tracking-wide">STEP 5</div>
+                      <h3 className="text-lg font-bold text-gray-900 mb-3 min-h-[24px]">Sync to HR Systems</h3>
+                    </div>
+                    <div className="flex-1 flex items-center justify-center">
+                      <p className="text-gray-600 text-sm leading-relaxed text-center">CRI + skills auto-sync to employer ATS/HRMS so students appear where hiring decisions happen</p>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
