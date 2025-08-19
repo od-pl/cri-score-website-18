@@ -7,11 +7,9 @@ import PlatReportModal from "@/components/PlatReportModal";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import CollegeCarousel from "@/components/CollegeCarousel";
 import ReportViewModal from "@/components/ReportViewModal";
-
 const Index = () => {
   const [showReportModal, setShowReportModal] = useState(false);
   const [showViewReportModal, setShowViewReportModal] = useState(false);
-
   const painPoints = [{
     icon: "❌",
     stat: "54%",
@@ -31,7 +29,6 @@ const Index = () => {
     source: "LinkedIn India 2023",
     color: "bg-yellow-50 border-yellow-200"
   }];
-
   const platFeatures = [{
     icon: Brain,
     title: "AI-Powered Assessment",
@@ -45,7 +42,6 @@ const Index = () => {
     title: "CRI Score (0–900)",
     description: "One number recruiters and IQAC can rely on"
   }];
-
   const iqacFeatures = [{
     icon: TrendingDown,
     title: "Automated Learner Classification",
@@ -63,7 +59,6 @@ const Index = () => {
     title: "Faculty & TPO Alerts",
     description: "Who needs help now, who's placement-ready"
   }];
-
   const howItWorksSteps = [{
     step: "STEP 1",
     title: "Test",
@@ -90,7 +85,6 @@ const Index = () => {
     description: "CRI + skills auto-sync to employer ATS/HRMS so students appear where hiring decisions happen",
     icon: "🔄"
   }];
-
   const testimonials = [{
     name: "Sachin Sengar",
     role: "Founder, GreenMentor",
@@ -116,9 +110,7 @@ const Index = () => {
     rating: 5,
     image: "/lovable-uploads/e4b8e8c9-b0e6-499c-932b-11952dd7ecfe.png"
   }];
-
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       {/* Hero Section - Updated Banner */}
       <section className="relative py-8 sm:py-12 lg:py-24 xl:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50"></div>
@@ -208,16 +200,14 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-12">
-            {painPoints.map((point, index) => (
-              <Card key={index} className={`${point.color} border-2 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation`}>
+            {painPoints.map((point, index) => <Card key={index} className={`${point.color} border-2 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation`}>
                 <CardContent className="p-4 sm:p-6 lg:p-8 text-center">
                   <div className="text-2xl sm:text-3xl lg:text-4xl mb-3 sm:mb-4">{point.icon}</div>
                   <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">{point.stat}</div>
                   <p className="text-gray-700 font-medium mb-1 text-sm sm:text-base">{point.text}</p>
                   <p className="text-gray-500 text-xs sm:text-sm italic">{point.source}</p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -236,9 +226,8 @@ const Index = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {platFeatures.map((feature, index) => {
-              const Icon = feature.icon;
-              return (
-                <Card key={index} className="bg-white hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation h-full">
+            const Icon = feature.icon;
+            return <Card key={index} className="bg-white hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation h-full">
                   <CardContent className="p-6 sm:p-8 text-center h-full flex flex-col justify-center">
                     <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                       <Icon className="w-8 h-8 text-blue-600" />
@@ -246,9 +235,8 @@ const Index = () => {
                     <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
                     <p className="text-gray-600 text-sm sm:text-base leading-relaxed">{feature.description}</p>
                   </CardContent>
-                </Card>
-              );
-            })}
+                </Card>;
+          })}
           </div>
 
           <div className="text-center mt-8 lg:mt-12">
@@ -275,8 +263,7 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8">
-            {howItWorksSteps.map((step, index) => (
-              <Card key={index} className="bg-white hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation h-full">
+            {howItWorksSteps.map((step, index) => <Card key={index} className="bg-white hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation h-full">
                 <CardContent className="p-4 sm:p-6 text-center h-full flex flex-col justify-start min-h-[280px]">
                   <div className="flex flex-col items-center flex-1">
                     <div className="text-4xl mb-4 flex items-center justify-center h-16">{step.icon}</div>
@@ -285,8 +272,7 @@ const Index = () => {
                     <p className="text-gray-600 text-sm leading-relaxed flex-1 flex items-center">{step.description}</p>
                   </div>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -295,19 +281,14 @@ const Index = () => {
       <section className="py-8 sm:py-12 lg:py-16 bg-gradient-to-br from-green-50 to-emerald-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 lg:mb-12">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
-              FOR IQAC Team
-            </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
-              Identify slow and fast learners early. Prove measurable improvement.
-            </p>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-3 sm:mb-4 lg:text-5xl">Identify Slow and Fast Learners </h2>
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">Prove measurable improvement.</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-8">
             {iqacFeatures.map((feature, index) => {
-              const Icon = feature.icon;
-              return (
-                <Card key={index} className="bg-white hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation h-full">
+            const Icon = feature.icon;
+            return <Card key={index} className="bg-white hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation h-full">
                   <CardContent className="p-6 text-center h-full flex flex-col justify-center">
                     <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                       <Icon className="w-6 h-6 text-green-600" />
@@ -315,9 +296,8 @@ const Index = () => {
                     <h3 className="text-base font-bold text-gray-900 mb-2">{feature.title}</h3>
                     <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
                   </CardContent>
-                </Card>
-              );
-            })}
+                </Card>;
+          })}
           </div>
 
           <div className="text-center">
@@ -344,8 +324,7 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation h-full">
+            {testimonials.map((testimonial, index) => <Card key={index} className="hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation h-full">
                 <CardContent className="p-4 sm:p-6 h-full flex flex-col">
                   <div className="flex items-center mb-3 sm:mb-4">
                     <img src={testimonial.image} alt={testimonial.name} className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover mr-3 flex-shrink-0" />
@@ -355,14 +334,11 @@ const Index = () => {
                     </div>
                   </div>
                   <div className="flex mb-2 sm:mb-3">
-                    {[...Array(Math.floor(testimonial.rating))].map((_, i) => (
-                      <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 fill-current" />
-                    ))}
+                    {[...Array(Math.floor(testimonial.rating))].map((_, i) => <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 fill-current" />)}
                   </div>
                   <p className="text-gray-700 text-xs sm:text-sm italic flex-1">"{testimonial.quote}"</p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
 
           <div className="text-center mt-8 lg:mt-12">
@@ -448,8 +424,6 @@ const Index = () => {
 
       <PlatReportModal isOpen={showReportModal} onClose={() => setShowReportModal(false)} onViewReport={() => setShowViewReportModal(true)} />
       <ReportViewModal isOpen={showViewReportModal} onClose={() => setShowViewReportModal(false)} />
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
