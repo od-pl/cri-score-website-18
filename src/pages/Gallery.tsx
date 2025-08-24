@@ -48,6 +48,70 @@ const Gallery = () => {
       image: "/lovable-uploads/42c91544-eef3-418b-9674-ba5cc8c4410a.png",
       category: "insights",
       type: "analysis"
+    },
+    {
+      id: 6,
+      title: "GITEX Global Achievement",
+      description: "Award ceremony at GITEX Global - Dubai Chamber partnership",
+      image: "/lovable-uploads/8fed0d5b-f762-41e8-9617-2cfdf7847d81.png",
+      category: "achievements",
+      type: "award"
+    },
+    {
+      id: 7,
+      title: "AEGIS Graham Bell Awards",
+      description: "Recognition at AEGIS Graham Bell Awards ceremony",
+      image: "/lovable-uploads/6f3d1559-801f-43a2-bcf4-90c6e03269aa.png",
+      category: "achievements",
+      type: "award"
+    },
+    {
+      id: 8,
+      title: "Maharashtra Startup Week Winner",
+      description: "Winner at Maharashtra Startup Week by Government of Maharashtra",
+      image: "/lovable-uploads/361cf82b-df92-439b-bd2e-dc7a93d02ee0.png",
+      category: "achievements",
+      type: "award"
+    },
+    {
+      id: 9,
+      title: "Industry Exhibition",
+      description: "Showcasing PLAT platform at industry exhibition",
+      image: "/lovable-uploads/d3798c03-27c2-4205-a8f5-e7e6eef1787a.png",
+      category: "events",
+      type: "exhibition"
+    },
+    {
+      id: 10,
+      title: "Railway Ministry Visit",
+      description: "Meeting with Railway Ministry officials",
+      image: "/lovable-uploads/a19bccc1-2faa-46af-b51f-0081d8de3d17.png",
+      category: "partnerships",
+      type: "meeting"
+    },
+    {
+      id: 11,
+      title: "Government Partnership",
+      description: "Strategic partnership discussion with government officials",
+      image: "/lovable-uploads/69731536-7876-4139-902a-fe5962e20036.png",
+      category: "partnerships",
+      type: "meeting"
+    },
+    {
+      id: 12,
+      title: "Leadership Meeting",
+      description: "High-level meeting with industry leaders",
+      image: "/lovable-uploads/c388a2eb-075d-4b04-bfa6-0e83302aefcb.png",
+      category: "partnerships",
+      type: "meeting"
+    },
+    {
+      id: 13,
+      title: "Strategic Partnership",
+      description: "Building partnerships with key stakeholders",
+      image: "/lovable-uploads/98a90dc1-4909-4fc8-ac0b-5857984089f4.png",
+      category: "partnerships",
+      type: "meeting"
     }
   ];
 
@@ -56,7 +120,10 @@ const Gallery = () => {
     { id: "process", name: "Process", count: galleryItems.filter(item => item.category === "process").length },
     { id: "scoring", name: "Scoring", count: galleryItems.filter(item => item.category === "scoring").length },
     { id: "support", name: "Support", count: galleryItems.filter(item => item.category === "support").length },
-    { id: "insights", name: "Insights", count: galleryItems.filter(item => item.category === "insights").length }
+    { id: "insights", name: "Insights", count: galleryItems.filter(item => item.category === "insights").length },
+    { id: "achievements", name: "Achievements", count: galleryItems.filter(item => item.category === "achievements").length },
+    { id: "events", name: "Events", count: galleryItems.filter(item => item.category === "events").length },
+    { id: "partnerships", name: "Partnerships", count: galleryItems.filter(item => item.category === "partnerships").length }
   ];
 
   const filteredItems = currentCategory === "all" 
@@ -95,7 +162,7 @@ const Gallery = () => {
               </span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Visual showcase of PLAT's comprehensive assessment platform, processes, and achievements
+              Visual showcase of PLAT's comprehensive assessment platform, processes, achievements, and partnerships
             </p>
           </div>
         </div>
