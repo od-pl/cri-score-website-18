@@ -10,13 +10,6 @@ const Gallery = () => {
 
   const galleryItems = [
     {
-      id: 5,
-      title: "Traditional Assessment Analysis",
-      image: "/lovable-uploads/42c91544-eef3-418b-9674-ba5cc8c4410a.png",
-      category: "insights",
-      type: "analysis"
-    },
-    {
       id: 6,
       title: "GITEX Global Achievement",
       image: "/lovable-uploads/8fed0d5b-f762-41e8-9617-2cfdf7847d81.png",
