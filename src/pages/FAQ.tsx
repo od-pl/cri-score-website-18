@@ -216,12 +216,40 @@ const FAQ = () => {
               );
 
               return resource.link ? (
-                <Link key={index} to={resource.link}>
-                  {CardWrapper}
+                <Link key={index} to={resource.link} className="block">
+                  <Card className={`${resource.color} border-2 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 h-full flex flex-col cursor-pointer`}>
+                    <CardContent className="p-8 text-center flex flex-col h-full justify-between">
+                      <div>
+                        <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-md">
+                          <ResourceIcon className="w-8 h-8 text-gray-700" />
+                        </div>
+                        <h3 className="text-xl font-bold text-gray-900 mb-4">{resource.title}</h3>
+                        <p className="text-gray-600 text-sm leading-relaxed">{resource.description}</p>
+                      </div>
+                      <div className="w-full bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 mt-6 py-3 px-4 rounded-md text-center font-medium">
+                        {resource.buttonText}
+                        <ArrowRight className="ml-2 w-4 h-4 inline" />
+                      </div>
+                    </CardContent>
+                  </Card>
                 </Link>
               ) : (
                 <div key={index}>
-                  {CardWrapper}
+                  <Card className={`${resource.color} border-2 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 h-full flex flex-col cursor-pointer`}>
+                    <CardContent className="p-8 text-center flex flex-col h-full justify-between">
+                      <div>
+                        <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-md">
+                          <ResourceIcon className="w-8 h-8 text-gray-700" />
+                        </div>
+                        <h3 className="text-xl font-bold text-gray-900 mb-4">{resource.title}</h3>
+                        <p className="text-gray-600 text-sm leading-relaxed">{resource.description}</p>
+                      </div>
+                      <Button className="w-full bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 mt-6">
+                        {resource.buttonText}
+                        <ArrowRight className="ml-2 w-4 h-4" />
+                      </Button>
+                    </CardContent>
+                  </Card>
                 </div>
               );
             })}
