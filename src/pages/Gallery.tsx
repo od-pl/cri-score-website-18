@@ -10,34 +10,6 @@ const Gallery = () => {
 
   const galleryItems = [
     {
-      id: 1,
-      title: "4-Step Process",
-      image: "/lovable-uploads/014e5f5b-9267-4dcc-bb0e-c34cf18bbbcc.png",
-      category: "process",
-      type: "infographic"
-    },
-    {
-      id: 2,
-      title: "Assessment to Upskilling Lifecycle", 
-      image: "/lovable-uploads/b1029307-8f34-4d6d-a5df-595fadcee834.png",
-      category: "process",
-      type: "flowchart"
-    },
-    {
-      id: 3,
-      title: "CRI Score Display",
-      image: "/lovable-uploads/f4aeef9b-daa9-4828-9d93-7eca027f44dc.png",
-      category: "scoring",
-      type: "dashboard"
-    },
-    {
-      id: 4,
-      title: "Support Services",
-      image: "/lovable-uploads/705f4bc1-c8c8-4d97-8200-2a45cf8548c5.png",
-      category: "support",
-      type: "service"
-    },
-    {
       id: 5,
       title: "Traditional Assessment Analysis",
       image: "/lovable-uploads/42c91544-eef3-418b-9674-ba5cc8c4410a.png",
@@ -104,9 +76,6 @@ const Gallery = () => {
 
   const categories = [
     { id: "all", name: "All", count: galleryItems.length },
-    { id: "process", name: "Process", count: galleryItems.filter(item => item.category === "process").length },
-    { id: "scoring", name: "Scoring", count: galleryItems.filter(item => item.category === "scoring").length },
-    { id: "support", name: "Support", count: galleryItems.filter(item => item.category === "support").length },
     { id: "insights", name: "Insights", count: galleryItems.filter(item => item.category === "insights").length },
     { id: "achievements", name: "Achievements", count: galleryItems.filter(item => item.category === "achievements").length },
     { id: "events", name: "Events", count: galleryItems.filter(item => item.category === "events").length },
