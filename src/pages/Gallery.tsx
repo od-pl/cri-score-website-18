@@ -210,14 +210,6 @@ const Gallery = () => {
                     </div>
                   </div>
                 </div>
-                <CardContent className="p-6">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-medium text-blue-600 bg-blue-100 px-2 py-1 rounded-full">
-                      {item.type}
-                    </span>
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
-                </CardContent>
               </Card>
             ))}
           </div>
