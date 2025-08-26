@@ -69,7 +69,6 @@ const Gallery = () => {
 
   const categories = [
     { id: "all", name: "All", count: galleryItems.length },
-    { id: "insights", name: "Insights", count: galleryItems.filter(item => item.category === "insights").length },
     { id: "achievements", name: "Achievements", count: galleryItems.filter(item => item.category === "achievements").length },
     { id: "events", name: "Events", count: galleryItems.filter(item => item.category === "events").length },
     { id: "partnerships", name: "Partnerships", count: galleryItems.filter(item => item.category === "partnerships").length }
