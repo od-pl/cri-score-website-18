@@ -84,7 +84,7 @@ const FAQ = () => {
   const supportResources = [
     {
       title: "Gallery",
-      description: "View our certifications, achievements, and visual showcase",
+      description: "View our awards, achievements, certifications, and strategic partnerships showcase",
       icon: ImageIcon,
       buttonText: "View Gallery",
       color: "bg-blue-50 border-blue-200 hover:bg-blue-100",
@@ -216,7 +216,7 @@ const FAQ = () => {
               );
 
               return resource.link ? (
-                <Link key={index} to={resource.link} target="_blank" rel="noopener noreferrer">
+                <Link key={index} to={resource.link}>
                   {CardWrapper}
                 </Link>
               ) : (

@@ -12,7 +12,6 @@ const Gallery = () => {
     {
       id: 1,
       title: "4-Step Process",
-      description: "Shows the complete PLAT journey with proper arrows",
       image: "/lovable-uploads/014e5f5b-9267-4dcc-bb0e-c34cf18bbbcc.png",
       category: "process",
       type: "infographic"
@@ -20,7 +19,6 @@ const Gallery = () => {
     {
       id: 2,
       title: "Assessment to Upskilling Lifecycle", 
-      description: "Displays the comprehensive process flow",
       image: "/lovable-uploads/b1029307-8f34-4d6d-a5df-595fadcee834.png",
       category: "process",
       type: "flowchart"
@@ -28,7 +26,6 @@ const Gallery = () => {
     {
       id: 3,
       title: "CRI Score Display",
-      description: "Shows the scoring visualization (842/900 format)",
       image: "/lovable-uploads/f4aeef9b-daa9-4828-9d93-7eca027f44dc.png",
       category: "scoring",
       type: "dashboard"
@@ -36,7 +33,6 @@ const Gallery = () => {
     {
       id: 4,
       title: "Support Services",
-      description: "Contact options (without phone support, email updated to support@platskills.com)",
       image: "/lovable-uploads/705f4bc1-c8c8-4d97-8200-2a45cf8548c5.png",
       category: "support",
       type: "service"
@@ -44,10 +40,65 @@ const Gallery = () => {
     {
       id: 5,
       title: "Traditional Assessment Analysis",
-      description: "Insights about assessment challenges (title updated to remove \"Why\")",
       image: "/lovable-uploads/42c91544-eef3-418b-9674-ba5cc8c4410a.png",
       category: "insights",
       type: "analysis"
+    },
+    {
+      id: 6,
+      title: "GITEX Global Achievement",
+      image: "/lovable-uploads/8fed0d5b-f762-41e8-9617-2cfdf7847d81.png",
+      category: "achievements",
+      type: "award"
+    },
+    {
+      id: 7,
+      title: "AEGIS Graham Bell Awards",
+      image: "/lovable-uploads/6f3d1559-801f-43a2-bcf4-90c6e03269aa.png",
+      category: "achievements",
+      type: "award"
+    },
+    {
+      id: 8,
+      title: "Maharashtra Startup Week Winner",
+      image: "/lovable-uploads/361cf82b-df92-439b-bd2e-dc7a93d02ee0.png",
+      category: "achievements",
+      type: "award"
+    },
+    {
+      id: 9,
+      title: "Industry Exhibition",
+      image: "/lovable-uploads/d3798c03-27c2-4205-a8f5-e7e6eef1787a.png",
+      category: "events",
+      type: "exhibition"
+    },
+    {
+      id: 10,
+      title: "Railway Ministry Visit",
+      image: "/lovable-uploads/a19bccc1-2faa-46af-b51f-0081d8de3d17.png",
+      category: "partnerships",
+      type: "meeting"
+    },
+    {
+      id: 11,
+      title: "Government Partnership",
+      image: "/lovable-uploads/69731536-7876-4139-902a-fe5962e20036.png",
+      category: "partnerships",
+      type: "meeting"
+    },
+    {
+      id: 12,
+      title: "Leadership Meeting",
+      image: "/lovable-uploads/c388a2eb-075d-4b04-bfa6-0e83302aefcb.png",
+      category: "partnerships",
+      type: "meeting"
+    },
+    {
+      id: 13,
+      title: "Strategic Partnership",
+      image: "/lovable-uploads/98a90dc1-4909-4fc8-ac0b-5857984089f4.png",
+      category: "partnerships",
+      type: "meeting"
     }
   ];
 
@@ -56,7 +107,10 @@ const Gallery = () => {
     { id: "process", name: "Process", count: galleryItems.filter(item => item.category === "process").length },
     { id: "scoring", name: "Scoring", count: galleryItems.filter(item => item.category === "scoring").length },
     { id: "support", name: "Support", count: galleryItems.filter(item => item.category === "support").length },
-    { id: "insights", name: "Insights", count: galleryItems.filter(item => item.category === "insights").length }
+    { id: "insights", name: "Insights", count: galleryItems.filter(item => item.category === "insights").length },
+    { id: "achievements", name: "Achievements", count: galleryItems.filter(item => item.category === "achievements").length },
+    { id: "events", name: "Events", count: galleryItems.filter(item => item.category === "events").length },
+    { id: "partnerships", name: "Partnerships", count: galleryItems.filter(item => item.category === "partnerships").length }
   ];
 
   const filteredItems = currentCategory === "all" 
@@ -95,7 +149,7 @@ const Gallery = () => {
               </span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Visual showcase of PLAT's comprehensive assessment platform, processes, and achievements
+              Visual showcase of PLAT's comprehensive assessment platform, processes, achievements, and partnerships
             </p>
           </div>
         </div>
@@ -156,15 +210,6 @@ const Gallery = () => {
                     </div>
                   </div>
                 </div>
-                <CardContent className="p-6">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-medium text-blue-600 bg-blue-100 px-2 py-1 rounded-full">
-                      {item.type}
-                    </span>
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
-                  <p className="text-gray-600 text-sm">{item.description}</p>
-                </CardContent>
               </Card>
             ))}
           </div>
@@ -215,9 +260,6 @@ const Gallery = () => {
               <h3 className="text-xl font-bold text-gray-900 mb-2">
                 {filteredItems[selectedImage].title}
               </h3>
-              <p className="text-gray-600">
-                {filteredItems[selectedImage].description}
-              </p>
             </div>
           </div>
         </div>

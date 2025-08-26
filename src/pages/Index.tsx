@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, TrendingUp, Users, Clock, CheckCircle, Star, Award, Building2, IndianRupee, Brain, Target, Zap } from "lucide-react";
+import { ArrowRight, TrendingUp, Users, Clock, CheckCircle, Star, Award, Building2, IndianRupee, Brain, Target, Zap, FileDown, BookOpen, TrendingDown, BarChart } from "lucide-react";
 import { Link } from "react-router-dom";
 import PlatReportModal from "@/components/PlatReportModal";
 import AnimatedCounter from "@/components/AnimatedCounter";
@@ -41,17 +41,40 @@ const Index = () => {
     {
       icon: Brain,
       title: "AI-Powered Assessment",
-      description: "Skill assessment identifies hidden gaps across 5 career-critical dimensions"
+      description: "Program-specific, scenario-based skill assessment"
     },
     {
       icon: Target,
       title: "Personalized Upskilling",
-      description: "Daily 3-minute micro-tasks designed to close specific skill gaps fast"
+      description: "Daily 10-minute micro-tasks that move the needle"
     },
     {
       icon: Zap,
-      title: "CRI Score",
-      description: "Industry-trusted Career Readiness Index that recruiters rely on for hiring decisions"
+      title: "CRI Score (0–900)",
+      description: "One number recruiters and IQAC can rely on"
+    }
+  ];
+
+  const iqacFeatures = [
+    {
+      icon: TrendingDown,
+      title: "Automated Learner Classification",
+      description: "Slow/average/advanced, by program & semester"
+    },
+    {
+      icon: BookOpen,
+      title: "Personalized Remediation",
+      description: "Micro-tasks mapped to Bloom's levels; bilingual support"
+    },
+    {
+      icon: BarChart,
+      title: "Evidence for NAAC Criteria 2 & 3",
+      description: "Semester-on-semester growth reports, exportable to SSR"
+    },
+    {
+      icon: Users,
+      title: "Faculty & TPO Alerts",
+      description: "Who needs help now, who's placement-ready"
     }
   ];
 
@@ -103,7 +126,7 @@ const Index = () => {
                   score by 18% in one semester.
                 </h1>
                 <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                  AI pinpoints hidden skill gaps to boost placement rates for your college.
+                  AI pinpoints hidden skill gaps to boost placement rates—and pushes verified CRI directly into employer ATS/HRMS systems.
                 </p>
               </div>
               
@@ -114,11 +137,7 @@ const Index = () => {
                     <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
                   </Button>
                 </Link>
-                <Button 
-                  variant="outline" 
-                  className="w-full sm:w-auto border-blue-600 text-blue-600 hover:bg-blue-50 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 h-auto font-medium" 
-                  onClick={() => setShowViewReportModal(true)}
-                >
+                <Button variant="outline" className="w-full sm:w-auto border-blue-600 text-blue-600 hover:bg-blue-50 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 h-auto font-medium" onClick={() => setShowViewReportModal(true)}>
                   View Report
                 </Button>
               </div>
@@ -137,11 +156,7 @@ const Index = () => {
 
             <div className="relative mt-8 lg:mt-0 order-1 lg:order-2">
               <div className="bg-white rounded-2xl shadow-2xl p-4 sm:p-6 lg:p-8 border mx-auto max-w-md lg:max-w-none">
-                <img 
-                  alt="Students looking at PLAT AI dashboard" 
-                  className="rounded-lg w-full h-40 sm:h-48 md:h-56 lg:h-64 object-cover" 
-                  src="/lovable-uploads/86a57270-710b-43ab-a414-56c58b29425d.png" 
-                />
+                <img alt="Students looking at PLAT AI dashboard" className="rounded-lg w-full h-40 sm:h-48 md:h-56 lg:h-64 object-cover" src="/lovable-uploads/86a57270-710b-43ab-a414-56c58b29425d.png" />
                 <div className="mt-4 sm:mt-6 space-y-3 sm:space-y-4">
                   <div className="flex justify-between items-center">
                     <span className="text-xs sm:text-sm font-medium text-gray-600">Career Readiness Index</span>
@@ -151,6 +166,21 @@ const Index = () => {
                     <div className="bg-gradient-to-r from-green-400 to-green-600 h-2 sm:h-3 rounded-full w-4/5"></div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Belief Strip */}
+      <section className="py-6 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <div className="inline-flex items-center space-x-3">
+              <span className="text-2xl">🚀</span>
+              <div>
+                <span className="font-bold text-lg">Our belief: Students are more than marksheets.</span>
+                <p className="text-blue-100 mt-1">PLAT makes their true potential visible—to faculty, recruiters, and themselves.</p>
               </div>
             </div>
           </div>
@@ -184,7 +214,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* What is PLAT Section */}
+      {/* What is PLAT Section - Updated */}
       <section className="py-8 sm:py-12 lg:py-16 bg-gradient-to-br from-purple-50 to-indigo-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 lg:mb-12">
@@ -192,7 +222,7 @@ const Index = () => {
               What is PLAT?
             </h2>
             <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-4xl mx-auto px-4">
-              PLAT is an AI-powered platform that transforms how colleges measure and improve student career readiness through comprehensive skill assessment and personalized development.
+              PLAT is your campus skills-intelligence layer. Each semester, a 75-minute adaptive assessment maps real skill gaps, assigns daily 10-minute micro-tasks to fix them, and updates a recruiter-trusted CRI (0–900).
             </p>
           </div>
 
@@ -224,6 +254,46 @@ const Index = () => {
         </div>
       </section>
 
+      {/* IQAC & Equity Section - New */}
+      <section className="py-8 sm:py-12 lg:py-16 bg-gradient-to-br from-green-50 to-emerald-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 lg:mb-12">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-3 sm:mb-4 lg:text-5xl">
+              Identify Slow and Fast Learners
+            </h2>
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
+              Prove measurable improvement.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-8">
+            {iqacFeatures.map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <Card key={index} className="bg-white hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation h-full">
+                  <CardContent className="p-6 text-center h-full flex flex-col justify-center">
+                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Icon className="w-6 h-6 text-green-600" />
+                    </div>
+                    <h3 className="text-base font-bold text-gray-900 mb-2">{feature.title}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+
+          <div className="text-center">
+            <Link to="/contact#send-message">
+              <Button className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white text-sm sm:text-base px-6 py-3 touch-manipulation">
+                <FileDown className="mr-2 w-4 h-4" />
+                Download the IQAC Evidence Pack (PDF)
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Success Stories Section */}
       <section className="py-8 sm:py-12 lg:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -241,11 +311,7 @@ const Index = () => {
               <Card key={index} className="hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 touch-manipulation h-full">
                 <CardContent className="p-4 sm:p-6 h-full flex flex-col">
                   <div className="flex items-center mb-3 sm:mb-4">
-                    <img 
-                      src={testimonial.image} 
-                      alt={testimonial.name} 
-                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover mr-3 flex-shrink-0" 
-                    />
+                    <img src={testimonial.image} alt={testimonial.name} className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover mr-3 flex-shrink-0" />
                     <div className="min-w-0">
                       <div className="font-semibold text-gray-900 text-sm sm:text-base truncate">{testimonial.name}</div>
                       <div className="text-xs sm:text-sm text-gray-600 truncate">{testimonial.role}</div>
@@ -323,8 +389,8 @@ const Index = () => {
       {/* Final CTA Section */}
       <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-green-400 via-emerald-500 to-teal-600 text-white bg-orange-500">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 text-gray-900 leading-tight">
-            Ready to Boost Your College's Placement Rate?
+          <h2 className="text-xl sm:text-2xl md:text-3xl xl:text-5xl font-bold mb-4 sm:mb-6 text-gray-900 leading-tight lg:text-3xl">
+            Ready to Boost Your Institute 2 steps ahead than others?
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-gray-800 mb-6 sm:mb-8 leading-relaxed max-w-3xl mx-auto">
             ✓ Free Pilot Cohort — keep it only if the Skill-Intelligence Dashboard wows you 
@@ -345,15 +411,8 @@ const Index = () => {
         </div>
       </section>
 
-      <PlatReportModal 
-        isOpen={showReportModal} 
-        onClose={() => setShowReportModal(false)} 
-        onViewReport={() => setShowViewReportModal(true)} 
-      />
-      <ReportViewModal 
-        isOpen={showViewReportModal} 
-        onClose={() => setShowViewReportModal(false)} 
-      />
+      <PlatReportModal isOpen={showReportModal} onClose={() => setShowReportModal(false)} onViewReport={() => setShowViewReportModal(true)} />
+      <ReportViewModal isOpen={showViewReportModal} onClose={() => setShowViewReportModal(false)} />
     </div>
   );
 };
