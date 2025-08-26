@@ -12,7 +12,6 @@ const Gallery = () => {
     {
       id: 1,
       title: "4-Step Process",
-      description: "Shows the complete PLAT journey with proper arrows",
       image: "/lovable-uploads/014e5f5b-9267-4dcc-bb0e-c34cf18bbbcc.png",
       category: "process",
       type: "infographic"
@@ -20,7 +19,6 @@ const Gallery = () => {
     {
       id: 2,
       title: "Assessment to Upskilling Lifecycle", 
-      description: "Displays the comprehensive process flow",
       image: "/lovable-uploads/b1029307-8f34-4d6d-a5df-595fadcee834.png",
       category: "process",
       type: "flowchart"
@@ -28,7 +26,6 @@ const Gallery = () => {
     {
       id: 3,
       title: "CRI Score Display",
-      description: "Shows the scoring visualization (842/900 format)",
       image: "/lovable-uploads/f4aeef9b-daa9-4828-9d93-7eca027f44dc.png",
       category: "scoring",
       type: "dashboard"
@@ -36,7 +33,6 @@ const Gallery = () => {
     {
       id: 4,
       title: "Support Services",
-      description: "Contact options (without phone support, email updated to support@platskills.com)",
       image: "/lovable-uploads/705f4bc1-c8c8-4d97-8200-2a45cf8548c5.png",
       category: "support",
       type: "service"
@@ -44,7 +40,6 @@ const Gallery = () => {
     {
       id: 5,
       title: "Traditional Assessment Analysis",
-      description: "Insights about assessment challenges (title updated to remove \"Why\")",
       image: "/lovable-uploads/42c91544-eef3-418b-9674-ba5cc8c4410a.png",
       category: "insights",
       type: "analysis"
@@ -52,7 +47,6 @@ const Gallery = () => {
     {
       id: 6,
       title: "GITEX Global Achievement",
-      description: "Award ceremony at GITEX Global - Dubai Chamber partnership",
       image: "/lovable-uploads/8fed0d5b-f762-41e8-9617-2cfdf7847d81.png",
       category: "achievements",
       type: "award"
@@ -60,7 +54,6 @@ const Gallery = () => {
     {
       id: 7,
       title: "AEGIS Graham Bell Awards",
-      description: "Recognition at AEGIS Graham Bell Awards ceremony",
       image: "/lovable-uploads/6f3d1559-801f-43a2-bcf4-90c6e03269aa.png",
       category: "achievements",
       type: "award"
@@ -68,7 +61,6 @@ const Gallery = () => {
     {
       id: 8,
       title: "Maharashtra Startup Week Winner",
-      description: "Winner at Maharashtra Startup Week by Government of Maharashtra",
       image: "/lovable-uploads/361cf82b-df92-439b-bd2e-dc7a93d02ee0.png",
       category: "achievements",
       type: "award"
@@ -76,7 +68,6 @@ const Gallery = () => {
     {
       id: 9,
       title: "Industry Exhibition",
-      description: "Showcasing PLAT platform at industry exhibition",
       image: "/lovable-uploads/d3798c03-27c2-4205-a8f5-e7e6eef1787a.png",
       category: "events",
       type: "exhibition"
@@ -84,7 +75,6 @@ const Gallery = () => {
     {
       id: 10,
       title: "Railway Ministry Visit",
-      description: "Meeting with Railway Ministry officials",
       image: "/lovable-uploads/a19bccc1-2faa-46af-b51f-0081d8de3d17.png",
       category: "partnerships",
       type: "meeting"
@@ -92,7 +82,6 @@ const Gallery = () => {
     {
       id: 11,
       title: "Government Partnership",
-      description: "Strategic partnership discussion with government officials",
       image: "/lovable-uploads/69731536-7876-4139-902a-fe5962e20036.png",
       category: "partnerships",
       type: "meeting"
@@ -100,7 +89,6 @@ const Gallery = () => {
     {
       id: 12,
       title: "Leadership Meeting",
-      description: "High-level meeting with industry leaders",
       image: "/lovable-uploads/c388a2eb-075d-4b04-bfa6-0e83302aefcb.png",
       category: "partnerships",
       type: "meeting"
@@ -108,7 +96,6 @@ const Gallery = () => {
     {
       id: 13,
       title: "Strategic Partnership",
-      description: "Building partnerships with key stakeholders",
       image: "/lovable-uploads/98a90dc1-4909-4fc8-ac0b-5857984089f4.png",
       category: "partnerships",
       type: "meeting"
@@ -230,7 +217,6 @@ const Gallery = () => {
                     </span>
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
-                  <p className="text-gray-600 text-sm">{item.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -282,9 +268,6 @@ const Gallery = () => {
               <h3 className="text-xl font-bold text-gray-900 mb-2">
                 {filteredItems[selectedImage].title}
               </h3>
-              <p className="text-gray-600">
-                {filteredItems[selectedImage].description}
-              </p>
             </div>
           </div>
         </div>
