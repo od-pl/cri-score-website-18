@@ -109,7 +109,8 @@ const CookieConsent: React.FC = () => {
               <div className="flex-1">
                 <h3 className="font-medium text-gray-900 mb-1">Analytics Cookies</h3>
                 <p className="text-sm text-gray-600">
-                  Help us understand how visitors use our website through Google Analytics and Microsoft Clarity. This data helps improve our services.
+                  Help us understand how visitors use our website through Google Analytics and Microsoft Clarity. 
+                  All data is anonymized and aggregated for statistical analysis. No personal information is collected.
                 </p>
               </div>
             </div>
@@ -127,7 +128,8 @@ const CookieConsent: React.FC = () => {
               <div className="flex-1">
                 <h3 className="font-medium text-gray-900 mb-1">Marketing Cookies</h3>
                 <p className="text-sm text-gray-600">
-                  Used to track visitors across websites for advertising purposes through Google Tag Manager and social media platforms.
+                  Used to track visitors across websites for advertising purposes through Google Tag Manager and social media platforms. 
+                  Data is anonymized and used for targeted advertising without identifying individual users.
                 </p>
               </div>
             </div>
@@ -135,24 +137,30 @@ const CookieConsent: React.FC = () => {
 
           <div className="flex flex-col sm:flex-row gap-3 mt-8">
             <Button
-              onClick={handleSavePreferences}
-              className="flex-1 bg-blue-600 hover:bg-blue-700 text-white"
-            >
-              Save Preferences
-            </Button>
-            <Button
-              onClick={acceptAll}
+              onClick={() => {
+                setLocalAnalytics(true);
+                setLocalMarketing(true);
+              }}
               variant="outline"
               className="flex-1"
             >
               Accept All
             </Button>
             <Button
-              onClick={rejectAll}
+              onClick={() => {
+                setLocalAnalytics(false);
+                setLocalMarketing(false);
+              }}
               variant="outline"
               className="flex-1"
             >
               Reject All
+            </Button>
+            <Button
+              onClick={handleSavePreferences}
+              className="flex-1 bg-blue-600 hover:bg-blue-700 text-white"
+            >
+              Save Preferences
             </Button>
           </div>
         </CardContent>
@@ -162,16 +170,29 @@ const CookieConsent: React.FC = () => {
 
   // Banner Component
   const Banner = () => (
-    <div className="fixed bottom-0 left-0 right-0 z-50 p-2">
-      <Card className="mx-auto max-w-4xl bg-white border-t-2 border-blue-600 shadow-lg">
-        <CardContent className="p-4">
-          <div className="flex items-center gap-3">
-            <Cookie className="w-5 h-5 text-blue-600 flex-shrink-0" />
+    <div className="fixed bottom-4 left-4 z-50">
+      <Card className="w-auto max-w-md bg-white border-t-2 border-blue-600 shadow-lg">
+        <CardContent className="p-4 relative">
+          {/* Close button in top-right corner */}
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={closeBanner}
+            className="absolute top-2 right-2 h-6 w-6 p-0"
+          >
+            <X className="w-3 h-3" />
+          </Button>
+          
+          <div className="flex items-start gap-3 pr-8">
+            <Cookie className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
             <div className="flex-1">
-              <div className="flex items-center gap-2 mb-2">
-                <h3 className="font-medium text-gray-900 text-sm">We use cookies to improve your experience</h3>
-                <span className="text-xs text-gray-500">({timeLeft}s)</span>
-              </div>
+              <h3 className="font-medium text-gray-900 text-sm mb-1">We use cookies to improve your experience</h3>
+              <p className="text-xs text-gray-500 mb-1">
+                Auto-accept in {timeLeft}s - all cookies will be enabled
+              </p>
+              <p className="text-xs text-gray-400 mb-2">
+                Cookie settings available in website footer anytime
+              </p>
               <p className="text-xs text-gray-600 mb-3">
                 Essential cookies required. Optional analytics and marketing cookies can be customized.
               </p>
@@ -203,14 +224,6 @@ const CookieConsent: React.FC = () => {
                 </Button>
               </div>
             </div>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={closeBanner}
-              className="h-6 w-6 p-0 flex-shrink-0"
-            >
-              <X className="w-3 h-3" />
-            </Button>
           </div>
         </CardContent>
       </Card>
