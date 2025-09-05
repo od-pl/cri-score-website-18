@@ -6,7 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { MapPin, Phone, Mail, Clock, Send, Calendar, Users, Building2, BookOpen, Loader2 } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
-// import { supabase } from "@/integrations/supabase/client";
+import { supabase } from "@/integrations/supabase/client";
 import { gatherTrackingData, fetchLocationData } from "@/utils/trackingUtils";
 
 // TypeScript interfaces for form data
@@ -159,6 +159,44 @@ const Contact = () => {
       if (isHighIntent) tags.push('HighIntent');
       if (formData.enquiryType) tags.push(formData.enquiryType);
 
+      // Save to Supabase database
+      const leadData = {
+        full_name: formData.name,
+        email: formData.email,
+        phone: formData.phone || null,
+        organization: formData.organization,
+        role: formData.role || null,
+        enquiry_type: formData.enquiryType || null,
+        message: formData.message || null,
+        source_page: trackingData.source_page,
+        campaign_id: trackingData.campaign_id || null,
+        utm_source: trackingData.utm_source || null,
+        utm_medium: trackingData.utm_medium || null,
+        utm_campaign: trackingData.utm_campaign || null,
+        referrer_url: trackingData.referrer_url || null,
+        user_agent: trackingData.user_agent,
+        device_type: trackingData.device_type,
+        browser: trackingData.browser,
+        ip_address: locationResult.ip_address || null,
+        location_city: locationResult.location_city || null,
+        location_country: locationResult.location_country || null,
+        clarity_session_id: trackingData.clarity_session_id || null,
+        is_high_intent: isHighIntent,
+        source_type: trackingData.source_type,
+        tags: tags.length > 0 ? tags : null,
+        status: 'new'
+      };
+
+      // Insert into Supabase
+      const { data: supabaseData, error: supabaseError } = await supabase
+        .from('leads')
+        .insert(leadData);
+
+      if (supabaseError) {
+        console.error('Supabase error:', supabaseError);
+        // Continue with external API even if Supabase fails
+      }
+
       // Send to backend API with CORS error handling
       const response = await fetch('https://platskills.com/web-api/contact', {
         method: 'POST',
@@ -166,31 +204,7 @@ const Contact = () => {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
-        body: JSON.stringify({
-          full_name: formData.name,
-          email: formData.email,
-          phone: formData.phone || null,
-          organization: formData.organization,
-          role: formData.role || null,
-          enquiry_type: formData.enquiryType || null,
-          message: formData.message || null,
-          source_page: trackingData.source_page,
-          campaign_id: trackingData.campaign_id || null,
-          utm_source: trackingData.utm_source || null,
-          utm_medium: trackingData.utm_medium || null,
-          utm_campaign: trackingData.utm_campaign || null,
-          referrer_url: trackingData.referrer_url || null,
-          user_agent: trackingData.user_agent,
-          device_type: trackingData.device_type,
-          browser: trackingData.browser,
-          ip_address: locationResult.ip_address || null,
-          location_city: locationResult.location_city || null,
-          location_country: locationResult.location_country || null,
-          clarity_session_id: trackingData.clarity_session_id || null,
-          is_high_intent: isHighIntent,
-          source_type: trackingData.source_type,
-          tags: tags.length > 0 ? tags : null,
-        }),
+        body: JSON.stringify(leadData),
       });
 
       if (!response.ok) {

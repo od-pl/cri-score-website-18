@@ -14,7 +14,123 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      admin_users: {
+        Row: {
+          created_at: string
+          id: string
+          password_hash: string
+          username: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          password_hash: string
+          username: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          password_hash?: string
+          username?: string
+        }
+        Relationships: []
+      }
+      leads: {
+        Row: {
+          assigned_to: string | null
+          browser: string | null
+          campaign_id: string | null
+          clarity_session_id: string | null
+          created_at: string
+          device_type: string | null
+          email: string
+          enquiry_type: string | null
+          full_name: string
+          id: string
+          ip_address: string | null
+          is_high_intent: boolean | null
+          location_city: string | null
+          location_country: string | null
+          message: string | null
+          notes: string | null
+          organization: string
+          phone: string | null
+          referrer_url: string | null
+          role: string | null
+          source_page: string | null
+          source_type: string | null
+          status: string | null
+          tags: string[] | null
+          updated_at: string
+          user_agent: string | null
+          utm_campaign: string | null
+          utm_medium: string | null
+          utm_source: string | null
+        }
+        Insert: {
+          assigned_to?: string | null
+          browser?: string | null
+          campaign_id?: string | null
+          clarity_session_id?: string | null
+          created_at?: string
+          device_type?: string | null
+          email: string
+          enquiry_type?: string | null
+          full_name: string
+          id?: string
+          ip_address?: string | null
+          is_high_intent?: boolean | null
+          location_city?: string | null
+          location_country?: string | null
+          message?: string | null
+          notes?: string | null
+          organization: string
+          phone?: string | null
+          referrer_url?: string | null
+          role?: string | null
+          source_page?: string | null
+          source_type?: string | null
+          status?: string | null
+          tags?: string[] | null
+          updated_at?: string
+          user_agent?: string | null
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+        }
+        Update: {
+          assigned_to?: string | null
+          browser?: string | null
+          campaign_id?: string | null
+          clarity_session_id?: string | null
+          created_at?: string
+          device_type?: string | null
+          email?: string
+          enquiry_type?: string | null
+          full_name?: string
+          id?: string
+          ip_address?: string | null
+          is_high_intent?: boolean | null
+          location_city?: string | null
+          location_country?: string | null
+          message?: string | null
+          notes?: string | null
+          organization?: string
+          phone?: string | null
+          referrer_url?: string | null
+          role?: string | null
+          source_page?: string | null
+          source_type?: string | null
+          status?: string | null
+          tags?: string[] | null
+          updated_at?: string
+          user_agent?: string | null
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
