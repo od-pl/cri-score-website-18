@@ -6,7 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { MapPin, Phone, Mail, Clock, Send, Calendar, Users, Building2, BookOpen, Loader2 } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
+// import { supabase } from "@/integrations/supabase/client";
 import { gatherTrackingData, fetchLocationData } from "@/utils/trackingUtils";
 
 // TypeScript interfaces for form data
@@ -159,65 +159,51 @@ const Contact = () => {
       if (isHighIntent) tags.push('HighIntent');
       if (formData.enquiryType) tags.push(formData.enquiryType);
 
-      // Prepare lead data for secure submission
-      const leadData = {
-        full_name: formData.name,
-        email: formData.email,
-        phone: formData.phone || null,
-        organization: formData.organization,
-        role: formData.role || null,
-        enquiry_type: formData.enquiryType || null,
-        message: formData.message || null,
-        source_page: trackingData.source_page,
-        campaign_id: trackingData.campaign_id || null,
-        utm_source: trackingData.utm_source || null,
-        utm_medium: trackingData.utm_medium || null,
-        utm_campaign: trackingData.utm_campaign || null,
-        referrer_url: trackingData.referrer_url || null,
-        user_agent: trackingData.user_agent,
-        device_type: trackingData.device_type,
-        browser: trackingData.browser,
-        ip_address: locationResult.ip_address || null,
-        location_city: locationResult.location_city || null,
-        location_country: locationResult.location_country || null,
-        clarity_session_id: trackingData.clarity_session_id || null,
-        is_high_intent: isHighIntent,
-        source_type: trackingData.source_type,
-        tags: tags.length > 0 ? tags : null
-      };
+      // Send to backend API with CORS error handling
+      const response = await fetch('https://platskills.com/web-api/contact', {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          full_name: formData.name,
+          email: formData.email,
+          phone: formData.phone || null,
+          organization: formData.organization,
+          role: formData.role || null,
+          enquiry_type: formData.enquiryType || null,
+          message: formData.message || null,
+          source_page: trackingData.source_page,
+          campaign_id: trackingData.campaign_id || null,
+          utm_source: trackingData.utm_source || null,
+          utm_medium: trackingData.utm_medium || null,
+          utm_campaign: trackingData.utm_campaign || null,
+          referrer_url: trackingData.referrer_url || null,
+          user_agent: trackingData.user_agent,
+          device_type: trackingData.device_type,
+          browser: trackingData.browser,
+          ip_address: locationResult.ip_address || null,
+          location_city: locationResult.location_city || null,
+          location_country: locationResult.location_country || null,
+          clarity_session_id: trackingData.clarity_session_id || null,
+          is_high_intent: isHighIntent,
+          source_type: trackingData.source_type,
+          tags: tags.length > 0 ? tags : null,
+        }),
+      });
 
-      // Submit via secure edge function
-      const { data: supabaseResponse, error: supabaseError } = await supabase.functions.invoke(
-        'submit-contact-form',
-        { body: leadData }
-      );
-
-      if (supabaseError) {
-        console.error('Supabase submission error:', supabaseError);
-        throw new Error('Failed to submit form. Please try again.');
-      }
-
-      if (!supabaseResponse?.success) {
-        throw new Error(supabaseResponse?.error || 'Form submission failed');
-      }
-
-      // Also send to external API as backup
-      try {
-        const response = await fetch('https://platskills.com/web-api/contact', {
-          method: 'POST',
-          headers: { 
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify(leadData),
-        });
-
-        if (!response.ok) {
-          console.warn('External API submission failed, but lead was saved to database');
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({ error: 'Network error' }));
+        
+        // Handle specific error types
+        if (response.status === 0 || response.status === 403) {
+          throw new Error('CORS error: Unable to submit form. Please check your network connection.');
+        } else if (response.status >= 500) {
+          throw new Error('Server error: Please try again later.');
+        } else {
+          throw new Error(errorData.error || `HTTP ${response.status}: Failed to submit`);
         }
-      } catch (externalError) {
-        console.warn('External API error:', externalError);
-        // Don't fail the entire form submission if external API fails
       }
 
       toast({

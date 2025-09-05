@@ -23,7 +23,6 @@ import FloatingCTA from "./components/FloatingCTA";
 import ScrollToTop from "./components/ScrollToTop";
 import ChatbotWidget from "./components/ChatbotWidget";
 import AdminContacts from "./pages/AdminContacts";
-import Leads from "./pages/Leads";
 
 
 const queryClient = new QueryClient();
@@ -52,7 +51,6 @@ const App = () => (
               <Route path="/contact" element={<Contact />} />
               <Route path="/legal" element={<Legal />} />
               <Route path="/admin/contacts" element={<AdminContacts />} />
-              <Route path="/leads" element={<Leads />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>

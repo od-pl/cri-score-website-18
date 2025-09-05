@@ -7,123 +7,102 @@ export type Json =
   | Json[]
 
 export type Database = {
-  // Allows to automatically instantiate createClient with right options
+  // Allows to automatically instanciate createClient with right options
   // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
   __InternalSupabase: {
-    PostgrestVersion: "13.0.4"
+    PostgrestVersion: "12.2.3 (519615d)"
   }
   public: {
     Tables: {
-      admin_users: {
+      enquiries: {
         Row: {
-          created_at: string
-          id: string
-          password_hash: string
-          username: string
-        }
-        Insert: {
-          created_at?: string
-          id?: string
-          password_hash: string
-          username: string
-        }
-        Update: {
-          created_at?: string
-          id?: string
-          password_hash?: string
-          username?: string
-        }
-        Relationships: []
-      }
-      leads: {
-        Row: {
-          assigned_to: string | null
           browser: string | null
           campaign_id: string | null
           clarity_session_id: string | null
-          created_at: string
           device_type: string | null
           email: string
           enquiry_type: string | null
           full_name: string
           id: string
           ip_address: string | null
+          is_client_account_created: boolean | null
           is_high_intent: boolean | null
+          landing_page: string | null
+          lead_score: number | null
           location_city: string | null
           location_country: string | null
           message: string | null
-          notes: string | null
           organization: string
-          phone: string | null
+          phone_number: string | null
           referrer_url: string | null
           role: string | null
           source_page: string | null
           source_type: string | null
-          status: string | null
+          submitted_at: string
           tags: string[] | null
-          updated_at: string
+          url: string | null
           user_agent: string | null
           utm_campaign: string | null
           utm_medium: string | null
           utm_source: string | null
         }
         Insert: {
-          assigned_to?: string | null
           browser?: string | null
           campaign_id?: string | null
           clarity_session_id?: string | null
-          created_at?: string
           device_type?: string | null
           email: string
           enquiry_type?: string | null
           full_name: string
           id?: string
           ip_address?: string | null
+          is_client_account_created?: boolean | null
           is_high_intent?: boolean | null
+          landing_page?: string | null
+          lead_score?: number | null
           location_city?: string | null
           location_country?: string | null
           message?: string | null
-          notes?: string | null
           organization: string
-          phone?: string | null
+          phone_number?: string | null
           referrer_url?: string | null
           role?: string | null
           source_page?: string | null
           source_type?: string | null
-          status?: string | null
+          submitted_at?: string
           tags?: string[] | null
-          updated_at?: string
+          url?: string | null
           user_agent?: string | null
           utm_campaign?: string | null
           utm_medium?: string | null
           utm_source?: string | null
         }
         Update: {
-          assigned_to?: string | null
           browser?: string | null
           campaign_id?: string | null
           clarity_session_id?: string | null
-          created_at?: string
           device_type?: string | null
           email?: string
           enquiry_type?: string | null
           full_name?: string
           id?: string
           ip_address?: string | null
+          is_client_account_created?: boolean | null
           is_high_intent?: boolean | null
+          landing_page?: string | null
+          lead_score?: number | null
           location_city?: string | null
           location_country?: string | null
           message?: string | null
-          notes?: string | null
           organization?: string
-          phone?: string | null
+          phone_number?: string | null
           referrer_url?: string | null
           role?: string | null
           source_page?: string | null
           source_type?: string | null
-          status?: string | null
+          submitted_at?: string
           tags?: string[] | null
-          updated_at?: string
+          url?: string | null
           user_agent?: string | null
           utm_campaign?: string | null
           utm_medium?: string | null
