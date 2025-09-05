@@ -3,11 +3,13 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { MapPin, Phone, Mail, Clock, Send, Calendar, Users, Building2, BookOpen, Loader2 } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 // import { supabase } from "@/integrations/supabase/client";
 import { gatherTrackingData, fetchLocationData } from "@/utils/trackingUtils";
+import { useCookieConsent } from "@/hooks/useCookieConsent";
 
 // TypeScript interfaces for form data
 interface FormData {
@@ -18,6 +20,7 @@ interface FormData {
   role: string;
   enquiryType: string;
   message: string;
+  dataConsent: boolean;
 }
 
 interface FormErrors {
@@ -28,6 +31,7 @@ interface FormErrors {
   role?: string;
   enquiryType?: string;
   message?: string;
+  dataConsent?: string;
 }
 
 interface LocationData {
@@ -86,6 +90,11 @@ const validateForm = (data: FormData): FormErrors => {
     errors.message = "Message must be less than 1000 characters";
   }
 
+  // Data consent validation
+  if (!data.dataConsent) {
+    errors.dataConsent = "You must consent to data processing to submit this form";
+  }
+
   return errors;
 };
 
@@ -105,6 +114,7 @@ const useDebounce = (callback: Function, delay: number) => {
 };
 
 const Contact = () => {
+  const { consent } = useCookieConsent();
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -112,7 +122,8 @@ const Contact = () => {
     organization: "",
     role: "",
     enquiryType: "",
-    message: ""
+    message: "",
+    dataConsent: false
   });
   
   const [errors, setErrors] = useState<FormErrors>({});
@@ -128,26 +139,37 @@ const Contact = () => {
     setIsLoadingLocation(true);
 
     try {
-      // Gather tracking data.
-      const trackingData = gatherTrackingData();
+      // Gather tracking data only if analytics consent is given
+      const trackingData = consent.analytics ? gatherTrackingData() : {
+        source_page: window.location.pathname,
+        referrer_url: '',
+        user_agent: navigator.userAgent,
+        device_type: 'Unknown',
+        browser: 'Unknown',
+        source_type: 'Direct'
+      };
       
-      // Fetch location data with fallback
+      // Fetch location data with fallback only if analytics consent is given
       let locationResult: LocationData = {};
-      try {
-        locationResult = await fetchLocationData();
-        setLocationData(locationResult);
-      } catch (error) {
-        console.warn('Failed to fetch location data, using fallback:', error);
-        // Fallback: try alternative IP service
+      if (consent.analytics) {
         try {
-          const fallbackResponse = await fetch('https://api.ipify.org?format=json');
-          const fallbackData = await fallbackResponse.json();
-          locationResult = { ip_address: fallbackData.ip };
-        } catch (fallbackError) {
-          console.warn('Fallback location service also failed:', fallbackError);
-          // Continue without location data
+          locationResult = await fetchLocationData();
+          setLocationData(locationResult);
+        } catch (error) {
+          console.warn('Failed to fetch location data, using fallback:', error);
+          // Fallback: try alternative IP service
+          try {
+            const fallbackResponse = await fetch('https://api.ipify.org?format=json');
+            const fallbackData = await fallbackResponse.json();
+            locationResult = { ip_address: fallbackData.ip };
+          } catch (fallbackError) {
+            console.warn('Fallback location service also failed:', fallbackError);
+            // Continue without location data
+          }
+        } finally {
+          setIsLoadingLocation(false);
         }
-      } finally {
+      } else {
         setIsLoadingLocation(false);
       }
       
@@ -175,21 +197,24 @@ const Contact = () => {
           enquiry_type: formData.enquiryType || null,
           message: formData.message || null,
           source_page: trackingData.source_page,
-          campaign_id: trackingData.campaign_id || null,
-          utm_source: trackingData.utm_source || null,
-          utm_medium: trackingData.utm_medium || null,
-          utm_campaign: trackingData.utm_campaign || null,
-          referrer_url: trackingData.referrer_url || null,
-          user_agent: trackingData.user_agent,
-          device_type: trackingData.device_type,
-          browser: trackingData.browser,
-          ip_address: locationResult.ip_address || null,
-          location_city: locationResult.location_city || null,
-          location_country: locationResult.location_country || null,
-          clarity_session_id: trackingData.clarity_session_id || null,
+          campaign_id: consent.analytics ? (trackingData.campaign_id || null) : null,
+          utm_source: consent.analytics ? (trackingData.utm_source || null) : null,
+          utm_medium: consent.analytics ? (trackingData.utm_medium || null) : null,
+          utm_campaign: consent.analytics ? (trackingData.utm_campaign || null) : null,
+          referrer_url: consent.analytics ? (trackingData.referrer_url || null) : null,
+          user_agent: consent.analytics ? trackingData.user_agent : 'Consent Denied',
+          device_type: consent.analytics ? trackingData.device_type : 'Consent Denied',
+          browser: consent.analytics ? trackingData.browser : 'Consent Denied',
+          ip_address: consent.analytics ? (locationResult.ip_address || null) : null,
+          location_city: consent.analytics ? (locationResult.location_city || null) : null,
+          location_country: consent.analytics ? (locationResult.location_country || null) : null,
+          clarity_session_id: consent.analytics ? (trackingData.clarity_session_id || null) : null,
           is_high_intent: isHighIntent,
-          source_type: trackingData.source_type,
+          source_type: consent.analytics ? trackingData.source_type : 'Consent Denied',
           tags: tags.length > 0 ? tags : null,
+          data_consent_given: formData.dataConsent,
+          analytics_consent: consent.analytics,
+          marketing_consent: consent.marketing,
         }),
       });
 
@@ -255,7 +280,7 @@ const Contact = () => {
     debouncedSubmit(formData);
   };
 
-  const handleInputChange = (field: keyof FormData, value: string) => {
+  const handleInputChange = (field: keyof FormData, value: string | boolean) => {
     setFormData(prev => ({ ...prev, [field]: value }));
     
     // Clear error when user starts typing
@@ -505,6 +530,32 @@ const Contact = () => {
                       <p className="mt-1 text-sm text-gray-500">
                         {formData.message.length}/1000 characters
                       </p>
+                    </div>
+
+                    {/* Data Consent Checkbox */}
+                    <div className="flex items-start gap-3">
+                      <Checkbox
+                        id="dataConsent"
+                        checked={formData.dataConsent}
+                        onCheckedChange={(checked) => handleInputChange('dataConsent', !!checked)}
+                        disabled={isSubmitting}
+                        aria-describedby={errors.dataConsent ? "dataConsent-error" : undefined}
+                        aria-invalid={!!errors.dataConsent}
+                      />
+                      <div className="flex-1">
+                        <label htmlFor="dataConsent" className="text-sm font-medium text-gray-700 cursor-pointer">
+                          I consent to the processing of my personal data for enquiry purposes *
+                        </label>
+                        <p className="text-xs text-gray-500 mt-1">
+                          By checking this box, you agree to our data processing practices. We will use your information to respond to your enquiry and improve our services. 
+                          {!consent.analytics && " Analytics tracking is disabled based on your cookie preferences."}
+                        </p>
+                        {errors.dataConsent && (
+                          <p id="dataConsent-error" className="mt-1 text-sm text-red-600" role="alert">
+                            {errors.dataConsent}
+                          </p>
+                        )}
+                      </div>
                     </div>
 
                     <Button 

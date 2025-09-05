@@ -22,6 +22,7 @@ import Footer from "./components/Footer";
 import FloatingCTA from "./components/FloatingCTA";
 import ScrollToTop from "./components/ScrollToTop";
 import ChatbotWidget from "./components/ChatbotWidget";
+import CookieConsent from "./components/CookieConsent";
 import AdminContacts from "./pages/AdminContacts";
 
 
@@ -57,6 +58,7 @@ const App = () => (
           <FloatingCTA />
           <ChatbotWidget />
           <Footer />
+          <CookieConsent />
         </div>
       </BrowserRouter>
     </TooltipProvider>

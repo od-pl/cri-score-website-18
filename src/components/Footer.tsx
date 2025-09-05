@@ -70,9 +70,12 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-slate-400 text-sm">© 2025 Orage Digital Pvt. Ltd. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              
-              
-              
+              <button 
+                onClick={() => window.dispatchEvent(new CustomEvent('openCookieSettings'))}
+                className="text-slate-400 hover:text-white text-sm transition-colors"
+              >
+                Cookie Settings
+              </button>
             </div>
           </div>
         </div>

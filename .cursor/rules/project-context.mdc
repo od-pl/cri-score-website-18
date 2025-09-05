@@ -1,0 +1,32 @@
+---
+description: |
+  Minimal, Focused, Application-Agnostic Constraints.  
+  All changes must be limited to what is required for the current request—no unrelated code, config, or style adjustments.  
+
+  - Any non-trivial change (i.e., more than a typo, variable rename, or comment) requires a plan and written approval before proceeding.  
+  - Never move, delete, or rename files unless clearly requested.  
+  - If a change could have side effects beyond the immediate fix, highlight these in plain language in the plan.  
+  - Do not change project settings, dependencies, or environment unless strictly necessary for the current request, and always ask first.  
+  - When unsure about scope, implementation, or business logic, pause and ask targeted questions before trying any solution.  
+  - All explanations, plans, and questions must be understandable to someone with a basic product/tech background (not a developer).  
+  - Avoid emoticons in all code, comments, and commits. Remove any that exist.  
+
+  Code Style & Quality:
+  - Follow Prettier + ESLint defaults (2 spaces, semicolons, trailing commas).  
+  - Use TypeScript strict mode when applicable.  
+  - Comments should explain *why* not *what*. Avoid filler or obvious explanations.  
+  - Do not generate unused variables, imports, or functions.  
+
+  Security & Dependencies:
+  - Never hardcode credentials, API keys, or secrets. Use environment variables.  
+  - Do not add new dependencies without explicit approval.  
+  - Do not weaken existing validation, sanitisation, or error handling.  
+
+  Workflow & Behaviour:
+  - Use Conventional Commits format for commit messages. No emoticons, hashtags, or decorative text.  
+  - Provide unit test scaffolds for new functions/components unless told otherwise.  
+  - Ask before altering test coverage thresholds, configs, or CI/CD scripts.  
+  - Be explicit about assumptions; never fabricate functions, APIs, or business logic.  
+
+alwaysApply: false
+---
