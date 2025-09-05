@@ -159,7 +159,7 @@ const Contact = () => {
       if (isHighIntent) tags.push('HighIntent');
       if (formData.enquiryType) tags.push(formData.enquiryType);
 
-      // Save to Supabase database
+      // Prepare lead data for secure submission
       const leadData = {
         full_name: formData.name,
         email: formData.email,
@@ -183,41 +183,41 @@ const Contact = () => {
         clarity_session_id: trackingData.clarity_session_id || null,
         is_high_intent: isHighIntent,
         source_type: trackingData.source_type,
-        tags: tags.length > 0 ? tags : null,
-        status: 'new'
+        tags: tags.length > 0 ? tags : null
       };
 
-      // Insert into Supabase
-      const { data: supabaseData, error: supabaseError } = await supabase
-        .from('leads')
-        .insert(leadData);
+      // Submit via secure edge function
+      const { data: supabaseResponse, error: supabaseError } = await supabase.functions.invoke(
+        'submit-contact-form',
+        { body: leadData }
+      );
 
       if (supabaseError) {
-        console.error('Supabase error:', supabaseError);
-        // Continue with external API even if Supabase fails
+        console.error('Supabase submission error:', supabaseError);
+        throw new Error('Failed to submit form. Please try again.');
       }
 
-      // Send to backend API with CORS error handling
-      const response = await fetch('https://platskills.com/web-api/contact', {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify(leadData),
-      });
+      if (!supabaseResponse?.success) {
+        throw new Error(supabaseResponse?.error || 'Form submission failed');
+      }
 
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({ error: 'Network error' }));
-        
-        // Handle specific error types
-        if (response.status === 0 || response.status === 403) {
-          throw new Error('CORS error: Unable to submit form. Please check your network connection.');
-        } else if (response.status >= 500) {
-          throw new Error('Server error: Please try again later.');
-        } else {
-          throw new Error(errorData.error || `HTTP ${response.status}: Failed to submit`);
+      // Also send to external API as backup
+      try {
+        const response = await fetch('https://platskills.com/web-api/contact', {
+          method: 'POST',
+          headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(leadData),
+        });
+
+        if (!response.ok) {
+          console.warn('External API submission failed, but lead was saved to database');
         }
+      } catch (externalError) {
+        console.warn('External API error:', externalError);
+        // Don't fail the entire form submission if external API fails
       }
 
       toast({
