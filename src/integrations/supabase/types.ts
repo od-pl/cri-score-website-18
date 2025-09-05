@@ -7,109 +7,14 @@ export type Json =
   | Json[]
 
 export type Database = {
-  // Allows to automatically instanciate createClient with right options
+  // Allows to automatically instantiate createClient with right options
   // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
   __InternalSupabase: {
-    PostgrestVersion: "12.2.3 (519615d)"
+    PostgrestVersion: "13.0.4"
   }
   public: {
     Tables: {
-      enquiries: {
-        Row: {
-          browser: string | null
-          campaign_id: string | null
-          clarity_session_id: string | null
-          device_type: string | null
-          email: string
-          enquiry_type: string | null
-          full_name: string
-          id: string
-          ip_address: string | null
-          is_client_account_created: boolean | null
-          is_high_intent: boolean | null
-          landing_page: string | null
-          lead_score: number | null
-          location_city: string | null
-          location_country: string | null
-          message: string | null
-          organization: string
-          phone_number: string | null
-          referrer_url: string | null
-          role: string | null
-          source_page: string | null
-          source_type: string | null
-          submitted_at: string
-          tags: string[] | null
-          url: string | null
-          user_agent: string | null
-          utm_campaign: string | null
-          utm_medium: string | null
-          utm_source: string | null
-        }
-        Insert: {
-          browser?: string | null
-          campaign_id?: string | null
-          clarity_session_id?: string | null
-          device_type?: string | null
-          email: string
-          enquiry_type?: string | null
-          full_name: string
-          id?: string
-          ip_address?: string | null
-          is_client_account_created?: boolean | null
-          is_high_intent?: boolean | null
-          landing_page?: string | null
-          lead_score?: number | null
-          location_city?: string | null
-          location_country?: string | null
-          message?: string | null
-          organization: string
-          phone_number?: string | null
-          referrer_url?: string | null
-          role?: string | null
-          source_page?: string | null
-          source_type?: string | null
-          submitted_at?: string
-          tags?: string[] | null
-          url?: string | null
-          user_agent?: string | null
-          utm_campaign?: string | null
-          utm_medium?: string | null
-          utm_source?: string | null
-        }
-        Update: {
-          browser?: string | null
-          campaign_id?: string | null
-          clarity_session_id?: string | null
-          device_type?: string | null
-          email?: string
-          enquiry_type?: string | null
-          full_name?: string
-          id?: string
-          ip_address?: string | null
-          is_client_account_created?: boolean | null
-          is_high_intent?: boolean | null
-          landing_page?: string | null
-          lead_score?: number | null
-          location_city?: string | null
-          location_country?: string | null
-          message?: string | null
-          organization?: string
-          phone_number?: string | null
-          referrer_url?: string | null
-          role?: string | null
-          source_page?: string | null
-          source_type?: string | null
-          submitted_at?: string
-          tags?: string[] | null
-          url?: string | null
-          user_agent?: string | null
-          utm_campaign?: string | null
-          utm_medium?: string | null
-          utm_source?: string | null
-        }
-        Relationships: []
-      }
+      [_ in never]: never
     }
     Views: {
       [_ in never]: never
